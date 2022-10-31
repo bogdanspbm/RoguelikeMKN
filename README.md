@@ -115,4 +115,4 @@ Roguelike — это довольно популярный жанр компью
 
 ## Роли и случаи использования
 ### Случаи использования
-![Alt text](images/roles_png.png?raw=true "Title") 
+![Alt text](images/roles.png?raw=true "Title") 
