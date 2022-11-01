@@ -65,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667314343501</updated>
-      <workItem from="1667314348687" duration="13205000" />
+      <workItem from="1667314348687" duration="14072000" />
     </task>
     <servers />
   </component>
@@ -100,6 +100,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java</url>
           <line>41</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/structures/Vector2DTimeline.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/player/animation/factory/PlayerAnimationComponentFactory.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

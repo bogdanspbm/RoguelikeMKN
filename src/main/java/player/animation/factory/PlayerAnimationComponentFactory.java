@@ -28,7 +28,7 @@ public class PlayerAnimationComponentFactory extends AnimationComponentFactory {
         animations = new HashMap<>();
 
         // TODO: Need to be saved in a database
-        animations.put("idle", new AnimationStructure("idle", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(1, 0)));
+        animations.put("idle", new AnimationStructure("idle", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(0, 0, 2, 0)));
 
         // TODO: Needs a preview for animation view
     }

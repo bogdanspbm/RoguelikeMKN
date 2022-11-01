@@ -12,6 +12,10 @@ public class Animation {
 
     int currentFrame = 0;
 
+    public void increment() {
+        currentFrame++;
+    }
+
     public Animation(AnimationSource source, Vector2DTimeline timeline) {
         this.source = source;
         this.timeline = timeline;

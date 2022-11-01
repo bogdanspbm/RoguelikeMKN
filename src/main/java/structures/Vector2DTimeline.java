@@ -7,16 +7,16 @@ public class Vector2DTimeline {
     private List<Vector2D> timeline = new ArrayList<>();
 
     public Vector2DTimeline(Vector2D start, Vector2D end) {
-        for (int i = start.x(); i < end.x(); i++) {
-            for (int k = start.y(); k < end.y(); k++) {
+        for (int i = start.x(); i <= end.x(); i++) {
+            for (int k = start.y(); k <= end.y(); k++) {
                 timeline.add(new Vector2D(i, k));
             }
         }
     }
 
     public Vector2DTimeline(int xl, int yl, int xr, int yr) {
-        for (int i = xl; i < xr; i++) {
-            for (int k = yl; k < yr; k++) {
+        for (int i = xl; i <= xr; i++) {
+            for (int k = yl; k <= yr; k++) {
                 timeline.add(new Vector2D(i, k));
             }
         }

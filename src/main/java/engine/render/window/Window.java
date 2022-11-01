@@ -15,6 +15,23 @@ public class Window extends JFrame {
         initComponents();
     }
 
+    private void startRender() {
+        Thread render = new Thread(new Runnable() {
+            public void run() //Этот метод будет выполняться в побочном потоке
+            {
+                while (true) {
+                    renderPanel.updateUI();
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+        render.start();    //Запуск потока
+    }
+
     private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 300));
@@ -29,7 +46,7 @@ public class Window extends JFrame {
         renderPanel = new RenderPanel(provider);
         add(renderPanel);
 
-        renderPanel.updateUI();
+        startRender();
     }
 
 
