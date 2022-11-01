@@ -21,6 +21,11 @@ public abstract class Pawn implements Placeble, Drawable {
         return location;
     }
 
+    @Override
+    public void setLocation(Vector2D location) {
+        this.location = location;
+    }
+
     public void setController(Controller controller) {
         this.controller = controller;
     }

@@ -23,8 +23,9 @@ public class AnimationSource {
         x = image.getWidth() / frameSize.width;
         y = image.getHeight() / frameSize.height;
 
-        for (int i = 0; i < x; i++) {
-            for (int k = 0; k < y; k++) {
+
+        for (int k = 0; k < y; k++) {
+            for (int i = 0; i < x; i++) {
                 BufferedImage frame = image.getSubimage(i * frameSize.width, k * frameSize.height, frameSize.width, frameSize.height);
                 imageFrames.add(frame);
             }
@@ -34,7 +35,7 @@ public class AnimationSource {
     public BufferedImage getFrame(int x, int y) {
         return imageFrames.get(y * this.x + x);
     }
-    
+
     public BufferedImage getImage() {
         return image;
     }

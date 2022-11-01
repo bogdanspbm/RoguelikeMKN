@@ -14,6 +14,6 @@ public class PlayerAnimationComponent extends AnimationComponent {
 
     @Override
     public Image getImage() {
-        return null;
+        return animations.get("idle").getFrame();
     }
 }
