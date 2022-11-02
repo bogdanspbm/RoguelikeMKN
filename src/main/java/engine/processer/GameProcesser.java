@@ -16,14 +16,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class GameProcesser implements DrawableProvider {
 
     List<Pawn> pawns = new ArrayList<>();
+    List<Tile> tiles = new ArrayList<>();
 
     public void start() {
         try {
             createPlayer();
+            generateTestTiles();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,18 +49,14 @@ public class GameProcesser implements DrawableProvider {
 
     private List<Drawable> formDrawableList() {
         List<Drawable> result = new ArrayList<>();
-        try {
-            generateTestTiles().forEach(tile -> result.add(tile));
-        } catch (Exception e) {
 
-        }
-
+        tiles.forEach(tile -> result.add(tile));
         pawns.forEach(pawn -> result.add(pawn));
         return result;
     }
 
-    private List<Tile> generateTestTiles() throws IOException {
-        ArrayList<Tile> result = new ArrayList<>();
+    private void generateTestTiles() throws IOException {
+        tiles = new ArrayList<>();
         HashMap<String, AnimationSource> sources = new HashMap<>();
         sources.put("grass", new AnimationSource(new File("src/main/resources/tiles/landscape/grass.png")));
 
@@ -65,13 +64,13 @@ public class GameProcesser implements DrawableProvider {
         StaticTileFactory factory = new StaticTileFactory(sources);
         for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 10; k++) {
+                Random rnd = new Random();
+                int z = rnd.nextInt() % 3;
                 Tile tile = factory.createTile("grass");
-                tile.setLocation(new Vector3D(i * 60 - k * 30, k * 15, 0));
-                result.add(tile);
+                tile.setLocation(new Vector3D(i * 64 - k * 32, k * 16 - 32 * z + 100, 0));
+                tiles.add(tile);
             }
         }
-
-        return result;
     }
 
 
