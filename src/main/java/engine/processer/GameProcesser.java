@@ -7,6 +7,7 @@ import exceptions.CreationException;
 import objects.pawn.Pawn;
 import player.Player;
 import structures.Vector2D;
+import world.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,11 @@ public class GameProcesser implements DrawableProvider {
     private List<Drawable> formDrawableList() {
         List<Drawable> result = new ArrayList<>();
 
-        pawns.forEach(pawn -> result.add(pawn));
 
+        Tile tmp = new Tile();
+        tmp.setLocation(new Vector2D(50,50));
+        result.add(tmp);
+        pawns.forEach(pawn -> result.add(pawn));
         return result;
     }
 
