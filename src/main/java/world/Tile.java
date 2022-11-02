@@ -2,6 +2,7 @@ package world;
 
 import engine.render.interfaces.Drawable;
 import interfaces.Placeble;
+import objects.animations.objects.AnimationSource;
 import structures.Vector3D;
 
 import java.awt.*;
@@ -9,10 +10,15 @@ import java.awt.*;
 public class Tile implements Drawable, Placeble {
 
     private Vector3D location;
+    private AnimationSource source;
+
+    public Tile(AnimationSource source) {
+        this.source = source;
+    }
+
     @Override
     public void draw(Graphics grphcs) {
-        grphcs.setColor(new Color(100,100,100));
-        grphcs.fillRect(location.x(), location.y(), 100,100);
+        grphcs.drawImage(source.getImage(), location.x(), location.y(), null);
     }
 
     @Override

@@ -19,6 +19,11 @@ public class AnimationSource {
         cropImage(frameSize);
     }
 
+    public AnimationSource(File file) throws IOException {
+        image = ImageIO.read(file);
+        cropImage(new Dimension(image.getWidth(), image.getHeight()));
+    }
+
     private void cropImage(Dimension frameSize) {
         x = image.getWidth() / frameSize.width;
         y = image.getHeight() / frameSize.height;
