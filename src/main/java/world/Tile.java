@@ -2,20 +2,23 @@ package world;
 
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
-import interfaces.Placeble;
+import interfaces.Placeable;
 import objects.animations.objects.AnimationSource;
 import objects.collision.BoxCollision;
 import objects.collision.Collision;
+import objects.collision.CollisionAdapter;
 import structures.Vector3D;
 
 import java.awt.*;
 
-public class Tile implements Drawable, Placeble, Collidable {
+public class Tile implements Drawable, Placeable, Collidable {
 
     private Vector3D location;
     private AnimationSource source;
 
     private Collision collision;
+
+    protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
     public Tile(AnimationSource source) {
         this.source = source;
@@ -42,6 +45,11 @@ public class Tile implements Drawable, Placeble, Collidable {
         this.location = location;
     }
 
+
+    @Override
+    public void setCollision(Collision collision) {
+        this.collision = collision;
+    }
 
     @Override
     public Collision getCollision() {

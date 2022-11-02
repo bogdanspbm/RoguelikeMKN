@@ -2,21 +2,32 @@ package objects.pawn;
 
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
-import interfaces.Placeble;
+import interfaces.Placeable;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
+import objects.collision.CollisionAdapter;
 import objects.controller.Controller;
+import objects.controller.ControllerAdapter;
 import structures.Vector3D;
 
 import java.awt.*;
 
-public abstract class Pawn implements Placeble, Drawable, Collidable {
+public abstract class Pawn implements Placeable, Drawable, Collidable {
 
-    protected Controller controller;
+    private Controller controller;
     protected Vector3D location;
     protected String name = "Pawn";
 
-    protected Collision collision;
+    protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
+    protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
+
+    @Override
+    public void setCollision(Collision collision) {
+        this.collision = collision;
+    }
+
+    private Collision collision;
+
 
     protected AnimationComponent animationComponent;
 

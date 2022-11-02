@@ -2,7 +2,7 @@ package interfaces;
 
 import structures.Vector3D;
 
-public interface Placeble {
+public interface Placeable {
 
     Vector3D getLocation();
 

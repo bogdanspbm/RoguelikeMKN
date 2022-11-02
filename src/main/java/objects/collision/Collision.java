@@ -1,16 +1,16 @@
 package objects.collision;
 
 import enums.ECollisionType;
-import interfaces.Placeble;
+import interfaces.Placeable;
 import structures.Vector3D;
 
 public abstract class Collision {
 
-    protected Placeble owner;
+    protected Placeable owner;
 
     protected ECollisionType type;
 
-    public void setOwner(Placeble owner) {
+    public void setOwner(Placeable owner) {
         this.owner = owner;
     }
 
