@@ -44,7 +44,7 @@ public class GameProcesser implements DrawableProvider {
 
 
         Tile tmp = new Tile();
-        tmp.setLocation(new Vector3D(50, 50, 0));
+        tmp.setLocation(new Vector3D(50,50,0));
         result.add(tmp);
         pawns.forEach(pawn -> result.add(pawn));
         return result;
