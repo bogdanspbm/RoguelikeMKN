@@ -6,7 +6,7 @@ import engine.render.window.Window;
 import exceptions.CreationException;
 import objects.pawn.Pawn;
 import player.Player;
-import structures.Vector2D;
+import structures.Vector3D;
 import world.Tile;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class GameProcesser implements DrawableProvider {
     private void createPlayer() throws CreationException {
         Player player = new Player();
         pawns.add(player);
-        player.setLocation(new Vector2D(100, 100));
+        player.setLocation(new Vector3D(100, 100, 0));
     }
 
     private void createWindow() {
@@ -44,7 +44,7 @@ public class GameProcesser implements DrawableProvider {
 
 
         Tile tmp = new Tile();
-        tmp.setLocation(new Vector2D(50,50));
+        tmp.setLocation(new Vector3D(50, 50, 0));
         result.add(tmp);
         pawns.forEach(pawn -> result.add(pawn));
         return result;

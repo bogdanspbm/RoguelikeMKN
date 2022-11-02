@@ -2,13 +2,13 @@ package world;
 
 import engine.render.interfaces.Drawable;
 import interfaces.Placeble;
-import structures.Vector2D;
+import structures.Vector3D;
 
 import java.awt.*;
 
 public class Tile implements Drawable, Placeble {
 
-    private Vector2D location;
+    private Vector3D location;
     @Override
     public void draw(Graphics grphcs) {
         grphcs.setColor(new Color(100,100,100));
@@ -16,12 +16,12 @@ public class Tile implements Drawable, Placeble {
     }
 
     @Override
-    public Vector2D getLocation() {
+    public Vector3D getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Vector2D location) {
+    public void setLocation(Vector3D location) {
         this.location = location;
     }
 }
