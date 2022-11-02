@@ -4,25 +4,25 @@ import engine.render.interfaces.Drawable;
 import interfaces.Placeble;
 import objects.animations.component.AnimationComponent;
 import objects.controller.Controller;
-import structures.Vector2D;
+import structures.Vector3D;
 
 import java.awt.*;
 
 public abstract class Pawn implements Placeble, Drawable {
 
     protected Controller controller;
-    protected Vector2D location;
+    protected Vector3D location;
     protected String name = "Pawn";
 
     protected AnimationComponent animationComponent;
 
     @Override
-    public Vector2D getLocation() {
+    public Vector3D getLocation() {
         return location;
     }
 
     @Override
-    public void setLocation(Vector2D location) {
+    public void setLocation(Vector3D location) {
         this.location = location;
     }
 

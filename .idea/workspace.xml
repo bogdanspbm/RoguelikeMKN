@@ -35,12 +35,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Projects/RoguelikeMKN"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="structures" />
     </key>
   </component>
   <component name="RunManager">
@@ -65,7 +69,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667314343501</updated>
-      <workItem from="1667314348687" duration="14072000" />
+      <workItem from="1667314348687" duration="14807000" />
+      <workItem from="1667378572130" duration="303000" />
+      <workItem from="1667385308628" duration="25000" />
     </task>
     <servers />
   </component>
