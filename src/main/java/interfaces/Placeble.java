@@ -1,11 +1,11 @@
 package interfaces;
 
-import structures.Vector2D;
+import structures.Vector3D;
 
 public interface Placeble {
 
-    Vector2D getLocation();
+    Vector3D getLocation();
 
-    void setLocation(Vector2D location);
+    void setLocation(Vector3D location);
 
 }
