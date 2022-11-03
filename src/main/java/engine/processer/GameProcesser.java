@@ -18,10 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import static world.singleton.World.getWorld;
+
 public class GameProcesser implements DrawableProvider {
 
-    List<Pawn> pawns = new ArrayList<>();
-    List<Tile> tiles = new ArrayList<>();
 
     public void start() {
         try {
@@ -37,8 +37,8 @@ public class GameProcesser implements DrawableProvider {
 
     private void createPlayer() throws CreationException {
         Player player = new Player();
-        pawns.add(player);
-        player.setLocation(new Vector3D(100, 100, 0));
+        getWorld().addPawn(player);
+        player.setLocation(new Vector3D(100, 100, 100));
     }
 
     private void createWindow() {
@@ -50,13 +50,12 @@ public class GameProcesser implements DrawableProvider {
     private List<Drawable> formDrawableList() {
         List<Drawable> result = new ArrayList<>();
 
-        tiles.forEach(tile -> result.add(tile));
-        pawns.forEach(pawn -> result.add(pawn));
+        getWorld().getTiles().forEach(tile -> result.add(tile));
+        getWorld().getPawns().forEach(pawn -> result.add(pawn));
         return result;
     }
 
-    private void generateTestTiles() throws IOException {
-        tiles = new ArrayList<>();
+    private void generateTestTiles() throws IOException, CreationException {
         HashMap<String, AnimationSource> sources = new HashMap<>();
         sources.put("grass", new AnimationSource(new File("src/main/resources/tiles/landscape/grass.png")));
 
@@ -65,10 +64,12 @@ public class GameProcesser implements DrawableProvider {
         for (int i = 0; i < 10; i++) {
             for (int k = 0; k < 10; k++) {
                 Random rnd = new Random();
-                int z = rnd.nextInt() % 3;
-                Tile tile = factory.createTile("grass");
-                tile.setLocation(new Vector3D(i * 64 - k * 32, k * 16 - 32 * z + 100, 0));
-                tiles.add(tile);
+                int height = 1 + rnd.nextInt(2);
+                for (int j = 0; j < height; j++) {
+                    Tile tile = factory.createTile("grass");
+                    tile.setLocation(new Vector3D(i * 64 - k * 32, k * 16 + 100, j * 32 - 64));
+                    getWorld().addTile(tile);
+                }
             }
         }
     }

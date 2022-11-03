@@ -1,5 +1,5 @@
 package enums;
 
 public enum ECollisionType {
-    BOX, CYLINDER, SPHERE
+    EMPTY, BOX, CYLINDER, SPHERE
 }

@@ -1,5 +1,6 @@
 package engine.render.window;
 
+import config.Config;
 import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.panel.RenderPanel;
@@ -22,7 +23,7 @@ public class Window extends JFrame {
                 while (true) {
                     renderPanel.updateUI();
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep((int) (1000 / Config.FRAME_RATE));
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }

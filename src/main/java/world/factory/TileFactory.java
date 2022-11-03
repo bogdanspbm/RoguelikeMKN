@@ -1,5 +1,6 @@
 package world.factory;
 
+import exceptions.CreationException;
 import objects.animations.objects.AnimationSource;
 import world.Tile;
 
@@ -9,5 +10,5 @@ abstract class TileFactory {
 
     protected HashMap<String, AnimationSource> sources;
 
-    public abstract Tile createTile(String name);
+    public abstract Tile createTile(String name) throws CreationException;
 }

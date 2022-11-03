@@ -1,5 +1,6 @@
 package world.factory;
 
+import exceptions.CreationException;
 import objects.animations.objects.AnimationSource;
 import world.Tile;
 
@@ -12,7 +13,7 @@ public class StaticTileFactory extends TileFactory {
     }
 
     @Override
-    public Tile createTile(String name) {
+    public Tile createTile(String name) throws CreationException {
         return new Tile(sources.get(name));
     }
 }

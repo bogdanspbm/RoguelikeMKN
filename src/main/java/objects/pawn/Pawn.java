@@ -2,6 +2,7 @@ package objects.pawn;
 
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
+import interfaces.Physical;
 import interfaces.Placeable;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
@@ -12,10 +13,14 @@ import structures.Vector3D;
 
 import java.awt.*;
 
-public abstract class Pawn implements Placeable, Drawable, Collidable {
+import static world.singleton.World.getWorld;
+
+public abstract class Pawn implements Placeable, Drawable, Collidable, Physical {
+
 
     private Controller controller;
     protected Vector3D location;
+    protected Vector3D rotation = new Vector3D(0, 0, 45);
     protected String name = "Pawn";
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
@@ -37,6 +42,24 @@ public abstract class Pawn implements Placeable, Drawable, Collidable {
     }
 
     @Override
+    public Vector3D getRotation() {
+        return rotation;
+    }
+
+    @Override
+    public void setRotation(Vector3D rotation) {
+        this.rotation = rotation;
+    }
+
+    @Override
+    public void tryFall() {
+        System.out.println(getLocation());
+        if (getLocation() != null && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed))) {
+            getLocation().addZ(-fallSpeed);
+        }
+    }
+
+    @Override
     public void setLocation(Vector3D location) {
         this.location = location;
     }
@@ -52,7 +75,7 @@ public abstract class Pawn implements Placeable, Drawable, Collidable {
     @Override
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), (int) getLocation().x(), (int) getLocation().y(), null);
+            grphcs.drawImage(animationComponent.getImage(), getLocation().x(), getLocation().y() - getLocation().z(), null);
         }
     }
 

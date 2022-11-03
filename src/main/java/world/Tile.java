@@ -1,6 +1,8 @@
 package world;
 
 import engine.render.interfaces.Drawable;
+import exceptions.CreationException;
+import exceptions.SetException;
 import interfaces.Collidable;
 import interfaces.Placeable;
 import objects.animations.objects.AnimationSource;
@@ -14,25 +16,29 @@ import java.awt.*;
 public class Tile implements Drawable, Placeable, Collidable {
 
     private Vector3D location;
+    private Vector3D rotation = new Vector3D(0, 0, 45);
     private AnimationSource source;
 
     private Collision collision;
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
-    public Tile(AnimationSource source) {
+    public Tile(AnimationSource source) throws CreationException {
         this.source = source;
         createCollision();
     }
 
-    private void createCollision() {
-        collision = new BoxCollision(16, 16, 16);
-        collision.setOwner(this);
+    private void createCollision() throws CreationException {
+        try {
+            collisionAdapter.setCollision(new BoxCollision(16, 16, 16));
+        } catch (SetException e) {
+            throw new CreationException("Can't create Collision: \n" + e.toString());
+        }
     }
 
     @Override
     public void draw(Graphics grphcs) {
-        grphcs.drawImage(source.getImage(), location.x(), location.y(), null);
+        grphcs.drawImage(source.getImage(), location.x(), location.y() - location.z(), null);
     }
 
     @Override
@@ -41,8 +47,18 @@ public class Tile implements Drawable, Placeable, Collidable {
     }
 
     @Override
+    public Vector3D getRotation() {
+        return rotation;
+    }
+
+    @Override
     public void setLocation(Vector3D location) {
         this.location = location;
+    }
+
+    @Override
+    public void setRotation(Vector3D rotation) {
+        this.rotation = rotation;
     }
 
 
