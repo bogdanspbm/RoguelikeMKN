@@ -98,6 +98,11 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 forwardPressed = true;
                 break;
             }
+            case 57: {
+                // SPACE
+                controllableOwner.jump();
+                break;
+            }
         }
     }
 

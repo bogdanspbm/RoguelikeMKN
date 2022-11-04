@@ -18,9 +18,17 @@ import static world.singleton.World.getWorld;
 public abstract class Pawn implements Placeable, Drawable, Collidable, Physical {
 
     private Controller controller;
+
+    @Override
+    public boolean isInAir() {
+        return getLocation().z() >= 0&& !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
+    }
+
     protected Vector3D location;
     protected Vector3D rotation = new Vector3D(0, 0, 45);
     protected String name = "Pawn";
+
+    protected boolean inJump = false;
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
@@ -52,8 +60,14 @@ public abstract class Pawn implements Placeable, Drawable, Collidable, Physical 
 
     @Override
     public void tryFall() {
-        if (getLocation() != null && getLocation().z() >= 0 && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed))) {
-            getLocation().addZ(-fallSpeed);
+        if (!inJump) {
+            if (getLocation() != null && getLocation().z() >= 0 && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed))) {
+                getLocation().addZ(-fallSpeed);
+            }
+        } else {
+            if (getLocation() != null && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() + jumpSpeed))) {
+                getLocation().addZ(jumpSpeed);
+            }
         }
     }
 

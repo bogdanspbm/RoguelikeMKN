@@ -1,5 +1,6 @@
 package player;
 
+import config.Config;
 import exceptions.CreationException;
 import exceptions.SetException;
 import interfaces.Controllable;
@@ -54,7 +55,21 @@ public class Player extends Pawn implements Controllable {
 
     @Override
     public void jump() {
-
+        if (!inJump && !isInAir()) {
+            inJump = true;
+            Thread jump = new Thread(new Runnable() {
+                public void run() //Этот метод будет выполняться в побочном потоке
+                {
+                    try {
+                        Thread.sleep(jumpTime);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    inJump = false;
+                }
+            });
+            jump.start();    //Запуск потока
+        }
     }
 
     @Override
