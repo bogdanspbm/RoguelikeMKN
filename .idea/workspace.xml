@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="1D PerlinNoiseGenerator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" afterDir="false" />
     </list>
@@ -52,7 +51,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LevelGenerator">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="LevelGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generator.LevelGenerator" />
       <module name="RoguelikeMKN" />
@@ -88,9 +87,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.LevelGenerator" />
         <item itemvalue="Application.PerlinNoiseGenerator" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -104,7 +103,16 @@
       <updated>1667314343501</updated>
       <workItem from="1667314348687" duration="14072000" />
       <workItem from="1667382108211" duration="2287000" />
+      <workItem from="1667535199277" duration="643000" />
     </task>
+    <task id="LOCAL-00001" summary="1D PerlinNoiseGenerator">
+      <created>1667399602370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667399602370</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,15 +128,29 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1D PerlinNoiseGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="1D PerlinNoiseGenerator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/engine/render/panel/RenderPanel.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java</url>
           <line>38</line>
