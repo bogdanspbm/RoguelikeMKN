@@ -4,6 +4,7 @@ import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
 import exceptions.CreationException;
+import interfaces.Placeable;
 import objects.animations.objects.AnimationSource;
 import objects.pawn.Pawn;
 import player.Player;
@@ -48,11 +49,38 @@ public class GameProcesser implements DrawableProvider {
     }
 
     private List<Drawable> formDrawableList() {
-        List<Drawable> result = new ArrayList<>();
+        List<Drawable> res = new ArrayList<>();
 
-        getWorld().getTiles().forEach(tile -> result.add(tile));
-        getWorld().getPawns().forEach(pawn -> result.add(pawn));
-        return result;
+
+        int i = 0;
+        int j = 0;
+
+        while (i < getWorld().getTiles().size() && j < getWorld().getPawns().size()) {
+            Tile tile = getWorld().getTiles().get(i);
+            Pawn pawn = getWorld().getPawns().get(j);
+
+            if (pawn.compareTo(tile) < 0) {
+                res.add(pawn);
+                j++;
+            } else {
+                res.add(tile);
+                i++;
+            }
+        }
+
+        while (i < getWorld().getTiles().size()) {
+            Tile tile = getWorld().getTiles().get(i);
+            res.add(tile);
+            i++;
+        }
+
+        while (j < getWorld().getPawns().size()) {
+            Pawn pawn = getWorld().getPawns().get(j);
+            res.add(pawn);
+            j++;
+        }
+
+        return res;
     }
 
     private void generateTestTiles() throws IOException, CreationException {
@@ -61,11 +89,14 @@ public class GameProcesser implements DrawableProvider {
 
         // TODO: Перенести хранение тайлов в Database
         StaticTileFactory factory = new StaticTileFactory(sources);
-        for (int i = 0; i < 1; i++) {
-            for (int k = 0; k < 1; k++) {
+        for (int i = 0; i < 5; i++) {
+            for (int k = 0; k < 5; k++) {
                 int height = 1;
                 if (i == 0 || k == 0) {
-                    height = 1;
+                    height = 2;
+                } else {
+                    Random rnd = new Random();
+                    height = 1 + rnd.nextInt(2);
                 }
                 for (int j = 0; j < height; j++) {
                     Tile tile = factory.createTile("grass");
@@ -74,6 +105,8 @@ public class GameProcesser implements DrawableProvider {
                 }
             }
         }
+
+        getWorld().sortTiles();
     }
 
 

@@ -17,7 +17,6 @@ import static world.singleton.World.getWorld;
 
 public abstract class Pawn implements Placeable, Drawable, Collidable, Physical {
 
-
     private Controller controller;
     protected Vector3D location;
     protected Vector3D rotation = new Vector3D(0, 0, 45);

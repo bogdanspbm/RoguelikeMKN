@@ -15,6 +15,7 @@ import java.awt.*;
 
 public class Tile implements Drawable, Placeable, Collidable {
 
+
     private Vector3D location;
     private Vector3D rotation = new Vector3D(0, 0, 45);
     private AnimationSource source;
@@ -71,4 +72,6 @@ public class Tile implements Drawable, Placeable, Collidable {
     public Collision getCollision() {
         return collision;
     }
+
+
 }

@@ -1,6 +1,5 @@
 package engine.render.panel;
 
-import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 
 import javax.swing.*;
@@ -19,6 +18,10 @@ public class RenderPanel extends JPanel {
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        provider.getDrawable().forEach(drawable -> drawable.draw(g));
+        provider.getDrawable().forEach(
+                drawable -> {
+                    drawable.draw(g);
+                });
+
     }
 }

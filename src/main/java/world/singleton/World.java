@@ -8,6 +8,7 @@ import structures.Vector3D;
 import world.Tile;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class World {
@@ -18,6 +19,10 @@ public class World {
 
     private World() {
         startPhysics();
+    }
+
+    public void sortTiles() {
+        Collections.sort(tiles);
     }
 
     private void startPhysics() {
