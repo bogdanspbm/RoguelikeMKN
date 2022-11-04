@@ -53,8 +53,7 @@ public abstract class Pawn implements Placeable, Drawable, Collidable, Physical 
 
     @Override
     public void tryFall() {
-        System.out.println(getLocation());
-        if (getLocation() != null && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed))) {
+        if (getLocation() != null && getLocation().z() >= 0 && !getWorld().checkCollides(getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed))) {
             getLocation().addZ(-fallSpeed);
         }
     }

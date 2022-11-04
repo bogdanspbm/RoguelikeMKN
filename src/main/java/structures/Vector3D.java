@@ -18,6 +18,10 @@ public class Vector3D implements Cloneable {
         return Math.sqrt((x - target.x) * (x - target.x) + (y - target.y) * (y - target.y) + (z - target.z) * (z - target.z));
     }
 
+    public double norm() {
+        return distanceTo(new Vector3D(0, 0, 0));
+    }
+
     public void addX(int x) {
         this.x += x;
     }
@@ -48,6 +52,10 @@ public class Vector3D implements Cloneable {
         x = (int) (x * Math.cos(rotator.z()) + y * Math.sin(rotator.z()));
         y = (int) (y * Math.cos(rotator.z()) - x * Math.sin(rotator.z()));
 
+    }
+
+    public static Vector3D sum(Vector3D a, Vector3D b) {
+        return new Vector3D(a.x + b.x, a.y + b.y, a.z + b.z);
     }
 
     @Override

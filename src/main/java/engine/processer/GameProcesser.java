@@ -61,13 +61,15 @@ public class GameProcesser implements DrawableProvider {
 
         // TODO: Перенести хранение тайлов в Database
         StaticTileFactory factory = new StaticTileFactory(sources);
-        for (int i = 0; i < 10; i++) {
-            for (int k = 0; k < 10; k++) {
-                Random rnd = new Random();
-                int height = 1 + rnd.nextInt(2);
+        for (int i = 0; i < 1; i++) {
+            for (int k = 0; k < 1; k++) {
+                int height = 1;
+                if (i == 0 || k == 0) {
+                    height = 1;
+                }
                 for (int j = 0; j < height; j++) {
                     Tile tile = factory.createTile("grass");
-                    tile.setLocation(new Vector3D(i * 64 - k * 32, k * 16 + 100, j * 32 - 64));
+                    tile.setLocation(new Vector3D(i * 64 - k * 32 + 128, k * 16 + 128, j * 32));
                     getWorld().addTile(tile);
                 }
             }

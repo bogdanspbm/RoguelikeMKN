@@ -4,6 +4,7 @@ import exceptions.CreationException;
 import exceptions.SetException;
 import interfaces.Controllable;
 import objects.collision.BoxCollision;
+import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
 import player.animation.component.PlayerAnimationComponent;
 import player.animation.factory.PlayerAnimationComponentFactory;
@@ -31,7 +32,7 @@ public class Player extends Pawn implements Controllable {
 
     private void createCollision() throws CreationException {
         try {
-            collisionAdapter.setCollision(new BoxCollision(8, 8, 16));
+            collisionAdapter.setCollision(new CylinderCollision(8, 16));
         } catch (Exception e) {
             throw new CreationException("Can't create Collision: \n" + e.toString());
         }
