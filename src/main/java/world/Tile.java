@@ -30,12 +30,12 @@ public class Tile implements Drawable, Collidable {
     }
 
     private void createCollision() {
-        collisionAdapter.setCollision(new BoxCollision(16, 16, 16));
+        collisionAdapter.setCollision(new BoxCollision(32, 32, 32));
     }
 
     @Override
     public void draw(Graphics grphcs) {
-        grphcs.drawImage(source.getImage(), location.x(), location.y() - location.z(), null);
+        grphcs.drawImage(source.getImage(), location.x() , location.y() - location.z(), null);
     }
 
     @Override

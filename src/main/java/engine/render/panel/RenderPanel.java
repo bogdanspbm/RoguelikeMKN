@@ -1,6 +1,7 @@
 package engine.render.panel;
 
 import engine.render.interfaces.DrawableProvider;
+import interfaces.Placeable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +19,18 @@ public class RenderPanel extends JPanel {
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, getWidth(), getHeight());
 
+        Placeable camera = provider.getCamera();
+
+
+        g.translate(-camera.getLocation().x() + getWidth() / 2, -(camera.getLocation().y() - camera.getLocation().z()) + getHeight() / 2);
+
         provider.getDrawable().forEach(
                 drawable -> {
                     drawable.draw(g);
                 });
+
+        g.translate(camera.getLocation().x() - getWidth() / 2, (camera.getLocation().y() - camera.getLocation().z()) - getHeight() / 2);
+
 
     }
 }

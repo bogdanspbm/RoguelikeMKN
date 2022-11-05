@@ -23,12 +23,12 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
 
     @Override
     public boolean isInAir() {
-        return getLocation().z() >= 0&& !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
+        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
 
-    private Vector3D prevLocation = new Vector3D(0,0,0);
-    protected Vector3D location = new Vector3D(0,0,0);
+    private Vector3D prevLocation = new Vector3D(0, 0, 0);
+    protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 45);
     protected String name = "Pawn";
 
@@ -91,7 +91,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
     @Override
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), getLocation().x(), getLocation().y() - getLocation().z(), null);
+            grphcs.drawImage(animationComponent.getImage(), location.x(), location.y() - location.z(), null);
+
         }
     }
 
@@ -102,15 +103,15 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
 
     @Override
     public Vector3D getVelocity() {
-        return new Vector3D(location.x() - prevLocation.x(),location.y()-prevLocation.y(),location.z()- prevLocation.z());
+        return new Vector3D(location.x() - prevLocation.x(), location.y() - prevLocation.y(), location.z() - prevLocation.z());
     }
 
     @Override
     public void tick() {
     }
 
-    public void setPrevLocation(){
-        prevLocation = new Vector3D(location.x(),location.y(),location.z());
+    public void setPrevLocation() {
+        prevLocation = new Vector3D(location.x(), location.y(), location.z());
     }
 
 }

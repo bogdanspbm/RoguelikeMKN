@@ -96,7 +96,7 @@ public class GameProcesser implements DrawableProvider {
         for (int i = 0; i < 16; i++) {
             for (int k = 0; k < 16; k++) {
                 Tile tile = factory.createTile("grass");
-                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128,  - map[i][k] * 2));
+                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128, -map[i][k] * 2));
                 getWorld().addTile(tile);
             }
         }
@@ -104,6 +104,11 @@ public class GameProcesser implements DrawableProvider {
         getWorld().sortTiles();
     }
 
+
+    @Override
+    public Placeable getCamera() {
+        return getWorld().getPawns().get(0);
+    }
 
     @Override
     public List<Drawable> getDrawable() {
