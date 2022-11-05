@@ -7,9 +7,9 @@
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/Collidable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/Collidable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objects/collision/CollisionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/collision/CollisionAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/world/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/collision/BoxCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/collision/BoxCollision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/collision/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/collision/Collision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/collision/CylinderCollision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/collision/CylinderCollision.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -17,6 +17,10 @@ public class CylinderCollision extends Collision {
         type = ECollisionType.CYLINDER;
     }
 
+    @Override
+    public Vector3D getShape() {
+        return new Vector3D(radius,radius,height);
+    }
 
     @Override
     public boolean collide(Collision collision, Vector3D position) {

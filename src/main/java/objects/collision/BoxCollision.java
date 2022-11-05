@@ -9,6 +9,7 @@ import java.util.List;
 public class BoxCollision extends Collision {
 
     int widthA = 0;
+
     int widthB = 0;
     int height = 0;
 
@@ -18,6 +19,11 @@ public class BoxCollision extends Collision {
         height = c;
 
         type = ECollisionType.BOX;
+    }
+
+    @Override
+    public Vector3D getShape() {
+        return new Vector3D(widthA,widthB,height);
     }
 
 
