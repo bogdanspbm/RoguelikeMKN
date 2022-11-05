@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="2D PerlinNoiseGenerator">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="2D PerlinNoiseGenerator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
