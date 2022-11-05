@@ -1,90 +1,27 @@
 package generator;
 
-
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.util.Arrays;
 import java.util.Random;
 
-import static java.awt.image.BufferedImage.TYPE_INT_RGB;
-
-//public class PerlinNoiseGenerator {
-//    private final Random rand = new Random();
-//
-//    public final int length;
-//    public final float[] values;
-//
-//    public PerlinNoiseGenerator(int length, int size){
-//        this.length = length;
-//        values = new float[length]; //create massive of numbers for method
-//
-//        Arrays.fill(values, -1);
-//
-//        for (int x = 0; x < length; x += size){
-//            set(x, rand.nextFloat() * 2 - 1); //for each element from massive assign random number
-//        }
-//
-//        float scale = 1.0f / length;
-//        do{
-//            int half = size/2;
-//            for (int x = 0; x < length; x += size){
-//                float a = get(x); // return element from massive on x position
-//                float b = get(x + size);
-//
-//                set(x + half, (a + b) / 2.0f + (rand.nextFloat() * 2 - 1) * size * scale);  //linear interpolation
-//            }
-//            size /= 2;
-//        } while (size > 1);
-//    }
-//
-//    public void set(int pos, float val) {
-//          if (pos < 0 || pos >= length) return; // if we don't work with elements from our massive we return nothing
-//          values[pos] = val; // to our element assign value
-//    }
-//    public float get(int pos) {
-//          if (pos < 0 || pos >= length) return 0;
-//          return values[pos];
-//    }
-//
-//    public BufferedImage getMap() {
-//        BufferedImage map = new BufferedImage(length, length, BufferedImage.TYPE_INT_RGB);
-//        int[] pixels = ((DataBufferInt) map.getRaster().getDataBuffer()).getData();
-//        for (int x = 0; x < length; x++) {
-//            boolean fill = false;
-//            for (int y = 0; y < length; y++) {
-//                int i = x + y * length;
-//                if (pixels[i] > -1) fill = true;
-//                int val = (int) (values[x] * 128) + 128;
-//                pixels[i] = (val << 2); // | (val << 8) | val
-//                if (fill) pixels[i] = val;
-//            }
-//        }
-//        return map;
-//    }
-//
-//}
-
 class PerlinNoiseGenerator
 {
+    private Random random;
     byte[] permutationTable;
-    static float [] attitude = new float[1024];
 
-    public PerlinNoiseGenerator(int seed, float[] attitude)
+    public PerlinNoiseGenerator(int seed)
     {
-        Random rand = new Random(seed);
-        permutationTable = new byte[1024];
-        rand.nextBytes(permutationTable);
-        this.attitude= attitude;
+        random = new Random(seed);
+        permutationTable = new byte[1024*1024];
+        random.nextBytes(permutationTable);
 
     }
 
     private float[] getPseudoRandomGradientVector(int x, int y)
     {
-        int v = (int)(((x * 7) ^ (y * 773373) + 7777777) & 1023);
-//        int v = (int)(((x * 1836311903) ^ (y * 2971215073) + 4807526976) & 1023);
-
-        v = permutationTable[v]&3;
-
+        int v = (int)(((x * 1836311903L) ^ (y * 2971215073L) + 4807526976L) & 1023L);
+        v = permutationTable[v] & 3;
         switch (v)
         {
             case 0:  return new float[]{  1, 0 };
@@ -163,14 +100,13 @@ class PerlinNoiseGenerator
     }
 
     public BufferedImage getMap() {
-        BufferedImage map = new BufferedImage(32, 32, BufferedImage.TYPE_INT_RGB);
+        BufferedImage map = new BufferedImage(LevelGenerator.resolution, LevelGenerator.resolution, BufferedImage.TYPE_INT_RGB);
         int[] pixels = ((DataBufferInt) map.getRaster().getDataBuffer()).getData();
-        for (int xx = 0; xx < 32; xx++) {
-            for (int yy = 0; yy < 32; yy++) {
-                int i = xx * 32 + yy;
-                int val = (int) ((attitude[i]+1)/2*128);
-//                System.out.println(val);
-                pixels[i] = val<<4;
+        for (int xx = 0; xx < LevelGenerator.resolution; xx++) {
+            for (int yy = 0; yy < LevelGenerator.resolution; yy++) {
+
+                float newVal = noise(xx/100f, yy/100f,8,0.5f);
+                pixels[xx * LevelGenerator.resolution + yy] = (int)(newVal * 255 + 128) & 255;
             }
         }
         System.out.println(Arrays.toString(pixels));

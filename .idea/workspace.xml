@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="1D PerlinNoiseGenerator">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="2D PerlinNoiseGenerator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/LevelGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" afterDir="false" />
@@ -51,7 +51,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.LevelGenerator">
     <configuration name="LevelGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="generator.LevelGenerator" />
       <module name="RoguelikeMKN" />
@@ -87,8 +87,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.LevelGenerator" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.PerlinNoiseGenerator" />
       </list>
     </recent_temporary>
@@ -103,7 +103,8 @@
       <updated>1667314343501</updated>
       <workItem from="1667314348687" duration="14072000" />
       <workItem from="1667382108211" duration="2287000" />
-      <workItem from="1667535199277" duration="643000" />
+      <workItem from="1667535199277" duration="4749000" />
+      <workItem from="1667650643981" duration="1448000" />
     </task>
     <task id="LOCAL-00001" summary="1D PerlinNoiseGenerator">
       <created>1667399602370</created>
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667399602370</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2D PerlinNoiseGenerator">
+      <created>1667583844607</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667583844607</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +154,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1D PerlinNoiseGenerator" />
-    <option name="LAST_COMMIT_MESSAGE" value="1D PerlinNoiseGenerator" />
+    <MESSAGE value="2D PerlinNoiseGenerator" />
+    <option name="LAST_COMMIT_MESSAGE" value="2D PerlinNoiseGenerator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
