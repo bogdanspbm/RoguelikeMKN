@@ -16,7 +16,7 @@ import java.awt.*;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Placeable, Drawable, Collidable, Physical, Tickable {
+public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
 
 
     private Controller controller;

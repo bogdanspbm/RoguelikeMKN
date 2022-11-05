@@ -13,7 +13,7 @@ import structures.Vector3D;
 
 import java.awt.*;
 
-public class Tile implements Drawable, Placeable, Collidable {
+public class Tile implements Drawable, Collidable {
 
 
     private Vector3D location;
@@ -29,12 +29,8 @@ public class Tile implements Drawable, Placeable, Collidable {
         createCollision();
     }
 
-    private void createCollision() throws CreationException {
-        try {
-            collisionAdapter.setCollision(new BoxCollision(16, 16, 16));
-        } catch (SetException e) {
-            throw new CreationException("Can't create Collision: \n" + e.toString());
-        }
+    private void createCollision() {
+        collisionAdapter.setCollision(new BoxCollision(16, 16, 16));
     }
 
     @Override
@@ -72,6 +68,5 @@ public class Tile implements Drawable, Placeable, Collidable {
     public Collision getCollision() {
         return collision;
     }
-
 
 }
