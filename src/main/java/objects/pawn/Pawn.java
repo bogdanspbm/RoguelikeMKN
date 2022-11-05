@@ -4,6 +4,7 @@ import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Physical;
 import interfaces.Placeable;
+import interfaces.Tickable;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
@@ -15,7 +16,8 @@ import java.awt.*;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Placeable, Drawable, Collidable, Physical {
+public abstract class Pawn implements Placeable, Drawable, Collidable, Physical, Tickable {
+
 
     private Controller controller;
 
@@ -24,7 +26,9 @@ public abstract class Pawn implements Placeable, Drawable, Collidable, Physical 
         return getLocation().z() >= 0&& !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
-    protected Vector3D location;
+
+    private Vector3D prevLocation = new Vector3D(0,0,0);
+    protected Vector3D location = new Vector3D(0,0,0);
     protected Vector3D rotation = new Vector3D(0, 0, 45);
     protected String name = "Pawn";
 
@@ -94,6 +98,19 @@ public abstract class Pawn implements Placeable, Drawable, Collidable, Physical 
     @Override
     public Collision getCollision() {
         return collision;
+    }
+
+    @Override
+    public Vector3D getVelocity() {
+        return new Vector3D(location.x() - prevLocation.x(),location.y()-prevLocation.y(),location.z()- prevLocation.z());
+    }
+
+    @Override
+    public void tick() {
+    }
+
+    public void setPrevLocation(){
+        prevLocation = new Vector3D(location.x(),location.y(),location.z());
     }
 
 }

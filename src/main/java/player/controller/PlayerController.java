@@ -51,6 +51,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 try {
                     while (true) {
                         if (controllableOwner != null) {
+                            owner.setPrevLocation();
                             if (leftPressed && !rightPressed) {
                                 controllableOwner.moveRight(-1);
                             }

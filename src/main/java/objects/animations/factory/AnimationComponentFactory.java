@@ -5,6 +5,7 @@ import exceptions.SourceException;
 import objects.animations.component.AnimationComponent;
 import objects.animations.objects.Animation;
 import objects.animations.objects.AnimationSource;
+import objects.pawn.Pawn;
 import structures.AnimationStructure;
 
 import java.io.File;
@@ -26,7 +27,7 @@ public abstract class AnimationComponentFactory {
     protected HashMap<String, Animation> generateAnimationsFromSources() throws SourceException {
         generateAnimationSources();
         HashMap<String, Animation> result = new HashMap<>();
-        animations.forEach((s, animationStructure) -> result.put(s, new Animation(animationSources.get(animationStructure.source()), animationStructure.timeline())));
+        animations.forEach((s, animationStructure) -> result.put(s, new Animation(animationSources.get(animationStructure.source()), animationStructure.timeline(), animationStructure.timePerFrame())));
         return result;
     }
 
@@ -48,5 +49,5 @@ public abstract class AnimationComponentFactory {
         }
     }
 
-    abstract public AnimationComponent createAnimationComponent() throws CreationException;
+    abstract public AnimationComponent createAnimationComponent(Pawn owner) throws CreationException;
 }

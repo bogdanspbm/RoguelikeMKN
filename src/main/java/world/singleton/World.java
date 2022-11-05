@@ -33,6 +33,8 @@ public class World {
                 while (true) {
                     pawns.forEach(pawn -> {
                         pawn.tryFall();
+                        // TODO: Потом нужно будет перенести все в Tick
+                        pawn.tick();
                     });
                     try {
                         Thread.sleep((int) (1000 / Config.FRAME_RATE));

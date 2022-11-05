@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="" />
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/Tickable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/interfaces/Physical.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/interfaces/Physical.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/animations/factory/AnimationComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/animations/factory/AnimationComponentFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/animations/objects/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/animations/objects/Animation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/animation/component/PlayerAnimationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/animation/component/PlayerAnimationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/animation/factory/PlayerAnimationComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/animation/factory/PlayerAnimationComponentFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/structures/AnimationStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structures/AnimationStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/singleton/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/singleton/World.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +28,8 @@
       <list>
         <option value="Record" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -32,22 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />

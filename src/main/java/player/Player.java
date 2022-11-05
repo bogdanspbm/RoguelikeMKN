@@ -18,7 +18,7 @@ public class Player extends Pawn implements Controllable {
 
     public Player() throws CreationException {
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
-        animationComponent = animationComponentFactory.createAnimationComponent();
+        animationComponent = animationComponentFactory.createAnimationComponent(this);
         createCollision();
         initPlayerController();
     }

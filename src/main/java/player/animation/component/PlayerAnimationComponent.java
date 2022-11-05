@@ -2,19 +2,35 @@ package player.animation.component;
 
 import objects.animations.component.AnimationComponent;
 import objects.animations.objects.Animation;
+import objects.pawn.Pawn;
+import structures.Vector3D;
 
 import java.awt.*;
 import java.util.HashMap;
 
 public class PlayerAnimationComponent extends AnimationComponent {
 
-    public PlayerAnimationComponent(HashMap<String, Animation> animations) {
+    Pawn owner;
+    public PlayerAnimationComponent(Pawn owner, HashMap<String, Animation> animations) {
         super(animations);
+        this.owner = owner;
     }
 
     @Override
     public Image getImage() {
-        animations.get("idle").increment();
-        return animations.get("idle").getFrame();
+        Vector3D velocity = owner.getVelocity();
+        if(velocity.x() < -0.5){
+            return animations.get("walk_left").increment().getFrame();
+        }
+        if(velocity.x() > 0.5){
+            return animations.get("walk_right").increment().getFrame();
+        }
+        if(velocity.y() < -0.5){
+            return animations.get("walk_up").increment().getFrame();
+        }
+        if(velocity.y() > 0.5){
+            return animations.get("walk_down").increment().getFrame();
+        }
+        return animations.get("idle").increment().getFrame();
     }
 }
