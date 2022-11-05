@@ -23,7 +23,7 @@ public interface Placeable extends Comparable<Placeable> {
             return getLocation().z() - o.getLocation().z();
         }
     */
-        if (getLocation().z() + getLocation().y() == o.getLocation().y() - o.getLocation().z()) {
+        if (getLocation().z() + getLocation().y() == o.getLocation().y() + o.getLocation().z()) {
             return getLocation().x() - o.getLocation().x();
         } else {
             return (getLocation().z() + getLocation().y() - o.getLocation().y() - o.getLocation().z());
