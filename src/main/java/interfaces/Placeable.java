@@ -14,12 +14,19 @@ public interface Placeable extends Comparable<Placeable> {
 
     @Override
     default int compareTo(Placeable o) {
+        /*
         if (getLocation().y() != o.getLocation().y()) {
             return getLocation().y() - o.getLocation().y();
         } else if (getLocation().x() != o.getLocation().x()) {
             return getLocation().x() - o.getLocation().x();
         } else {
             return getLocation().z() - o.getLocation().z();
+        }
+    */
+        if (getLocation().z() + getLocation().y() == o.getLocation().y() - o.getLocation().z()) {
+            return getLocation().x() - o.getLocation().x();
+        } else {
+            return (getLocation().z() + getLocation().y() - o.getLocation().y() - o.getLocation().z());
         }
     }
 }

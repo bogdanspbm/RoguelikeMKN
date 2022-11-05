@@ -46,12 +46,13 @@ public class Vector3D implements Cloneable {
         return z;
     }
 
-    public void rotate(Vector3D rotator) {
+    public Vector3D rotate(Vector3D rotator) {
         // TODO: Пока реализуем вращение только вдоль оси Z
 
         x = (int) (x * Math.cos(rotator.z()) + y * Math.sin(rotator.z()));
         y = (int) (y * Math.cos(rotator.z()) - x * Math.sin(rotator.z()));
 
+        return this;
     }
 
     public static Vector3D sum(Vector3D a, Vector3D b) {
