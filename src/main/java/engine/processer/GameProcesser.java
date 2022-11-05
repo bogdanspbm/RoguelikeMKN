@@ -4,6 +4,7 @@ import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
 import exceptions.CreationException;
+import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
 import objects.animations.objects.AnimationSource;
 import objects.pawn.Pawn;
@@ -26,8 +27,8 @@ public class GameProcesser implements DrawableProvider {
 
     public void start() {
         try {
+            generateWorld();
             createPlayer();
-            generateTestTiles();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,26 +84,20 @@ public class GameProcesser implements DrawableProvider {
         return res;
     }
 
-    private void generateTestTiles() throws IOException, CreationException {
+    private void generateWorld() throws IOException, CreationException {
         HashMap<String, AnimationSource> sources = new HashMap<>();
-        sources.put("grass", new AnimationSource(new File("src/main/resources/tiles/landscape/grass.png")));
+        sources.put("grass", new AnimationSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
+
+        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32);
+        int[][] map = generator.getMap();
 
         // TODO: Перенести хранение тайлов в Database
         StaticTileFactory factory = new StaticTileFactory(sources);
-        for (int i = 0; i < 5; i++) {
-            for (int k = 0; k < 5; k++) {
-                int height = 1;
-                if (i == 0 || k == 0) {
-                    height = 2;
-                } else {
-                    Random rnd = new Random();
-                    height = 1 + rnd.nextInt(2);
-                }
-                for (int j = 0; j < height; j++) {
-                    Tile tile = factory.createTile("grass");
-                    tile.setLocation(new Vector3D(i * 64 - k * 32 + 128, k * 16 + 128, j * 32));
-                    getWorld().addTile(tile);
-                }
+        for (int i = 0; i < 16; i++) {
+            for (int k = 0; k < 16; k++) {
+                Tile tile = factory.createTile("grass");
+                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128,  - map[i][k] * 2));
+                getWorld().addTile(tile);
             }
         }
 

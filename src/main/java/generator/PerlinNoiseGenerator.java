@@ -5,7 +5,7 @@ import java.awt.image.DataBufferInt;
 import java.util.Arrays;
 import java.util.Random;
 
-class PerlinNoiseGenerator {
+public class PerlinNoiseGenerator {
     private Random random;
     private byte[] permutationTable;
 
