@@ -15,6 +15,7 @@ import world.factory.StaticTileFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,20 +87,22 @@ public class GameProcesser implements DrawableProvider {
 
     private void generateWorld() throws IOException, CreationException {
         HashMap<String, AnimationSource> sources = new HashMap<>();
-        sources.put("grass", new AnimationSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
+        sources.put("snow", new AnimationSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
 
-        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32);
+        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32,8);
         int[][] map = generator.getMap();
 
         // TODO: Перенести хранение тайлов в Database
         StaticTileFactory factory = new StaticTileFactory(sources);
         for (int i = 0; i < 16; i++) {
             for (int k = 0; k < 16; k++) {
-                Tile tile = factory.createTile("grass");
-                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128, -map[i][k] * 2));
+                Tile tile = factory.createTile("snow");
+                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128,  - map[i][k] * 2 ));
                 getWorld().addTile(tile);
             }
         }
+
+
 
         getWorld().sortTiles();
     }
