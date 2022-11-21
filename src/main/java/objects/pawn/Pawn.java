@@ -5,6 +5,7 @@ import interfaces.Collidable;
 import interfaces.Physical;
 import interfaces.Placeable;
 import interfaces.Tickable;
+import inventory.interfaces.Inventory;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
@@ -16,7 +17,7 @@ import java.awt.*;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
+public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, Inventory {
 
 
     private Controller controller;
@@ -36,6 +37,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
+
+    protected inventory.Inventory inventory = new inventory.Inventory();
 
     @Override
     public void setCollision(Collision collision) {
@@ -114,4 +117,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable {
         prevLocation = new Vector3D(location.x(), location.y(), location.z());
     }
 
+    @Override
+    public inventory.Inventory getInventory() {
+        return inventory;
+    }
 }

@@ -13,10 +13,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,6 +37,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/RoguelikeMKN&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,7 +58,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.InventoryConsoleTests.itemAddTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="RoguelikeMKN" />
@@ -65,8 +66,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InventoryConsoleTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryConsoleTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryConsoleTests.itemAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryConsoleTests" />
+      <option name="METHOD_NAME" value="itemAddTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
+        <item itemvalue="JUnit.InventoryConsoleTests" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -84,6 +118,15 @@
       <workItem from="1667463409713" duration="10448000" />
       <workItem from="1667500536670" duration="4417000" />
       <workItem from="1667548563538" duration="7116000" />
+      <workItem from="1667815726836" duration="615000" />
+      <workItem from="1668440724475" duration="690000" />
+      <workItem from="1668545483760" duration="599000" />
+      <workItem from="1668673753382" duration="657000" />
+      <workItem from="1668704089763" duration="909000" />
+      <workItem from="1668707908653" duration="713000" />
+      <workItem from="1668710907265" duration="15000" />
+      <workItem from="1669017079266" duration="1666000" />
+      <workItem from="1669029313443" duration="2135000" />
     </task>
     <servers />
   </component>
@@ -100,5 +143,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
