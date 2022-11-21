@@ -10,10 +10,12 @@ public class PerlinNoiseGenerator {
     private byte[] permutationTable;
 
     private int resolution = 1024;
+    public int octaves = 8;
 
 
-    public PerlinNoiseGenerator(int resolution) {
+    public PerlinNoiseGenerator(int resolution,int octaves) {
         this.resolution = resolution;
+        this.octaves = octaves;
         random = new Random();
         permutationTable = new byte[resolution * resolution];
         random.nextBytes(permutationTable);
@@ -78,12 +80,13 @@ public class PerlinNoiseGenerator {
 
     }
 
-    public float noise(float fx, float fy, int octaves, float persistence) {
+    public float noise(float fx, float fy, float persistence) {
         float amplitude = 1;
         float max = 0;
         float result = 0;
+        int o = octaves;
 
-        while (octaves-- > 0) {
+        while (o-- > 0) {
             max += amplitude;
             result += noise(fx, fy) * amplitude;
             amplitude *= persistence;
@@ -99,7 +102,7 @@ public class PerlinNoiseGenerator {
         for (int xx = 0; xx < resolution; xx++) {
             for (int yy = 0; yy < resolution; yy++) {
 
-                float newVal = noise(xx / 100f, yy / 100f, 8, 0.5f);
+                float newVal = noise(xx / 100f, yy / 100f, 0.5f);
                 res[xx][yy] = (int) (newVal * 255 + 128) & 255;
             }
         }
@@ -112,7 +115,7 @@ public class PerlinNoiseGenerator {
         for (int xx = 0; xx < resolution; xx++) {
             for (int yy = 0; yy < resolution; yy++) {
 
-                float newVal = noise(xx / 100f, yy / 100f, 8, 0.5f);
+                float newVal = noise(xx / 100f, yy / 100f,  0.5f);
                 pixels[xx * resolution + yy] = (int) (newVal * 255 + 128) & 255;
             }
         }
