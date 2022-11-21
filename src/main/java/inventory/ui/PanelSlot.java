@@ -16,7 +16,8 @@ public class PanelSlot extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        System.out.println("hello");
+        super.paintComponent(g);
         g.drawImage(source.getImage(), 0, 0, null);
     }
+
 }

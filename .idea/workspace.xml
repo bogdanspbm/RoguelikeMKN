@@ -156,7 +156,7 @@
       <workItem from="1668707908653" duration="713000" />
       <workItem from="1668710907265" duration="15000" />
       <workItem from="1669017079266" duration="1666000" />
-      <workItem from="1669029313443" duration="5318000" />
+      <workItem from="1669029313443" duration="6419000" />
     </task>
     <servers />
   </component>
@@ -183,9 +183,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/objects/animations/objects/TextureSource.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

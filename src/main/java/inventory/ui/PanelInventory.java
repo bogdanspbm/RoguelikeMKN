@@ -26,7 +26,7 @@ public class PanelInventory extends JPanel {
         initComponent();
         generateItems();
 
-        updateUI();
+
     }
 
     private void initSources() {
@@ -40,30 +40,34 @@ public class PanelInventory extends JPanel {
 
     private void initComponent() {
         setBackground(new Color(100, 100, 100));
-        setLayout(new java.awt.GridBagLayout());
     }
 
     private void generateItems() {
         int width = inventory.getWidth();
-        java.awt.GridBagConstraints gridBagConstraints;
 
         for (int i = 0; i < inventory.getItems().length; i++) {
-            gridBagConstraints = new GridBagConstraints();
 
             int x = i % width;
             int y = i / width;
 
-            gridBagConstraints.gridx = x;
-            gridBagConstraints.gridy = y;
-            gridBagConstraints.weightx = 1.0;
-            gridBagConstraints.weighty = 1.0;
-
             PanelSlot slot = new PanelSlot(sourceSlot, inventory.getItems()[i]);
-            slot.setPreferredSize(new Dimension(64, 64));
-            slot.setMinimumSize(new Dimension(64, 64));
 
             slots.add(slot);
-            add(slot, gridBagConstraints);
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        int width = inventory.getWidth();
+
+        for (int i = 0; i < inventory.getItems().length; i++) {
+
+            int x = i % width;
+            int y = i / width;
+
+            g.drawImage(sourceSlot.getImage(), x * 64, y * 64, null);
         }
     }
 }

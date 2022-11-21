@@ -19,7 +19,7 @@ public class Inventory {
     }
 
     private void generateInventory() {
-        items = new Item[width * width];
+        items = new Item[width * height];
     }
 
     public void addItem(Item item) {
