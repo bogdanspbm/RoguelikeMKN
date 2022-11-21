@@ -1,14 +1,14 @@
 package world.factory;
 
 import exceptions.CreationException;
-import objects.animations.objects.AnimationSource;
+import objects.animations.objects.TextureSource;
 import world.Tile;
 
 import java.util.HashMap;
 
 public class StaticTileFactory extends TileFactory {
 
-    public StaticTileFactory(HashMap<String, AnimationSource> sources) {
+    public StaticTileFactory(HashMap<String, TextureSource> sources) {
         this.sources = sources;
     }
 

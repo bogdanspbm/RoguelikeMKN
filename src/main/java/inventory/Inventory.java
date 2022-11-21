@@ -11,15 +11,15 @@ public class Inventory {
 
     private Item[] items;
 
-    private int sizeX = 10;
-    private int sizeY = 5;
+    private int width = 10;
+    private int height = 5;
 
     public Inventory() {
         generateInventory();
     }
 
     private void generateInventory() {
-        items = new Item[sizeX * sizeY];
+        items = new Item[width * width];
     }
 
     public void addItem(Item item) {
@@ -96,5 +96,13 @@ public class Inventory {
 
     public Item getItemByIndex(int index) {
         return items[index];
+    }
+
+    public Item[] getItems() {
+        return items;
+    }
+
+    public int getWidth() {
+        return width;
     }
 }

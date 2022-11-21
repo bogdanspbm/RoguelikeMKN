@@ -58,7 +58,20 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InventoryConsoleTests.itemAddTest">
+  <component name="RunManager" selected="Application.InventoryWindow">
+    <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="RoguelikeMKN" />
@@ -97,8 +110,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InventoryUITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryUITests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InventoryWindow" />
+        <item itemvalue="JUnit.InventoryUITests" />
         <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
         <item itemvalue="JUnit.InventoryConsoleTests" />
         <item itemvalue="Application.Main" />
@@ -126,7 +156,7 @@
       <workItem from="1668707908653" duration="713000" />
       <workItem from="1668710907265" duration="15000" />
       <workItem from="1669017079266" duration="1666000" />
-      <workItem from="1669029313443" duration="2135000" />
+      <workItem from="1669029313443" duration="5318000" />
     </task>
     <servers />
   </component>
@@ -151,6 +181,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
           <line>29</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

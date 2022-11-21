@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class Animation {
 
-    AnimationSource source;
+    TextureSource source;
     Vector2DTimeline timeline;
 
     int timePerFrame = 1;
@@ -21,7 +21,7 @@ public class Animation {
         return this;
     }
 
-    public Animation(AnimationSource source, Vector2DTimeline timeline, int timePerFrame) {
+    public Animation(TextureSource source, Vector2DTimeline timeline, int timePerFrame) {
         this.source = source;
         this.timeline = timeline;
         this.timePerFrame = timePerFrame;

@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimationSource {
+public class TextureSource {
     private BufferedImage image;
     private List<BufferedImage> imageFrames = new ArrayList<>();
 
     private int x, y;
 
-    public AnimationSource(File file, Dimension frameSize) throws IOException {
+    public TextureSource(File file, Dimension frameSize) throws IOException {
         image = ImageIO.read(file);
         cropImage(frameSize);
     }
 
-    public AnimationSource(File file) throws IOException {
+    public TextureSource(File file) throws IOException {
         image = ImageIO.read(file);
         cropImage(new Dimension(image.getWidth(), image.getHeight()));
     }

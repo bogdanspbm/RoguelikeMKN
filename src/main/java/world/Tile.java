@@ -2,10 +2,8 @@ package world;
 
 import engine.render.interfaces.Drawable;
 import exceptions.CreationException;
-import exceptions.SetException;
 import interfaces.Collidable;
-import interfaces.Placeable;
-import objects.animations.objects.AnimationSource;
+import objects.animations.objects.TextureSource;
 import objects.collision.BoxCollision;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
@@ -18,13 +16,13 @@ public class Tile implements Drawable, Collidable {
 
     private Vector3D location;
     private Vector3D rotation = new Vector3D(0, 0, 45);
-    private AnimationSource source;
+    private TextureSource source;
 
     private Collision collision;
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
-    public Tile(AnimationSource source) throws CreationException {
+    public Tile(TextureSource source) throws CreationException {
         this.source = source;
         createCollision();
     }

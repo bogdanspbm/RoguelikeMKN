@@ -6,7 +6,7 @@ import engine.render.window.Window;
 import exceptions.CreationException;
 import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
-import objects.animations.objects.AnimationSource;
+import objects.animations.objects.TextureSource;
 import objects.pawn.Pawn;
 import player.Player;
 import structures.Vector3D;
@@ -15,11 +15,9 @@ import world.factory.StaticTileFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import static world.singleton.World.getWorld;
 
@@ -86,8 +84,8 @@ public class GameProcesser implements DrawableProvider {
     }
 
     private void generateWorld() throws IOException, CreationException {
-        HashMap<String, AnimationSource> sources = new HashMap<>();
-        sources.put("snow", new AnimationSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
+        HashMap<String, TextureSource> sources = new HashMap<>();
+        sources.put("snow", new TextureSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
 
         PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32,8);
         int[][] map = generator.getMap();

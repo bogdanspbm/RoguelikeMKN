@@ -4,7 +4,7 @@ import exceptions.CreationException;
 import exceptions.SourceException;
 import objects.animations.component.AnimationComponent;
 import objects.animations.objects.Animation;
-import objects.animations.objects.AnimationSource;
+import objects.animations.objects.TextureSource;
 import objects.pawn.Pawn;
 import structures.AnimationStructure;
 
@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 
 public abstract class AnimationComponentFactory {
-    private HashMap<String, AnimationSource> animationSources = new HashMap<>();
+    private HashMap<String, TextureSource> animationSources = new HashMap<>();
     protected HashMap<String, AnimationStructure> animations;
 
     public AnimationComponentFactory() {
@@ -40,7 +40,7 @@ public abstract class AnimationComponentFactory {
             AnimationStructure animationStructure = animations.get(key);
             if (!animationSources.containsKey(animationStructure.source())) {
                 try {
-                    AnimationSource source = new AnimationSource(new File(animationStructure.source()), animationStructure.frameSize());
+                    TextureSource source = new TextureSource(new File(animationStructure.source()), animationStructure.frameSize());
                     animationSources.put(animationStructure.source(), source);
                 } catch (Exception e) {
                     throw new SourceException("Can't generate source files: \n" + e.toString());
