@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/objects/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/inventory/slot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/inventory/slot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/InventoryConsoleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventoryTests/InventoryConsoleTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InventoryWindow">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -88,18 +86,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DatabaseTests.databaseConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="databaseTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="databaseTests" />
-      <option name="MAIN_CLASS_NAME" value="databaseTests.DatabaseTests" />
-      <option name="METHOD_NAME" value="databaseConnection" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,6 +141,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.InventoryWindow" />
         <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>

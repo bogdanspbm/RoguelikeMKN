@@ -23,13 +23,13 @@ import java.util.List;
 import static world.singleton.World.getWorld;
 
 public class GameProcesser implements DrawableProvider {
-
-
     public void start() {
         try {
             generateWorld();
             createPlayer();
-            createEnemy();
+            createEnemy(0);
+            createEnemy(1);
+            createEnemy(2);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,8 +44,8 @@ public class GameProcesser implements DrawableProvider {
         player.setLocation(new Vector3D(100, 100, 100));
     }
 
-    private void createEnemy() throws CreationException {
-        Enemy enemy = new Enemy();
+    private void createEnemy(int i) throws CreationException {
+        Enemy enemy = new Enemy(i);
         getWorld().addPawn(enemy);
         getWorld().addControllers(enemy.getController());
         enemy.setLocation(new Vector3D(500, 200, 100));

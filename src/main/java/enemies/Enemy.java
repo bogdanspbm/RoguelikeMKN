@@ -5,11 +5,15 @@ import exceptions.CreationException;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
 import player.animation.factory.PlayerAnimationComponentFactory;
-import player.controller.PlayerController;
 
 public class Enemy extends Pawn {
 
-    public Enemy() throws CreationException {
+    public int i;
+//    public Enemy(int i){
+//        this.i = i;
+//    }
+    public Enemy(int i) throws CreationException {
+        this.i = i;
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
         animationComponent = animationComponentFactory.createAnimationComponent(this);
         createCollision();
@@ -18,7 +22,8 @@ public class Enemy extends Pawn {
 
     private void initEnemyController() throws CreationException {
         try {
-            controllerAdapter.setController(new BotController());
+            controllerAdapter.setController(new BotController(i));
+
         } catch (Exception e) {
             throw new CreationException("Can't create PlayerController: \n" + e.toString());
         }
