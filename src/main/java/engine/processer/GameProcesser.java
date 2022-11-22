@@ -1,5 +1,6 @@
 package engine.processer;
 
+import enemies.Enemy;
 import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
@@ -28,6 +29,7 @@ public class GameProcesser implements DrawableProvider {
         try {
             generateWorld();
             createPlayer();
+            createEnemy();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,6 +42,13 @@ public class GameProcesser implements DrawableProvider {
         Player player = new Player();
         getWorld().addPawn(player);
         player.setLocation(new Vector3D(100, 100, 100));
+    }
+
+    private void createEnemy() throws CreationException {
+        Enemy enemy = new Enemy();
+        getWorld().addPawn(enemy);
+        getWorld().addControllers(enemy.getController());
+        enemy.setLocation(new Vector3D(200, 100, 100));
     }
 
     private void createWindow() {
@@ -87,7 +96,7 @@ public class GameProcesser implements DrawableProvider {
         HashMap<String, TextureSource> sources = new HashMap<>();
         sources.put("snow", new TextureSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
 
-        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32,8);
+        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32, 8);
         int[][] map = generator.getMap();
 
         // TODO: Перенести хранение тайлов в Database
@@ -95,11 +104,10 @@ public class GameProcesser implements DrawableProvider {
         for (int i = 0; i < 16; i++) {
             for (int k = 0; k < 16; k++) {
                 Tile tile = factory.createTile("snow");
-                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128,  - map[i][k] * 2 ));
+                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128, -map[i][k] * 2));
                 getWorld().addTile(tile);
             }
         }
-
 
 
         getWorld().sortTiles();

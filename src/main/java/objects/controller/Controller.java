@@ -9,4 +9,8 @@ public abstract class Controller {
     public void setOwner(Pawn owner) {
         this.owner = owner;
     }
+
+    public void tick() {
+
+    }
 }

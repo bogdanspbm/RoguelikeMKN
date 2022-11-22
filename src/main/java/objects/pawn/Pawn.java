@@ -1,10 +1,7 @@
 package objects.pawn;
 
 import engine.render.interfaces.Drawable;
-import interfaces.Collidable;
-import interfaces.Physical;
-import interfaces.Placeable;
-import interfaces.Tickable;
+import interfaces.*;
 import inventory.interfaces.Inventory;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
@@ -17,7 +14,7 @@ import java.awt.*;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, Inventory {
+public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, Inventory, Controllable {
 
 
     private Controller controller;
@@ -120,5 +117,19 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     @Override
     public inventory.Inventory getInventory() {
         return inventory;
+    }
+
+    @Override
+    public void moveRight(int x) {
+        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x() + x, location.y(), location.z()))) {
+            location.addX(x);
+        }
+    }
+
+    @Override
+    public void moveForward(int x) {
+        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x(), location.y() - x, location.z()))) {
+            location.addY(-x);
+        }
     }
 }

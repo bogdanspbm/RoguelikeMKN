@@ -17,7 +17,6 @@ public class PlayerController extends Controller implements NativeKeyListener {
     private Boolean forwardPressed = false;
     private Boolean backPressed = false;
 
-    private Controllable controllableOwner;
 
     public PlayerController() {
         // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
@@ -28,20 +27,6 @@ public class PlayerController extends Controller implements NativeKeyListener {
     @Override
     public void setOwner(Pawn owner) {
         super.setOwner(owner);
-
-        try {
-            tryToSetControllableOwner();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void tryToSetControllableOwner() throws CastException {
-        try {
-            controllableOwner = (Controllable) owner;
-        } catch (Exception e) {
-            throw new CastException("Can't cast Pawn to Controllable: \n" + e.toString());
-        }
     }
 
     private void startAxisEvents() {
@@ -50,19 +35,19 @@ public class PlayerController extends Controller implements NativeKeyListener {
             {
                 try {
                     while (true) {
-                        if (controllableOwner != null) {
+                        if (owner != null) {
                             owner.setPrevLocation();
                             if (leftPressed && !rightPressed) {
-                                controllableOwner.moveRight(-1);
+                                owner.moveRight(-1);
                             }
                             if (rightPressed && !leftPressed) {
-                                controllableOwner.moveRight(1);
+                                owner.moveRight(1);
                             }
                             if (backPressed && !forwardPressed) {
-                                controllableOwner.moveForward(-1);
+                                owner.moveForward(-1);
                             }
                             if (forwardPressed && !backPressed) {
-                                controllableOwner.moveForward(1);
+                                owner.moveForward(1);
                             }
                         }
                         Thread.sleep((int) (1000 / Config.FRAME_RATE));
@@ -101,7 +86,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
             }
             case 57: {
                 // SPACE
-                controllableOwner.jump();
+                owner.jump();
                 break;
             }
         }

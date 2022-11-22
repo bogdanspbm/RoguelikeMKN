@@ -14,7 +14,7 @@ import structures.Vector3D;
 
 import static world.singleton.World.getWorld;
 
-public class Player extends Pawn implements Controllable {
+public class Player extends Pawn {
 
     public Player() throws CreationException {
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
@@ -36,20 +36,6 @@ public class Player extends Pawn implements Controllable {
             collisionAdapter.setCollision(new CylinderCollision(8, 16));
         } catch (Exception e) {
             throw new CreationException("Can't create Collision: \n" + e.toString());
-        }
-    }
-
-    @Override
-    public void moveRight(int x) {
-        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x() + x, location.y(), location.z()))) {
-            location.addX(x);
-        }
-    }
-
-    @Override
-    public void moveForward(int x) {
-        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x(), location.y() - x, location.z()))) {
-            location.addY(-x);
         }
     }
 
