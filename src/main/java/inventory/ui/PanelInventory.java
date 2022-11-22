@@ -45,12 +45,12 @@ public class PanelInventory extends JPanel {
     private void generateItems() {
         int width = inventory.getWidth();
 
-        for (int i = 0; i < inventory.getItems().length; i++) {
+        for (int i = 0; i < inventory.getItems().size(); i++) {
 
             int x = i % width;
             int y = i / width;
 
-            PanelSlot slot = new PanelSlot(sourceSlot, inventory.getItems()[i]);
+            PanelSlot slot = new PanelSlot(sourceSlot, inventory.getItems().get(i));
 
             slots.add(slot);
         }
@@ -62,7 +62,7 @@ public class PanelInventory extends JPanel {
 
         int width = inventory.getWidth();
 
-        for (int i = 0; i < inventory.getItems().length; i++) {
+        for (int i = 0; i < inventory.getItems().size(); i++) {
 
             int x = i % width;
             int y = i / width;

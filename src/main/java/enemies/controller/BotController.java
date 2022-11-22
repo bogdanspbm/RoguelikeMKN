@@ -18,7 +18,6 @@ public class BotController extends Controller {
 
         int xDirection = target.getLocation().x() - owner.getLocation().x();
         int yDirection = target.getLocation().y() - owner.getLocation().y();
-        System.out.println(yDirection);
 //        трусливое поведение
         if (xDirection <-100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
 
