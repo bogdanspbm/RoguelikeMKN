@@ -48,7 +48,7 @@ public class GameProcesser implements DrawableProvider {
         Enemy enemy = new Enemy();
         getWorld().addPawn(enemy);
         getWorld().addControllers(enemy.getController());
-        enemy.setLocation(new Vector3D(200, 100, 100));
+        enemy.setLocation(new Vector3D(500, 200, 100));
     }
 
     private void createWindow() {
