@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/content.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ItemDatabaseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ItemDatabaseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/objects/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/Slot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/inventory/slot.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/inventory/slot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/InventoryConsoleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventoryTests/InventoryConsoleTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -73,18 +74,16 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DatabaseTests">
-    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.InventoryWindow">
+    <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="databaseTests.*" />
+          <option name="PATTERN" value="inventoryTests.window.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="databaseTests" />
-      <option name="MAIN_CLASS_NAME" value="databaseTests.DatabaseTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,7 +152,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DatabaseTests" />
+        <item itemvalue="Application.InventoryWindow" />
+        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -196,5 +196,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

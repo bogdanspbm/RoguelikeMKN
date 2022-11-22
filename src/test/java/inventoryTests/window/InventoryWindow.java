@@ -5,7 +5,9 @@
 package inventoryTests.window;
 
 
+import exceptions.DatabaseException;
 import inventory.Inventory;
+import inventory.objects.Item;
 import inventory.ui.PanelInventory;
 
 public class InventoryWindow extends javax.swing.JFrame {
@@ -15,13 +17,17 @@ public class InventoryWindow extends javax.swing.JFrame {
 
     public InventoryWindow(Inventory inventory) {
         this.inventory = inventory;
-        initComponents();
+        try {
+            initComponents();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() throws DatabaseException {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pInventory = new PanelInventory(inventory);
@@ -58,7 +64,13 @@ public class InventoryWindow extends javax.swing.JFrame {
 
 
     public static void main(String[] args) {
-        InventoryWindow window = new InventoryWindow(new Inventory());
+        Inventory inventory = new Inventory();
+        InventoryWindow window = new InventoryWindow(inventory);
+
+        inventory.addItem(new Item(1, 5));
+
+        inventory.addItem(new Item(2, 1));
+
         window.setVisible(true);
     }
 

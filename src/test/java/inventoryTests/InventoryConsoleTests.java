@@ -12,7 +12,7 @@ public class InventoryConsoleTests {
 
     @Test
     public void itemAddTest() {
-        inventory.addItem(new Item(0, 5));
+        inventory.addItem(new Item(1, 5));
         Assert.assertEquals(1, inventory.getItemCount());
     }
 }

@@ -22,7 +22,7 @@ public class Inventory {
     private void generateInventory() {
         items = new ArrayList<>();
         for (int i = 0; i < width * height; i++) {
-            items.add(new Slot(null, i));
+            items.add(new Slot(null, i, true));
         }
     }
 
@@ -55,7 +55,7 @@ public class Inventory {
         Item slotItem = items.get(index).getItem();
 
         if (slotItem == null) {
-            slotItem = new Item(0, 0);
+            slotItem = new Item(item.getId(), 0);
         }
 
         int freeSpace = description.stackSize() - slotItem.getQuantity();
@@ -67,6 +67,7 @@ public class Inventory {
         for (int i : getChildrenIndexes(index, description)) {
             items.get(i).setItem(slotItem);
             items.get(i).setParentIndex(index);
+            items.get(i).setIsParent(index == i);
         }
     }
 
