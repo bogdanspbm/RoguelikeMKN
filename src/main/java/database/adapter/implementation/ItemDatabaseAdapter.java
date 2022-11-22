@@ -25,11 +25,12 @@ public class ItemDatabaseAdapter extends DatabaseAdapter {
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
+                String texture = resultSet.getString("texture_path");
                 int sizeX = resultSet.getInt("size_x");
                 int sizeY = resultSet.getInt("size_y");
                 int stackSize = resultSet.getInt("stack_size");
 
-                return new ItemDescription(id, stackSize, sizeX, sizeY, name);
+                return new ItemDescription(id, stackSize, sizeX, sizeY, name, texture);
             }
         } catch (SQLException e) {
             throw new DatabaseException("Database Exception: " + e.toString());

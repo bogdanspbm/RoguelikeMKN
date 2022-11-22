@@ -1,11 +1,18 @@
 package inventory.utils;
 
+import database.adapter.implementation.ItemDatabaseAdapter;
+import exceptions.DatabaseException;
 import inventory.objects.ItemDescription;
 
 public class ItemDescriptionProvider {
 
-    public ItemDescription getDescription(int id) {
-        ItemDescription res = new ItemDescription(0, 10, 2, 2, "Default");
-        return res;
+    ItemDatabaseAdapter adapter;
+
+    public ItemDescriptionProvider() throws DatabaseException {
+        adapter = new ItemDatabaseAdapter();
+    }
+
+    public ItemDescription getDescription(int id) throws DatabaseException {
+        return adapter.getItemByID(id);
     }
 }

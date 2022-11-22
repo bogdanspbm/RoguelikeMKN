@@ -27,14 +27,17 @@ public class Inventory {
     }
 
     public void addItem(Item item) {
+        try {
+            ItemDescriptionProvider descriptionProvider = new ItemDescriptionProvider();
+            ItemDescription itemDescription = descriptionProvider.getDescription(item.getId());
 
-        ItemDescriptionProvider descriptionProvider = new ItemDescriptionProvider();
-        ItemDescription itemDescription = descriptionProvider.getDescription(item.getId());
-
-        int freeIndex = findFreePlace(item.getId(), itemDescription);
-        while (item.getQuantity() > 0 && freeIndex != -1) {
-            addItemToSlot(item, freeIndex, itemDescription);
-            freeIndex = findFreePlace(item.getId(), itemDescription);
+            int freeIndex = findFreePlace(item.getId(), itemDescription);
+            while (item.getQuantity() > 0 && freeIndex != -1) {
+                addItemToSlot(item, freeIndex, itemDescription);
+                freeIndex = findFreePlace(item.getId(), itemDescription);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

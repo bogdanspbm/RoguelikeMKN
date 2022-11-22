@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/adapter/DatabaseAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ItemDatabaseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/content.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ItemDatabaseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ItemDatabaseAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/databaseTests/DatabaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/databaseTests/DatabaseTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
