@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/Slot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/RoguelikeMKN.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/DatabaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/databaseTests/DatabaseTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/objects/ItemDescription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/ui/PanelSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inventory/utils/ItemDescriptionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/NewJFrame.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/NewJFrame.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,23 +40,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/bogdan/Documents/GitHub/RoguelikeMKN",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bogdan/Documents/GitHub/RoguelikeMKN&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -70,23 +72,34 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InventoryConsoleTests">
-    <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
+  <component name="RunManager" selected="JUnit.DatabaseTests.databaseConnection">
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="inventoryTests.window.*" />
+          <option name="PATTERN" value="databaseTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="databaseTests" />
+      <option name="MAIN_CLASS_NAME" value="databaseTests.DatabaseTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="DatabaseTests.databaseConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="databaseTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="databaseTests" />
+      <option name="MAIN_CLASS_NAME" value="databaseTests.DatabaseTests" />
+      <option name="METHOD_NAME" value="databaseConnection" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,11 +152,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTests.databaseConnection" />
+        <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.InventoryConsoleTests" />
-        <item itemvalue="Application.InventoryWindow" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.InventoryUITests" />
-        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -186,21 +197,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/objects/animations/objects/TextureSource.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
