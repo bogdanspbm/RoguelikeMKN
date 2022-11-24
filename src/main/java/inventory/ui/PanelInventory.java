@@ -23,8 +23,6 @@ public class PanelInventory extends JPanel {
 
     HashMap<String, TextureSource> sourceMap = new HashMap<>();
 
-    List<PanelSlot> slots = new ArrayList<>();
-
     ItemDatabaseAdapter adapter;
 
     public PanelInventory(Inventory inventory) throws DatabaseException {
@@ -34,9 +32,6 @@ public class PanelInventory extends JPanel {
         initSources();
 
         initComponent();
-        generateItems();
-
-
     }
 
     private void initSources() {
@@ -74,24 +69,15 @@ public class PanelInventory extends JPanel {
         setBackground(new Color(100, 100, 100));
     }
 
-    private void generateItems() {
-        int width = inventory.getWidth();
-
-        for (int i = 0; i < inventory.getItems().size(); i++) {
-
-            int x = i % width;
-            int y = i / width;
-
-            PanelSlot slot = new PanelSlot(sourceSlot, inventory.getItems().get(i), getItemSource(inventory.getItems().get(i)));
-
-            slots.add(slot);
-        }
-    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        drawField(g);    
+    }
+
+    private void drawField(Graphics g) {
         int width = inventory.getWidth();
 
         for (int i = 0; i < inventory.getItems().size(); i++) {
@@ -100,16 +86,6 @@ public class PanelInventory extends JPanel {
             int y = i / width;
 
             g.drawImage(sourceSlot.getImage(), x * 32, y * 32, null);
-        }
-
-        for (int i = 0; i < inventory.getItems().size(); i++) {
-
-            int x = i % width;
-            int y = i / width;
-
-            if (inventory.getItems().get(i).getIsParent() && getItemSource(inventory.getItems().get(i)) != null) {
-                g.drawImage(getItemSource(inventory.getItems().get(i)).getImage(), x * 32, y * 32, null);
-            }
         }
     }
 }

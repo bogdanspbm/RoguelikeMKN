@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" afterDir="false" />
@@ -72,7 +70,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.InventoryWindow">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -141,8 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.InventoryWindow" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
