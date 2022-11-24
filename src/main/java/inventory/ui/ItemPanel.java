@@ -4,6 +4,8 @@ import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
 
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 public class ItemPanel extends JPanel {
 
@@ -26,6 +28,18 @@ public class ItemPanel extends JPanel {
 
     private void initComponents() {
 
+        addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                formMouseDragged(e);
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+            }
+
+        });
+
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 formMouseEntered(evt);
@@ -33,6 +47,14 @@ public class ItemPanel extends JPanel {
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 formMouseExited(evt);
+            }
+
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMouseClick(evt);
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                formMouseRelease(evt);
             }
         });
 
@@ -57,4 +79,20 @@ public class ItemPanel extends JPanel {
     private void formMouseExited(java.awt.event.MouseEvent evt) {
         parent.overlapItem(false, index, description);
     }
+
+    private void formMouseClick(java.awt.event.MouseEvent evt) {
+        parent.setDraggedItem(this);
+    }
+
+    private void formMouseRelease(java.awt.event.MouseEvent evt) {
+        parent.setDraggedItem(null);
+    }
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {
+        parent.dragItem(evt);
+    }
+
+
+
+
 }

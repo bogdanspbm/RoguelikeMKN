@@ -4,9 +4,8 @@ import database.adapter.implementation.ItemDatabaseAdapter;
 import exceptions.DatabaseException;
 import inventory.Inventory;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +15,9 @@ import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
 
-public class InventoryPanel extends javax.swing.JPanel {
+import javax.swing.*;
+
+public class InventoryPanel extends JPanel {
 
     Inventory inventory;
 
@@ -24,6 +25,8 @@ public class InventoryPanel extends javax.swing.JPanel {
 
     List<SlotPanel> slots;
     List<ItemPanel> items;
+
+    ItemPanel draggedItem;
 
     HashMap<String, TextureSource> sourceMap = new HashMap<>();
     HashMap<Integer, ItemDescription> descMap = new HashMap<>();
@@ -84,6 +87,10 @@ public class InventoryPanel extends javax.swing.JPanel {
         }
 
         return result;
+    }
+
+    public void setDraggedItem(ItemPanel item) {
+        draggedItem = item;
     }
 
     public void overlapItem(boolean enable, int index, ItemDescription description) {
@@ -169,5 +176,15 @@ public class InventoryPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(150, 150, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
     }
+
+
+    public void dragItem(java.awt.event.MouseEvent evt) {
+        if (draggedItem != null) {
+            int x = -getLocationOnScreen().x + evt.getXOnScreen();
+            int y = -getLocationOnScreen().y + evt.getYOnScreen();
+            draggedItem.setLocation(x, y);
+        }
+    }
+
 
 }
