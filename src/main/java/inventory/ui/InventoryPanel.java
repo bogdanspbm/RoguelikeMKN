@@ -14,6 +14,7 @@ import java.util.List;
 
 import inventory.objects.Item;
 import inventory.objects.ItemDescription;
+import inventory.objects.Slot;
 import objects.animations.objects.TextureSource;
 
 import javax.swing.*;
@@ -26,8 +27,6 @@ public class InventoryPanel extends JPanel {
 
     List<SlotPanel> slots;
     List<ItemPanel> items;
-
-    ItemPanel draggedItem;
 
     HashMap<String, TextureSource> sourceMap = new HashMap<>();
     HashMap<Integer, ItemDescription> descMap = new HashMap<>();
@@ -48,7 +47,8 @@ public class InventoryPanel extends JPanel {
         try {
             sourcesSlot.put("default", new TextureSource(new File("src/main/resources/inventory/slot.png")));
             sourcesSlot.put("overlapped", new TextureSource(new File("src/main/resources/inventory/slot_overlapped.png")));
-
+            sourcesSlot.put("free", new TextureSource(new File("src/main/resources/inventory/slot_free.png")));
+            sourcesSlot.put("blocked", new TextureSource(new File("src/main/resources/inventory/slot_blocked.png")));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +91,11 @@ public class InventoryPanel extends JPanel {
         return result;
     }
 
-    public void setDraggedItem(ItemPanel item) {
+    public void setDraggedItem(MouseEvent evt, ItemPanel item) {
+        if (item != null) {
+            dragX = evt.getXOnScreen() - item.getLocationOnScreen().x;
+            dragY = evt.getYOnScreen() - item.getLocationOnScreen().y;
+        }
         draggedItem = item;
     }
 
@@ -184,12 +188,47 @@ public class InventoryPanel extends JPanel {
     }
 
 
+    private ItemPanel draggedItem;
+    private int dragX, dragY;
+    private List<Integer> lastColored = new ArrayList<>();
+
     public void dragItem(java.awt.event.MouseEvent evt) {
         if (draggedItem != null) {
-            int x = -getLocationOnScreen().x + evt.getXOnScreen();
-            int y = -getLocationOnScreen().y + evt.getYOnScreen();
+            int x = -getLocationOnScreen().x + evt.getXOnScreen() - dragX;
+            int y = -getLocationOnScreen().y + evt.getYOnScreen() - dragY;
             draggedItem.setLocation(x, y);
+
+            int index = x / 32 + y / 32 * inventory.getWidth();
+            
+            clearCoveredSlots();
+            overlapCoveredSlots(index);
         }
+    }
+
+    private void clearCoveredSlots(){
+        for (int i : lastColored) {
+            slots.get(i).applySource("default");
+        }
+    }
+
+    private void overlapCoveredSlots(int index) {
+        List<Integer> children = getChildrenIndexes(index, draggedItem.getDescription());
+
+        String source = "free";
+        for (int i : children) {
+            Slot slot = inventory.getItems().get(i);
+
+            if (slot.getItem() != null) {
+                source = "blocked";
+                break;
+            }
+        }
+
+        for (int i : children) {
+            slots.get(i).applySource(source);
+        }
+
+        lastColored = children;
     }
 
 

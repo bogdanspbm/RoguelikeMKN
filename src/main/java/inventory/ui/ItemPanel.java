@@ -26,6 +26,10 @@ public class ItemPanel extends JPanel {
         this.index = index;
     }
 
+    public ItemDescription getDescription() {
+        return description;
+    }
+
     private void initComponents() {
 
         addMouseMotionListener(new MouseMotionListener() {
@@ -81,18 +85,17 @@ public class ItemPanel extends JPanel {
     }
 
     private void formMouseClick(java.awt.event.MouseEvent evt) {
-        parent.setDraggedItem(this);
+        parent.setDraggedItem(evt, this);
+        parent.overlapItem(false, index, description);
     }
 
     private void formMouseRelease(java.awt.event.MouseEvent evt) {
-        parent.setDraggedItem(null);
+        parent.setDraggedItem(evt, null);
     }
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {
         parent.dragItem(evt);
     }
-
-
 
 
 }
