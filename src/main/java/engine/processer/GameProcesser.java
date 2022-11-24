@@ -27,9 +27,9 @@ public class GameProcesser implements DrawableProvider {
         try {
             generateWorld();
             createPlayer();
-            createEnemy(0);
-            createEnemy(1);
-            createEnemy(2);
+            createEnemy("coward");//трусливый бот
+            createEnemy("aggressor");//агресивный бот
+            createEnemy("calm");//статичный бот
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,8 +44,8 @@ public class GameProcesser implements DrawableProvider {
         player.setLocation(new Vector3D(100, 100, 100));
     }
 
-    private void createEnemy(int i) throws CreationException {
-        Enemy enemy = new Enemy(i);
+    private void createEnemy(String typeOfBotsBehaviour) throws CreationException {
+        Enemy enemy = new Enemy(typeOfBotsBehaviour);
         getWorld().addPawn(enemy);
         getWorld().addControllers(enemy.getController());
         enemy.setLocation(new Vector3D(500, 200, 100));
