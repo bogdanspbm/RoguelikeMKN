@@ -8,6 +8,7 @@ package inventoryTests.window;
 import exceptions.DatabaseException;
 import inventory.Inventory;
 import inventory.objects.Item;
+import inventory.ui.InventoryPanel;
 import inventory.ui.PanelInventory;
 
 public class InventoryWindow extends javax.swing.JFrame {
@@ -26,35 +27,19 @@ public class InventoryWindow extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() throws DatabaseException {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pInventory = new PanelInventory(inventory);
+        pInventory = new InventoryPanel(inventory);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 400));
         setPreferredSize(new java.awt.Dimension(500, 400));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout pInventoryLayout = new javax.swing.GroupLayout(pInventory);
-        pInventory.setLayout(pInventoryLayout);
-        pInventoryLayout.setHorizontalGroup(
-                pInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
-        );
-        pInventoryLayout.setVerticalGroup(
-                pInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 100;
-        gridBagConstraints.ipady = 100;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(pInventory, gridBagConstraints);
@@ -74,6 +59,6 @@ public class InventoryWindow extends javax.swing.JFrame {
         window.setVisible(true);
     }
 
-    private javax.swing.JPanel pInventory;
+    private InventoryPanel pInventory;
 
 }
