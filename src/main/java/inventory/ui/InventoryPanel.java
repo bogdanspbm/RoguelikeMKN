@@ -4,6 +4,9 @@ import database.adapter.implementation.ItemDatabaseAdapter;
 import exceptions.DatabaseException;
 import inventory.Inventory;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +16,7 @@ import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
 
-public class InventoryPanel extends javax.swing.JPanel {
+public class InventoryPanel extends javax.swing.JPanel{
 
     Inventory inventory;
 
@@ -129,15 +132,9 @@ public class InventoryPanel extends javax.swing.JPanel {
         updateUI();
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         setBackground(new java.awt.Color(150, 150, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
 }

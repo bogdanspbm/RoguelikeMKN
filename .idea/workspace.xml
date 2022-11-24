@@ -185,12 +185,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/InventoryPanel.java</url>
-          <line>110</line>
+          <line>113</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/InventoryPanel.java</url>
-          <line>128</line>
+          <line>131</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
