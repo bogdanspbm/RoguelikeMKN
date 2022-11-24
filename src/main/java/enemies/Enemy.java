@@ -8,12 +8,10 @@ import player.animation.factory.PlayerAnimationComponentFactory;
 
 public class Enemy extends Pawn {
 
-    public int i;
-//    public Enemy(int i){
-//        this.i = i;
-//    }
-    public Enemy(int i) throws CreationException {
-        this.i = i;
+    public String typeOfBotsBehaviour;
+
+    public Enemy(String typeOfBotsBehaviour) throws CreationException {
+        this.typeOfBotsBehaviour = typeOfBotsBehaviour;
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
         animationComponent = animationComponentFactory.createAnimationComponent(this);
         createCollision();
@@ -22,7 +20,7 @@ public class Enemy extends Pawn {
 
     private void initEnemyController() throws CreationException {
         try {
-            controllerAdapter.setController(new BotController(i));
+            controllerAdapter.setController(new BotController(typeOfBotsBehaviour));
 
         } catch (Exception e) {
             throw new CreationException("Can't create PlayerController: \n" + e.toString());

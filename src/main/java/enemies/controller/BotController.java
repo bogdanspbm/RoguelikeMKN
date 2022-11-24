@@ -7,20 +7,20 @@ import static world.singleton.World.getWorld;
 
 public class BotController extends Controller {
 
-    public int i;
-    public BotController(int i) {
-        this.i = i;
+    public String typeOfBotsBehaviour;
+
+    public BotController(String typeOfBotsBehaviour) {
+        this.typeOfBotsBehaviour = typeOfBotsBehaviour;
     }
 
     @Override
     public void tick() {
         super.tick();
-        System.out.println(i);
         Pawn target = getWorld().getPlayerPawn(0);
         int xDirection = target.getLocation().x() - owner.getLocation().x();
         int yDirection = target.getLocation().y() - owner.getLocation().y();
         //        трусливый бот
-        if (i == 0) {
+        if (typeOfBotsBehaviour == "coward") {
             if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
 
                 if (xDirection != 0) {
@@ -31,12 +31,13 @@ public class BotController extends Controller {
                 }
                 owner.moveRight(xDirection);
                 owner.moveForward(yDirection);
+
             }
             if (xDirection < -10) {
                 owner.moveRight(-1);
             }
             if (xDirection > 10) {
-                owner.moveRight(-1);
+                owner.moveRight(1);
             }
             if (yDirection < -10) {
                 owner.moveForward(-1);
@@ -51,7 +52,7 @@ public class BotController extends Controller {
             }
         }
 //        агресивный бот
-        if (i == 1){
+        if (typeOfBotsBehaviour == "aggressor"){
             if (xDirection != 0) {
                 xDirection = xDirection / Math.abs(xDirection);
             }
@@ -62,7 +63,7 @@ public class BotController extends Controller {
             owner.moveForward(yDirection);
         }
 //        статичный бот
-        if (i == 2){
+        if (typeOfBotsBehaviour == "calm"){
             owner.setPrevLocation();
         }
     }
