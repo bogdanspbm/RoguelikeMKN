@@ -16,11 +16,11 @@ import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
 
-public class InventoryPanel extends javax.swing.JPanel{
+public class InventoryPanel extends javax.swing.JPanel {
 
     Inventory inventory;
 
-    TextureSource sourceSlot;
+    HashMap<String, TextureSource> sourcesSlot = new HashMap<>();
 
     List<SlotPanel> slots;
     List<ItemPanel> items;
@@ -41,7 +41,9 @@ public class InventoryPanel extends javax.swing.JPanel{
 
     private void initSources() {
         try {
-            sourceSlot = new TextureSource(new File("src/main/resources/inventory/slot.png"));
+            sourcesSlot.put("default", new TextureSource(new File("src/main/resources/inventory/slot.png")));
+            sourcesSlot.put("overlapped", new TextureSource(new File("src/main/resources/inventory/slot_overlapped.png")));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,6 +69,36 @@ public class InventoryPanel extends javax.swing.JPanel{
         }
 
         return null;
+    }
+
+    private List<Integer> getChildrenIndexes(int index, ItemDescription description) {
+        List<Integer> result = new ArrayList<>();
+        int width = inventory.getWidth();
+        int x = index % width;
+        int y = index / width;
+
+        for (int i = 0; i < description.sizeX(); i++) {
+            for (int k = 0; k < description.sizeY(); k++) {
+                result.add((x + i) + (y + k) * width);
+            }
+        }
+
+        return result;
+    }
+
+    public void overlapItem(boolean enable, int index, ItemDescription description) {
+        List<Integer> indexes = getChildrenIndexes(index, description);
+
+        for (int i : indexes) {
+            SlotPanel slot = slots.get(i);
+            if (enable) {
+                slot.applySource("overlapped");
+            } else {
+                slot.applySource("default");
+            }
+        }
+
+        updateUI();
     }
 
     private TextureSource getItemSource(Item item) {
@@ -97,7 +129,7 @@ public class InventoryPanel extends javax.swing.JPanel{
         int width = inventory.getWidth();
 
         for (int i = 0; i < inventory.getItems().size(); i++) {
-            SlotPanel slot = new SlotPanel(sourceSlot);
+            SlotPanel slot = new SlotPanel(sourcesSlot);
             slots.add(slot);
 
             int x = i % width;
@@ -119,7 +151,8 @@ public class InventoryPanel extends javax.swing.JPanel{
             Item item = inventory.getItems().get(i).getItem();
             if (item != null && inventory.getItems().get(i).getIsParent()) {
                 ItemDescription description = getItemDescription(item);
-                ItemPanel itemUI = new ItemPanel(getItemSource(item), description);
+                ItemPanel itemUI = new ItemPanel(getItemSource(item), description, this);
+                itemUI.setIndex(i);
                 items.add(itemUI);
 
                 int x = i % width;

@@ -1,14 +1,18 @@
 package inventory.ui;
 
 import objects.animations.objects.TextureSource;
+import utils.ImageUtils;
+
+import java.awt.*;
+import java.util.HashMap;
 
 
 public class SlotPanel extends javax.swing.JPanel {
 
-    private TextureSource source;
+    private HashMap<String, TextureSource> sources;
 
-    public SlotPanel(TextureSource source) {
-        this.source = source;
+    public SlotPanel(HashMap<String, TextureSource> sources) {
+        this.sources = sources;
         initComponents();
     }
 
@@ -21,8 +25,14 @@ public class SlotPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(32, 32));
         setLayout(new java.awt.GridBagLayout());
 
-        background.setIcon(new javax.swing.ImageIcon(source.getImage()));
+        background.setIcon(new javax.swing.ImageIcon(sources.get("default").getImage()));
         add(background, new java.awt.GridBagConstraints());
+    }
+
+    public void applySource(String source) {
+        if (sources.containsKey(source)) {
+            background.setIcon(new javax.swing.ImageIcon(sources.get(source).getImage()));
+        }
     }
 
 
