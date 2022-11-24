@@ -19,7 +19,7 @@ public class ItemPanel extends JPanel {
 
     private void initComponents() {
 
-        setOpaque(true);
+        setOpaque(false);
 
         background = new javax.swing.JLabel();
 

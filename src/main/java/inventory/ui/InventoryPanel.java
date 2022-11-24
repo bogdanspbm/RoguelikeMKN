@@ -114,7 +114,7 @@ public class InventoryPanel extends javax.swing.JPanel {
 
         for (int i = 0; i < inventory.getItems().size(); i++) {
             Item item = inventory.getItems().get(i).getItem();
-            if (item != null) {
+            if (item != null && inventory.getItems().get(i).getIsParent()) {
                 ItemDescription description = getItemDescription(item);
                 ItemPanel itemUI = new ItemPanel(getItemSource(item), description);
                 items.add(itemUI);
