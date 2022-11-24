@@ -4,6 +4,7 @@ import database.adapter.implementation.ItemDatabaseAdapter;
 import exceptions.DatabaseException;
 import inventory.Inventory;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
@@ -31,6 +32,7 @@ public class InventoryPanel extends JPanel {
     HashMap<String, TextureSource> sourceMap = new HashMap<>();
     HashMap<Integer, ItemDescription> descMap = new HashMap<>();
     ItemDatabaseAdapter adapter;
+
 
     public InventoryPanel(Inventory inventory) throws DatabaseException {
         this.inventory = inventory;
@@ -142,7 +144,9 @@ public class InventoryPanel extends JPanel {
             int x = i % width;
             int y = i / width;
 
-            add(slot, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32, 32));
+            slot.setBounds(x * 32, y * 32, 32, 32);
+            add(slot);
+            //add(slot, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32, 32));
         }
 
         updateUI();
@@ -165,7 +169,9 @@ public class InventoryPanel extends JPanel {
                 int x = i % width;
                 int y = i / width;
 
-                add(itemUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY()));
+                itemUI.setBounds(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY());
+                add(itemUI);
+                //add(itemUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY()));
             }
         }
 
@@ -174,7 +180,7 @@ public class InventoryPanel extends JPanel {
 
     private void initComponents() {
         setBackground(new java.awt.Color(150, 150, 150));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
     }
 
 
