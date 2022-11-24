@@ -9,7 +9,6 @@ import exceptions.DatabaseException;
 import inventory.Inventory;
 import inventory.objects.Item;
 import inventory.ui.InventoryPanel;
-import inventory.ui.PanelInventory;
 
 public class InventoryWindow extends javax.swing.JFrame {
 
@@ -50,11 +49,12 @@ public class InventoryWindow extends javax.swing.JFrame {
 
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
-        InventoryWindow window = new InventoryWindow(inventory);
 
         inventory.addItem(new Item(1, 5));
 
         inventory.addItem(new Item(2, 1));
+
+        InventoryWindow window = new InventoryWindow(inventory);
 
         window.setVisible(true);
     }
