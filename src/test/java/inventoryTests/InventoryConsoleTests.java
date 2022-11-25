@@ -30,7 +30,7 @@ public class InventoryConsoleTests {
     }
 
     @Test
-    public void itemMove() {
+    public void itemMoveTest() {
         inventory.addItem(new Item(2, 1));
 
         Assert.assertEquals(2, inventory.getItemByIndex(0).getId());
