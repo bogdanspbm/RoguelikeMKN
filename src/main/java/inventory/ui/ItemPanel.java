@@ -30,6 +30,10 @@ public class ItemPanel extends JPanel {
         return description;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
     private void initComponents() {
 
         addMouseMotionListener(new MouseMotionListener() {
@@ -90,6 +94,7 @@ public class ItemPanel extends JPanel {
     }
 
     private void formMouseRelease(java.awt.event.MouseEvent evt) {
+        parent.dragEnd(this);
         parent.setDraggedItem(evt, null);
     }
 

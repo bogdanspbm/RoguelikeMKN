@@ -190,6 +190,7 @@ public class InventoryPanel extends JPanel {
 
     private ItemPanel draggedItem;
     private int dragX, dragY;
+    private int overlapIndex;
     private List<Integer> lastColored = new ArrayList<>();
 
     public void dragItem(java.awt.event.MouseEvent evt) {
@@ -199,13 +200,14 @@ public class InventoryPanel extends JPanel {
             draggedItem.setLocation(x, y);
 
             int index = x / 32 + y / 32 * inventory.getWidth();
-            
+            overlapIndex = index;
+
             clearCoveredSlots();
             overlapCoveredSlots(index);
         }
     }
 
-    private void clearCoveredSlots(){
+    private void clearCoveredSlots() {
         for (int i : lastColored) {
             slots.get(i).applySource("default");
         }
@@ -215,13 +217,8 @@ public class InventoryPanel extends JPanel {
         List<Integer> children = getChildrenIndexes(index, draggedItem.getDescription());
 
         String source = "free";
-        for (int i : children) {
-            Slot slot = inventory.getItems().get(i);
-
-            if (slot.getItem() != null) {
-                source = "blocked";
-                break;
-            }
+        if (!canSwapDraggedItemTo(index)) {
+            source = "blocked";
         }
 
         for (int i : children) {
@@ -229,6 +226,39 @@ public class InventoryPanel extends JPanel {
         }
 
         lastColored = children;
+    }
+
+    private boolean canSwapDraggedItemTo(int index) {
+        List<Integer> children = getChildrenIndexes(index, draggedItem.getDescription());
+
+        for (int i : children) {
+            Slot slot = inventory.getItems().get(i);
+
+            if (slot.getItem() != null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void dragEnd(ItemPanel item) {
+        int width = inventory.getWidth();
+        int x = 0;
+        int y = 0;
+        if (canSwapDraggedItemTo(overlapIndex)) {
+            x = overlapIndex % width;
+            y = overlapIndex / width;
+
+            if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
+                item.setIndex(overlapIndex);
+            }
+        } else {
+            x = item.getIndex() % width;
+            y = item.getIndex() / width;
+        }
+        draggedItem.setLocation(x * 32, y * 32);
+        clearCoveredSlots();
     }
 
 

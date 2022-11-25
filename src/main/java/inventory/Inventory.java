@@ -15,8 +15,16 @@ public class Inventory {
     private int width = 10;
     private int height = 5;
 
+    ItemDescriptionProvider descriptionProvider;
+
     public Inventory() {
         generateInventory();
+
+        try {
+            descriptionProvider = new ItemDescriptionProvider();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void generateInventory() {
@@ -28,7 +36,6 @@ public class Inventory {
 
     public void addItem(Item item) {
         try {
-            ItemDescriptionProvider descriptionProvider = new ItemDescriptionProvider();
             ItemDescription itemDescription = descriptionProvider.getDescription(item.getId());
 
             int freeIndex = findFreePlace(item.getId(), itemDescription);
@@ -39,6 +46,54 @@ public class Inventory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean moveItemToSlot(int fromIndex, int toIndex) {
+        if (items.get(fromIndex).getItem() == null) {
+            return false;
+        }
+
+        int itemID = items.get(fromIndex).getItem().getId();
+
+        try {
+            ItemDescription description = descriptionProvider.getDescription(itemID);
+
+            if (checkFreeSlot(toIndex, description)) {
+                addItemToSlot(items.get(fromIndex).getItem(), toIndex, description);
+                clearSlots(getChildrenIndexes(fromIndex, description));
+                return true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    private void clearSlots(List<Integer> indexes) {
+        for (int i : indexes) {
+            items.get(i).setItem(null);
+        }
+    }
+
+    private boolean checkFreeSlot(int index, ItemDescription description) {
+        List<Integer> indexes = getChildrenIndexes(index, description);
+        boolean flag = true;
+
+        for (int el : indexes) {
+            if (el >= items.size()) {
+                flag = false;
+                break;
+            }
+
+            if (items.get(el).getItem() != null) {
+                flag = false;
+                break;
+            }
+        }
+
+        return flag;
     }
 
     private int findFreePlace(int id, ItemDescription description) {
@@ -84,7 +139,7 @@ public class Inventory {
                     break;
                 }
 
-                if (items.get(i).getItem() == null || items.get(i).getItem().getId() != id || items.get(i).getItem().getQuantity() >= description.stackSize()) {
+                if (items.get(el).getItem() == null || items.get(el).getItem().getId() != id || items.get(el).getItem().getQuantity() >= description.stackSize()) {
                     flag = false;
                     break;
                 }
@@ -102,20 +157,7 @@ public class Inventory {
         int index = -1;
 
         for (int i = 0; i < items.size(); i++) {
-            List<Integer> indexes = getChildrenIndexes(i, description);
-            boolean flag = true;
-
-            for (int el : indexes) {
-                if (el >= items.size()) {
-                    flag = false;
-                    break;
-                }
-
-                if (items.get(i).getItem() != null) {
-                    flag = false;
-                    break;
-                }
-            }
+            boolean flag = checkFreeSlot(i, description);
 
             if (flag) {
                 return i;
