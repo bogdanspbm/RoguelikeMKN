@@ -244,8 +244,7 @@ public class InventoryPanel extends JPanel {
 
     public void dragEnd(ItemPanel item) {
         int width = inventory.getWidth();
-        int x = 0;
-        int y = 0;
+        int x, y;
         if (canSwapDraggedItemTo(overlapIndex)) {
             x = overlapIndex % width;
             y = overlapIndex / width;
@@ -259,6 +258,10 @@ public class InventoryPanel extends JPanel {
         }
         draggedItem.setLocation(x * 32, y * 32);
         clearCoveredSlots();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
 

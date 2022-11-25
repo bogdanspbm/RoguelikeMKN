@@ -24,6 +24,17 @@ public class ItemPanel extends JPanel {
 
     public void setIndex(int index) {
         this.index = index;
+        setCount();
+    }
+
+    private void setCount() {
+        int count = parent.inventory.getItems().get(index).getItem().getQuantity();
+        if (count == 1) {
+            tCount.setVisible(false);
+        } else {
+            tCount.setVisible(true);
+            tCount.setText(count + "");
+        }
     }
 
     public ItemDescription getDescription() {
@@ -67,6 +78,7 @@ public class ItemPanel extends JPanel {
         });
 
         setOpaque(false);
+        java.awt.GridBagConstraints gridBagConstraints;
 
         background = new javax.swing.JLabel();
 
@@ -74,11 +86,32 @@ public class ItemPanel extends JPanel {
         setMinimumSize(new java.awt.Dimension(32 * description.sizeX(), 32 * description.sizeY()));
         setLayout(new java.awt.GridBagLayout());
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 2);
+
+        tCount = new javax.swing.JLabel();
+        tCount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        tCount.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        tCount.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tCount.setForeground(new java.awt.Color(255, 255, 255));
+        tCount.setText("1");
+        add(tCount, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+
         background.setIcon(new javax.swing.ImageIcon(source.getImage()));
-        add(background, new java.awt.GridBagConstraints());
+        add(background, gridBagConstraints);
     }
 
     private javax.swing.JLabel background;
+    private javax.swing.JLabel tCount;
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {
         parent.overlapItem(true, index, description);
