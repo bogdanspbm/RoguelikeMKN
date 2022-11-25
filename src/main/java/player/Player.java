@@ -1,6 +1,7 @@
 package player;
 
 import config.Config;
+import enums.EPawnStatus;
 import exceptions.CreationException;
 import exceptions.SetException;
 import interfaces.Controllable;
@@ -65,7 +66,19 @@ public class Player extends Pawn {
 
     @Override
     public void action() {
-
+        Thread attack = new Thread(new Runnable() {
+            public void run() //Этот метод будет выполняться в побочном потоке
+            {
+                try {
+                    setStatus(EPawnStatus.ATTACK);
+                    Thread.sleep(1000);
+                    setStatus(EPawnStatus.WALK);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        attack.start();
     }
 
 

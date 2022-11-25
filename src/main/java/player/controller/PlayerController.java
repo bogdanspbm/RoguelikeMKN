@@ -68,6 +68,12 @@ public class PlayerController extends Controller implements NativeKeyListener {
             case 23: {
                 // I
                 owner.openInventory();
+                break;
+            }
+            case 33: {
+                // F
+                owner.action();
+                break;
             }
             case 30: {
                 // A

@@ -34,6 +34,10 @@ public class PlayerAnimationComponentFactory extends AnimationComponentFactory {
             animations.put("knight_walk_up", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_up"));
             animations.put("knight_walk_left", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_left"));
             animations.put("knight_walk_right", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_right"));
+            animations.put("knight_attack_down", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_down"));
+            animations.put("knight_attack_up", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_up"));
+            animations.put("knight_attack_left", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_left"));
+            animations.put("knight_attack_right", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_right"));
         } catch (Exception e) {
             e.printStackTrace();
         }
