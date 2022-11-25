@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="" />
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="merge" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Engine" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -134,10 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InventoryUITests" />
+        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
+        <item itemvalue="JUnit.InventoryConsoleTests" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.InventoryWindow" />
-        <item itemvalue="JUnit.InventoryConsoleTests" />
-        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -166,6 +172,14 @@
       <workItem from="1669109163612" duration="1114000" />
       <workItem from="1669366891309" duration="15294000" />
     </task>
+    <task id="LOCAL-00001" summary="merge">
+      <created>1669395089195</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669395089195</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,25 +196,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/ItemPanel.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
 </project>
