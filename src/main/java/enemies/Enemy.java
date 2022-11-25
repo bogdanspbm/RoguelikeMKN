@@ -10,6 +10,7 @@ public class Enemy extends Pawn {
 
     public String typeOfBotsBehaviour;
 
+
     public Enemy(String typeOfBotsBehaviour) throws CreationException {
         this.typeOfBotsBehaviour = typeOfBotsBehaviour;
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
