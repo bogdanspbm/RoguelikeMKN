@@ -42,7 +42,7 @@ public class GameProcesser implements DrawableProvider {
     private void createPlayer() throws CreationException {
         Player player = new Player();
         getWorld().addPawn(player);
-        player.setLocation(new Vector3D(100, 100, 100));
+        player.setLocation(new Vector3D(100, 80, 100));
     }
 
     private void createEnemy(String typeOfBotsBehaviour) throws CreationException {
@@ -54,7 +54,7 @@ public class GameProcesser implements DrawableProvider {
                 enemy.setLocation(new Vector3D(400, 100, 100));
                 break;
             case ("aggressor"):
-                enemy.setLocation(new Vector3D(200, 200, 50));
+                enemy.setLocation(new Vector3D(500, 10, 50));
                 break;
             case ("calm"):
                 enemy.setLocation(new Vector3D(500, 200, 100));
