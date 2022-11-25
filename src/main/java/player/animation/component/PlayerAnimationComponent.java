@@ -20,17 +20,17 @@ public class PlayerAnimationComponent extends AnimationComponent {
     public Image getImage() {
         Vector3D velocity = owner.getVelocity();
         if(velocity.x() < -0.5){
-            return animations.get("walk_left").increment().getFrame();
+            return animations.get("knight_walk_left").increment().getFrame();
         }
         if(velocity.x() > 0.5){
-            return animations.get("walk_right").increment().getFrame();
+            return animations.get("knight_walk_right").increment().getFrame();
         }
         if(velocity.y() < -0.5){
-            return animations.get("walk_up").increment().getFrame();
+            return animations.get("knight_walk_up").increment().getFrame();
         }
         if(velocity.y() > 0.5){
-            return animations.get("walk_down").increment().getFrame();
+            return animations.get("knight_walk_down").increment().getFrame();
         }
-        return animations.get("idle").increment().getFrame();
+        return animations.get("knigt_idle").increment().getFrame();
     }
 }

@@ -15,7 +15,7 @@ public class Tile implements Drawable, Collidable {
 
 
     private Vector3D location;
-    private Vector3D rotation = new Vector3D(0, 0, 45);
+    private Vector3D rotation = new Vector3D(0, 0, 0);
     private TextureSource source;
 
     private Collision collision;
@@ -28,7 +28,7 @@ public class Tile implements Drawable, Collidable {
     }
 
     private void createCollision() {
-        collisionAdapter.setCollision(new BoxCollision(32, 32, 32));
+        collisionAdapter.setCollision(new BoxCollision(64, 64, 32));
     }
 
     @Override

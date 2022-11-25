@@ -26,11 +26,11 @@ public class GameProcesser implements DrawableProvider {
 
     public void start() {
         try {
-            //generateWorld();
+            generateWorld();
             createPlayer();
-            //createEnemy("coward");//трусливый бот
+            createEnemy("coward");//трусливый бот
             createEnemy("aggressor");//агресивный бот
-            //createEnemy("calm");//статичный бот
+            createEnemy("calm");//статичный бот
         } catch (Exception e) {
             e.printStackTrace();
         }
