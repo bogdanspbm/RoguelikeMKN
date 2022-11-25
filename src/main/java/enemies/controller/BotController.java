@@ -24,7 +24,6 @@ public class BotController extends Controller {
         //        трусливый бот
         if (typeOfBotsBehaviour == "coward") {
             if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
-
                 if (xDirection != 0) {
                     xDirection = xDirection / Math.abs(xDirection);
                 }
