@@ -3,6 +3,8 @@ package enemies.controller;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 
+import java.util.ArrayDeque;
+
 import static world.singleton.World.getWorld;
 
 public class BotController extends Controller {
@@ -31,24 +33,21 @@ public class BotController extends Controller {
                 }
                 owner.moveRight(xDirection);
                 owner.moveForward(yDirection);
-
             }
-            if (xDirection < -10) {
+            if (Math.abs(xDirection) == 100 || Math.abs(yDirection) == 100) {
+                owner.setPrevLocation();
+            }
+            if(xDirection <= 99 && xDirection >= 60){
                 owner.moveRight(-1);
             }
-            if (xDirection > 10) {
+            if(xDirection <= -60 && xDirection >= -99){
                 owner.moveRight(1);
             }
-            if (yDirection < -10) {
-                owner.moveForward(-1);
-            }
-            if (yDirection > 10) {
+            if(yDirection<= 99 && yDirection >=60){
                 owner.moveForward(1);
             }
-            if (Math.abs(xDirection) < 10 || Math.abs(yDirection) < 10) {
-//            owner.setPrevLocation();
-                owner.moveRight(0);
-                owner.moveForward(0);
+            if(yDirection>= -99 && yDirection <= -60){
+                owner.moveForward(-1);
             }
         }
 //        агресивный бот

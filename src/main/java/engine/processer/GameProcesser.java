@@ -23,6 +23,7 @@ import java.util.List;
 import static world.singleton.World.getWorld;
 
 public class GameProcesser implements DrawableProvider {
+
     public void start() {
         try {
             generateWorld();
@@ -48,7 +49,18 @@ public class GameProcesser implements DrawableProvider {
         Enemy enemy = new Enemy(typeOfBotsBehaviour);
         getWorld().addPawn(enemy);
         getWorld().addControllers(enemy.getController());
-        enemy.setLocation(new Vector3D(500, 200, 100));
+        switch (typeOfBotsBehaviour){
+            case("coward"):
+                enemy.setLocation(new Vector3D(400, 100, 100));
+                break;
+            case("aggressor"):
+                enemy.setLocation(new Vector3D(500, 200, 50));
+                break;
+            case("calm"):
+                enemy.setLocation(new Vector3D(500, 200, 100));
+                break;
+        }
+
     }
 
     private void createWindow() {
