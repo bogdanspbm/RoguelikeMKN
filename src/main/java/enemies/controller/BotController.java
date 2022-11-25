@@ -51,14 +51,19 @@ public class BotController extends Controller {
         }
 //        агресивный бот
         if (typeOfBotsBehaviour == "aggressor"){
-            if (xDirection != 0) {
-                xDirection = xDirection / Math.abs(xDirection);
+            if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
+                if (xDirection != 0) {
+                    xDirection = xDirection / Math.abs(xDirection);
+                }
+                if (yDirection != 0) {
+                    yDirection = -yDirection / Math.abs(yDirection);
+                }
+                owner.moveRight(xDirection);
+                owner.moveForward(yDirection);
             }
-            if (yDirection != 0) {
-                yDirection = -yDirection / Math.abs(yDirection);
+            if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
+                owner.setPrevLocation();
             }
-            owner.moveRight(xDirection);
-            owner.moveForward(yDirection);
         }
 //        статичный бот
         if (typeOfBotsBehaviour == "calm"){
