@@ -87,6 +87,25 @@ public class Inventory {
         return true;
     }
 
+    public void dropItem(int index) {
+        if (items.get(index).getItem() == null) {
+            return;
+        }
+
+        int itemId = items.get(index).getItem().getId();
+
+        try {
+            ItemDescription description = descriptionProvider.getDescription(itemId);
+            dropItem(index, description);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dropItem(int index, ItemDescription description) {
+        clearSlots(getChildrenIndexes(index, description));
+    }
+
     private void clearSlots(List<Integer> indexes) {
         for (int i : indexes) {
             items.get(i).setItem(null);

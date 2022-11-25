@@ -1,6 +1,7 @@
 package inventory.ui;
 
 import inventory.objects.ItemDescription;
+import inventory.ui.popup.ItemPopup;
 import objects.animations.objects.TextureSource;
 
 import javax.swing.*;
@@ -12,7 +13,10 @@ public class ItemPanel extends JPanel {
     private TextureSource source;
     private ItemDescription description;
     private InventoryPanel parent;
+
+    ItemPopup popup = null;
     private int index = 0;
+    private boolean wasDragged = false;
 
     public ItemPanel(int index, TextureSource source, ItemDescription description, InventoryPanel parent) {
         this.source = source;
@@ -69,11 +73,15 @@ public class ItemPanel extends JPanel {
             }
 
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                formMouseClick(evt);
+                formMousePressed(evt);
             }
 
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 formMouseRelease(evt);
+            }
+
+            public void mouseClicked(MouseEvent e) {
+                formMouseClick(e);
             }
         });
 
@@ -122,17 +130,43 @@ public class ItemPanel extends JPanel {
     }
 
     private void formMouseClick(java.awt.event.MouseEvent evt) {
-        parent.setDraggedItem(evt, this);
-        parent.overlapItem(false, index, description);
+        if (evt.getButton() == 3) {
+            openSelectionList(evt);
+        }
+    }
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {
+        if (evt.getButton() == 1) {
+            parent.setDraggedItem(evt, this);
+            parent.overlapItem(false, index, description);
+        }
     }
 
     private void formMouseRelease(java.awt.event.MouseEvent evt) {
-        parent.dragEnd(this);
-        parent.setDraggedItem(evt, null);
+        if (evt.getButton() == 1 && equals(parent.getDraggedItem()) && wasDragged) {
+            parent.dragEnd(this);
+            parent.setDraggedItem(evt, null);
+            wasDragged = false;
+        }
     }
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {
+        wasDragged = true;
         parent.dragItem(evt);
+    }
+
+    private void openSelectionList(java.awt.event.MouseEvent evt) {
+        popup = new ItemPopup(this);
+
+        int x = evt.getXOnScreen() - getLocationOnScreen().x;
+        int y = evt.getYOnScreen() - getLocationOnScreen().y;
+
+        popup.show(this, x, y);
+    }
+
+    public void dropItem() {
+        parent.getInventory().dropItem(index, description);
+        parent.update();
     }
 
 

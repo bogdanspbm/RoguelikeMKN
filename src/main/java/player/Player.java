@@ -67,4 +67,10 @@ public class Player extends Pawn {
     public void action() {
 
     }
+
+
+    @Override
+    public void openInventory() {
+
+    }
 }

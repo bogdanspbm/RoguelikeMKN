@@ -132,4 +132,9 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
             location.addY(-x);
         }
     }
+
+    @Override
+    public void openInventory(){
+
+    }
 }
