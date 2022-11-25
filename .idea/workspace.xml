@@ -65,7 +65,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InventoryWindow">
+  <component name="RunManager" selected="JUnit.InventoryConsoleTests">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -134,6 +134,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InventoryConsoleTests" />
         <item itemvalue="Application.InventoryWindow" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
@@ -163,7 +164,7 @@
       <workItem from="1669017079266" duration="1666000" />
       <workItem from="1669029313443" duration="7061000" />
       <workItem from="1669109163612" duration="1114000" />
-      <workItem from="1669366891309" duration="5752000" />
+      <workItem from="1669366891309" duration="6251000" />
     </task>
     <servers />
   </component>
