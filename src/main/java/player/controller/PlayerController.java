@@ -63,7 +63,18 @@ public class PlayerController extends Controller implements NativeKeyListener {
     @Override
     public void nativeKeyPressed(NativeKeyEvent nativeEvent) {
         // TODO: В будущем нужно подключить загрузку из настроек
+
         switch (nativeEvent.getKeyCode()) {
+            case 23: {
+                // I
+                owner.openInventory();
+                break;
+            }
+            case 33: {
+                // F
+                owner.action();
+                break;
+            }
             case 30: {
                 // A
                 leftPressed = true;

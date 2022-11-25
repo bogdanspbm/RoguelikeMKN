@@ -1,5 +1,6 @@
 package objects.animations.factory;
 
+import database.adapter.implementation.AnimationDatabaseAdapter;
 import exceptions.CreationException;
 import exceptions.SourceException;
 import objects.animations.component.AnimationComponent;
@@ -14,8 +15,15 @@ import java.util.HashMap;
 public abstract class AnimationComponentFactory {
     private HashMap<String, TextureSource> animationSources = new HashMap<>();
     protected HashMap<String, AnimationStructure> animations;
+    protected AnimationDatabaseAdapter animationDatabaseAdapter;
 
     public AnimationComponentFactory() {
+        try {
+            animationDatabaseAdapter = new AnimationDatabaseAdapter();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         initAnimations();
     }
 

@@ -1,6 +1,7 @@
 package objects.pawn;
 
 import engine.render.interfaces.Drawable;
+import enums.EPawnStatus;
 import interfaces.*;
 import inventory.interfaces.Inventory;
 import objects.animations.component.AnimationComponent;
@@ -29,6 +30,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 45);
     protected String name = "Pawn";
+
+    protected EPawnStatus status = EPawnStatus.WALK;
 
     protected boolean inJump = false;
 
@@ -131,5 +134,18 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
         if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x(), location.y() - x, location.z()))) {
             location.addY(-x);
         }
+    }
+
+    @Override
+    public void openInventory() {
+
+    }
+
+    public EPawnStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EPawnStatus status) {
+        this.status = status;
     }
 }

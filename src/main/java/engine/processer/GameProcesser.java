@@ -49,14 +49,14 @@ public class GameProcesser implements DrawableProvider {
         Enemy enemy = new Enemy(typeOfBotsBehaviour);
         getWorld().addPawn(enemy);
         getWorld().addControllers(enemy.getController());
-        switch (typeOfBotsBehaviour){
-            case("coward"):
+        switch (typeOfBotsBehaviour) {
+            case ("coward"):
                 enemy.setLocation(new Vector3D(400, 100, 100));
                 break;
-            case("aggressor"):
-                enemy.setLocation(new Vector3D(500, 200, 50));
+            case ("aggressor"):
+                enemy.setLocation(new Vector3D(200, 200, 50));
                 break;
-            case("calm"):
+            case ("calm"):
                 enemy.setLocation(new Vector3D(500, 200, 100));
                 break;
         }
@@ -106,7 +106,7 @@ public class GameProcesser implements DrawableProvider {
 
     private void generateWorld() throws IOException, CreationException {
         HashMap<String, TextureSource> sources = new HashMap<>();
-        sources.put("snow", new TextureSource(new File("src/main/resources/Sprites/Snow/ISO_Tile_Snow_01.png")));
+        sources.put("stone_a", new TextureSource(new File("src/main/resources/tiles/stone_a.png")));
 
         PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32, 8);
         int[][] map = generator.getMap();
@@ -115,8 +115,8 @@ public class GameProcesser implements DrawableProvider {
         StaticTileFactory factory = new StaticTileFactory(sources);
         for (int i = 0; i < 16; i++) {
             for (int k = 0; k < 16; k++) {
-                Tile tile = factory.createTile("snow");
-                tile.setLocation(new Vector3D(i * 128 - k * 64 - 128, k * 32 - 128, -map[i][k] * 2));
+                Tile tile = factory.createTile("stone_a");
+                tile.setLocation(new Vector3D(i * 64, k * 64, 0));
                 getWorld().addTile(tile);
             }
         }

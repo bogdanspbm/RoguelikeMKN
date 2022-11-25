@@ -128,6 +128,13 @@ public class World {
                 return true;
             }
         }
+        for (Pawn pawn : pawns) {
+            if (!pawn.getCollision().equals(collision)) {
+                if (collision.collide(pawn.getCollision(), location)) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }

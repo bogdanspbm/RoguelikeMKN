@@ -22,18 +22,25 @@ public class PlayerAnimationComponentFactory extends AnimationComponentFactory {
             throw new CreationException("Can't create PlayerAnimationComponent: \n" + e.toString());
         }
 
-        return new PlayerAnimationComponent(owner,animations);
+        return new PlayerAnimationComponent(owner, animations);
     }
 
     protected void initAnimations() {
         animations = new HashMap<>();
 
-        // TODO: Need to be saved in a database
-        animations.put("idle", new AnimationStructure("idle", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(1, 0, 1, 0),150));
-        animations.put("walk_down", new AnimationStructure("walk_down", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(0, 0, 2, 0),150));
-        animations.put("walk_up", new AnimationStructure("walk_up", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(0, 3, 2, 3),150));
-        animations.put("walk_left", new AnimationStructure("walk_left", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(0, 1, 2, 1),150));
-        animations.put("walk_right", new AnimationStructure("walk_right", "src/main/resources/animations/player/Character.png", new Dimension(48, 48), new Vector2DTimeline(0, 2, 2, 2),150));
+        try {
+            animations.put("knigt_idle", animationDatabaseAdapter.getAnimationStructureByName("knigt_idle"));
+            animations.put("knight_walk_down", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_down"));
+            animations.put("knight_walk_up", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_up"));
+            animations.put("knight_walk_left", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_left"));
+            animations.put("knight_walk_right", animationDatabaseAdapter.getAnimationStructureByName("knight_walk_right"));
+            animations.put("knight_attack_down", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_down"));
+            animations.put("knight_attack_up", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_up"));
+            animations.put("knight_attack_left", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_left"));
+            animations.put("knight_attack_right", animationDatabaseAdapter.getAnimationStructureByName("knight_attack_right"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // TODO: Needs a preview for animation view
     }

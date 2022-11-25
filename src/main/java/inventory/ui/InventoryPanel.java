@@ -39,8 +39,7 @@ public class InventoryPanel extends JPanel {
 
         initSources();
         initComponents();
-        generateItems();
-        generateSlots();
+        update();
     }
 
     private void initSources() {
@@ -77,6 +76,10 @@ public class InventoryPanel extends JPanel {
         return null;
     }
 
+
+    public ItemPanel getDraggedItem() {
+        return draggedItem;
+    }
 
     public void setDraggedItem(MouseEvent evt, ItemPanel item) {
         if (item != null) {
@@ -289,8 +292,7 @@ public class InventoryPanel extends JPanel {
             }
         } else if (isSimilarSlot(overlapIndex) && index != overlapIndex) {
             if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
-                generateItems();
-                generateSlots();
+                update();
             }
         } else {
             x = item.getIndex() % width;
@@ -298,6 +300,11 @@ public class InventoryPanel extends JPanel {
             draggedItem.setLocation(x * 32, y * 32);
         }
         clearCoveredSlots();
+    }
+
+    public void update(){
+        generateItems();
+        generateSlots();
     }
 
     public Inventory getInventory() {
