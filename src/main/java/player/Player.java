@@ -8,6 +8,7 @@ import interfaces.Controllable;
 import objects.collision.BoxCollision;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
+import objects.projectile.factory.MeleeProjectileFactory;
 import player.animation.component.PlayerAnimationComponent;
 import player.animation.factory.PlayerAnimationComponentFactory;
 import player.controller.PlayerController;
@@ -20,6 +21,7 @@ public class Player extends Pawn {
     public Player() throws CreationException {
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
         animationComponent = animationComponentFactory.createAnimationComponent(this);
+        projectileFactory = new MeleeProjectileFactory(this, "sword_splash");
         createCollision();
         initPlayerController();
     }
@@ -32,12 +34,8 @@ public class Player extends Pawn {
         }
     }
 
-    private void createCollision() throws CreationException {
-        try {
-            collisionAdapter.setCollision(new CylinderCollision(8, 16));
-        } catch (Exception e) {
-            throw new CreationException("Can't create Collision: \n" + e.toString());
-        }
+    private void createCollision() {
+        collisionAdapter.setCollision(new CylinderCollision(8, 16));
     }
 
     @Override
@@ -66,19 +64,22 @@ public class Player extends Pawn {
 
     @Override
     public void action() {
-        Thread attack = new Thread(new Runnable() {
-            public void run() //Этот метод будет выполняться в побочном потоке
-            {
-                try {
-                    setStatus(EPawnStatus.ATTACK);
-                    Thread.sleep(1000);
-                    setStatus(EPawnStatus.WALK);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (status != EPawnStatus.ATTACK) {
+            Thread attack = new Thread(new Runnable() {
+                public void run() //Этот метод будет выполняться в побочном потоке
+                {
+                    try {
+                        setStatus(EPawnStatus.ATTACK);
+                        projectileFactory.createProjectile();
+                        Thread.sleep(1000);
+                        setStatus(EPawnStatus.WALK);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
-        attack.start();
+            });
+            attack.start();
+        }
     }
 
 

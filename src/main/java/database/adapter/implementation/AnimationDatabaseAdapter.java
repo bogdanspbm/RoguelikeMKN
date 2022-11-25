@@ -42,7 +42,7 @@ public class AnimationDatabaseAdapter extends DatabaseAdapter {
         } catch (SQLException e) {
             throw new DatabaseException("Database Exception: " + e.toString());
         }
-        throw new DatabaseException("Database Exception: \n Empty result");
+        throw new DatabaseException("Database Exception: \n Empty result: " + name);
     }
 }
 

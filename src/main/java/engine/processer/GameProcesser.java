@@ -9,6 +9,7 @@ import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
 import objects.animations.objects.TextureSource;
 import objects.pawn.Pawn;
+import objects.projectile.Projectile;
 import player.Player;
 import structures.Vector3D;
 import world.Tile;
@@ -75,6 +76,7 @@ public class GameProcesser implements DrawableProvider {
 
         int i = 0;
         int j = 0;
+        int k = 0;
 
         while (i < getWorld().getTiles().size() && j < getWorld().getPawns().size()) {
             Tile tile = getWorld().getTiles().get(i);
@@ -99,6 +101,10 @@ public class GameProcesser implements DrawableProvider {
             Pawn pawn = getWorld().getPawns().get(j);
             res.add(pawn);
             j++;
+        }
+
+        for (Projectile projectile : getWorld().getProjectiles()) {
+            res.add(projectile);
         }
 
         return res;

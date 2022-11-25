@@ -1,8 +1,11 @@
 package interfaces;
 
+import objects.collision.Collision;
+import objects.projectile.Projectile;
+
 public interface Damageable {
 
-    public Collidable getCollision();
+    public Collision getCollision();
 
-    public void applyDamage(int value);
+    public void applyDamage(int value, Projectile instigator);
 }

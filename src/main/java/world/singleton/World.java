@@ -3,9 +3,12 @@ package world.singleton;
 import config.Config;
 import enemies.controller.BotController;
 import interfaces.Collidable;
+import interfaces.Damageable;
 import objects.collision.Collision;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
+import objects.projectile.Projectile;
+import objects.projectile.factory.ProjectileFactory;
 import player.controller.PlayerController;
 import structures.Vector3D;
 import world.Tile;
@@ -20,11 +23,14 @@ public class World {
     private List<Pawn> pawns = new ArrayList<>();
     private List<Tile> tiles = new ArrayList<>();
 
+    private List<Damageable> damageables = new ArrayList<>();
+
+    private List<Projectile> projectiles = new ArrayList<>();
+
     private List<Controller> controllers = new ArrayList<>();
 
     private World() {
-        startPhysics();
-        startControllers();
+        startTick();
     }
 
     public Pawn getPlayerPawn(int index) {
@@ -49,36 +55,26 @@ public class World {
         Collections.sort(tiles);
     }
 
-    private void startPhysics() {
-        Thread physics = new Thread(new Runnable() {
+    private void startTick() {
+        Thread tick = new Thread(new Runnable() {
             public void run() //Этот метод будет выполняться в побочном потоке
             {
                 while (true) {
                     pawns.forEach(pawn -> {
                         pawn.tryFall();
-                        // TODO: Потом нужно будет перенести все в Tick
                         pawn.tick();
                     });
-                    try {
-                        Thread.sleep((int) (1000 / Config.FRAME_RATE));
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        });
-        physics.start();    //Запуск потока
-    }
 
-    private void startControllers() {
-        Thread controller = new Thread(new Runnable() {
-            public void run() //Этот метод будет выполняться в побочном потоке
-            {
-                while (true) {
+                    projectiles.forEach(projectile -> {
+                        projectile.tick();
+                        projectileCollide(projectile);
+                    });
+
                     controllers.forEach(controller -> {
-                        // TODO: Потом нужно будет перенести все в Tick
                         controller.tick();
                     });
+
+
                     try {
                         Thread.sleep((int) (1000 / Config.FRAME_RATE));
                     } catch (InterruptedException e) {
@@ -87,7 +83,7 @@ public class World {
                 }
             }
         });
-        controller.start();    //Запуск потока
+        tick.start();    //Запуск потока
     }
 
 
@@ -112,14 +108,35 @@ public class World {
 
     public void addPawn(Pawn pawn) {
         pawns.add(pawn);
+        damageables.add(pawn);
+    }
+
+    public void addProjectile(Projectile projectile) {
+        projectiles.add(projectile);
     }
 
     public List<Pawn> getPawns() {
         return pawns;
     }
 
+    public List<Projectile> getProjectiles() {
+        return projectiles;
+    }
+
     public List<Tile> getTiles() {
         return tiles;
+    }
+
+    public void projectileCollide(Projectile projectile) {
+        for (Damageable damageable : damageables) {
+            if (!projectile.hasDamaged(damageable)) {
+                Collision collision = damageable.getCollision();
+                if (collision.collide(projectile.getCollision())) {
+                    damageable.applyDamage(projectile.getDamage(), projectile);
+                    projectile.addDamaged(damageable);
+                }
+            }
+        }
     }
 
     public boolean checkCollides(Collision collision, Vector3D location) {
@@ -128,6 +145,7 @@ public class World {
                 return true;
             }
         }
+
         for (Pawn pawn : pawns) {
             if (!pawn.getCollision().equals(collision)) {
                 if (collision.collide(pawn.getCollision(), location)) {

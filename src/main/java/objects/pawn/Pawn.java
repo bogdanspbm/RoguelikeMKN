@@ -9,26 +9,27 @@ import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
 import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
+import objects.projectile.Projectile;
+import objects.projectile.factory.ProjectileFactory;
 import structures.Vector3D;
 
 import java.awt.*;
+import java.util.HashMap;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, Inventory, Controllable {
+public abstract class Pawn implements Drawable, Collidable, Physical, Damageable, Tickable, Inventory, Controllable {
 
 
     private Controller controller;
 
-    @Override
-    public boolean isInAir() {
-        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
-    }
+    protected int health = 100;
 
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
     protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 45);
+
     protected String name = "Pawn";
 
     protected EPawnStatus status = EPawnStatus.WALK;
@@ -39,6 +40,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
 
     protected inventory.Inventory inventory = new inventory.Inventory();
+
+    protected ProjectileFactory projectileFactory;
 
     @Override
     public void setCollision(Collision collision) {
@@ -95,7 +98,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {
             grphcs.drawImage(animationComponent.getImage(), location.x(), location.y() - location.z(), null);
-
         }
     }
 
@@ -137,6 +139,11 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     }
 
     @Override
+    public boolean isInAir() {
+        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
+    }
+
+    @Override
     public void openInventory() {
 
     }
@@ -147,5 +154,10 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
 
     public void setStatus(EPawnStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public void applyDamage(int value, Projectile instigator) {
+
     }
 }
