@@ -25,7 +25,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
 
     protected int health = 100;
 
-
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
     protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 45);
@@ -97,7 +96,7 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
     @Override
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), location.x(), location.y() - location.z(), null);
+            grphcs.drawImage(animationComponent.getImage(), location.x() - animationComponent.getImage().getWidth(null) / 2, (int) location.y() - animationComponent.getImage().getHeight(null) / 2, null);
         }
     }
 

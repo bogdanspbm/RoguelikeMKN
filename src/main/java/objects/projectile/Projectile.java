@@ -53,7 +53,18 @@ public abstract class Projectile implements Collidable, Drawable, Tickable {
     @Override
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), getLocation().x(), getLocation().y() - getLocation().z(), null);
+            Graphics2D graphics2D = (Graphics2D) grphcs;
+
+            double radianAngle = (double) getRotation().z() * Math.PI / 180f;
+
+            double x = getLocation().x() * Math.cos(radianAngle) - getLocation().y() * Math.sin(radianAngle);
+            double y = getLocation().x() * Math.sin(radianAngle) + getLocation().y() * Math.cos(radianAngle);
+
+            System.out.println(animationComponent.getImage().getWidth(null) / 2);
+
+            graphics2D.rotate(-radianAngle);
+            grphcs.drawImage(animationComponent.getImage(), (int) x - animationComponent.getImage().getWidth(null) / 2, (int) y - animationComponent.getImage().getHeight(null) / 2, null);
+            graphics2D.rotate(radianAngle);
         }
     }
 

@@ -33,7 +33,7 @@ public class Tile implements Drawable, Collidable {
 
     @Override
     public void draw(Graphics grphcs) {
-        grphcs.drawImage(source.getImage(), location.x() , location.y() - location.z(), null);
+        grphcs.drawImage(source.getImage(), location.x() - source.getImage().getWidth() / 2, location.y() - source.getImage().getHeight() / 2, null);
     }
 
     @Override

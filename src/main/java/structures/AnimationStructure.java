@@ -2,5 +2,5 @@ package structures;
 
 import java.awt.*;
 
-public record AnimationStructure(String name, String source, Dimension frameSize, Vector2DTimeline timeline, int timePerFrame) {
+public record AnimationStructure(String name, String source, Dimension frameSize, Vector2DTimeline timeline, int timePerFrame, boolean loop) {
 }
