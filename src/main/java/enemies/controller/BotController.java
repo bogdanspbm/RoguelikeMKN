@@ -64,6 +64,7 @@ public class BotController extends Controller {
             if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
                 owner.setPrevLocation();
             }
+
         }
 //        статичный бот
         if (typeOfBotsBehaviour == "calm"){
