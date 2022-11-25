@@ -65,11 +65,10 @@ public class BotController extends Controller {
                 owner.moveRight(xDirectionCatchUp);
                 owner.moveForward(yDirectionCatchUP);
             }
-            System.out.println(xDirection);
-            if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21) {
+            if (Math.abs(xDirection) <= 22 && Math.abs(yDirection) <= 22) {
                 owner.setStatus(EPawnStatus.ATTACK);
             }
-            if (Math.abs(xDirection) > 21 || Math.abs(yDirection) > 21 ){
+            if (Math.abs(xDirection) > 22 || Math.abs(yDirection) > 22 ){
                 owner.setStatus(EPawnStatus.WALK);
             }
         }
