@@ -25,8 +25,8 @@ public class InventoryPanel extends JPanel {
 
     HashMap<String, TextureSource> sourcesSlot = new HashMap<>();
 
-    List<SlotPanel> slots;
-    List<ItemPanel> items;
+    List<SlotPanel> slots = new ArrayList<>();
+    List<ItemPanel> items = new ArrayList<>();
 
     HashMap<String, TextureSource> sourceMap = new HashMap<>();
     HashMap<Integer, ItemDescription> descMap = new HashMap<>();
@@ -49,6 +49,7 @@ public class InventoryPanel extends JPanel {
             sourcesSlot.put("overlapped", new TextureSource(new File("src/main/resources/inventory/slot_overlapped.png")));
             sourcesSlot.put("free", new TextureSource(new File("src/main/resources/inventory/slot_free.png")));
             sourcesSlot.put("blocked", new TextureSource(new File("src/main/resources/inventory/slot_blocked.png")));
+            sourcesSlot.put("merge", new TextureSource(new File("src/main/resources/inventory/slot_merge.png")));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,20 +77,6 @@ public class InventoryPanel extends JPanel {
         return null;
     }
 
-    private List<Integer> getChildrenIndexes(int index, ItemDescription description) {
-        List<Integer> result = new ArrayList<>();
-        int width = inventory.getWidth();
-        int x = index % width;
-        int y = index / width;
-
-        for (int i = 0; i < description.sizeX(); i++) {
-            for (int k = 0; k < description.sizeY(); k++) {
-                result.add((x + i) + (y + k) * width);
-            }
-        }
-
-        return result;
-    }
 
     public void setDraggedItem(MouseEvent evt, ItemPanel item) {
         if (item != null) {
@@ -100,7 +87,7 @@ public class InventoryPanel extends JPanel {
     }
 
     public void overlapItem(boolean enable, int index, ItemDescription description) {
-        List<Integer> indexes = getChildrenIndexes(index, description);
+        List<Integer> indexes = inventory.getChildrenIndexes(index, description);
 
         for (int i : indexes) {
             SlotPanel slot = slots.get(i);
@@ -137,6 +124,11 @@ public class InventoryPanel extends JPanel {
     }
 
     private void generateSlots() {
+
+        for (SlotPanel slot : slots) {
+            remove(slot);
+        }
+
         slots = new ArrayList<>();
 
         int width = inventory.getWidth();
@@ -150,7 +142,6 @@ public class InventoryPanel extends JPanel {
 
             slot.setBounds(x * 32, y * 32, 32, 32);
             add(slot);
-            //add(slot, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32, 32));
         }
 
         updateUI();
@@ -158,6 +149,10 @@ public class InventoryPanel extends JPanel {
 
 
     private void generateItems() {
+        for (ItemPanel item : items) {
+            remove(item);
+        }
+
         items = new ArrayList<>();
 
         int width = inventory.getWidth();
@@ -166,7 +161,7 @@ public class InventoryPanel extends JPanel {
             Item item = inventory.getItems().get(i).getItem();
             if (item != null && inventory.getItems().get(i).getIsParent()) {
                 ItemDescription description = getItemDescription(item);
-                ItemPanel itemUI = new ItemPanel(getItemSource(item), description, this);
+                ItemPanel itemUI = new ItemPanel(i, getItemSource(item), description, this);
                 itemUI.setIndex(i);
                 items.add(itemUI);
 
@@ -175,12 +170,41 @@ public class InventoryPanel extends JPanel {
 
                 itemUI.setBounds(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY());
                 add(itemUI);
-                //add(itemUI, new org.netbeans.lib.awtextra.AbsoluteConstraints(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY()));
             }
         }
 
         updateUI();
     }
+
+    private void redrawItemFromSlot(int index) {
+
+        ItemPanel toRemove = null;
+
+        for (ItemPanel panel : items) {
+            if (panel.getIndex() == index) {
+                toRemove = panel;
+                remove(panel);
+            }
+        }
+
+        items.remove(toRemove);
+
+        Item item = inventory.getItems().get(index).getItem();
+        if (item != null && inventory.getItems().get(index).getIsParent()) {
+            int width = inventory.getWidth();
+            ItemDescription description = getItemDescription(item);
+            ItemPanel itemUI = new ItemPanel(index, getItemSource(item), description, this);
+            itemUI.setIndex(index);
+            items.add(itemUI);
+
+            int x = index % width;
+            int y = index / width;
+
+            itemUI.setBounds(x * 32, y * 32, 32 * description.sizeX(), 32 * description.sizeY());
+            add(itemUI);
+        }
+    }
+
 
     private void initComponents() {
         setBackground(new java.awt.Color(150, 150, 150));
@@ -214,10 +238,12 @@ public class InventoryPanel extends JPanel {
     }
 
     private void overlapCoveredSlots(int index) {
-        List<Integer> children = getChildrenIndexes(index, draggedItem.getDescription());
+        List<Integer> children = inventory.getChildrenIndexes(index, draggedItem.getDescription());
 
         String source = "free";
-        if (!canSwapDraggedItemTo(index)) {
+        if (isSimilarSlot(index)) {
+            source = "merge";
+        } else if (!canSwapDraggedItemTo(index)) {
             source = "blocked";
         }
 
@@ -228,8 +254,15 @@ public class InventoryPanel extends JPanel {
         lastColored = children;
     }
 
+    private boolean isSimilarSlot(int index) {
+        if (inventory.getItems().get(index).getItem() == null) {
+            return false;
+        }
+        return inventory.getItems().get(index).getItem().getId() == draggedItem.getDescription().id();
+    }
+
     private boolean canSwapDraggedItemTo(int index) {
-        List<Integer> children = getChildrenIndexes(index, draggedItem.getDescription());
+        List<Integer> children = inventory.getChildrenIndexes(index, draggedItem.getDescription());
 
         for (int i : children) {
             Slot slot = inventory.getItems().get(i);
@@ -245,18 +278,25 @@ public class InventoryPanel extends JPanel {
     public void dragEnd(ItemPanel item) {
         int width = inventory.getWidth();
         int x, y;
+        int index = item.getIndex();
         if (canSwapDraggedItemTo(overlapIndex)) {
             x = overlapIndex % width;
             y = overlapIndex / width;
+            draggedItem.setLocation(x * 32, y * 32);
 
             if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
                 item.setIndex(overlapIndex);
             }
+        } else if (isSimilarSlot(overlapIndex) && index != overlapIndex) {
+            if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
+                generateItems();
+                generateSlots();
+            }
         } else {
             x = item.getIndex() % width;
             y = item.getIndex() / width;
+            draggedItem.setLocation(x * 32, y * 32);
         }
-        draggedItem.setLocation(x * 32, y * 32);
         clearCoveredSlots();
     }
 

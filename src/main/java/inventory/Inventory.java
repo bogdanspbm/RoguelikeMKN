@@ -64,11 +64,27 @@ public class Inventory {
                 return true;
             }
 
+            if (checkSameSlot(toIndex, description)) {
+                return swapItemsFromSlots(fromIndex, toIndex);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return false;
+    }
+
+    public boolean swapItemsFromSlots(int first, int second) {
+        if (items.get(first).getItem() == items.get(second).getItem()) {
+            return false;
+        }
+
+        Item tmp = items.get(first).getItem();
+        items.get(first).setItem(items.get(second).getItem());
+        items.get(second).setItem(tmp);
+
+        return true;
     }
 
     private void clearSlots(List<Integer> indexes) {
@@ -88,6 +104,44 @@ public class Inventory {
             }
 
             if (items.get(el).getItem() != null) {
+                flag = false;
+                break;
+            }
+        }
+
+        return flag;
+    }
+
+    private boolean checkEqualSlot(int index, ItemDescription description) {
+        List<Integer> indexes = getChildrenIndexes(index, description);
+        boolean flag = true;
+
+        for (int el : indexes) {
+            if (el >= items.size()) {
+                flag = false;
+                break;
+            }
+
+            if (items.get(el).getItem() == null || items.get(el).getItem().getId() != description.id() || items.get(el).getItem().getQuantity() >= description.stackSize()) {
+                flag = false;
+                break;
+            }
+        }
+
+        return flag;
+    }
+
+    private boolean checkSameSlot(int index, ItemDescription description) {
+        List<Integer> indexes = getChildrenIndexes(index, description);
+        boolean flag = true;
+
+        for (int el : indexes) {
+            if (el >= items.size()) {
+                flag = false;
+                break;
+            }
+
+            if (items.get(el).getItem() == null || items.get(el).getItem().getId() != description.id()) {
                 flag = false;
                 break;
             }
@@ -130,20 +184,7 @@ public class Inventory {
         int index = -1;
 
         for (int i = 0; i < items.size(); i++) {
-            List<Integer> indexes = getChildrenIndexes(i, description);
-            boolean flag = true;
-
-            for (int el : indexes) {
-                if (el >= items.size()) {
-                    flag = false;
-                    break;
-                }
-
-                if (items.get(el).getItem() == null || items.get(el).getItem().getId() != id || items.get(el).getItem().getQuantity() >= description.stackSize()) {
-                    flag = false;
-                    break;
-                }
-            }
+            boolean flag = checkEqualSlot(i, description);
 
             if (flag) {
                 return i;
@@ -167,17 +208,15 @@ public class Inventory {
         return index;
     }
 
-    private List<Integer> getChildrenIndexes(int index, ItemDescription description) {
+    public List<Integer> getChildrenIndexes(int index, ItemDescription description) {
         List<Integer> result = new ArrayList<>();
+        int width = getWidth();
+        int x = index % width;
+        int y = index / width;
 
-        int curX = index % width;
-        int curY = index / width;
         for (int i = 0; i < description.sizeX(); i++) {
             for (int k = 0; k < description.sizeY(); k++) {
-                int x = curX + i;
-                int y = curY + k;
-
-                result.add(x + y * width);
+                result.add((x + i) + (y + k) * width);
             }
         }
 

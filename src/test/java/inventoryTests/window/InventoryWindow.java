@@ -50,7 +50,7 @@ public class InventoryWindow extends javax.swing.JFrame {
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
 
-        inventory.addItem(new Item(1, 5));
+        inventory.addItem(new Item(1, 7));
 
         inventory.addItem(new Item(2, 1));
 

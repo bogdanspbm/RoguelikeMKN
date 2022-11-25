@@ -14,7 +14,7 @@ public class ItemPanel extends JPanel {
     private InventoryPanel parent;
     private int index = 0;
 
-    public ItemPanel(TextureSource source, ItemDescription description, InventoryPanel parent) {
+    public ItemPanel(int index, TextureSource source, ItemDescription description, InventoryPanel parent) {
         this.source = source;
         this.description = description;
         this.parent = parent;
