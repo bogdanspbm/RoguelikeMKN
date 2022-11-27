@@ -1,5 +1,7 @@
 package inventory;
 
+import interfaces.Observable;
+import interfaces.Observer;
 import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import inventory.objects.Slot;
@@ -8,9 +10,11 @@ import inventory.utils.ItemDescriptionProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory implements Observable {
 
     private List<Slot> items;
+
+    private Observer observer;
 
     private int width = 10;
     private int height = 5;
@@ -46,6 +50,8 @@ public class Inventory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        notifyObservers();
     }
 
     public boolean moveItemToSlot(int fromIndex, int toIndex) {
@@ -262,5 +268,24 @@ public class Inventory {
 
     public int getWidth() {
         return width;
+    }
+
+    @Override
+    public void registerObserver(Observer o) {
+        observer = o;
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        if (observer != null && observer.equals(o)) {
+            observer = null;
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+        if (observer != null) {
+            observer.update("Inventory Updated");
+        }
     }
 }

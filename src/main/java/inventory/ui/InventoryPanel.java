@@ -2,6 +2,7 @@ package inventory.ui;
 
 import database.adapter.implementation.ItemDatabaseAdapter;
 import exceptions.DatabaseException;
+import interfaces.Observer;
 import inventory.Inventory;
 
 import java.awt.*;
@@ -19,7 +20,7 @@ import objects.animations.objects.TextureSource;
 
 import javax.swing.*;
 
-public class InventoryPanel extends JPanel {
+public class InventoryPanel extends JPanel implements Observer {
 
     Inventory inventory;
 
@@ -35,6 +36,7 @@ public class InventoryPanel extends JPanel {
 
     public InventoryPanel(Inventory inventory) throws DatabaseException {
         this.inventory = inventory;
+        inventory.registerObserver(this);
         this.adapter = new ItemDatabaseAdapter();
 
         initSources();
@@ -311,10 +313,9 @@ public class InventoryPanel extends JPanel {
     public Inventory getInventory() {
         return inventory;
     }
-
-    public void publicPaintComponent(Graphics g) {
-        paintComponent(g);
+    
+    @Override
+    public void update(String message) {
+        update();
     }
-
-
 }

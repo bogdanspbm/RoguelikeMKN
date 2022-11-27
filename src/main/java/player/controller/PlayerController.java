@@ -7,6 +7,7 @@ import config.Config;
 import exceptions.CastException;
 import interfaces.Controllable;
 import inventory.Inventory;
+import inventory.objects.Item;
 import inventory.ui.InventoryPanel;
 import objects.controller.Controller;
 
@@ -35,6 +36,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
         super.setOwner(owner);
         try {
             inventoryPanel = new InventoryPanel(owner.getInventory());
+            inventoryPanel.setVisible(false);
             getControllers().notifyObservers();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +80,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
         switch (nativeEvent.getKeyCode()) {
             case 23: {
-                // I
+                //owner.getInventory().addItem(new Item(1, 1));
                 if (inventoryPanel != null) {
                     inventoryPanel.setVisible(!inventoryPanel.isVisible());
                 }
