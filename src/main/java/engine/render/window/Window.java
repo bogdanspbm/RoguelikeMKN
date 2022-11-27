@@ -32,8 +32,7 @@ public class Window extends JFrame implements Observer {
             public void run() //Этот метод будет выполняться в побочном потоке
             {
                 while (true) {
-                    renderPanel.updateUI();
-                    inventoryPanel.updateUI();
+                    frame.updateUI();
                     try {
                         Thread.sleep((int) (1000 / Config.FRAME_RATE));
                     } catch (InterruptedException e) {
@@ -53,13 +52,25 @@ public class Window extends JFrame implements Observer {
         setPreferredSize(new java.awt.Dimension(500, 300));
 
         frame = new JPanel();
+        frame.setLayout(new GridBagLayout());
+
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+
+        add(frame, gridBagConstraints);
     }
 
     public void createRenderPanel(DrawableProvider provider) {
         java.awt.GridBagConstraints gridBagConstraints;
 
         if (renderPanel != null) {
-            remove(renderPanel);
+            frame.remove(renderPanel);
         }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -70,7 +81,7 @@ public class Window extends JFrame implements Observer {
         gridBagConstraints.weighty = 1.0;
 
         renderPanel = new RenderPanel(provider);
-        add(renderPanel, gridBagConstraints);
+        frame.add(renderPanel, gridBagConstraints);
 
         drawInventoriesFromController();
 
@@ -83,15 +94,27 @@ public class Window extends JFrame implements Observer {
         if (inventoryPanel != null && renderPanel != null) {
             java.awt.GridBagConstraints gridBagConstraints;
 
-            inventoryPanel.setMinimumSize(new Dimension(320,160));
-            inventoryPanel.setPreferredSize(new Dimension(320,160));
+            inventoryPanel.setMinimumSize(new Dimension(320, 160));
+            inventoryPanel.setPreferredSize(new Dimension(320, 160));
 
             gridBagConstraints = new java.awt.GridBagConstraints();
             gridBagConstraints.gridx = 0;
             gridBagConstraints.gridy = 0;
 
 
-            add(inventoryPanel,gridBagConstraints);
+            frame.add(inventoryPanel, gridBagConstraints);
+
+            if (renderPanel != null) {
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 0;
+                gridBagConstraints.weightx = 1.0;
+                gridBagConstraints.weighty = 1.0;
+
+                frame.remove(renderPanel);
+                frame.add(renderPanel, gridBagConstraints);
+            }
         }
     }
 
