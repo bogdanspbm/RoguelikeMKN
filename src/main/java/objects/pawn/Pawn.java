@@ -142,11 +142,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
         return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
-    @Override
-    public void openInventory() {
-
-    }
-
     public EPawnStatus getStatus() {
         return status;
     }

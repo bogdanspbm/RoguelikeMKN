@@ -14,9 +14,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -165,7 +165,8 @@
       <workItem from="1669017079266" duration="1666000" />
       <workItem from="1669029313443" duration="7061000" />
       <workItem from="1669109163612" duration="1114000" />
-      <workItem from="1669366891309" duration="24149000" />
+      <workItem from="1669366891309" duration="25492000" />
+      <workItem from="1669544139374" duration="6967000" />
     </task>
     <servers />
   </component>
@@ -201,6 +202,10 @@
           <line>153</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

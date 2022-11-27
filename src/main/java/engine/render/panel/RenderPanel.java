@@ -2,6 +2,7 @@ package engine.render.panel;
 
 import engine.render.interfaces.DrawableProvider;
 import interfaces.Placeable;
+import inventory.ui.InventoryPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +14,7 @@ public class RenderPanel extends JPanel {
     public RenderPanel(DrawableProvider provider) {
         this.provider = provider;
     }
+
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -30,7 +32,6 @@ public class RenderPanel extends JPanel {
                 });
 
         g.translate(camera.getLocation().x() - getWidth() / 2, (camera.getLocation().y() - camera.getLocation().z()) - getHeight() / 2);
-
 
     }
 }

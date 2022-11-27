@@ -210,7 +210,8 @@ public class InventoryPanel extends JPanel {
 
 
     private void initComponents() {
-        setBackground(new java.awt.Color(150, 150, 150));
+        setOpaque(true);
+        //setBackground(new Color(20, 100, 20));
         setLayout(null);
     }
 
@@ -302,13 +303,17 @@ public class InventoryPanel extends JPanel {
         clearCoveredSlots();
     }
 
-    public void update(){
+    public void update() {
         generateItems();
         generateSlots();
     }
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public void publicPaintComponent(Graphics g) {
+        paintComponent(g);
     }
 
 

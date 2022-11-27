@@ -12,6 +12,4 @@ public interface Controllable {
 
     public void action();
 
-    public void openInventory();
-
 }

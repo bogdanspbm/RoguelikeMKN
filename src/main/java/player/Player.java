@@ -82,9 +82,4 @@ public class Player extends Pawn {
         }
     }
 
-
-    @Override
-    public void openInventory() {
-
-    }
 }

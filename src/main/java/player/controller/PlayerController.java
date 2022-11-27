@@ -6,9 +6,13 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import config.Config;
 import exceptions.CastException;
 import interfaces.Controllable;
+import inventory.Inventory;
+import inventory.ui.InventoryPanel;
 import objects.controller.Controller;
 
 import objects.pawn.Pawn;
+
+import static world.singleton.Controllers.getControllers;
 
 public class PlayerController extends Controller implements NativeKeyListener {
 
@@ -17,9 +21,11 @@ public class PlayerController extends Controller implements NativeKeyListener {
     private Boolean forwardPressed = false;
     private Boolean backPressed = false;
 
+    private InventoryPanel inventoryPanel = null;
 
     public PlayerController() {
         // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
+        getControllers().addPlayerController(this);
         GlobalScreen.addNativeKeyListener(this);
         startAxisEvents();
     }
@@ -27,6 +33,12 @@ public class PlayerController extends Controller implements NativeKeyListener {
     @Override
     public void setOwner(Pawn owner) {
         super.setOwner(owner);
+        try {
+            inventoryPanel = new InventoryPanel(owner.getInventory());
+            getControllers().notifyObservers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void startAxisEvents() {
@@ -67,7 +79,9 @@ public class PlayerController extends Controller implements NativeKeyListener {
         switch (nativeEvent.getKeyCode()) {
             case 23: {
                 // I
-                owner.openInventory();
+                if (inventoryPanel != null) {
+                    inventoryPanel.setVisible(!inventoryPanel.isVisible());
+                }
                 break;
             }
             case 33: {
@@ -128,5 +142,9 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 break;
             }
         }
+    }
+
+    public InventoryPanel getInventoryPanel() {
+        return inventoryPanel;
     }
 }
