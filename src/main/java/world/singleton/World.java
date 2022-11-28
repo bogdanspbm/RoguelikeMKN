@@ -5,6 +5,7 @@ import enemies.controller.BotController;
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Damageable;
+import interfaces.Interactive;
 import inventory.factory.ItemFactory;
 import inventory.objects.Item;
 import objects.collision.Collision;
@@ -224,6 +225,18 @@ public class World {
 
         for (Projectile projectile : projectiles) {
             result.add(projectile);
+        }
+
+        return result;
+    }
+
+    public List<Interactive> getOverlappedInteractions(Pawn instigator) {
+        List<Interactive> result = new ArrayList<>();
+
+        for (Item item : items) {
+            if (item.hasOverlapped(instigator)) {
+                result.add(item);
+            }
         }
 
         return result;

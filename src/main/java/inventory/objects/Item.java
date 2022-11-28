@@ -80,7 +80,7 @@ public class Item extends Object implements Interactive {
         return overlappedMap.containsValue(true);
     }
 
-    private boolean hasOverlapped(Pawn instigator) {
+    public boolean hasOverlapped(Pawn instigator) {
         if (overlappedMap.containsKey(instigator)) {
             return overlappedMap.get(instigator);
         }

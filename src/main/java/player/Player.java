@@ -5,6 +5,7 @@ import enums.EPawnStatus;
 import exceptions.CreationException;
 import exceptions.SetException;
 import interfaces.Controllable;
+import interfaces.Interactive;
 import objects.collision.BoxCollision;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
@@ -56,7 +57,9 @@ public class Player extends Pawn {
 
     @Override
     public void interact() {
-
+        for (Interactive interactive : getWorld().getOverlappedInteractions(this)) {
+            interactive.interact(this);
+        }
     }
 
     @Override
