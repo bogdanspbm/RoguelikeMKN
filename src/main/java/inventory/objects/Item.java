@@ -30,5 +30,6 @@ public class Item extends Object implements Interactive {
     @Override
     public void interact(Pawn instigator) {
         Inventory inventory = instigator.getInventory();
+        inventory.addItem(this);
     }
 }

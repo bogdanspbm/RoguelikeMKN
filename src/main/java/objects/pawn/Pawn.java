@@ -40,8 +40,6 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     protected ProjectileFactory projectileFactory;
 
-    protected AnimationComponent animationComponent;
-
     @Override
     public void tryFall() {
         if (!inJump) {
@@ -64,12 +62,6 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
         return controller;
     }
 
-    @Override
-    public void draw(Graphics grphcs) {
-        if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), location.x() - animationComponent.getImage().getWidth(null) / 2, (int) location.y() - animationComponent.getImage().getHeight(null) / 2, null);
-        }
-    }
 
     @Override
     public Vector3D getVelocity() {

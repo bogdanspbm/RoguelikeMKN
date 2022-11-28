@@ -3,6 +3,8 @@ package objects;
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Placeable;
+import objects.animations.component.AnimationComponent;
+import objects.animations.objects.TextureSource;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
 import structures.Vector3D;
@@ -16,11 +18,22 @@ public abstract class Object implements Drawable, Placeable, Collidable {
 
     protected Collision collision;
 
+    protected TextureSource source;
+    protected AnimationComponent animationComponent;
+
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
     @Override
     public void draw(Graphics grphcs) {
+        if (source != null) {
+            grphcs.drawImage(source.getImage(), location.x() - source.getImage().getWidth() / 2, location.y() - source.getImage().getHeight() / 2, null);
+            return;
+        }
 
+        if (animationComponent != null) {
+            grphcs.drawImage(animationComponent.getImage(), location.x() - animationComponent.getImage().getWidth(null) / 2, (int) location.y() - animationComponent.getImage().getHeight(null) / 2, null);
+            return;
+        }
     }
 
     @Override
