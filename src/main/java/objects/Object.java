@@ -23,6 +23,15 @@ public abstract class Object implements Drawable, Placeable, Collidable {
 
     protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
+
+    public void setTextureSource(TextureSource source) {
+        this.source = source;
+    }
+
+    public void setAnimationComponent(AnimationComponent component) {
+        this.animationComponent = component;
+    }
+
     @Override
     public void draw(Graphics grphcs) {
         if (source != null) {

@@ -2,8 +2,11 @@ package world.singleton;
 
 import config.Config;
 import enemies.controller.BotController;
+import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Damageable;
+import inventory.factory.ItemFactory;
+import inventory.objects.Item;
 import objects.collision.Collision;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
@@ -28,6 +31,10 @@ public class World {
     private List<Projectile> projectiles = new ArrayList<>();
 
     private List<Controller> controllers = new ArrayList<>();
+
+    private List<Item> items = new ArrayList<>();
+
+    private ItemFactory itemFactory = new ItemFactory();
 
     private World() {
         startTick();
@@ -154,5 +161,53 @@ public class World {
             }
         }
         return false;
+    }
+
+    public Item createItem(int id, int quantity) {
+        Item result = itemFactory.createItem(id, quantity);
+        items.add(result);
+        return result;
+    }
+
+    public List<Drawable> getDrawables() {
+        List<Drawable> result = new ArrayList<>();
+
+        int i = 0;
+        int j = 0;
+
+        while (i < tiles.size() && j < pawns.size()) {
+            Tile tile = tiles.get(i);
+            Pawn pawn = pawns.get(j);
+
+            if (pawn.compareTo(tile) < 0) {
+                result.add(pawn);
+                j++;
+            } else {
+                result.add(tile);
+                i++;
+            }
+        }
+
+        while (i < tiles.size()) {
+            Tile tile = tiles.get(i);
+            result.add(tile);
+            i++;
+        }
+
+        while (j < pawns.size()) {
+            Pawn pawn = pawns.get(j);
+            result.add(pawn);
+            j++;
+        }
+
+        for (Item item : items) {
+            result.add(item);
+        }
+
+        for (Projectile projectile : projectiles) {
+            result.add(projectile);
+        }
+
+        return result;
     }
 }

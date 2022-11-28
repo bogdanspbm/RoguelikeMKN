@@ -28,10 +28,6 @@ public abstract class Projectile extends Object implements Tickable {
         initCollision();
     }
 
-    public void setAnimationComponent(AnimationComponent animationComponent) {
-        this.animationComponent = animationComponent;
-    }
-
     @Override
     public void draw(Graphics grphcs) {
         if (animationComponent != null) {

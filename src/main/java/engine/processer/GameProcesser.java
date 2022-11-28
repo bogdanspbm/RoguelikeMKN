@@ -70,46 +70,6 @@ public class GameProcesser implements DrawableProvider {
         window.setVisible(true);
     }
 
-    private List<Drawable> formDrawableList() {
-        List<Drawable> res = new ArrayList<>();
-
-
-        int i = 0;
-        int j = 0;
-        int k = 0;
-
-        while (i < getWorld().getTiles().size() && j < getWorld().getPawns().size()) {
-            Tile tile = getWorld().getTiles().get(i);
-            Pawn pawn = getWorld().getPawns().get(j);
-
-            if (pawn.compareTo(tile) < 0) {
-                res.add(pawn);
-                j++;
-            } else {
-                res.add(tile);
-                i++;
-            }
-        }
-
-        while (i < getWorld().getTiles().size()) {
-            Tile tile = getWorld().getTiles().get(i);
-            res.add(tile);
-            i++;
-        }
-
-        while (j < getWorld().getPawns().size()) {
-            Pawn pawn = getWorld().getPawns().get(j);
-            res.add(pawn);
-            j++;
-        }
-
-        for (Projectile projectile : getWorld().getProjectiles()) {
-            res.add(projectile);
-        }
-
-        return res;
-    }
-
     private void generateWorld() throws IOException, CreationException {
         HashMap<String, TextureSource> sources = new HashMap<>();
         sources.put("stone_a", new TextureSource(new File("src/main/resources/tiles/stone_a.png")));
@@ -139,6 +99,6 @@ public class GameProcesser implements DrawableProvider {
 
     @Override
     public List<Drawable> getDrawable() {
-        return formDrawableList();
+        return getWorld().getDrawables();
     }
 }
