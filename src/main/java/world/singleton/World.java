@@ -163,6 +163,17 @@ public class World {
         return false;
     }
 
+    // TODO: Don't like difference pawn and collision in input
+    public void updateOverlap(Pawn pawn) {
+        for (Item item : items) {
+            if (pawn.getCollision().collide(item.getCollision())) {
+                item.startOverlap(pawn);
+            } else {
+                item.stopOverlap(pawn);
+            }
+        }
+    }
+
     public Item createItem(int id, int quantity) {
         Item result = itemFactory.createItem(id, quantity);
         items.add(result);

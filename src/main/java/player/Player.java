@@ -39,21 +39,18 @@ public class Player extends Pawn {
     }
 
     @Override
-    public void jump() {
-        if (!inJump && !isInAir()) {
-            inJump = true;
-            Thread jump = new Thread(new Runnable() {
-                public void run() //Этот метод будет выполняться в побочном потоке
-                {
-                    try {
-                        Thread.sleep(jumpTime);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    inJump = false;
-                }
-            });
-            jump.start();    //Запуск потока
+    public void moveRight(int x) {
+        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x() + x, location.y(), location.z()))) {
+            location.addX(x);
+            getWorld().updateOverlap(this);
+        }
+    }
+
+    @Override
+    public void moveForward(int x) {
+        if (!getWorld().checkCollides(getCollision(), new Vector3D(location.x(), location.y() - x, location.z()))) {
+            location.addY(-x);
+            getWorld().updateOverlap(this);
         }
     }
 

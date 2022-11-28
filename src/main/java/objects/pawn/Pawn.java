@@ -112,4 +112,9 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
     public void applyDamage(int value, Projectile instigator) {
 
     }
+
+    @Override
+    public void jump() {
+
+    }
 }
