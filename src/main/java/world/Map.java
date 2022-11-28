@@ -63,6 +63,7 @@ public class Map {
                     tile = new Tile(textureDatabaseAdapter.getTextureByName("brick_hole_e"));
                 } else {
                     String name = getTileByNeighbor(i, k);
+                    System.out.println("name: " + name + " neib: " + getStoneNeigh(i, k));
                     tile = new Tile(textureDatabaseAdapter.getTextureByName(name));
                 }
                 tile.setType(types[i][k]);
@@ -85,7 +86,7 @@ public class Map {
 
         switch (holes) {
             case 0: {
-                return "stone_a";
+                return "brick_hole_e";
             }
             case 5: {
                 if (types[x + 1][y + 1] == ETileType.HOLE) {
@@ -122,6 +123,40 @@ public class Map {
                 }
 
                 return "brick_hole_e";
+            }
+            case 4: {
+                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.HOLE && types[x + 1][y] == ETileType.HOLE) {
+                    /*
+                    xxx oxx
+                    oxx oxx
+                    ooo oox
+                    */
+                    return "brick_hole_h";
+                }
+                if (types[x + 1][y - 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.HOLE && types[x - 1][y] == ETileType.HOLE) {
+                    /*
+                    xxo xxx
+                    xxo xxo
+                    xoo ooo
+                    */
+                    return "brick_hole_j";
+                }
+                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.HOLE && types[x + 1][y] == ETileType.HOLE) {
+                    /*
+                    ooo oox
+                    oxx oxx
+                    xxx oxx
+                    */
+                    return "brick_hole_a";
+                }
+                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.HOLE && types[x - 1][y] == ETileType.HOLE) {
+                    /*
+                    xoo ooo
+                    xxo xxo
+                    xxo xxx
+                    */
+                    return "brick_hole_c";
+                }
             }
             case 3: {
                 if (types[x][y - 1] == ETileType.STONE) {
