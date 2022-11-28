@@ -7,6 +7,7 @@ import engine.render.window.Window;
 import exceptions.CreationException;
 import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
+import inventory.objects.Item;
 import objects.animations.objects.TextureSource;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
@@ -24,11 +25,13 @@ import java.util.List;
 import static world.singleton.World.getWorld;
 
 public class GameProcesser implements DrawableProvider {
+    private Window window;
 
     public void start() {
         try {
             generateWorld();
             createPlayer();
+            createItems();
             createEnemy("coward");//трусливый бот
             createEnemy("aggressor");//агресивный бот
             createEnemy("calm");//статичный бот
@@ -38,7 +41,10 @@ public class GameProcesser implements DrawableProvider {
         createWindow();
     }
 
-    private Window window;
+    public void createItems() {
+        getWorld().createItem(1, 3).setLocation(new Vector3D(100, 50, 0));
+        getWorld().createItem(2, 1).setLocation(new Vector3D(100, 150, 0));
+    }
 
     private void createPlayer() throws CreationException {
         Player player = new Player();

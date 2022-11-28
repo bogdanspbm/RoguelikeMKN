@@ -169,8 +169,15 @@ public class World {
         return result;
     }
 
+    private void cleanItems() {
+        items.removeIf(item -> (item == null || item.getQuantity() == 0 || item.getId() == -1));
+    }
+
     public List<Drawable> getDrawables() {
         List<Drawable> result = new ArrayList<>();
+
+        // TODO: Remove from tick event
+        cleanItems();
 
         int i = 0;
         int j = 0;

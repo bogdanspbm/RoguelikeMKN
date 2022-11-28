@@ -12,10 +12,10 @@ public class ItemFactory {
 
     private ItemDatabaseAdapter itemDatabaseAdapter;
 
-    private HashMap<Integer, ItemDescription> descriptionMap;
-    private HashMap<String, TextureSource> textureSourceMap;
+    private HashMap<Integer, ItemDescription> descriptionMap = new HashMap<>();
+    private HashMap<String, TextureSource> textureSourceMap = new HashMap<>();
 
-    public void itemFactory() {
+    public ItemFactory() {
         try {
             itemDatabaseAdapter = new ItemDatabaseAdapter();
         } catch (Exception e) {
