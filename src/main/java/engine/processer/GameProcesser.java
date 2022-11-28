@@ -80,9 +80,6 @@ public class GameProcesser implements DrawableProvider {
         HashMap<String, TextureSource> sources = new HashMap<>();
         sources.put("stone_a", new TextureSource(new File("src/main/resources/tiles/stone_a.png")));
 
-        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32, 8);
-        int[][] map = generator.getMap();
-
         // TODO: Перенести хранение тайлов в Database
         StaticTileFactory factory = new StaticTileFactory(sources);
         for (int i = 0; i < 16; i++) {
