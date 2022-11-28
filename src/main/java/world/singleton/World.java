@@ -15,6 +15,7 @@ import objects.projectile.Projectile;
 import objects.projectile.factory.ProjectileFactory;
 import player.controller.PlayerController;
 import structures.Vector3D;
+import world.Map;
 import world.Tile;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ import java.util.List;
 
 public class World {
     private volatile static World singleton;
+
+    private Map map;
 
     private List<Pawn> pawns = new ArrayList<>();
     private List<Tile> tiles = new ArrayList<>();
@@ -38,6 +41,9 @@ public class World {
     private ItemFactory itemFactory = new ItemFactory();
 
     private World() {
+        map = new Map(10);
+        tiles = map.getTiles();
+        sortTiles();
         startTick();
     }
 

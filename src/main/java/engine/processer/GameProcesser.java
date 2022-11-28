@@ -29,7 +29,6 @@ public class GameProcesser implements DrawableProvider {
 
     public void start() {
         try {
-            generateWorld();
             createPlayer();
             createItems();
             createEnemy("coward");//трусливый бот
@@ -75,25 +74,6 @@ public class GameProcesser implements DrawableProvider {
         window.createRenderPanel(this);
         window.setVisible(true);
     }
-
-    private void generateWorld() throws IOException, CreationException {
-        HashMap<String, TextureSource> sources = new HashMap<>();
-        sources.put("stone_a", new TextureSource(new File("src/main/resources/tiles/stone_a.png")));
-
-        // TODO: Перенести хранение тайлов в Database
-        StaticTileFactory factory = new StaticTileFactory(sources);
-        for (int i = 0; i < 16; i++) {
-            for (int k = 0; k < 16; k++) {
-                Tile tile = factory.createTile("stone_a");
-                tile.setLocation(new Vector3D(i * 64, k * 64, 0));
-                getWorld().addTile(tile);
-            }
-        }
-
-
-        getWorld().sortTiles();
-    }
-
 
     @Override
     public Placeable getCamera() {
