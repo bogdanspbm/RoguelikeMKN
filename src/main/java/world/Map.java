@@ -570,7 +570,7 @@ public class Map {
                     xxx
                     xxx
                     */
-                    return "brick_hole_a";
+                    return "brick_hole_b";
                 }
                 if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
                      /*
@@ -578,7 +578,7 @@ public class Map {
                     xxo
                     xxx
                     */
-                    return "brick_corner_b";
+                    return "brick_hole_g";
                 }
                 if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
                      /*
@@ -586,7 +586,7 @@ public class Map {
                     xxo
                     xxo
                     */
-                    return "brick_corner_d";
+                    return "brick_hole_g";
                 }
                 if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
                      /*
