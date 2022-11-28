@@ -21,7 +21,7 @@ public class TextureDatabaseAdapter extends DatabaseAdapter {
         tableName = "textures";
     }
 
-    public TextureSource getTextureByName(String name) throws DatabaseException {
+    public TextureSource getTextureByName(String name) {
 
         if (sources.containsKey(name)) {
             return sources.get(name);
@@ -40,8 +40,9 @@ public class TextureDatabaseAdapter extends DatabaseAdapter {
                 return sources.get(name);
             }
         } catch (Exception e) {
-            throw new DatabaseException("Database Exception: " + e.toString());
+            e.printStackTrace();
         }
-        throw new DatabaseException("Database Exception: \n Empty result");
+
+        return null;
     }
 }

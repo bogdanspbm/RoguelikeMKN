@@ -1,6 +1,7 @@
 package world;
 
 import engine.render.interfaces.Drawable;
+import enums.ETileType;
 import exceptions.CreationException;
 import interfaces.Collidable;
 import objects.Object;
@@ -14,15 +15,20 @@ import java.awt.*;
 
 public class Tile extends Object {
 
+    protected ETileType type = ETileType.STONE;
+
     public Tile(TextureSource source) {
         this.source = source;
         createCollision();
     }
 
+    public void setType(ETileType type) {
+        this.type = type;
+    }
+
     private void createCollision() {
         collisionAdapter.setCollision(new BoxCollision(64, 64, 32));
     }
-
 
 
 }
