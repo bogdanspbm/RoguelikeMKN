@@ -41,7 +41,7 @@ public class World {
     private ItemFactory itemFactory = new ItemFactory();
 
     private World() {
-        map = new Map(10);
+        map = new Map(12);
         tiles = map.getTiles();
         sortTiles();
         startTick();

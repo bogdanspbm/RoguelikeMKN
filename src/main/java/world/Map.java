@@ -445,7 +445,7 @@ public class Map {
                     return "brick_hole_j";
                 }
                 if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE && types[x + 1 ][y + 1] == ETileType.STONE) {
+                        types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
                     /*
                     ooo
                     oxx
@@ -454,7 +454,7 @@ public class Map {
                     return "brick_hole_a";
                 }
                 if (types[x + 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE && types[x + 1 ][y + 1] == ETileType.STONE) {
+                        types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
                     /*
                     ooo
                     xxo
@@ -482,8 +482,8 @@ public class Map {
                 }
             }
             case 3: {
-                if (types[x][y - 1] == ETileType.STONE && types[x+1][y - 1] == ETileType.STONE &&
-                        types[x-1][y - 1] == ETileType.STONE) {
+                if (types[x][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
+                        types[x - 1][y - 1] == ETileType.STONE) {
                     /*
                     xxx
                     xxx
@@ -500,8 +500,8 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y+1] == ETileType.STONE &&
-                        types[x + 1][y-1] == ETileType.STONE) {
+                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
+                        types[x + 1][y - 1] == ETileType.STONE) {
                     /*
                     xxo
                     xxo
@@ -509,8 +509,8 @@ public class Map {
                     */
                     return "brick_hole_g";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y+1] == ETileType.STONE &&
-                        types[x - 1][y-1] == ETileType.STONE) {
+                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
+                        types[x - 1][y - 1] == ETileType.STONE) {
                     /*
                     oxx
                     oxx
@@ -556,7 +556,7 @@ public class Map {
                 }
             }
             case 2: {
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y+1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
                      /*
                     oox
                     xxx
@@ -564,7 +564,7 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y+1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
                      /*
                     xoo
                     xxx
@@ -572,7 +572,7 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x+1][y] == ETileType.STONE) {
+                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
                      /*
                     xxo
                     xxo
@@ -580,7 +580,7 @@ public class Map {
                     */
                     return "brick_corner_b";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x+1][y-1] == ETileType.STONE) {
+                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
                      /*
                     xxx
                     xxo
@@ -588,7 +588,7 @@ public class Map {
                     */
                     return "brick_corner_d";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y-1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
                      /*
                     xxx
                     xxx
@@ -596,7 +596,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x-1][y-1] == ETileType.STONE) {
+                if (types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE) {
                      /*
                     xxx
                     xxx
@@ -604,7 +604,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x-1][y - 1] == ETileType.STONE && types[x-1][y] == ETileType.STONE) {
+                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
                      /*
                     xxx
                     oxx
@@ -612,7 +612,7 @@ public class Map {
                     */
                     return "brick_hole_d";
                 }
-                if (types[x-1][y] == ETileType.STONE && types[x-1][y+1] == ETileType.STONE) {
+                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
                      /*
                     oxx
                     oxx
@@ -678,7 +678,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x -1][y] == ETileType.STONE) {
+                if (types[x - 1][y] == ETileType.STONE) {
                      /*
                     xxx
                     oxx
@@ -727,7 +727,7 @@ public class Map {
 
         for (int i = 0; i < map.length; i++) {
             for (int k = 0; k < map[i].length; k++) {
-                if (i == 0 || k == 0 || i == map.length - 1 || k == map[i].length - 1) {
+                if (i == 0 || k == 0 || i == 1 || k == 1 || i == map.length - 1 || k == map[i].length - 1 || i == map.length - 2 || k == map[i].length - 2) {
                     types[i][k] = ETileType.HOLE;
                 } else {
                     if (map[i][k] < SEA_LEVEL) {
