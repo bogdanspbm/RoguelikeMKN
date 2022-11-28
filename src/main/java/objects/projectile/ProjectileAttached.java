@@ -12,7 +12,6 @@ public class ProjectileAttached extends Projectile {
 
     public ProjectileAttached(Pawn owner) {
         super(owner);
-
     }
 
     @Override

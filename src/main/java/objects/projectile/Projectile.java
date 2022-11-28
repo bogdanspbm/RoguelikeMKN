@@ -4,6 +4,7 @@ import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Damageable;
 import interfaces.Tickable;
+import objects.Object;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
@@ -13,17 +14,14 @@ import structures.Vector3D;
 import java.awt.*;
 import java.util.HashMap;
 
-public abstract class Projectile implements Collidable, Drawable, Tickable {
+public abstract class Projectile extends Object implements Tickable {
 
     protected Pawn owner;
-    protected Collision collision;
     protected AnimationComponent animationComponent;
 
     protected int damage = 10;
 
     protected HashMap<Damageable, Boolean> damageMap = new HashMap<>();
-
-    protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
 
     public Projectile(Pawn owner) {
         this.owner = owner;
@@ -32,22 +30,6 @@ public abstract class Projectile implements Collidable, Drawable, Tickable {
 
     public void setAnimationComponent(AnimationComponent animationComponent) {
         this.animationComponent = animationComponent;
-    }
-
-    @Override
-    public void setCollision(Collision collision) {
-        this.collision = collision;
-    }
-
-
-    @Override
-    public void setLocation(Vector3D location) {
-
-    }
-
-    @Override
-    public void setRotation(Vector3D rotation) {
-
     }
 
     @Override
@@ -66,11 +48,6 @@ public abstract class Projectile implements Collidable, Drawable, Tickable {
             grphcs.drawImage(animationComponent.getImage(), (int) x - animationComponent.getImage().getWidth(null) / 2, (int) y - animationComponent.getImage().getHeight(null) / 2, null);
             graphics2D.rotate(radianAngle);
         }
-    }
-
-    @Override
-    public Collision getCollision() {
-        return collision;
     }
 
     protected void initCollision() {

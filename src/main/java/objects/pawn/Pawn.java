@@ -4,6 +4,7 @@ import engine.render.interfaces.Drawable;
 import enums.EPawnStatus;
 import interfaces.*;
 import inventory.interfaces.Inventory;
+import objects.Object;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Drawable, Collidable, Physical, Damageable, Tickable, Inventory, Controllable {
+public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable {
 
 
     private Controller controller;
@@ -26,8 +27,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
     protected int health = 100;
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
-    protected Vector3D location = new Vector3D(0, 0, 0);
-    protected Vector3D rotation = new Vector3D(0, 0, 45);
 
     protected String name = "Pawn";
 
@@ -35,37 +34,13 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
 
     protected boolean inJump = false;
 
-    protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
 
     protected inventory.Inventory inventory = new inventory.Inventory();
 
     protected ProjectileFactory projectileFactory;
 
-    @Override
-    public void setCollision(Collision collision) {
-        this.collision = collision;
-    }
-
-    private Collision collision;
-
-
     protected AnimationComponent animationComponent;
-
-    @Override
-    public Vector3D getLocation() {
-        return location;
-    }
-
-    @Override
-    public Vector3D getRotation() {
-        return rotation;
-    }
-
-    @Override
-    public void setRotation(Vector3D rotation) {
-        this.rotation = rotation;
-    }
 
     @Override
     public void tryFall() {
@@ -80,10 +55,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
         }
     }
 
-    @Override
-    public void setLocation(Vector3D location) {
-        this.location = location;
-    }
 
     public void setController(Controller controller) {
         this.controller = controller;
@@ -98,11 +69,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Damageable
         if (animationComponent != null) {
             grphcs.drawImage(animationComponent.getImage(), location.x() - animationComponent.getImage().getWidth(null) / 2, (int) location.y() - animationComponent.getImage().getHeight(null) / 2, null);
         }
-    }
-
-    @Override
-    public Collision getCollision() {
-        return collision;
     }
 
     @Override

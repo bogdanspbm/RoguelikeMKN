@@ -2,9 +2,10 @@ package inventory.objects;
 
 import interfaces.Interactive;
 import inventory.Inventory;
+import objects.Object;
 import objects.pawn.Pawn;
 
-public class Item implements Interactive {
+public class Item extends Object implements Interactive {
     private int id;
     private int quantity;
 
@@ -21,7 +22,7 @@ public class Item implements Interactive {
         this.quantity = quantity;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
