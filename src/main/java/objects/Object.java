@@ -9,7 +9,7 @@ import structures.Vector3D;
 
 import java.awt.*;
 
-public class Object implements Drawable, Placeable, Collidable {
+public abstract class Object implements Drawable, Placeable, Collidable {
 
     protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 0);
