@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="add render map's border">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Map.java" afterDir="false" />
     </list>
@@ -171,6 +171,14 @@
       <workItem from="1669366891309" duration="24149000" />
       <workItem from="1669657827167" duration="1821000" />
     </task>
+    <task id="LOCAL-00001" summary="add render map's border">
+      <created>1669674816835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669674816835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +194,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add render map's border" />
+    <option name="LAST_COMMIT_MESSAGE" value="add render map's border" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
