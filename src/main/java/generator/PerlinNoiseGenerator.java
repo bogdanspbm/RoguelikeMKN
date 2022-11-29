@@ -13,7 +13,7 @@ public class PerlinNoiseGenerator {
     public int octaves = 8;
 
 
-    public PerlinNoiseGenerator(int resolution,int octaves) {
+    public PerlinNoiseGenerator(int resolution, int octaves) {
         this.resolution = resolution;
         this.octaves = octaves;
         random = new Random();
@@ -22,7 +22,7 @@ public class PerlinNoiseGenerator {
     }
 
     private float[] getPseudoRandomGradientVector(int x, int y) {
-        int v = (int) (((x * 1836311903L) ^ (y * 2971215073L) + 4807526976L) & 1023L);
+        int v = (int) (((x * 1836311903L) ^ (y * 2971215073L) + 4807526976L) & resolution - 1);
         v = permutationTable[v] & 3;
         switch (v) {
             case 0:
@@ -115,7 +115,7 @@ public class PerlinNoiseGenerator {
         for (int xx = 0; xx < resolution; xx++) {
             for (int yy = 0; yy < resolution; yy++) {
 
-                float newVal = noise(xx / 100f, yy / 100f,  0.5f);
+                float newVal = noise(xx / 100f, yy / 100f, 0.5f);
                 pixels[xx * resolution + yy] = (int) (newVal * 255 + 128) & 255;
             }
         }

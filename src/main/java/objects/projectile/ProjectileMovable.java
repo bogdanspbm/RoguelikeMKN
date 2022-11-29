@@ -12,9 +12,6 @@ public class ProjectileMovable extends Projectile {
         super(owner);
     }
 
-    Vector3D location = new Vector3D(0, 0, 0);
-    Vector3D rotation = new Vector3D(0, 0, 0);
-
     @Override
     public Vector3D getLocation() {
         return location;
@@ -27,6 +24,5 @@ public class ProjectileMovable extends Projectile {
 
     @Override
     public void tick() {
-
     }
 }

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="merge">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" afterDir="false" />
-    </list>
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,16 +165,7 @@
       <workItem from="1669029313443" duration="7061000" />
       <workItem from="1669109163612" duration="1114000" />
       <workItem from="1669366891309" duration="15294000" />
-      <workItem from="1669398847035" duration="6139000" />
     </task>
-    <task id="LOCAL-00001" summary="merge">
-      <created>1669395236302</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1669395236302</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,10 +181,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

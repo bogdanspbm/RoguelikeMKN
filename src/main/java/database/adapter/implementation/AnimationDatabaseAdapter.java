@@ -32,17 +32,18 @@ public class AnimationDatabaseAdapter extends DatabaseAdapter {
                 int sizeX = resultSet.getInt("size_x");
                 int sizeY = resultSet.getInt("size_y");
                 int timePerFrame = resultSet.getInt("time_per_frame");
-                int frame_a = resultSet.getInt("frame_a");
-                int frame_b = resultSet.getInt("frame_b");
-                int frame_c = resultSet.getInt("frame_c");
-                int frame_d = resultSet.getInt("frame_d");
+                int frameA = resultSet.getInt("frame_a");
+                int frameB = resultSet.getInt("frame_b");
+                int frameC = resultSet.getInt("frame_c");
+                int frameD = resultSet.getInt("frame_d");
+                boolean isLoop = resultSet.getBoolean("loop");
 
-                return new AnimationStructure(name, texture, new Dimension(sizeX, sizeY), new Vector2DTimeline(frame_a, frame_c, frame_b, frame_d), timePerFrame);
+                return new AnimationStructure(name, texture, new Dimension(sizeX, sizeY), new Vector2DTimeline(frameA, frameC, frameB, frameD), timePerFrame, isLoop);
             }
         } catch (SQLException e) {
             throw new DatabaseException("Database Exception: " + e.toString());
         }
-        throw new DatabaseException("Database Exception: \n Empty result");
+        throw new DatabaseException("Database Exception: \n Empty result: " + name);
     }
 }
 

@@ -11,6 +11,8 @@ public class Animation {
     TextureSource source;
     Vector2DTimeline timeline;
 
+    boolean loop = true;
+
     int timePerFrame = 1;
     int currentTime = 0;
     int currentFrame = 0;
@@ -21,14 +23,20 @@ public class Animation {
         return this;
     }
 
-    public Animation(TextureSource source, Vector2DTimeline timeline, int timePerFrame) {
+    public Animation(TextureSource source, Vector2DTimeline timeline, int timePerFrame, boolean loop) {
+        this.loop = loop;
         this.source = source;
         this.timeline = timeline;
         this.timePerFrame = timePerFrame;
     }
 
     public BufferedImage getFrame() {
-        Vector2D frameIndex = timeline.getTimeline().get(currentFrame % timeline.getTimeline().size());
+        int curFrameIndex = currentFrame % timeline.getTimeline().size();
+        if (!loop && currentFrame >= timeline.getTimeline().size()) {
+            curFrameIndex = timeline.getTimeline().size() - 1;
+        }
+
+        Vector2D frameIndex = timeline.getTimeline().get(curFrameIndex);
         return source.getFrame(frameIndex.x(), frameIndex.y());
     }
 }

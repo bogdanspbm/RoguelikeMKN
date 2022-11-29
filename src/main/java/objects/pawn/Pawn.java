@@ -4,66 +4,41 @@ import engine.render.interfaces.Drawable;
 import enums.EPawnStatus;
 import interfaces.*;
 import inventory.interfaces.Inventory;
+import objects.Object;
 import objects.animations.component.AnimationComponent;
 import objects.collision.Collision;
 import objects.collision.CollisionAdapter;
 import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
+import objects.projectile.Projectile;
+import objects.projectile.factory.ProjectileFactory;
 import structures.Vector3D;
 
 import java.awt.*;
+import java.util.HashMap;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, Inventory, Controllable {
+public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable {
 
 
     private Controller controller;
 
-    @Override
-    public boolean isInAir() {
-        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
-    }
-
+    protected int health = 100;
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
-    protected Vector3D location = new Vector3D(0, 0, 0);
-    protected Vector3D rotation = new Vector3D(0, 0, 45);
+
     protected String name = "Pawn";
 
     protected EPawnStatus status = EPawnStatus.WALK;
 
     protected boolean inJump = false;
 
-    protected CollisionAdapter collisionAdapter = new CollisionAdapter(this);
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
 
     protected inventory.Inventory inventory = new inventory.Inventory();
 
-    @Override
-    public void setCollision(Collision collision) {
-        this.collision = collision;
-    }
-
-    private Collision collision;
-
-
-    protected AnimationComponent animationComponent;
-
-    @Override
-    public Vector3D getLocation() {
-        return location;
-    }
-
-    @Override
-    public Vector3D getRotation() {
-        return rotation;
-    }
-
-    @Override
-    public void setRotation(Vector3D rotation) {
-        this.rotation = rotation;
-    }
+    protected ProjectileFactory projectileFactory;
 
     @Override
     public void tryFall() {
@@ -78,10 +53,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
         }
     }
 
-    @Override
-    public void setLocation(Vector3D location) {
-        this.location = location;
-    }
 
     public void setController(Controller controller) {
         this.controller = controller;
@@ -91,18 +62,6 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
         return controller;
     }
 
-    @Override
-    public void draw(Graphics grphcs) {
-        if (animationComponent != null) {
-            grphcs.drawImage(animationComponent.getImage(), location.x(), location.y() - location.z(), null);
-
-        }
-    }
-
-    @Override
-    public Collision getCollision() {
-        return collision;
-    }
 
     @Override
     public Vector3D getVelocity() {
@@ -137,8 +96,8 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
     }
 
     @Override
-    public void openInventory() {
-
+    public boolean isInAir() {
+        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
     public EPawnStatus getStatus() {
@@ -147,5 +106,15 @@ public abstract class Pawn implements Drawable, Collidable, Physical, Tickable, 
 
     public void setStatus(EPawnStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public void applyDamage(int value, Projectile instigator) {
+
+    }
+
+    @Override
+    public void jump() {
+
     }
 }

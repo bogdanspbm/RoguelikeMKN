@@ -7,8 +7,10 @@ import engine.render.window.Window;
 import exceptions.CreationException;
 import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
+import inventory.objects.Item;
 import objects.animations.objects.TextureSource;
 import objects.pawn.Pawn;
+import objects.projectile.Projectile;
 import player.Player;
 import structures.Vector3D;
 import world.Tile;
@@ -23,11 +25,12 @@ import java.util.List;
 import static world.singleton.World.getWorld;
 
 public class GameProcesser implements DrawableProvider {
+    private Window window;
 
     public void start() {
         try {
-            generateWorld();
             createPlayer();
+            createItems();
             createEnemy("coward");//трусливый бот
             createEnemy("aggressor");//агресивный бот
             createEnemy("calm");//статичный бот
@@ -37,7 +40,10 @@ public class GameProcesser implements DrawableProvider {
         createWindow();
     }
 
-    private Window window;
+    public void createItems() {
+        getWorld().createItem(1, 3).setLocation(new Vector3D(100, 50, 0));
+        getWorld().createItem(2, 1).setLocation(new Vector3D(100, 150, 0));
+    }
 
     private void createPlayer() throws CreationException {
         Player player = new Player();
@@ -69,63 +75,6 @@ public class GameProcesser implements DrawableProvider {
         window.setVisible(true);
     }
 
-    private List<Drawable> formDrawableList() {
-        List<Drawable> res = new ArrayList<>();
-
-
-        int i = 0;
-        int j = 0;
-
-        while (i < getWorld().getTiles().size() && j < getWorld().getPawns().size()) {
-            Tile tile = getWorld().getTiles().get(i);
-            Pawn pawn = getWorld().getPawns().get(j);
-
-            if (pawn.compareTo(tile) < 0) {
-                res.add(pawn);
-                j++;
-            } else {
-                res.add(tile);
-                i++;
-            }
-        }
-
-        while (i < getWorld().getTiles().size()) {
-            Tile tile = getWorld().getTiles().get(i);
-            res.add(tile);
-            i++;
-        }
-
-        while (j < getWorld().getPawns().size()) {
-            Pawn pawn = getWorld().getPawns().get(j);
-            res.add(pawn);
-            j++;
-        }
-
-        return res;
-    }
-
-    private void generateWorld() throws IOException, CreationException {
-        HashMap<String, TextureSource> sources = new HashMap<>();
-        sources.put("stone_a", new TextureSource(new File("src/main/resources/tiles/stone_a.png")));
-
-        PerlinNoiseGenerator generator = new PerlinNoiseGenerator(32, 8);
-        int[][] map = generator.getMap();
-
-        // TODO: Перенести хранение тайлов в Database
-        StaticTileFactory factory = new StaticTileFactory(sources);
-        for (int i = 0; i < 16; i++) {
-            for (int k = 0; k < 16; k++) {
-                Tile tile = factory.createTile("stone_a");
-                tile.setLocation(new Vector3D(i * 64, k * 64, 0));
-                getWorld().addTile(tile);
-            }
-        }
-
-
-        getWorld().sortTiles();
-    }
-
-
     @Override
     public Placeable getCamera() {
         return getWorld().getPawns().get(0);
@@ -133,6 +82,6 @@ public class GameProcesser implements DrawableProvider {
 
     @Override
     public List<Drawable> getDrawable() {
-        return formDrawableList();
+        return getWorld().getDrawables();
     }
 }

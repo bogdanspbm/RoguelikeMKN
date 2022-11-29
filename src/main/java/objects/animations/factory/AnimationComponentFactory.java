@@ -35,7 +35,7 @@ public abstract class AnimationComponentFactory {
     protected HashMap<String, Animation> generateAnimationsFromSources() throws SourceException {
         generateAnimationSources();
         HashMap<String, Animation> result = new HashMap<>();
-        animations.forEach((s, animationStructure) -> result.put(s, new Animation(animationSources.get(animationStructure.source()), animationStructure.timeline(), animationStructure.timePerFrame())));
+        animations.forEach((s, animationStructure) -> result.put(s, new Animation(animationSources.get(animationStructure.source()), animationStructure.timeline(), animationStructure.timePerFrame(), animationStructure.loop())));
         return result;
     }
 
