@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 3 render map's border">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 4 render map's border">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Map.java" afterDir="false" />
@@ -193,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669728576962</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix 4 render map's border">
+      <created>1669735673122</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669735673122</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +221,8 @@
     <MESSAGE value="add render map's border" />
     <MESSAGE value="fix render map's border" />
     <MESSAGE value="fix 2 render map's border" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 2 render map's border" />
+    <MESSAGE value="fix 4 render map's border" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 4 render map's border" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
