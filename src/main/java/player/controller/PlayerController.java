@@ -91,6 +91,11 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 owner.interact();
                 break;
             }
+            case 34: {
+                // G
+                owner.action();
+                break;
+            }
             case 30: {
                 // A
                 leftPressed = true;
