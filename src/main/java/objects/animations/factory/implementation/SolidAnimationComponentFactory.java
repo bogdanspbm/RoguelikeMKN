@@ -28,7 +28,7 @@ public class SolidAnimationComponentFactory extends AnimationComponentFactory {
     }
 
     @Override
-    public AnimationComponent createAnimationComponent(Pawn owner) throws CreationException {
+    public AnimationComponent createAnimationComponent(Object owner) throws CreationException {
         HashMap<String, Animation> animations;
         try {
             animations = generateAnimationsFromSources();

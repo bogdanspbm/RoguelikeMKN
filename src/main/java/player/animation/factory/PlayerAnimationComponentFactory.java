@@ -14,15 +14,14 @@ import java.util.HashMap;
 
 public class PlayerAnimationComponentFactory extends AnimationComponentFactory {
     @Override
-    public AnimationComponent createAnimationComponent(Pawn owner) throws CreationException {
+    public AnimationComponent createAnimationComponent(Object owner) throws CreationException {
         HashMap<String, Animation> animations;
         try {
             animations = generateAnimationsFromSources();
+            return new PlayerAnimationComponent((Pawn) owner, animations);
         } catch (Exception e) {
             throw new CreationException("Can't create PlayerAnimationComponent: \n" + e.toString());
         }
-
-        return new PlayerAnimationComponent(owner, animations);
     }
 
     protected void initAnimations() {
