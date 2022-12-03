@@ -1,5 +1,6 @@
 package objects.projectile.factory;
 
+import objects.animations.component.AnimationComponent;
 import objects.animations.factory.implementation.SolidAnimationComponentFactory;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
@@ -21,7 +22,8 @@ public class MeleeProjectileFactory extends ProjectileFactory {
         ProjectileAttached projectile = new ProjectileAttached(owner);
         try {
             // TODO: Remove pawn from constructor?
-            projectile.setAnimationComponent(animationComponentFactory.createAnimationComponent(null));
+            AnimationComponent animationComponent = animationComponentFactory.createAnimationComponent(null);
+            projectile.setAnimationComponent(animationComponent);
         } catch (Exception e) {
             e.printStackTrace();
         }

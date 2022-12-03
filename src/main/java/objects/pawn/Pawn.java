@@ -12,6 +12,8 @@ import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
 import objects.projectile.Projectile;
 import objects.projectile.factory.ProjectileFactory;
+import params.ParamsComponent;
+import params.interfaces.Params;
 import structures.Vector3D;
 
 import java.awt.*;
@@ -19,12 +21,12 @@ import java.util.HashMap;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable {
+public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable, Params {
 
 
     private Controller controller;
 
-    protected int health = 100;
+    protected ParamsComponent paramsComponent = new ParamsComponent();
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
 
@@ -116,5 +118,10 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
     @Override
     public void jump() {
 
+    }
+
+    @Override
+    public ParamsComponent getParamsComponent() {
+        return paramsComponent;
     }
 }

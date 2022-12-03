@@ -17,7 +17,6 @@ import java.util.HashMap;
 public abstract class Projectile extends Object implements Tickable {
 
     protected Pawn owner;
-    protected AnimationComponent animationComponent;
 
     protected int damage = 10;
 
@@ -30,7 +29,7 @@ public abstract class Projectile extends Object implements Tickable {
 
     @Override
     public void draw(Graphics grphcs) {
-        if (animationComponent != null) {
+        if (this.animationComponent != null) {
             Graphics2D graphics2D = (Graphics2D) grphcs;
 
             double radianAngle = (double) getRotation().z() * Math.PI / 180f;
@@ -38,10 +37,8 @@ public abstract class Projectile extends Object implements Tickable {
             double x = getLocation().x() * Math.cos(radianAngle) - getLocation().y() * Math.sin(radianAngle);
             double y = getLocation().x() * Math.sin(radianAngle) + getLocation().y() * Math.cos(radianAngle);
 
-            System.out.println(animationComponent.getImage().getWidth(null) / 2);
-
             graphics2D.rotate(-radianAngle);
-            grphcs.drawImage(animationComponent.getImage(), (int) x - animationComponent.getImage().getWidth(null) / 2, (int) y - animationComponent.getImage().getHeight(null) / 2, null);
+            grphcs.drawImage(this.animationComponent.getImage(), (int) x - this.animationComponent.getImage().getWidth(null) / 2, (int) y - this.animationComponent.getImage().getHeight(null) / 2, null);
             graphics2D.rotate(radianAngle);
         }
     }
@@ -49,6 +46,7 @@ public abstract class Projectile extends Object implements Tickable {
     protected void initCollision() {
 
     }
+
 
     public int getDamage() {
         return damage;

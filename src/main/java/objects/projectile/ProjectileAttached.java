@@ -21,7 +21,8 @@ public class ProjectileAttached extends Projectile {
 
     @Override
     public Vector3D getLocation() {
-        return owner.getLocation();
+        Vector3D result = new Vector3D(owner.getLocation().x() + owner.getVelocity().x() * 20, owner.getLocation().y() + owner.getVelocity().y() * 20, owner.getLocation().z());
+        return result;
     }
 
     @Override

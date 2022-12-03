@@ -113,7 +113,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
             }
             case 57: {
                 // SPACE
-                owner.jump();
+                owner.action();
                 break;
             }
         }
