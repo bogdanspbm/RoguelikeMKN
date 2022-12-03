@@ -6,6 +6,7 @@ import engine.render.interfaces.DrawableProvider;
 import engine.render.panel.RenderPanel;
 import interfaces.Observer;
 import inventory.ui.InventoryPanel;
+import params.ui.HealthBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,12 +20,15 @@ public class Window extends JFrame implements Observer {
     RenderPanel renderPanel;
     InventoryPanel inventoryPanel;
 
+    HealthBar healthBar;
+
     JPanel frame;
 
     public Window() {
         initComponents();
         getControllers().registerObserver(this);
         drawInventoriesFromController();
+        drawHealthBarFromControllers();
     }
 
     private void startRender() {
@@ -84,6 +88,7 @@ public class Window extends JFrame implements Observer {
         frame.add(renderPanel, gridBagConstraints);
 
         drawInventoriesFromController();
+        drawHealthBarFromControllers();
 
         startRender();
     }
@@ -118,9 +123,43 @@ public class Window extends JFrame implements Observer {
         }
     }
 
+    private void drawHealthBarFromControllers() {
+        healthBar = getController(0).getHealthBar();
+        if (healthBar != null && renderPanel != null) {
+            java.awt.GridBagConstraints gridBagConstraints;
+
+            healthBar.setMinimumSize(new Dimension(204, 37));
+            healthBar.setPreferredSize(new Dimension(204, 37));
+
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.LAST_LINE_END;
+            gridBagConstraints.weightx = 1.0;
+            gridBagConstraints.weighty = 1.0;
+            gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+            gridBagConstraints.gridx = 0;
+            gridBagConstraints.gridy = 0;
+
+
+            frame.add(healthBar, gridBagConstraints);
+
+            if (renderPanel != null) {
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 0;
+                gridBagConstraints.weightx = 1.0;
+                gridBagConstraints.weighty = 1.0;
+
+                frame.remove(renderPanel);
+                frame.add(renderPanel, gridBagConstraints);
+            }
+        }
+    }
+
 
     @Override
     public void update(String message) {
         drawInventoriesFromController();
+        drawHealthBarFromControllers();
     }
 }

@@ -12,6 +12,7 @@ import inventory.ui.InventoryPanel;
 import objects.controller.Controller;
 
 import objects.pawn.Pawn;
+import params.ui.HealthBar;
 
 import static world.singleton.Controllers.getControllers;
 
@@ -23,6 +24,8 @@ public class PlayerController extends Controller implements NativeKeyListener {
     private Boolean backPressed = false;
 
     private InventoryPanel inventoryPanel = null;
+
+    private HealthBar healthBar = null;
 
     public PlayerController() {
         // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
@@ -37,6 +40,10 @@ public class PlayerController extends Controller implements NativeKeyListener {
         try {
             inventoryPanel = new InventoryPanel(owner.getInventory());
             inventoryPanel.setVisible(false);
+
+            healthBar = new HealthBar(owner.getParamsComponent());
+            healthBar.setVisible(true);
+
             getControllers().notifyObservers();
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,5 +155,9 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
     public InventoryPanel getInventoryPanel() {
         return inventoryPanel;
+    }
+
+    public HealthBar getHealthBar() {
+        return healthBar;
     }
 }
