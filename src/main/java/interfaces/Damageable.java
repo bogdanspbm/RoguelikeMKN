@@ -5,7 +5,7 @@ import objects.projectile.Projectile;
 
 public interface Damageable {
 
-    public Collision getCollision();
+    Collision getCollision();
 
-    public void applyDamage(int value, Projectile instigator);
+    void applyDamage(int value, Projectile instigator);
 }
