@@ -42,8 +42,4 @@ public class ProjectileAttached extends Projectile {
         return new Vector3D(0, 0, 0);
     }
 
-    @Override
-    public void tick() {
-
-    }
 }

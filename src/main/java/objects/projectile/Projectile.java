@@ -1,5 +1,6 @@
 package objects.projectile;
 
+import config.Config;
 import engine.render.interfaces.Drawable;
 import interfaces.Collidable;
 import interfaces.Damageable;
@@ -14,11 +15,16 @@ import structures.Vector3D;
 import java.awt.*;
 import java.util.HashMap;
 
+import static world.singleton.World.getWorld;
+
 public abstract class Projectile extends Object implements Tickable {
 
     protected Pawn owner;
 
     protected int damage = 10;
+
+    protected int lifeTime = 300;
+    protected int curTick = 0;
 
     protected HashMap<Damageable, Boolean> damageMap = new HashMap<>();
 
@@ -43,10 +49,25 @@ public abstract class Projectile extends Object implements Tickable {
         }
     }
 
+    @Override
+    public void tick() {
+        addTick();
+        checkDeath();
+    }
+
+    protected void addTick() {
+        curTick += 1000 / Config.FRAME_RATE;
+    }
+
+    protected void checkDeath() {
+        if (curTick > lifeTime) {
+            getWorld().deleteProjectile(this);
+        }
+    }
+
     protected void initCollision() {
 
     }
-
 
     public int getDamage() {
         return damage;

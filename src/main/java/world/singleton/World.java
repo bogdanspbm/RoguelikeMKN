@@ -21,6 +21,8 @@ import world.Tile;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class World {
     private volatile static World singleton;
@@ -32,7 +34,7 @@ public class World {
 
     private List<Damageable> damageables = new ArrayList<>();
 
-    private List<Projectile> projectiles = new ArrayList<>();
+    private Queue<Projectile> projectiles = new ConcurrentLinkedQueue<>();
 
     private List<Controller> controllers = new ArrayList<>();
 
@@ -133,12 +135,9 @@ public class World {
         return pawns;
     }
 
-    public List<Projectile> getProjectiles() {
-        return projectiles;
-    }
 
-    public List<Tile> getTiles() {
-        return tiles;
+    public void deleteProjectile(Projectile projectile) {
+        projectiles.remove(projectile);
     }
 
     public void projectileCollide(Projectile projectile) {
