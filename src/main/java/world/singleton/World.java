@@ -68,7 +68,7 @@ public class World {
         return lastPawn;
     }
 
-    public void sortTiles() {
+    private void sortTiles() {
         Collections.sort(tiles);
     }
 
@@ -117,11 +117,7 @@ public class World {
     public void addControllers(Controller controller) {
         controllers.add(controller);
     }
-
-
-    public void addTile(Tile tile) {
-        tiles.add(tile);
-    }
+    
 
     public void addPawn(Pawn pawn) {
         pawns.add(pawn);

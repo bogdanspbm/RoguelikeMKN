@@ -22,6 +22,7 @@ public class ItemPanel extends JPanel {
         this.source = source;
         this.description = description;
         this.parent = parent;
+        this.index = index;
 
         initComponents();
     }
