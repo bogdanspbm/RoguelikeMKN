@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T13:10:02.085Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="g-UW2hNp8mxbZs9cJidY" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T13:10:56.750Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="vupQoIwh6bftl2fzYFZc" type="github">
   <diagram id="2NQgb4t6hP0T2b-nkEPU" name="Страница 1">
     <mxGraphModel dx="1145" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -177,10 +177,10 @@
             <mxPoint x="410" y="580" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4xRq_VgAmx9nK0GuC6kj-90" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-6" target="4xRq_VgAmx9nK0GuC6kj-71">
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=block;endFill=0;dashed=1;endSize=10;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-6" target="4xRq_VgAmx9nK0GuC6kj-71">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4xRq_VgAmx9nK0GuC6kj-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-6" target="4xRq_VgAmx9nK0GuC6kj-87">
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;endArrow=block;endFill=0;endSize=10;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-6" target="4xRq_VgAmx9nK0GuC6kj-87">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="240" y="319" />
