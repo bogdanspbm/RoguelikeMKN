@@ -25,8 +25,6 @@ import static world.singleton.World.getWorld;
 public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable, Params {
 
 
-    private Controller controller;
-
     protected ParamsComponent paramsComponent = new ParamsComponent();
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
@@ -58,11 +56,11 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
 
     public void setController(Controller controller) {
-        this.controller = controller;
+        controllerAdapter.setController(controller);
     }
 
     public Controller getController() {
-        return controller;
+        return controllerAdapter.getController();
     }
 
 
