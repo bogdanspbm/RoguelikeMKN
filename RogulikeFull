@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T15:38:11.023Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="QqZkhTqQwO4pY8YYjaA0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T15:38:37.805Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="yLfSjb1ugfhRMadIHeLr" type="github">
   <diagram id="2NQgb4t6hP0T2b-nkEPU" name="Страница 1">
-    <mxGraphModel dx="743" dy="426" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1309" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -229,6 +229,9 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="800" y="2551.276595744681" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-355" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;dashed=1;startArrow=diamondThin;startFill=1;endArrow=open;endFill=0;startSize=10;endSize=10;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-102" target="4xRq_VgAmx9nK0GuC6kj-320">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-102" value="Pawn" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="620" y="1090" width="140" height="52" as="geometry" />
