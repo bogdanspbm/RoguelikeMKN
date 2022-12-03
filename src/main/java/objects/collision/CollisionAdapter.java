@@ -5,8 +5,8 @@ import interfaces.Collidable;
 import interfaces.Placeable;
 
 public class CollisionAdapter {
-    Collidable owner;
-    Collision collision;
+    private Collidable owner;
+    private Collision collision;
 
     public CollisionAdapter(Collidable owner) {
         this.owner = owner;
