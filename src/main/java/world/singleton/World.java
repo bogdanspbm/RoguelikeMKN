@@ -154,6 +154,11 @@ public class World {
     }
 
     public boolean checkCollides(Collision collision, Vector3D location) {
+
+        if (collision == null) {
+            return false;
+        }
+
         for (Tile tile : tiles) {
             if (collision.collide(tile.getCollision(), location)) {
                 return true;
@@ -172,6 +177,11 @@ public class World {
 
     // TODO: Don't like difference pawn and collision in input
     public void updateOverlap(Pawn pawn) {
+
+        if (pawn.getCollision() == null) {
+            return;
+        }
+
         for (Item item : items) {
             if (pawn.getCollision().collide(item.getCollision())) {
                 item.startOverlap(pawn);

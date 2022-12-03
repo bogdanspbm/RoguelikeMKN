@@ -100,7 +100,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     @Override
     public boolean isInAir() {
-        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
+        return getLocation().z() >= 0 && !getWorld().checkCollides(collisionAdapter.getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
     public EPawnStatus getStatus() {

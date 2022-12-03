@@ -6,13 +6,18 @@ import interfaces.Placeable;
 
 public class CollisionAdapter {
     Collidable owner;
+    Collision collision;
 
     public CollisionAdapter(Collidable owner) {
         this.owner = owner;
     }
 
     public void setCollision(Collision collision) {
-        owner.setCollision(collision);
+        this.collision = collision;
         collision.setOwner(owner);
+    }
+
+    public Collision getCollision() {
+        return collision;
     }
 }
