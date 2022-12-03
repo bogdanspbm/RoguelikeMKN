@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-12-03T12:19:03.261Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="4MKUZbf4wy8u5girsTSB" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-03T12:26:12.475Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.0.2500 Yowser/2.5 Safari/537.36" version="20.6.0" etag="1tRE4iCuMePJAHQsKUP0" type="github">
   <diagram id="2NQgb4t6hP0T2b-nkEPU" name="Страница 1">
     <mxGraphModel dx="1374" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-5" value="Object" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="280" y="120" width="140" height="78" as="geometry" />
+          <mxGeometry x="290" y="280" width="140" height="78" as="geometry" />
         </mxCell>
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-6" value="# location: Vector3D" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="4xRq_VgAmx9nK0GuC6kj-5">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
@@ -14,7 +14,7 @@
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-10" value="Collision" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="240" width="160" height="164" as="geometry" />
+          <mxGeometry x="30" y="40" width="160" height="164" as="geometry" />
         </mxCell>
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-15" value="# type: ECollisionType" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="4xRq_VgAmx9nK0GuC6kj-10">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -34,12 +34,14 @@
         <mxCell id="4xRq_VgAmx9nK0GuC6kj-16" value="+ collide(Collision): boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="4xRq_VgAmx9nK0GuC6kj-10">
           <mxGeometry y="138" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="4xRq_VgAmx9nK0GuC6kj-14" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4xRq_VgAmx9nK0GuC6kj-6" target="4xRq_VgAmx9nK0GuC6kj-10">
-          <mxGeometry x="-0.917" y="21" relative="1" as="geometry">
-            <mxPoint x="260" y="480" as="sourcePoint" />
-            <mxPoint x="420" y="480" as="targetPoint" />
-            <mxPoint as="offset" />
-          </mxGeometry>
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-31" value="Collision Adapter" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="160" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-32" value="+ setCollision(Collision)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="4xRq_VgAmx9nK0GuC6kj-31">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4xRq_VgAmx9nK0GuC6kj-33" value="+ getCollision(): Collision" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="4xRq_VgAmx9nK0GuC6kj-31">
+          <mxGeometry y="52" width="160" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
