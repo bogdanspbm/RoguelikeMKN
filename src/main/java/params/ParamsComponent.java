@@ -20,4 +20,26 @@ public class ParamsComponent {
     public float getHealthPercentage() {
         return (float) curHealth / (float) maxHealth;
     }
+
+    public void addHealth(int add) {
+        curHealth += add;
+        System.out.println(curHealth);
+        floorHealth();
+    }
+
+    public void floorHealth() {
+        curHealth = Math.min(maxHealth, curHealth);
+    }
+
+    public boolean checkIsDead() {
+        if (curHealth <= 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
 }

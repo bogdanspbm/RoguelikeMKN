@@ -1,5 +1,6 @@
 package objects.collision;
 
+import enums.ECollideType;
 import enums.ECollisionType;
 import interfaces.Placeable;
 import structures.Vector3D;
@@ -9,6 +10,7 @@ public abstract class Collision {
     protected Placeable owner;
 
     protected ECollisionType type = ECollisionType.EMPTY;
+    protected ECollideType collideType = ECollideType.BLOCK;
 
     public void setOwner(Placeable owner) {
         this.owner = owner;
@@ -16,6 +18,14 @@ public abstract class Collision {
 
     public ECollisionType getType() {
         return type;
+    }
+
+    public void setCollideType(ECollideType type) {
+        this.collideType = type;
+    }
+
+    public ECollideType getCollideType() {
+        return collideType;
     }
 
     public Vector3D getLocation() {

@@ -3,6 +3,7 @@ package world.singleton;
 import config.Config;
 import enemies.controller.BotController;
 import engine.render.interfaces.Drawable;
+import enums.ECollideType;
 import interfaces.Collidable;
 import interfaces.Damageable;
 import interfaces.Interactive;
@@ -29,14 +30,14 @@ public class World {
 
     private Map map;
 
-    private List<Pawn> pawns = new ArrayList<>();
+    private Queue<Pawn> pawns = new ConcurrentLinkedQueue<>();
     private List<Tile> tiles = new ArrayList<>();
 
     private List<Damageable> damageables = new ArrayList<>();
 
     private Queue<Projectile> projectiles = new ConcurrentLinkedQueue<>();
 
-    private List<Controller> controllers = new ArrayList<>();
+    private Queue<Controller> controllers = new ConcurrentLinkedQueue<>();
 
     private List<Item> items = new ArrayList<>();
 
@@ -132,7 +133,7 @@ public class World {
     }
 
     public List<Pawn> getPawns() {
-        return pawns;
+        return pawns.stream().toList();
     }
 
 
@@ -201,7 +202,7 @@ public class World {
 
         while (i < tiles.size() && j < pawns.size()) {
             Tile tile = tiles.get(i);
-            Pawn pawn = pawns.get(j);
+            Pawn pawn = getPawns().get(j);
 
             if (pawn.compareTo(tile) < 0) {
                 result.add(pawn);
@@ -219,7 +220,7 @@ public class World {
         }
 
         while (j < pawns.size()) {
-            Pawn pawn = pawns.get(j);
+            Pawn pawn = getPawns().get(j);
             result.add(pawn);
             j++;
         }

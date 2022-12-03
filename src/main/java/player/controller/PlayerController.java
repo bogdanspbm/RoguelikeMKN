@@ -13,6 +13,7 @@ import objects.controller.Controller;
 
 import objects.pawn.Pawn;
 import params.ui.HealthBar;
+import structures.Vector3D;
 
 import static world.singleton.Controllers.getControllers;
 
@@ -32,6 +33,26 @@ public class PlayerController extends Controller implements NativeKeyListener {
         getControllers().addPlayerController(this);
         GlobalScreen.addNativeKeyListener(this);
         startAxisEvents();
+    }
+
+    @Override
+    public Vector3D getControllerVelocity() {
+        int x = 0;
+        int y = 0;
+        if (leftPressed) {
+            x = -1;
+        }
+        if (rightPressed) {
+            x = 1;
+        }
+        if (backPressed) {
+            y = 1;
+        }
+        if (forwardPressed && !backPressed) {
+            y = -1;
+        }
+
+        return new Vector3D(x, y, 0);
     }
 
     @Override

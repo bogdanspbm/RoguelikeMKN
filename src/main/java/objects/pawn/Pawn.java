@@ -15,6 +15,7 @@ import objects.projectile.factory.ProjectileFactory;
 import params.ParamsComponent;
 import params.interfaces.Params;
 import structures.Vector3D;
+import world.singleton.Controllers;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -113,6 +114,15 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
     @Override
     public void applyDamage(int value, Projectile instigator) {
 
+        if (paramsComponent.checkIsDead()) {
+            return;
+        }
+
+        if (paramsComponent.checkIsDead()) {
+            int experience = paramsComponent.getExperience();
+            paramsComponent.addExperience(-experience);
+            instigator.getOwner().paramsComponent.addExperience(experience);
+        }
     }
 
     @Override

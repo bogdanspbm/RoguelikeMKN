@@ -80,4 +80,8 @@ public abstract class Projectile extends Object implements Tickable {
     public boolean hasDamaged(Damageable damageable) {
         return damageMap.containsKey(damageable);
     }
+
+    public Pawn getOwner() {
+        return owner;
+    }
 }
