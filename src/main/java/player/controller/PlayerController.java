@@ -13,6 +13,7 @@ import objects.controller.Controller;
 
 import objects.pawn.Pawn;
 import params.ui.HealthBar;
+import params.ui.ParamPanel;
 import structures.Vector3D;
 
 import static world.singleton.Controllers.getControllers;
@@ -27,6 +28,8 @@ public class PlayerController extends Controller implements NativeKeyListener {
     private InventoryPanel inventoryPanel = null;
 
     private HealthBar healthBar = null;
+
+    private ParamPanel paramPanel = null;
 
     public PlayerController() {
         // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
@@ -64,6 +67,9 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
             healthBar = new HealthBar(owner.getParamsComponent());
             healthBar.setVisible(true);
+
+            paramPanel = new ParamPanel(owner.getParamsComponent());
+            paramPanel.setVisible(false);
 
             getControllers().notifyObservers();
         } catch (Exception e) {
@@ -111,6 +117,12 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 //owner.getInventory().addItem(new Item(1, 1));
                 if (inventoryPanel != null) {
                     inventoryPanel.setVisible(!inventoryPanel.isVisible());
+                }
+                break;
+            }
+            case 25: {
+                if (paramPanel != null) {
+                    paramPanel.setVisible(!paramPanel.isVisible());
                 }
                 break;
             }
@@ -180,5 +192,9 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
     public HealthBar getHealthBar() {
         return healthBar;
+    }
+
+    public ParamPanel getParamPanel() {
+        return paramPanel;
     }
 }
