@@ -36,6 +36,8 @@ public abstract class Collision {
         }
     }
 
+    public abstract Vector3D getShape();
+
     public boolean collide(Collision collision) {
         return collide(collision, owner.getLocation());
     }
