@@ -26,9 +26,9 @@ public class BotController extends Controller {
         int yDirection = target.getLocation().y() - owner.getLocation().y();
         int xDirectionCatchUp = 0;
         int yDirectionCatchUP = 0;
-        if (target.getParamsComponent().checkIsDead()){
-            System.out.println("person dead"); // анимация смерти персонажа
-        }
+//        if (target.getParamsComponent().checkIsDead()){
+//            System.out.println("person dead"); // анимация смерти персонажа
+//        }
         //        трусливый бот
         if (typeOfBotsBehaviour == "coward") {
             if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
@@ -61,7 +61,13 @@ public class BotController extends Controller {
 //        агресивный бот
         if (typeOfBotsBehaviour == "aggressor"){
 
-            System.out.println(owner.getParamsComponent().getHealthPercentage());
+
+            if (target.getStatus() == EPawnStatus.ATTACK){
+                owner.getParamsComponent().takeAwayHealth();
+                System.out.println("bot health"+owner.getParamsComponent().getHealthPercentage());
+//                TODO:добавить время после 300 милисекунд
+
+            }
             if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
                 if (xDirection != 0) {
                     xDirectionCatchUp = xDirection / Math.abs(xDirection);
@@ -85,6 +91,7 @@ public class BotController extends Controller {
             }
             if (owner.getParamsComponent().checkIsDead()){
                 owner.setPrevLocation(); // анимация смерти
+                System.out.println("bot dead");
             }
 
         }

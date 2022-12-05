@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 4 render map's border">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="character dead">
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670258950620</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="character dead">
+      <created>1670261813828</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670261813828</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +236,8 @@
     <MESSAGE value="fix 2 render map's border" />
     <MESSAGE value="fix 4 render map's border" />
     <MESSAGE value="dead animation add" />
-    <option name="LAST_COMMIT_MESSAGE" value="dead animation add" />
+    <MESSAGE value="character dead" />
+    <option name="LAST_COMMIT_MESSAGE" value="character dead" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
