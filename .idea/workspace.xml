@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 4 render map's border">
-      <change afterPath="$PROJECT_DIR$/src/main/java/objects/buff/Buff.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/objects/buff/implimentation/ConfusedBuff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,9 +139,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.InventoryWindow" />
-        <item itemvalue="JUnit.InventoryConsoleTests" />
+        <item itemvalue="JUnit.InventoryUITests" />
         <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
+        <item itemvalue="JUnit.InventoryConsoleTests" />
+        <item itemvalue="Application.InventoryWindow" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669735673122</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dead animation add">
+      <created>1670258950620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670258950620</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +229,8 @@
     <MESSAGE value="fix render map's border" />
     <MESSAGE value="fix 2 render map's border" />
     <MESSAGE value="fix 4 render map's border" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 4 render map's border" />
+    <MESSAGE value="dead animation add" />
+    <option name="LAST_COMMIT_MESSAGE" value="dead animation add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

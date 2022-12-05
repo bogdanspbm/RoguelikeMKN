@@ -1,5 +1,6 @@
 package enemies.controller;
 
+import enums.EPawnStatus;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 
@@ -22,17 +23,19 @@ public class BotController extends Controller {
         Pawn target = getWorld().getPlayerPawn(0);
         int xDirection = target.getLocation().x() - owner.getLocation().x();
         int yDirection = target.getLocation().y() - owner.getLocation().y();
+        int xDirectionCatchUp = 0;
+        int yDirectionCatchUP = 0;
         //        трусливый бот
         if (typeOfBotsBehaviour == "coward") {
             if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
                 if (xDirection != 0) {
-                    xDirection = xDirection / Math.abs(xDirection);
+                    xDirectionCatchUp = xDirection / Math.abs(xDirection);
                 }
                 if (yDirection != 0) {
-                    yDirection = -yDirection / Math.abs(yDirection);
+                    yDirectionCatchUP = -yDirection / Math.abs(yDirection);
                 }
-                owner.moveRight(xDirection);
-                owner.moveForward(yDirection);
+                owner.moveRight(xDirectionCatchUp);
+                owner.moveForward(yDirectionCatchUP);
             }
             if (Math.abs(xDirection) == 100 || Math.abs(yDirection) == 100) {
                 owner.setPrevLocation();
@@ -55,22 +58,40 @@ public class BotController extends Controller {
         if (typeOfBotsBehaviour == "aggressor"){
             if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
                 if (xDirection != 0) {
-                    xDirection = xDirection / Math.abs(xDirection);
+                    xDirectionCatchUp = xDirection / Math.abs(xDirection);
                 }
                 if (yDirection != 0) {
-                    yDirection = -yDirection / Math.abs(yDirection);
+                    yDirectionCatchUP = -yDirection / Math.abs(yDirection);
                 }
                 int speed = owner.getParamsComponent().getSpeed();
-                owner.moveRight(xDirection*speed);
-                owner.moveForward(yDirection*speed);
+                owner.moveRight(xDirectionCatchUp*speed);
+                owner.moveForward(yDirectionCatchUP*speed);
             }
             if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
                 owner.setPrevLocation();
+            }
+            if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21) {
+                owner.setStatus(EPawnStatus.ATTACK);
+            }
+            if (Math.abs(xDirection) > 21 || Math.abs(yDirection) > 21 ){
+                owner.setStatus(EPawnStatus.WALK);
+            }
+            if (owner.getParamsComponent().checkIsDead()){
+                owner.setPrevLocation(); // анимация смерти
             }
         }
 //        статичный бот
         if (typeOfBotsBehaviour == "calm"){
             owner.setPrevLocation();
+            if(Math.abs(xDirection) <= 20  && Math.abs(yDirection) <= 20){
+                owner.setStatus(EPawnStatus.ATTACK);
+            }
+            if (Math.abs(xDirection) > 20 || Math.abs(yDirection) > 20){
+                owner.setStatus(EPawnStatus.WALK);
+            }
+            if (owner.getParamsComponent().checkIsDead()){
+                owner.setPrevLocation(); // анимация смерти
+            }
         }
         owner.getParamsComponent().getBuffList().forEach(i->i.postTick());
 
