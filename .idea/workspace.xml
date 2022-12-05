@@ -7,6 +7,7 @@
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 4 render map's border">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -42,6 +42,10 @@ public class ParamsComponent {
         return (float) curHealth / (float) maxHealth;
     }
 
+    public void takeAwayHealth(){
+        curHealth = curHealth - 10;
+    }
+
     public void addHealth(int add) {
         curHealth += add;
         System.out.println(curHealth);
