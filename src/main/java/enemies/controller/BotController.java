@@ -17,6 +17,7 @@ public class BotController extends Controller {
 
     @Override
     public void tick() {
+        owner.getParamsComponent().getBuffList().forEach(i->i.preTick());
         super.tick();
         Pawn target = getWorld().getPlayerPawn(0);
         int xDirection = target.getLocation().x() - owner.getLocation().x();
@@ -48,6 +49,7 @@ public class BotController extends Controller {
             if(yDirection>= -99 && yDirection <= -60){
                 owner.moveForward(-1);
             }
+
         }
 //        агресивный бот
         if (typeOfBotsBehaviour == "aggressor"){
@@ -58,8 +60,9 @@ public class BotController extends Controller {
                 if (yDirection != 0) {
                     yDirection = -yDirection / Math.abs(yDirection);
                 }
-                owner.moveRight(xDirection);
-                owner.moveForward(yDirection);
+                int speed = owner.getParamsComponent().getSpeed();
+                owner.moveRight(xDirection*speed);
+                owner.moveForward(yDirection*speed);
             }
             if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
                 owner.setPrevLocation();
@@ -69,6 +72,8 @@ public class BotController extends Controller {
         if (typeOfBotsBehaviour == "calm"){
             owner.setPrevLocation();
         }
+        owner.getParamsComponent().getBuffList().forEach(i->i.postTick());
+
     }
 
 }
