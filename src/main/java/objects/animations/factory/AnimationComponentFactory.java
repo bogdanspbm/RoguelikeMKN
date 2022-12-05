@@ -57,5 +57,5 @@ public abstract class AnimationComponentFactory {
         }
     }
 
-    abstract public AnimationComponent createAnimationComponent(Pawn owner) throws CreationException;
+    abstract public AnimationComponent createAnimationComponent(Object owner) throws CreationException;
 }

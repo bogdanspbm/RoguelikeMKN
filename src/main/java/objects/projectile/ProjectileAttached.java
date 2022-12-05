@@ -21,12 +21,14 @@ public class ProjectileAttached extends Projectile {
 
     @Override
     public Vector3D getLocation() {
-        return owner.getLocation();
+        Vector3D velocity = owner.getController().getControllerVelocity();
+        Vector3D result = new Vector3D(owner.getLocation().x() + velocity.x() * 20, owner.getLocation().y() + velocity.y() * 20, owner.getLocation().z());
+        return result;
     }
 
     @Override
     public Vector3D getRotation() {
-        Vector3D velocity = owner.getVelocity();
+        Vector3D velocity = owner.getController().getControllerVelocity();
 
         if (velocity.x() > 0.5) {
             return new Vector3D(0, 0, 0);
@@ -41,8 +43,4 @@ public class ProjectileAttached extends Projectile {
         return new Vector3D(0, 0, 0);
     }
 
-    @Override
-    public void tick() {
-
-    }
 }

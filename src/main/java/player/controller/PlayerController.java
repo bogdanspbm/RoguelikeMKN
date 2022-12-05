@@ -12,6 +12,9 @@ import inventory.ui.InventoryPanel;
 import objects.controller.Controller;
 
 import objects.pawn.Pawn;
+import params.ui.HealthBar;
+import params.ui.ParamPanel;
+import structures.Vector3D;
 
 import static world.singleton.Controllers.getControllers;
 
@@ -24,6 +27,10 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
     private InventoryPanel inventoryPanel = null;
 
+    private HealthBar healthBar = null;
+
+    private ParamPanel paramPanel = null;
+
     public PlayerController() {
         // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
         getControllers().addPlayerController(this);
@@ -32,11 +39,38 @@ public class PlayerController extends Controller implements NativeKeyListener {
     }
 
     @Override
+    public Vector3D getControllerVelocity() {
+        int x = 0;
+        int y = 0;
+        if (leftPressed) {
+            x = -1;
+        }
+        if (rightPressed) {
+            x = 1;
+        }
+        if (backPressed) {
+            y = 1;
+        }
+        if (forwardPressed && !backPressed) {
+            y = -1;
+        }
+
+        return new Vector3D(x, y, 0);
+    }
+
+    @Override
     public void setOwner(Pawn owner) {
         super.setOwner(owner);
         try {
             inventoryPanel = new InventoryPanel(owner.getInventory());
             inventoryPanel.setVisible(false);
+
+            healthBar = new HealthBar(owner.getParamsComponent());
+            healthBar.setVisible(true);
+
+            paramPanel = new ParamPanel(owner.getParamsComponent());
+            paramPanel.setVisible(false);
+
             getControllers().notifyObservers();
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,6 +120,12 @@ public class PlayerController extends Controller implements NativeKeyListener {
                 }
                 break;
             }
+            case 25: {
+                if (paramPanel != null) {
+                    paramPanel.setVisible(!paramPanel.isVisible());
+                }
+                break;
+            }
             case 33: {
                 // F
                 owner.interact();
@@ -118,7 +158,7 @@ public class PlayerController extends Controller implements NativeKeyListener {
             }
             case 57: {
                 // SPACE
-                owner.jump();
+                owner.action();
                 break;
             }
         }
@@ -153,5 +193,13 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
     public InventoryPanel getInventoryPanel() {
         return inventoryPanel;
+    }
+
+    public HealthBar getHealthBar() {
+        return healthBar;
+    }
+
+    public ParamPanel getParamPanel() {
+        return paramPanel;
     }
 }

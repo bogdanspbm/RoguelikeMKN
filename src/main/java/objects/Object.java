@@ -11,12 +11,10 @@ import structures.Vector3D;
 
 import java.awt.*;
 
-public abstract class Object implements Drawable, Placeable, Collidable {
+public abstract class Object implements Drawable, Collidable {
 
     protected Vector3D location = new Vector3D(0, 0, 0);
     protected Vector3D rotation = new Vector3D(0, 0, 0);
-
-    protected Collision collision;
 
     protected TextureSource source;
     protected AnimationComponent animationComponent;
@@ -47,12 +45,12 @@ public abstract class Object implements Drawable, Placeable, Collidable {
 
     @Override
     public void setCollision(Collision collision) {
-        this.collision = collision;
+        collisionAdapter.setCollision(collision);
     }
 
     @Override
     public Collision getCollision() {
-        return collision;
+        return collisionAdapter.getCollision();
     }
 
     @Override

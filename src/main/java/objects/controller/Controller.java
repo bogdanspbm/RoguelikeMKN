@@ -1,6 +1,7 @@
 package objects.controller;
 
 import objects.pawn.Pawn;
+import structures.Vector3D;
 
 public abstract class Controller {
 
@@ -12,5 +13,9 @@ public abstract class Controller {
 
     public void tick() {
 
+    }
+
+    public Vector3D getControllerVelocity() {
+        return owner.getVelocity();
     }
 }

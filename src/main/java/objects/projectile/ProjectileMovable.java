@@ -24,5 +24,6 @@ public class ProjectileMovable extends Projectile {
 
     @Override
     public void tick() {
+        super.tick();
     }
 }

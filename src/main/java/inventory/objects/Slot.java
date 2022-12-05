@@ -4,20 +4,20 @@ public class Slot {
     private Item item;
     private int parentIndex;
 
-    private boolean parent;
+    private boolean isParent;
 
     public Slot(Item item, int parentIndex, boolean parent){
         this.item = item;
         this.parentIndex = parentIndex;
-        this.parent = parent;
+        this.isParent = parent;
     }
 
     public boolean getIsParent(){
-        return parent;
+        return isParent;
     }
 
     public void setIsParent(boolean flag){
-        this.parent = flag;
+        this.isParent = flag;
     }
 
     public Item getItem() {

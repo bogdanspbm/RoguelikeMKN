@@ -1,16 +1,11 @@
 package player;
 
-import config.Config;
 import enums.EPawnStatus;
 import exceptions.CreationException;
-import exceptions.SetException;
-import interfaces.Controllable;
 import interfaces.Interactive;
-import objects.collision.BoxCollision;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
 import objects.projectile.factory.MeleeProjectileFactory;
-import player.animation.component.PlayerAnimationComponent;
 import player.animation.factory.PlayerAnimationComponentFactory;
 import player.controller.PlayerController;
 import structures.Vector3D;
@@ -71,7 +66,7 @@ public class Player extends Pawn {
                     try {
                         setStatus(EPawnStatus.ATTACK);
                         projectileFactory.createProjectile();
-                        Thread.sleep(1000);
+                        Thread.sleep(300);
                         setStatus(EPawnStatus.WALK);
                     } catch (Exception e) {
                         e.printStackTrace();

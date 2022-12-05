@@ -63,7 +63,6 @@ public class Map {
                     tile = new Tile(textureDatabaseAdapter.getTextureByName("brick_hole_e"));
                 } else {
                     String name = getTileByNeighbor(i, k);
-                    System.out.println("name: " + name + " neib: " + getStoneNeigh(i, k));
                     tile = new Tile(textureDatabaseAdapter.getTextureByName(name));
                 }
                 tile.setType(types[i][k]);

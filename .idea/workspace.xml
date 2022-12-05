@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="" />
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="fix 4 render map's border">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/Map.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,17 +19,12 @@
       <list>
         <option value="Record" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Engine" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -66,6 +65,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="objects.animations.factory.implementation" />
       <recent name="objects.collision" />
       <recent name="exceptions" />
     </key>
@@ -140,10 +140,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.InventoryUITests" />
-        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
-        <item itemvalue="JUnit.InventoryConsoleTests" />
         <item itemvalue="Application.InventoryWindow" />
+        <item itemvalue="JUnit.InventoryConsoleTests" />
+        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -170,8 +169,38 @@
       <workItem from="1669017079266" duration="1666000" />
       <workItem from="1669029313443" duration="7061000" />
       <workItem from="1669109163612" duration="1114000" />
-      <workItem from="1669366891309" duration="15294000" />
+      <workItem from="1669366891309" duration="24149000" />
+      <workItem from="1669657827167" duration="1821000" />
     </task>
+    <task id="LOCAL-00001" summary="add render map's border">
+      <created>1669674816835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669674816835</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix render map's border">
+      <created>1669714298209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669714298209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix 2 render map's border">
+      <created>1669728576962</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669728576962</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix 4 render map's border">
+      <created>1669735673122</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669735673122</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +217,13 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add render map's border" />
+    <MESSAGE value="fix render map's border" />
+    <MESSAGE value="fix 2 render map's border" />
+    <MESSAGE value="fix 4 render map's border" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 4 render map's border" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -198,12 +234,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>57</line>
+          <line>51</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>159</line>
+          <line>153</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

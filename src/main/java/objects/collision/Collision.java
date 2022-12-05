@@ -1,5 +1,6 @@
 package objects.collision;
 
+import enums.ECollideType;
 import enums.ECollisionType;
 import interfaces.Placeable;
 import structures.Vector3D;
@@ -17,6 +18,7 @@ public abstract class Collision {
     public ECollisionType getType() {
         return type;
     }
+
 
     public Vector3D getLocation() {
         if (owner != null) {

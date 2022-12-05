@@ -12,19 +12,20 @@ import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
 import objects.projectile.Projectile;
 import objects.projectile.factory.ProjectileFactory;
+import params.ParamsComponent;
+import params.interfaces.Params;
 import structures.Vector3D;
+import world.singleton.Controllers;
 
 import java.awt.*;
 import java.util.HashMap;
 
 import static world.singleton.World.getWorld;
 
-public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable {
+public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable, Params {
 
 
-    private Controller controller;
-
-    protected int health = 100;
+    protected ParamsComponent paramsComponent = new ParamsComponent();
 
     private Vector3D prevLocation = new Vector3D(0, 0, 0);
 
@@ -55,11 +56,11 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
 
     public void setController(Controller controller) {
-        this.controller = controller;
+        controllerAdapter.setController(controller);
     }
 
     public Controller getController() {
-        return controller;
+        return controllerAdapter.getController();
     }
 
 
@@ -97,7 +98,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     @Override
     public boolean isInAir() {
-        return getLocation().z() >= 0 && !getWorld().checkCollides(collision, new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
+        return getLocation().z() >= 0 && !getWorld().checkCollides(collisionAdapter.getCollision(), new Vector3D(getLocation().x(), getLocation().y(), getLocation().z() - fallSpeed));
     }
 
     public EPawnStatus getStatus() {
@@ -111,10 +112,24 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
     @Override
     public void applyDamage(int value, Projectile instigator) {
 
+        if (paramsComponent.checkIsDead()) {
+            return;
+        }
+
+        if (paramsComponent.checkIsDead()) {
+            int experience = paramsComponent.getExperience();
+            paramsComponent.addExperience(-experience);
+            instigator.getOwner().paramsComponent.addExperience(experience);
+        }
     }
 
     @Override
     public void jump() {
 
+    }
+
+    @Override
+    public ParamsComponent getParamsComponent() {
+        return paramsComponent;
     }
 }
