@@ -49,7 +49,9 @@ public class BotController extends Controller {
             if(yDirection>= -99 && yDirection <= -60){
                 owner.moveForward(-1);
             }
-
+            if(!owner.getParamsComponent().checkIsDead()){
+                owner.setPrevLocation();
+            }
         }
 //        агресивный бот
         if (typeOfBotsBehaviour == "aggressor"){
@@ -67,10 +69,16 @@ public class BotController extends Controller {
             if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
                 owner.setPrevLocation();
             }
+            if(!owner.getParamsComponent().checkIsDead()){
+                owner.setPrevLocation();
+            }
         }
 //        статичный бот
         if (typeOfBotsBehaviour == "calm"){
             owner.setPrevLocation();
+            if(!owner.getParamsComponent().checkIsDead()){
+                owner.setPrevLocation();
+            }
         }
         owner.getParamsComponent().getBuffList().forEach(i->i.postTick());
 
