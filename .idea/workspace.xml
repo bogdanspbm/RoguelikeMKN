@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="character dead">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="character dead + bot dead">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670261813828</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="character dead + bot dead">
+      <created>1670262364474</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670262364474</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +245,8 @@
     <MESSAGE value="fix 4 render map's border" />
     <MESSAGE value="dead animation add" />
     <MESSAGE value="character dead" />
-    <option name="LAST_COMMIT_MESSAGE" value="character dead" />
+    <MESSAGE value="character dead + bot dead" />
+    <option name="LAST_COMMIT_MESSAGE" value="character dead + bot dead" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
