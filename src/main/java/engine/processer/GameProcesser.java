@@ -27,6 +27,7 @@ import static world.singleton.World.getWorld;
 public class GameProcesser implements DrawableProvider {
     private Window window;
 
+
     public void start() {
         try {
             createPlayer();
@@ -60,7 +61,7 @@ public class GameProcesser implements DrawableProvider {
                 enemy.setLocation(new Vector3D(400, 100, 100));
                 break;
             case ("aggressor"):
-                enemy.setLocation(new Vector3D(500, 10, 50));
+                enemy.setLocation(new Vector3D(600, 10, 50));
                 break;
             case ("calm"):
                 enemy.setLocation(new Vector3D(500, 200, 100));
