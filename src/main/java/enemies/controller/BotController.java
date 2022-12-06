@@ -12,6 +12,8 @@ import static world.singleton.World.getWorld;
 public class BotController extends Controller {
 
     public String typeOfBotsBehaviour;
+    public int turnOffModeCoward = 0;
+    public boolean getCloser = false;
 
     public BotController(String typeOfBotsBehaviour) {
         this.typeOfBotsBehaviour = typeOfBotsBehaviour;
@@ -26,35 +28,80 @@ public class BotController extends Controller {
         int yDirection = target.getLocation().y() - owner.getLocation().y();
         int xDirectionCatchUp = 0;
         int yDirectionCatchUP = 0;
-//        if (target.getParamsComponent().checkIsDead()){
-//            System.out.println("person dead"); // анимация смерти персонажа
-//        }
         //        трусливый бот
         if (typeOfBotsBehaviour == "coward") {
-            if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
-                if (xDirection != 0) {
-                    xDirectionCatchUp = xDirection / Math.abs(xDirection);
+            System.out.println("turn:" + turnOffModeCoward);
+            if (!getCloser) {
+                if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
+                    if (xDirection != 0) {
+                        xDirectionCatchUp = xDirection / Math.abs(xDirection);
+                    }
+                    if (yDirection != 0) {
+                        yDirectionCatchUP = -yDirection / Math.abs(yDirection);
+                    }
+                    owner.moveRight(xDirectionCatchUp);
+                    owner.moveForward(yDirectionCatchUP);
                 }
-                if (yDirection != 0) {
-                    yDirectionCatchUP = -yDirection / Math.abs(yDirection);
+                if (Math.abs(xDirection) == 100 || Math.abs(yDirection) == 100) {
+                    owner.setPrevLocation();
+                    turnOffModeCoward++;
                 }
-                owner.moveRight(xDirectionCatchUp);
-                owner.moveForward(yDirectionCatchUP);
+                if (xDirection <= 99 && xDirection >= 60) {
+                    owner.moveRight(-1);
+                    turnOffModeCoward++;
+                }
+                if (xDirection <= -60 && xDirection >= -99) {
+                    owner.moveRight(1);
+                    turnOffModeCoward++;
+                }
+                if (yDirection <= 99 && yDirection >= 60) {
+                    owner.moveForward(1);
+                    turnOffModeCoward++;
+                }
+                if (yDirection >= -99 && yDirection <= -60) {
+                    owner.moveForward(1);
+                    turnOffModeCoward++;
+                }
+                if (xDirection > -60 && xDirection <= 0) {
+                    owner.moveRight(1);
+                    turnOffModeCoward++;
+                }
+                if (xDirection > 0 && xDirection < 60){
+                    owner.moveRight(-1);
+                    turnOffModeCoward++;
+                }
+                if (yDirection > -60 && yDirection <=0 ){
+                    owner.moveForward(1);
+                    turnOffModeCoward++;
+                }
+                if (yDirection > 0 && yDirection < 60){
+                    owner.moveRight(-1);
+                    turnOffModeCoward++;
+                }
+                if (turnOffModeCoward % 300 == 0){
+                    getCloser = true;
+                }
             }
-            if (Math.abs(xDirection) == 100 || Math.abs(yDirection) == 100) {
-                owner.setPrevLocation();
-            }
-            if (xDirection <= 99 && xDirection >= 60) {
-                owner.moveRight(-1);
-            }
-            if (xDirection <= -60 && xDirection >= -99) {
-                owner.moveRight(1);
-            }
-            if (yDirection <= 99 && yDirection >= 60) {
-                owner.moveForward(1);
-            }
-            if (yDirection >= -99 && yDirection <= -60) {
-                owner.moveForward(-1);
+            if (getCloser) {
+                if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
+                    if (xDirection != 0) {
+                        xDirectionCatchUp = xDirection / Math.abs(xDirection);
+                    }
+                    if (yDirection != 0) {
+                        yDirectionCatchUP = -yDirection / Math.abs(yDirection);
+                    }
+                    int speed = owner.getParamsComponent().getSpeed();
+                    owner.moveRight(xDirectionCatchUp);
+                    owner.moveForward(yDirectionCatchUP);
+                    turnOffModeCoward++;
+                }
+                if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
+                    owner.setPrevLocation();
+                    turnOffModeCoward++;
+                }
+                if (turnOffModeCoward % 300 == 0){
+                    getCloser = false;
+                }
             }
         }
 //        агресивный бот
@@ -88,6 +135,9 @@ public class BotController extends Controller {
                         System.out.println("bot agressor health: " + owner.getParamsComponent().getHealthPercentage());
                         target.setStatus(EPawnStatus.WALK);
                     }
+                }
+                if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
+                        target.getParamsComponent().getHealthPercentage() == 0){
                     owner.setStatus(EPawnStatus.WALK);
                 }
                 if (Math.abs(xDirection) > 21 || Math.abs(yDirection) > 21) {
