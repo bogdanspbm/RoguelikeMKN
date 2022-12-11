@@ -1,13 +1,9 @@
 package objects.pawn;
 
-import engine.render.interfaces.Drawable;
 import enums.EPawnStatus;
 import interfaces.*;
 import inventory.interfaces.Inventory;
 import objects.Object;
-import objects.animations.component.AnimationComponent;
-import objects.collision.Collision;
-import objects.collision.CollisionAdapter;
 import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
 import objects.projectile.Projectile;
@@ -15,12 +11,8 @@ import objects.projectile.factory.ProjectileFactory;
 import params.ParamsComponent;
 import params.interfaces.Params;
 import structures.Vector3D;
-import world.singleton.Controllers;
 
-import java.awt.*;
-import java.util.HashMap;
-
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
 public abstract class Pawn extends Object implements Physical, Damageable, Tickable, Inventory, Controllable, Params {
 
@@ -119,10 +111,15 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
         this.paramsComponent.addHealth(-value);
 
         if (paramsComponent.checkIsDead()) {
-            int experience = paramsComponent.getExperience();
-            paramsComponent.addExperience(-experience);
-            instigator.getOwner().paramsComponent.addExperience(experience);
+            deathEvent(instigator);
         }
+    }
+
+    private void deathEvent(Projectile instigator) {
+        System.out.println("DIE");
+        int experience = paramsComponent.getExperience();
+        paramsComponent.addExperience(-experience);
+        instigator.getOwner().paramsComponent.addExperience(experience);
     }
 
     @Override

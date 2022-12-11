@@ -1,13 +1,10 @@
 package enemies.controller;
 
 import enums.EPawnStatus;
-import objects.Object;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 
-import java.util.ArrayDeque;
-
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
 public class BotController extends Controller {
 

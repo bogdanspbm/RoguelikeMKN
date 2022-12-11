@@ -1,21 +1,15 @@
 package objects.projectile;
 
 import config.Config;
-import engine.render.interfaces.Drawable;
-import interfaces.Collidable;
 import interfaces.Damageable;
 import interfaces.Tickable;
 import objects.Object;
-import objects.animations.component.AnimationComponent;
-import objects.collision.Collision;
-import objects.collision.CollisionAdapter;
 import objects.pawn.Pawn;
-import structures.Vector3D;
 
 import java.awt.*;
 import java.util.HashMap;
 
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
 public abstract class Projectile extends Object implements Tickable {
 

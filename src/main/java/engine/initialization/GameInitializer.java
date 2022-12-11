@@ -1,30 +1,19 @@
-package engine.processer;
+package engine.initialization;
 
 import enemies.Enemy;
 import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
 import exceptions.CreationException;
-import generator.PerlinNoiseGenerator;
 import interfaces.Placeable;
-import inventory.objects.Item;
-import objects.animations.objects.TextureSource;
-import objects.pawn.Pawn;
-import objects.projectile.Projectile;
 import player.Player;
 import structures.Vector3D;
-import world.Tile;
-import world.factory.StaticTileFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
-public class GameProcesser implements DrawableProvider {
+public class GameInitializer implements DrawableProvider {
     private Window window;
 
 

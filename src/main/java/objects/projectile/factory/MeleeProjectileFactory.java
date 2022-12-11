@@ -5,9 +5,8 @@ import objects.animations.factory.implementation.SolidAnimationComponentFactory;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
 import objects.projectile.ProjectileAttached;
-import player.Player;
 
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
 public class MeleeProjectileFactory extends ProjectileFactory {
 

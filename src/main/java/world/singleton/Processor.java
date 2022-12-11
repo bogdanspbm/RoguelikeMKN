@@ -1,19 +1,16 @@
 package world.singleton;
 
 import config.Config;
-import enemies.controller.BotController;
 import engine.render.interfaces.Drawable;
-import enums.ECollideType;
-import interfaces.Collidable;
 import interfaces.Damageable;
 import interfaces.Interactive;
 import inventory.factory.ItemFactory;
 import inventory.objects.Item;
+import objects.World;
 import objects.collision.Collision;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
-import objects.projectile.factory.ProjectileFactory;
 import player.controller.PlayerController;
 import structures.Vector3D;
 import world.Map;
@@ -25,27 +22,14 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class World {
-    private volatile static World singleton;
+public class Processor {
+    private volatile static Processor singleton;
 
-    private Map map;
+    World world = new World();
 
-    private Queue<Pawn> pawns = new ConcurrentLinkedQueue<>();
-    private List<Tile> tiles = new ArrayList<>();
-
-    private List<Damageable> damageables = new ArrayList<>();
-
-    private Queue<Projectile> projectiles = new ConcurrentLinkedQueue<>();
-
-    private Queue<Controller> controllers = new ConcurrentLinkedQueue<>();
-
-    private List<Item> items = new ArrayList<>();
-
-    private ItemFactory itemFactory = new ItemFactory();
-
-    private World() {
-        map = new Map(32);
-        tiles = map.getTiles();
+    private Processor() {
+        world.setMap(new Map(32));
+        world.setTiles(world.getMap().getTiles());
         sortTiles();
         startTick();
     }
@@ -53,7 +37,7 @@ public class World {
     public Pawn getPlayerPawn(int index) {
         int counter = 0;
         Pawn lastPawn = null;
-        for (Pawn pawn : pawns) {
+        for (Pawn pawn : world.getPawns()) {
             if (pawn.getController().getClass().equals(PlayerController.class)) {
                 lastPawn = pawn;
 
@@ -69,7 +53,7 @@ public class World {
     }
 
     private void sortTiles() {
-        Collections.sort(tiles);
+        Collections.sort(world.getTiles());
     }
 
     private void startTick() {
@@ -77,17 +61,17 @@ public class World {
             public void run() //Этот метод будет выполняться в побочном потоке
             {
                 while (true) {
-                    pawns.forEach(pawn -> {
+                    world.getPawns().forEach(pawn -> {
                         pawn.tryFall();
                         pawn.tick();
                     });
 
-                    projectiles.forEach(projectile -> {
+                    world.getProjectiles().forEach(projectile -> {
                         projectile.tick();
                         projectileCollide(projectile);
                     });
 
-                    controllers.forEach(controller -> {
+                    world.getControllers().forEach(controller -> {
                         controller.tick();
                     });
 
@@ -104,10 +88,10 @@ public class World {
     }
 
 
-    public static World getWorld() {
+    public static Processor getWorld() {
         if (singleton == null) {
-            synchronized (World.class) {
-                singleton = new World();
+            synchronized (Processor.class) {
+                singleton = new Processor();
             }
         }
 
@@ -115,30 +99,30 @@ public class World {
     }
 
     public void addControllers(Controller controller) {
-        controllers.add(controller);
+        world.getControllers().add(controller);
     }
-    
+
 
     public void addPawn(Pawn pawn) {
-        pawns.add(pawn);
-        damageables.add(pawn);
+        world.getPawns().add(pawn);
+        world.getDamageables().add(pawn);
     }
 
     public void addProjectile(Projectile projectile) {
-        projectiles.add(projectile);
+        world.getProjectiles().add(projectile);
     }
 
     public List<Pawn> getPawns() {
-        return pawns.stream().toList();
+        return world.getPawns().stream().toList();
     }
 
 
     public void deleteProjectile(Projectile projectile) {
-        projectiles.remove(projectile);
+        world.getProjectiles().remove(projectile);
     }
 
     public void projectileCollide(Projectile projectile) {
-        for (Damageable damageable : damageables) {
+        for (Damageable damageable : world.getDamageables()) {
             if (!projectile.hasDamaged(damageable)) {
                 Collision collision = damageable.getCollision();
                 if (collision.collide(projectile.getCollision())) {
@@ -155,13 +139,13 @@ public class World {
             return false;
         }
 
-        for (Tile tile : tiles) {
+        for (Tile tile : world.getTiles()) {
             if (collision.collide(tile.getCollision(), location)) {
                 return true;
             }
         }
 
-        for (Pawn pawn : pawns) {
+        for (Pawn pawn : world.getPawns()) {
             if (!pawn.getCollision().equals(collision)) {
                 if (collision.collide(pawn.getCollision(), location)) {
                     return true;
@@ -178,7 +162,7 @@ public class World {
             return;
         }
 
-        for (Item item : items) {
+        for (Item item : world.getItems()) {
             if (pawn.getCollision().collide(item.getCollision())) {
                 item.startOverlap(pawn);
             } else {
@@ -188,13 +172,13 @@ public class World {
     }
 
     public Item createItem(int id, int quantity) {
-        Item result = itemFactory.createItem(id, quantity);
-        items.add(result);
+        Item result = world.getItemFactory().createItem(id, quantity);
+        world.getItems().add(result);
         return result;
     }
 
     private void cleanItems() {
-        items.removeIf(item -> (item == null || item.getQuantity() == 0 || item.getId() == -1));
+        world.getItems().removeIf(item -> (item == null || item.getQuantity() == 0 || item.getId() == -1));
     }
 
     public List<Drawable> getDrawables() {
@@ -206,8 +190,8 @@ public class World {
         int i = 0;
         int j = 0;
 
-        while (i < tiles.size() && j < pawns.size()) {
-            Tile tile = tiles.get(i);
+        while (i < world.getTiles().size() && j < world.getPawns().size()) {
+            Tile tile = world.getTiles().get(i);
             Pawn pawn = getPawns().get(j);
 
             if (pawn.compareTo(tile) < 0) {
@@ -219,23 +203,23 @@ public class World {
             }
         }
 
-        while (i < tiles.size()) {
-            Tile tile = tiles.get(i);
+        while (i < world.getTiles().size()) {
+            Tile tile = world.getTiles().get(i);
             result.add(tile);
             i++;
         }
 
-        while (j < pawns.size()) {
+        while (j < world.getPawns().size()) {
             Pawn pawn = getPawns().get(j);
             result.add(pawn);
             j++;
         }
 
-        for (Item item : items) {
+        for (Item item : world.getItems()) {
             result.add(item);
         }
 
-        for (Projectile projectile : projectiles) {
+        for (Projectile projectile : world.getProjectiles()) {
             result.add(projectile);
         }
 
@@ -245,7 +229,7 @@ public class World {
     public List<Interactive> getOverlappedInteractions(Pawn instigator) {
         List<Interactive> result = new ArrayList<>();
 
-        for (Item item : items) {
+        for (Item item : world.getItems()) {
             if (item.hasOverlapped(instigator)) {
                 result.add(item);
             }

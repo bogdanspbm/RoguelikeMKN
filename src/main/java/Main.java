@@ -1,11 +1,11 @@
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
-import engine.processer.GameProcesser;
+import engine.initialization.GameInitializer;
 
 public class Main {
     public static void main(String[] args) {
         initGlobalScreen();
-        GameProcesser game = new GameProcesser();
+        GameInitializer game = new GameInitializer();
         game.start();
     }
 

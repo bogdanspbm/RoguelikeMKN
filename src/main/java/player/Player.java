@@ -10,7 +10,7 @@ import player.animation.factory.PlayerAnimationComponentFactory;
 import player.controller.PlayerController;
 import structures.Vector3D;
 
-import static world.singleton.World.getWorld;
+import static world.singleton.Processor.getWorld;
 
 public class Player extends Pawn {
 

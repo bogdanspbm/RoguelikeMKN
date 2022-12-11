@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
-      <change beforePath="$PROJECT_DIR$/.idea/RoguelikeMKN.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/objects/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/engine/processer/GameProcesser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/initialization/GameInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/pawn/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/projectile/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/projectile/Projectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/projectile/factory/MeleeProjectileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/projectile/factory/MeleeProjectileFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/singleton/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/singleton/Processor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +180,7 @@
       <workItem from="1669109163612" duration="1114000" />
       <workItem from="1669366891309" duration="24149000" />
       <workItem from="1669657827167" duration="1821000" />
-      <workItem from="1670756734565" duration="814000" />
+      <workItem from="1670756734565" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
