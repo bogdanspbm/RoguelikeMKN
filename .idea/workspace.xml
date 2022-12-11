@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
-      <change afterPath="$PROJECT_DIR$/src/test/java/paramsTests/window/ParamsWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/buttons/JSmoothButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/buttons/JSmoothPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/buttons/ProgressBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/content.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ParamsDatabaseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/adapter/implementation/ParamsDatabaseAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/params/ui/ParamBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ui/ParamBar.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/params/ui/ParamBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ui/ParamBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/params/ui/ParamPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ui/ParamPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/params/ui/ParamPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ui/ParamPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/inventoryTests/window/InventoryWindow.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/paramsTests/window/ParamsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/paramsTests/window/ParamsWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,10 +151,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ParamsWindow" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.PrototypeTest" />
-        <item itemvalue="JUnit.InventoryUITests" />
-        <item itemvalue="JUnit.InventoryConsoleTests.itemAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -174,6 +181,7 @@
       <workItem from="1669657827167" duration="1821000" />
       <workItem from="1670756734565" duration="1566000" />
       <workItem from="1670763411455" duration="1128000" />
+      <workItem from="1670767641588" duration="5456000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
@@ -286,26 +294,5 @@
     <MESSAGE value="bots dead+ hero dead" />
     <MESSAGE value="update bevaviour of coward bot 1" />
     <option name="LAST_COMMIT_MESSAGE" value="update bevaviour of coward bot 1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/ui/ItemPanel.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/inventory/Inventory.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

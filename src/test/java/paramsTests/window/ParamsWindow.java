@@ -46,6 +46,7 @@ public class ParamsWindow extends JFrame {
     public static void main(String[] args) {
         ParamsComponent paramsComponent = new ParamsComponent();
 
+        paramsComponent.addExperience(32727);
 
         ParamsWindow window = new ParamsWindow(paramsComponent);
 

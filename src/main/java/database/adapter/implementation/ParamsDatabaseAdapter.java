@@ -39,5 +39,26 @@ public class ParamsDatabaseAdapter extends DatabaseAdapter {
             throw new DatabaseException("Database Exception: " + e.toString());
         }
     }
+
+    public List<Integer> getLevelsExperience() throws DatabaseException {
+        List<Integer> res = new ArrayList<>();
+
+        Connection connection = database.getConnection();
+
+        try (Statement statement = connection.createStatement()) {
+            String query = "SELECT * FROM levels;";
+
+            ResultSet resultSet = statement.executeQuery(query);
+            // Проходимся по нашему resultSet и заносим данные в products
+            while (resultSet.next()) {
+                int val = resultSet.getInt("experience");
+                res.add(val);
+            }
+
+            return res;
+        } catch (SQLException e) {
+            throw new DatabaseException("Database Exception: " + e.toString());
+        }
+    }
 }
 

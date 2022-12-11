@@ -1,6 +1,7 @@
 package params.ui;
 
 import params.ParamsComponent;
+import ui.buttons.JSmoothButton;
 
 
 public class ParamBar extends javax.swing.JPanel {
@@ -12,8 +13,11 @@ public class ParamBar extends javax.swing.JPanel {
         this.name = name;
         this.component = component;
         initComponents();
-        
-        tName.setText(name);
+        setName();
+    }
+    
+    private void setName(){
+         tName.setText(name.substring(0, 1).toUpperCase() + name.substring(1));
     }
 
 
@@ -24,14 +28,16 @@ public class ParamBar extends javax.swing.JPanel {
 
         tName = new javax.swing.JLabel();
         tValue = new javax.swing.JLabel();
-        bUpdate = new javax.swing.JButton();
+        bAdd = new JSmoothButton(3,3,3,3);
 
+        setBackground(new java.awt.Color(51, 51, 51));
         setMaximumSize(new java.awt.Dimension(2147483647, 30));
         setMinimumSize(new java.awt.Dimension(200, 30));
         setPreferredSize(new java.awt.Dimension(400, 30));
         setLayout(new java.awt.GridBagLayout());
 
-        tName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tName.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        tName.setForeground(new java.awt.Color(255, 255, 255));
         tName.setText("Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -39,21 +45,33 @@ public class ParamBar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         add(tName, gridBagConstraints);
 
-        tValue.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tValue.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        tValue.setForeground(new java.awt.Color(255, 255, 255));
         tValue.setText("10");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         add(tValue, gridBagConstraints);
 
-        bUpdate.setText("+");
+        bAdd.setMaximumSize(new java.awt.Dimension(24, 24));
+        bAdd.setMinimumSize(new java.awt.Dimension(24, 24));
+        bAdd.setPreferredSize(new java.awt.Dimension(24, 24));
+        bAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bAddMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        add(bUpdate, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        add(bAdd, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAddMouseClicked
+    
+    }//GEN-LAST:event_bAddMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bUpdate;
+    private javax.swing.JPanel bAdd;
     private javax.swing.JLabel tName;
     private javax.swing.JLabel tValue;
     // End of variables declaration//GEN-END:variables
