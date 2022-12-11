@@ -237,4 +237,8 @@ public class Processor {
 
         return result;
     }
+
+    public void removePawn(Pawn pawn) {
+        world.getPawns().remove(pawn);
+    }
 }

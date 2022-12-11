@@ -120,6 +120,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
         int experience = paramsComponent.getExperience();
         paramsComponent.addExperience(-experience);
         instigator.getOwner().paramsComponent.addExperience(experience);
+        getWorld().removePawn(this);
     }
 
     @Override
