@@ -2,19 +2,56 @@ package params;
 
 import database.adapter.implementation.ParamsDatabaseAdapter;
 import objects.buff.Buff;
+import params.ui.ParamBar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ParamsComponent {
 
 
     private ParamsDatabaseAdapter paramsDatabaseAdapter;
+    private Map<String, Integer> paramsMap = new HashMap<>();
 
     public ParamsComponent() {
         try {
             paramsDatabaseAdapter = new ParamsDatabaseAdapter();
             levels = paramsDatabaseAdapter.getLevelsExperience();
+            generateParams();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Map<String, Integer> getParamsMap() {
+        return paramsMap;
+    }
+
+    public int getFreePoints() {
+        int amount = getLevel() - 1 + paramsMap.size();
+
+        for (String key : paramsMap.keySet()) {
+            amount -= paramsMap.get(key);
+        }
+
+        return amount;
+    }
+
+    public void increaseParam(String name) {
+        paramsMap.put(name, paramsMap.get(name) + 1);
+    }
+
+    private void generateParams() {
+        if (paramsDatabaseAdapter == null) {
+            return;
+        }
+
+        try {
+            for (String name : paramsDatabaseAdapter.getParamsList()) {
+                paramsMap.put(name, 1);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,8 +64,6 @@ public class ParamsComponent {
 
     int curHealth = 100;
     int maxHealth = 100;
-
-    int level = 1;
 
     int experience = 0;
 

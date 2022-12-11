@@ -1,6 +1,8 @@
 package params.ui;
 
 import database.adapter.implementation.ParamsDatabaseAdapter;
+import java.util.ArrayList;
+import java.util.List;
 import params.ParamsComponent;
 import ui.buttons.ProgressBar;
 
@@ -8,6 +10,8 @@ public class ParamPanel extends javax.swing.JPanel {
 
     ParamsDatabaseAdapter paramsAdapter;
     ParamsComponent component;
+    
+    List<ParamBar> bars = new ArrayList<>();
 
     public ParamPanel(ParamsComponent component) {
         initComponents();
@@ -33,10 +37,18 @@ public class ParamPanel extends javax.swing.JPanel {
         try {
             for (String name : paramsAdapter.getParamsList()) {
                 ParamBar bar = new ParamBar(name, component);
+                bar.setParent(this);
                 pParams.add(bar);
+                bars.add(bar);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void update(){
+        for(ParamBar bar : bars){
+            bar.update();
         }
     }
 

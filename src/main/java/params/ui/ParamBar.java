@@ -8,6 +8,7 @@ public class ParamBar extends javax.swing.JPanel {
 
     String name; 
     ParamsComponent component;
+    ParamPanel parent;
     
     public ParamBar(String name, ParamsComponent component) {
         this.name = name;
@@ -18,6 +19,11 @@ public class ParamBar extends javax.swing.JPanel {
     
     private void setName(){
          tName.setText(name.substring(0, 1).toUpperCase() + name.substring(1));
+         tValue.setText(component.getParamsMap().get(name) + "");
+    }
+    
+    public void setParent(ParamPanel parent){
+        this.parent = parent;
     }
 
 
@@ -47,7 +53,7 @@ public class ParamBar extends javax.swing.JPanel {
 
         tValue.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tValue.setForeground(new java.awt.Color(255, 255, 255));
-        tValue.setText("10");
+        tValue.setText("1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
         add(tValue, gridBagConstraints);
@@ -66,9 +72,23 @@ public class ParamBar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAddMouseClicked
-    
+        if(component.getFreePoints() > 0){
+            component.increaseParam(name);
+            setName();
+        }
+        
+        if(component.getFreePoints() <= 0){
+            bAdd.setVisible(false);
+        }
+        
+        parent.update();
     }//GEN-LAST:event_bAddMouseClicked
 
+    public void update(){
+        if(component.getFreePoints() <= 0){
+            bAdd.setVisible(false);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bAdd;
