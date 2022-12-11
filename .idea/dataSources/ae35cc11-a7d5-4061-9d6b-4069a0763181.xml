@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="content">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.43">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.45">
     <root id="1">
       <ServerVersion>3.39.2</ServerVersion>
     </root>
@@ -1322,31 +1322,31 @@
     </table>
     <column id="485" parent="482" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DataType>INTEGER|0s</DataType>
+      <DasType>INTEGER|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
     <column id="486" parent="482" name="name">
-      <DataType>varchar|0s</DataType>
+      <DasType>varchar|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="487" parent="482" name="size_x">
-      <DataType>INTEGER|0s</DataType>
+      <DasType>INTEGER|0s</DasType>
       <DefaultExpression>1</DefaultExpression>
       <Position>3</Position>
     </column>
     <column id="488" parent="482" name="size_y">
-      <DataType>INTEGER|0s</DataType>
+      <DasType>INTEGER|0s</DasType>
       <DefaultExpression>1</DefaultExpression>
       <Position>4</Position>
     </column>
     <column id="489" parent="482" name="stack_size">
-      <DataType>INTEGER|0s</DataType>
+      <DasType>INTEGER|0s</DasType>
       <DefaultExpression>1</DefaultExpression>
       <Position>5</Position>
     </column>
     <column id="490" parent="482" name="texture_path">
-      <DataType>varchar|0s</DataType>
+      <DasType>varchar|0s</DasType>
       <Position>6</Position>
     </column>
     <index id="491" parent="482" name="sqlite_autoindex_items_1">
@@ -1364,23 +1364,23 @@
       <UnderlyingIndexName>sqlite_autoindex_items_1</UnderlyingIndexName>
     </key>
     <column id="494" parent="483" name="type">
-      <DataType>TEXT|0s</DataType>
+      <DasType>TEXT|0s</DasType>
       <Position>1</Position>
     </column>
     <column id="495" parent="483" name="name">
-      <DataType>TEXT|0s</DataType>
+      <DasType>TEXT|0s</DasType>
       <Position>2</Position>
     </column>
     <column id="496" parent="483" name="tbl_name">
-      <DataType>TEXT|0s</DataType>
+      <DasType>TEXT|0s</DasType>
       <Position>3</Position>
     </column>
     <column id="497" parent="483" name="rootpage">
-      <DataType>INT|0s</DataType>
+      <DasType>INT|0s</DasType>
       <Position>4</Position>
     </column>
     <column id="498" parent="483" name="sql">
-      <DataType>TEXT|0s</DataType>
+      <DasType>TEXT|0s</DasType>
       <Position>5</Position>
     </column>
     <column id="499" parent="484" name="name">

@@ -33,9 +33,7 @@ public class BotController extends Controller {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
-                System.out.println("bot coward dead");
             }else {
-                System.out.println("turn:" + turnOffModeCoward);
                 if (!getCloser) {
                     if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
                         if (xDirection != 0) {
@@ -110,7 +108,6 @@ public class BotController extends Controller {
                         target.getParamsComponent().takeAwayHealth();
                         if (target.getStatus() == EPawnStatus.ATTACK) {
                             owner.getParamsComponent().takeAwayHealth();
-                            System.out.println("bot agressor health: " + owner.getParamsComponent().getHealthPercentage());
                             target.setStatus(EPawnStatus.WALK);
                         }
                     }
@@ -129,7 +126,6 @@ public class BotController extends Controller {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
-                System.out.println("bot agressor dead");
             }else {
                 if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
                     if (xDirection != 0) {
@@ -149,10 +145,8 @@ public class BotController extends Controller {
                         target.getParamsComponent().getHealthPercentage()!= 0) {
                     owner.setStatus(EPawnStatus.ATTACK);
                     target.getParamsComponent().takeAwayHealth();
-                    System.out.println("target xp:" + target.getParamsComponent().getHealthPercentage());
                     if (target.getStatus() == EPawnStatus.ATTACK) {
                         owner.getParamsComponent().takeAwayHealth();
-                        System.out.println("bot calm health: " + owner.getParamsComponent().getHealthPercentage());
                         target.setStatus(EPawnStatus.WALK);
                     }
                 }
@@ -170,7 +164,6 @@ public class BotController extends Controller {
                 if (owner.getParamsComponent().checkIsDead()) {
                     owner.setStatus(EPawnStatus.WALK);
                     owner.setPrevLocation(); // анимация смерти
-                    System.out.println("bot agressor dead");
                 } else {
                     owner.setPrevLocation();
                     if (Math.abs(xDirection) <= 20 && Math.abs(yDirection) <= 20 &&
@@ -179,7 +172,6 @@ public class BotController extends Controller {
                         target.getParamsComponent().takeAwayHealth();
                         if (target.getStatus() == EPawnStatus.ATTACK) {
                             owner.getParamsComponent().takeAwayHealth();
-                            System.out.println("bot calm health: " + owner.getParamsComponent().getHealthPercentage());
                             target.setStatus(EPawnStatus.WALK);
                         }
                         owner.setStatus(EPawnStatus.WALK);

@@ -48,7 +48,6 @@ public class ParamsComponent {
 
     public void addHealth(int add) {
         curHealth += add;
-        System.out.println(curHealth);
         floorHealth();
     }
 

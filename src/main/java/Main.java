@@ -1,6 +1,5 @@
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
-import enemies.prototype.ComplicatedObject;
 import engine.processer.GameProcesser;
 
 public class Main {

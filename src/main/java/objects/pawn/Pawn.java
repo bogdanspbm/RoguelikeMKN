@@ -116,6 +116,8 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
             return;
         }
 
+        this.paramsComponent.addHealth(-value);
+
         if (paramsComponent.checkIsDead()) {
             int experience = paramsComponent.getExperience();
             paramsComponent.addExperience(-experience);
