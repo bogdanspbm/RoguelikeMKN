@@ -1,22 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package inventoryTests.window;
-
+package paramsTests.window;
 
 import exceptions.DatabaseException;
 import inventory.Inventory;
 import inventory.objects.Item;
 import inventory.ui.InventoryPanel;
+import inventoryTests.window.InventoryWindow;
+import params.ParamsComponent;
+import params.ui.ParamPanel;
 
-public class InventoryWindow extends javax.swing.JFrame {
+import javax.swing.*;
 
+public class ParamsWindow extends JFrame {
 
-    Inventory inventory;
+    ParamsComponent paramsComponent;
 
-    public InventoryWindow(Inventory inventory) {
-        this.inventory = inventory;
+    public ParamsWindow(ParamsComponent paramsComponent) {
+        this.paramsComponent = paramsComponent;
         try {
             initComponents();
         } catch (Exception e) {
@@ -24,12 +23,10 @@ public class InventoryWindow extends javax.swing.JFrame {
         }
     }
 
-
-    @SuppressWarnings("unchecked")
     private void initComponents() throws DatabaseException {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pInventory = new InventoryPanel(inventory);
+        pParam = new ParamPanel(paramsComponent);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 400));
@@ -41,24 +38,19 @@ public class InventoryWindow extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        getContentPane().add(pInventory, gridBagConstraints);
+        getContentPane().add(pParam, gridBagConstraints);
 
         pack();
     }
 
-
     public static void main(String[] args) {
-        Inventory inventory = new Inventory();
+        ParamsComponent paramsComponent = new ParamsComponent();
 
-        inventory.addItem(new Item(1, 7));
 
-        inventory.addItem(new Item(2, 1));
-
-        InventoryWindow window = new InventoryWindow(inventory);
+        ParamsWindow window = new ParamsWindow(paramsComponent);
 
         window.setVisible(true);
     }
 
-    private InventoryPanel pInventory;
-
+    private ParamPanel pParam;
 }
