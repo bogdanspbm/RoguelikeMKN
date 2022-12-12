@@ -1800,7 +1800,7 @@ public class Map {
                 if (i == 0 || k == 0 || i == 1 || k == 1 || i == map.length - 1 || k == map[i].length - 1 || i == map.length - 2 || k == map[i].length - 2) {
                     types[i][k] = ETileType.HOLE;
                 } else {
-                    if (map[i][k] < SEA_LEVEL) {
+                    if (map[i][k] < seaLevel) {
                         types[i][k] = ETileType.HOLE;
                     } else {
                         types[i][k] = ETileType.STONE;
