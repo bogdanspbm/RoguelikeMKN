@@ -34,12 +34,12 @@ public class Map {
         this.resolution = builder.getResolution();
         this.seaLevel = builder.getSeaLevel();
 
-        noiseGenerator = new PerlinNoiseGenerator(resolution, 10);
+        noiseGenerator = new PerlinNoiseGenerator(1, resolution);
         generateNoiseMap();
     }
 
     private void generateNoiseMap() {
-        this.map = noiseGenerator.getMap();
+        this.map = noiseGenerator.getHeightMap();
     }
 
     public List<Tile> getTiles() {

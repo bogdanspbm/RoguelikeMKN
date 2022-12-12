@@ -14,7 +14,7 @@ public class NoiseWindow extends JFrame {
     PerlinNoiseGenerator generator;
 
     public NoiseWindow() {
-        this.generator = new PerlinNoiseGenerator(128, 32);
+        this.generator = new PerlinNoiseGenerator(1, 64);
         try {
             initComponents();
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class NoiseWindow extends JFrame {
     private void initComponents() throws DatabaseException {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pPanel = new NoisePanel(generator.getMap());
+        pPanel = new NoisePanel(generator.getHeightMap(), 120);
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
