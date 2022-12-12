@@ -6,7 +6,7 @@ import inventory.objects.Item;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
-import world.Map;
+import world.map.Map;
 import world.Tile;
 
 import java.util.ArrayList;

@@ -4,7 +4,6 @@ import config.Config;
 import engine.render.interfaces.Drawable;
 import interfaces.Damageable;
 import interfaces.Interactive;
-import inventory.factory.ItemFactory;
 import inventory.objects.Item;
 import objects.World;
 import objects.collision.Collision;
@@ -13,14 +12,13 @@ import objects.pawn.Pawn;
 import objects.projectile.Projectile;
 import player.controller.PlayerController;
 import structures.Vector3D;
-import world.Map;
+import world.map.Map;
+import world.map.MapBuilder;
 import world.Tile;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Processor {
     private volatile static Processor singleton;
@@ -28,7 +26,9 @@ public class Processor {
     World world = new World();
 
     private Processor() {
-        world.setMap(new Map(32));
+        MapBuilder builder = new MapBuilder();
+        builder.setResolution(32);
+        world.setMap(new Map(builder));
         world.setTiles(world.getMap().getTiles());
         sortTiles();
         startTick();
