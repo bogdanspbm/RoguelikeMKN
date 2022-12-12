@@ -15,14 +15,13 @@ public class PerlinNoiseGenerator {
     private int[][] heightMap;
     private double[] verticesToBuffer;
     private double scaler = 1; // было 0.25f
-    private float defaultFreq = 0.15f;
-    private float defaultAmplitude = 8f;
-    private float defaultPersis = 0.2f;
+    private double defaultFreq = 0.15;
+    private double defaultAmplitude = 8;
+    private double defaultPersis = 0.2;
     private double height = 4;
     private Vector3F[] buildingLocations;
     private int inum = 1;
-    private int NUM_OCTAVES = 50;
-    float seed = (float) (Math.PI * 2 * 10 * (1 + Math.random()));
+    private int NUM_OCTAVES = 5;
     Date date = new Date();
     Random rnd = new Random(date.getTime());
 
@@ -209,7 +208,7 @@ public class PerlinNoiseGenerator {
         inum = getIPrime((int) (rnd.nextInt(20)) % 20);
         fillZerosVerticesMatrix();
         genNoise();
-        genBuildingIndices(10, 1000);
+        // genBuildingIndices(10, 1000);
         matToVector();
         generateHeightMap();
     }
@@ -267,13 +266,13 @@ public class PerlinNoiseGenerator {
 
         // вводим фактор случайности, чтобы облака не были всегда одинаковыми
         // (Мы ведь помним что ф-ция шума когерентна?)
-        x += (factor);
-        y += (factor);
+        double tmpX = x + factor;
+        double tmpY = y + factor;
 
         // NUM_OCTAVES - переменная, которая обозначает число октав,
         // чем больше октав, тем лучше получается шум
         for (int i = 0; i < NUM_OCTAVES; i++) {
-            total += compileNoise(x * frequency, y * frequency) * amplitude;
+            total += compileNoise(tmpX * frequency, tmpY * frequency) * amplitude;
             amplitude *= persistence;
             frequency *= Math.E;
         }
@@ -292,7 +291,8 @@ public class PerlinNoiseGenerator {
         for (int i = 0; i < cellCount; i++) {
             for (int j = 0; j < cellCount; j++) {
                 //проходим по всем элементам массива и заполняем их значениями
-                verticesMatrix[i][j].y = height * perlinNoise2D(verticesMatrix[i][j].x, verticesMatrix[i][j].z, fac) / scaler;
+                double noise = perlinNoise2D(verticesMatrix[i][j].x, verticesMatrix[i][j].z, fac);
+                verticesMatrix[i][j].y = height * noise / scaler;
             }
         }
     }

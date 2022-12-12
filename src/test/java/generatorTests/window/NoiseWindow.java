@@ -14,7 +14,7 @@ public class NoiseWindow extends JFrame {
     PerlinNoiseGenerator generator;
 
     public NoiseWindow() {
-        this.generator = new PerlinNoiseGenerator(1, 64);
+        this.generator = new PerlinNoiseGenerator(0.34, 64);
         try {
             initComponents();
         } catch (Exception e) {

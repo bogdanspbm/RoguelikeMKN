@@ -15,12 +15,14 @@ public class Map {
     private int resolution;
 
     private int seaLevel;
+    private int buildingLevel = 150;
 
     TextureDatabaseAdapter textureDatabaseAdapter;
 
     ETileType[][] types;
 
     int[][] map;
+    int[][] buildingMap;
 
     List<Tile> tiles = new ArrayList<>();
 
@@ -33,13 +35,20 @@ public class Map {
 
         this.resolution = builder.getResolution();
         this.seaLevel = builder.getSeaLevel();
+        this.buildingLevel = builder.getBuildingLevel();
 
         noiseGenerator = new PerlinNoiseGenerator(1, resolution);
         generateNoiseMap();
+        generateBuildings();
     }
 
     private void generateNoiseMap() {
         this.map = noiseGenerator.getHeightMap();
+    }
+
+    private void generateBuildings() {
+        noiseGenerator = new PerlinNoiseGenerator(0.25, resolution);
+        buildingMap = noiseGenerator.getHeightMap();
     }
 
     public List<Tile> getTiles() {
@@ -79,6 +88,10 @@ public class Map {
 
         if (types[x][y] == ETileType.STONE) {
             return "stone_a";
+        }
+
+        if (types[x][y] == ETileType.WALL) {
+            return "wall_grey_a";
         }
 
         int holes = getStoneNeigh(x, y);
@@ -1803,7 +1816,11 @@ public class Map {
                     if (map[i][k] < seaLevel) {
                         types[i][k] = ETileType.HOLE;
                     } else {
-                        types[i][k] = ETileType.STONE;
+                        if (buildingMap[i][k] > buildingLevel) {
+                            types[i][k] = ETileType.WALL;
+                        } else {
+                            types[i][k] = ETileType.STONE;
+                        }
                     }
                 }
             }

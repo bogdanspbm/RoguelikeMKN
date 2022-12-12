@@ -5,6 +5,8 @@ public class MapBuilder {
     private int resolution = 64;
     private int seaLevel = 120;
 
+    private int buildingLevel = 150;
+
     private String path;
 
     public int getResolution() {
@@ -29,5 +31,13 @@ public class MapBuilder {
 
     public int getSeaLevel() {
         return seaLevel;
+    }
+
+    public void setBuildingLevel(int level) {
+        buildingLevel = level;
+    }
+
+    public int getBuildingLevel() {
+        return buildingLevel;
     }
 }

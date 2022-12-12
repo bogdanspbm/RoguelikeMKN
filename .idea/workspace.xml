@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
       <change afterPath="$PROJECT_DIR$/src/main/java/structures/Vector3F.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/world/map/MapBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/PerlinNoiseGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generator/ui/NoisePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generator/ui/NoisePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/objects/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/map/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/map/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/map/MapBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/world/singleton/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/singleton/Processor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/generatorTests/window/NoiseWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/generatorTests/window/NoiseWindow.java" afterDir="false" />
     </list>
@@ -179,7 +179,7 @@
       <workItem from="1670763411455" duration="1128000" />
       <workItem from="1670767641588" duration="7108000" />
       <workItem from="1670833971420" duration="110000" />
-      <workItem from="1670849058353" duration="4804000" />
+      <workItem from="1670849058353" duration="7013000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
