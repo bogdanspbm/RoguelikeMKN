@@ -3,6 +3,9 @@ package world.map;
 import database.adapter.implementation.TextureDatabaseAdapter;
 import enums.ETileType;
 import generator.PerlinNoiseGenerator;
+import netscape.javascript.JSObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import structures.Vector3D;
 import world.Tile;
 
@@ -81,6 +84,23 @@ public class Map {
         }
 
         return result;
+    }
+
+    public void exportToFile(String path) {
+        JSONObject level = new JSONObject();
+        level.put("resolution", resolution);
+        JSONArray mapA = new JSONArray();
+        JSONArray mapB = new JSONArray();
+
+        for (int i = 0; i < resolution; i++) {
+            for (int k = 0; k < resolution; k++) {
+                mapA.put(this.map[i][k]);
+                mapB.put(this.buildingMap[i][k]);
+            }
+        }
+
+        level.put("map", mapA);
+        level.put("walls", mapB);
     }
 
     private String getTileByNeighbor(int x, int y) {
