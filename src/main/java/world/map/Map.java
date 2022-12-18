@@ -12,6 +12,8 @@ import world.Tile;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utils.FileUtils.writeToFile;
+
 public class Map {
 
     private PerlinNoiseGenerator noiseGenerator;
@@ -40,9 +42,22 @@ public class Map {
         this.seaLevel = builder.getSeaLevel();
         this.buildingLevel = builder.getBuildingLevel();
 
+        if (builder.getMap() != null) {
+            this.map = builder.getMap();
+        }
+
+        if (builder.getBuildingMap() != null) {
+            this.buildingMap = builder.getBuildingMap();
+        }
+
         noiseGenerator = new PerlinNoiseGenerator(1, resolution);
-        generateNoiseMap();
-        generateBuildings();
+        if (this.map == null) {
+            generateNoiseMap();
+        }
+
+        if (this.buildingMap == null) {
+            generateBuildings();
+        }
     }
 
     private void generateNoiseMap() {
@@ -89,6 +104,8 @@ public class Map {
     public void exportToFile(String path) {
         JSONObject level = new JSONObject();
         level.put("resolution", resolution);
+        level.put("sea_level", seaLevel);
+        level.put("build_level", buildingLevel);
         JSONArray mapA = new JSONArray();
         JSONArray mapB = new JSONArray();
 
@@ -101,6 +118,8 @@ public class Map {
 
         level.put("map", mapA);
         level.put("walls", mapB);
+
+        writeToFile(path, level.toString());
     }
 
     private String getTileByNeighbor(int x, int y) {
@@ -1846,5 +1865,6 @@ public class Map {
             }
         }
     }
+
 
 }

@@ -26,10 +26,11 @@ public class Processor {
     World world = new World();
 
     private Processor() {
-        MapBuilder builder = new MapBuilder();
-        builder.setResolution(32);
+        MapBuilder builder = new MapBuilder("last_world.wld");
+        //builder.setResolution(32);
         world.setMap(new Map(builder));
         world.setTiles(world.getMap().getTiles());
+        world.getMap().exportToFile("last_world.wld");
         sortTiles();
         startTick();
     }
