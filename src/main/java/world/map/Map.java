@@ -68,7 +68,7 @@ public class Map {
             generateBuildings();
         }
 
-        generateBots();
+        //generateBots();
     }
 
     private void generateNoiseMap() {
@@ -1884,6 +1884,10 @@ public class Map {
 
     private int getWallNeigh(int x, int y) {
         int counter_wall = 0;
+
+        if (x < 2 || y < 2 || x > resolution - 2 || y > resolution - 2) {
+            return 0;
+        }
 
         if (types[x][y] == ETileType.WALL) {
             counter_wall++;

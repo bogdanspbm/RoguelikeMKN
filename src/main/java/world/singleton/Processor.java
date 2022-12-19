@@ -23,7 +23,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Processor {
-    private volatile static Processor singleton = null;
+    private static Processor singleton = null;
+    private static final Object lock = new Object();
 
     private World world;
 
@@ -112,10 +113,8 @@ public class Processor {
 
     public static synchronized Processor getWorld() {
         if (singleton == null) {
-            synchronized (Processor.class) {
-                System.out.println("hello");
-                singleton = new Processor();
-            }
+            //System.out.println(singleton);
+            singleton = new Processor();
         }
 
         return singleton;
