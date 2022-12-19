@@ -54,6 +54,14 @@ public class ParamsComponent {
 
     public void increaseParam(String name) {
         paramsMap.put(name, paramsMap.get(name) + 1);
+
+        if (name.equals("strength")) {
+            setMaxHealth(maxHealth + 50);
+        }
+    }
+
+    public double getDamageScale() {
+        return paramsMap.get("agility") * 0.1 + 1;
     }
 
     private void generateParams() {
