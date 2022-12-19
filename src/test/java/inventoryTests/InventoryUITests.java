@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class InventoryUITests {
 
-    Inventory inventory = new Inventory();
+    Inventory inventory = new Inventory(null);
 
     @Test
     public void openInventoryTest() {

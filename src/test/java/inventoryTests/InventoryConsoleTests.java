@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class InventoryConsoleTests {
 
-    Inventory inventory = new Inventory();
+    Inventory inventory = new Inventory(null);
 
     @Test
     public void itemAddTest() {

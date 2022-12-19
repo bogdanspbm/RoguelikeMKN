@@ -29,7 +29,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     protected ControllerAdapter controllerAdapter = new ControllerAdapter(this);
 
-    protected inventory.Inventory inventory = new inventory.Inventory();
+    protected inventory.Inventory inventory = new inventory.Inventory(this);
 
     protected ProjectileFactory projectileFactory;
 

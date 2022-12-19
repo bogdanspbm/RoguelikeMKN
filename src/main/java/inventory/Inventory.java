@@ -2,10 +2,13 @@ package inventory;
 
 import interfaces.Observable;
 import interfaces.Observer;
+import inventory.factory.ItemUseFactory;
 import inventory.objects.Item;
 import inventory.objects.ItemDescription;
+import inventory.objects.ItemUseAction;
 import inventory.objects.Slot;
 import inventory.utils.ItemDescriptionProvider;
+import objects.pawn.Pawn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,10 @@ public class Inventory implements Observable {
 
     ItemDescriptionProvider descriptionProvider;
 
-    public Inventory() {
+    private Pawn owner;
+
+    public Inventory(Pawn owner) {
+        this.owner = owner;
         generateInventory();
 
         try {
@@ -52,6 +58,14 @@ public class Inventory implements Observable {
         }
 
         notifyObservers();
+    }
+
+    private void reduceItemCountAtSlot(int index, int value) {
+        Item item = items.get(index).getItem();
+        item.setQuantity(item.getQuantity() - value);
+        if (item.getQuantity() <= 0) {
+            dropItem(index);
+        }
     }
 
     public boolean moveItemToSlot(int fromIndex, int toIndex) {
@@ -290,6 +304,10 @@ public class Inventory implements Observable {
     }
 
     public void useItem(int index, ItemDescription description) {
-
+        ItemUseFactory factory = new ItemUseFactory();
+        ItemUseAction action = factory.generateAction(description.meta());
+        if (owner == null || action.useItem(owner)) {
+            reduceItemCountAtSlot(index, 1);
+        }
     }
 }
