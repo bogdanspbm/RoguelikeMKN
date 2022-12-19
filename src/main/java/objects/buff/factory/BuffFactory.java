@@ -14,11 +14,16 @@ public class BuffFactory {
 
     public Buff createBuff(BuffBuilder builder) {
 
+        // TODO: добавить default во все case
         switch (builder.name) {
-            case "confuse": {
+            case "bash": {
                 return new ConfusedBuff(parent);
             }
+
+            default: {
+                return null;
+            }
+
         }
-        return null;
     }
 }

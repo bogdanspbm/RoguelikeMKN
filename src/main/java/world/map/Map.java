@@ -25,7 +25,7 @@ public class Map {
     private int resolution;
 
     private int seaLevel;
-    private int buildingLevel = 150;
+    private int buildingLevel;
 
     TextureDatabaseAdapter textureDatabaseAdapter;
 

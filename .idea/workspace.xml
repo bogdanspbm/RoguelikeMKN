@@ -67,7 +67,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.ParamsWindow">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -88,12 +88,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrototypeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="enemies.prototype.PrototypeTest" />
+    <configuration name="ParamsWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="paramsTests.window.ParamsWindow" />
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="enemies.prototype.*" />
+          <option name="PATTERN" value="paramsTests.window.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,6 +134,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ParamsWindow" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.InventoryWindow" />
       </list>

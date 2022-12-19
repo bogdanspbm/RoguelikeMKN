@@ -19,7 +19,20 @@ public abstract class BotFactory {
 
     protected Map parent;
 
-    public abstract Enemy createBot();
+    protected abstract Enemy createBotHidden();
+
+    public Enemy createBot() {
+        if (spawned >= spawnLimit) {
+            return null;
+        }
+        Enemy bot = createBotHidden();
+
+        if (bot != null) {
+            spawned++;
+        }
+
+        return bot;
+    }
 
     protected Vector3D getRandomLocation() {
         if (spawnerList.size() == 0) {
