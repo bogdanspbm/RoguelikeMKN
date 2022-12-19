@@ -67,7 +67,7 @@
       <recent name="exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InventoryWindow">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -134,6 +134,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.InventoryWindow" />
       </list>
     </recent_temporary>
@@ -170,7 +171,7 @@
       <workItem from="1670849058353" duration="9549000" />
       <workItem from="1671388864752" duration="422000" />
       <workItem from="1671389488271" duration="3549000" />
-      <workItem from="1671437786868" duration="6152000" />
+      <workItem from="1671437786868" duration="7725000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>

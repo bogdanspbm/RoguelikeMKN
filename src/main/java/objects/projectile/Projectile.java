@@ -4,10 +4,13 @@ import config.Config;
 import interfaces.Damageable;
 import interfaces.Tickable;
 import objects.Object;
+import objects.buff.factory.BuffBuilder;
 import objects.pawn.Pawn;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static world.singleton.Processor.getWorld;
 
@@ -22,13 +25,23 @@ public abstract class Projectile extends Object implements Tickable {
 
     protected HashMap<Damageable, Boolean> damageMap = new HashMap<>();
 
+    List<BuffBuilder> builderList = new ArrayList<>();
+
     public Projectile(Pawn owner) {
         this.owner = owner;
         initCollision();
     }
 
+    public Projectile(Pawn owner, List<BuffBuilder> builderList) {
+        this.owner = owner;
+        this.builderList = builderList;
+        initCollision();
+    }
+
+
     @Override
     public void draw(Graphics grphcs) {
+        //super.draw(grphcs);
         if (this.animationComponent != null) {
             Graphics2D graphics2D = (Graphics2D) grphcs;
 
@@ -47,6 +60,10 @@ public abstract class Projectile extends Object implements Tickable {
     public void tick() {
         addTick();
         checkDeath();
+    }
+
+    public List<BuffBuilder> getBuilderList() {
+        return builderList;
     }
 
     protected void addTick() {

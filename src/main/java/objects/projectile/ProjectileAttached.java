@@ -1,17 +1,22 @@
 package objects.projectile;
 
 import exceptions.CreationException;
+import objects.buff.factory.BuffBuilder;
 import objects.collision.Collision;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
 import structures.Vector3D;
 
-import java.awt.*;
+import java.util.List;
 
 public class ProjectileAttached extends Projectile {
 
     public ProjectileAttached(Pawn owner) {
         super(owner);
+    }
+
+    public ProjectileAttached(Pawn owner, List<BuffBuilder> builderList) {
+        super(owner, builderList);
     }
 
     @Override

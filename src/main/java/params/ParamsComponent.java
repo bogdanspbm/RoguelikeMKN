@@ -66,6 +66,14 @@ public class ParamsComponent {
     }
 
     public void addBuff(Buff buff) {
+        for (Buff lbuff : buffs) {
+            if (buff.getName().equals(lbuff.getName())) {
+                lbuff.setDuration(buff.getDuration());
+                lbuff.onProLong();
+                return;
+            }
+        }
+
         buff.onAdd();
         buffs.add(buff);
     }

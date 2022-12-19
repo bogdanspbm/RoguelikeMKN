@@ -15,6 +15,22 @@ public abstract class Buff {
 
     }
 
+    public void onProLong() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
     public void tick() {
         duration -= 1;
 

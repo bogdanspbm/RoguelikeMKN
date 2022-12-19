@@ -65,7 +65,7 @@ public class Player extends Pawn {
                 {
                     try {
                         setStatus(EPawnStatus.ATTACK);
-                        projectileFactory.createProjectile();
+                        projectileFactory.createProjectile(inventory.getBuffBuilders());
                         Thread.sleep(300);
                         setStatus(EPawnStatus.WALK);
                     } catch (Exception e) {

@@ -8,6 +8,8 @@ import inventory.objects.ItemDescription;
 import inventory.objects.ItemUseAction;
 import inventory.objects.Slot;
 import inventory.utils.ItemDescriptionProvider;
+import objects.buff.factory.BuffBuilder;
+import objects.buff.factory.BuffBuilderFactory;
 import objects.pawn.Pawn;
 
 import java.util.ArrayList;
@@ -309,5 +311,25 @@ public class Inventory implements Observable {
         if (owner == null || action.useItem(owner)) {
             reduceItemCountAtSlot(index, 1);
         }
+    }
+
+    public List<BuffBuilder> getBuffBuilders() {
+        BuffBuilderFactory factory = new BuffBuilderFactory();
+        List<BuffBuilder> result = new ArrayList<>();
+        for (Slot item : getItems()) {
+            if (item.getIsParent()) {
+                try {
+                    ItemDescription description = descriptionProvider.getDescription(item.getItem().getId());
+                    BuffBuilder builder = factory.createBuilder(description);
+                    if (builder != null) {
+                        result.add(builder);
+                    }
+                } catch (Exception e) {
+                    return result;
+                }
+            }
+        }
+
+        return result;
     }
 }

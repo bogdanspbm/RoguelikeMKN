@@ -4,6 +4,7 @@ import enums.EPawnStatus;
 import interfaces.*;
 import inventory.interfaces.Inventory;
 import objects.Object;
+import objects.buff.factory.BuffFactory;
 import objects.controller.Controller;
 import objects.controller.ControllerAdapter;
 import objects.projectile.Projectile;
@@ -109,6 +110,13 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
         if (paramsComponent.checkIsDead()) {
             return;
         }
+
+        BuffFactory factory = new BuffFactory(getParamsComponent());
+
+        instigator.getBuilderList().forEach(builder -> {
+                    getParamsComponent().addBuff(factory.createBuff(builder));
+                }
+        );
 
         this.paramsComponent.addHealth(-value);
 

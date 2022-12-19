@@ -7,6 +7,7 @@ public class ConfusedBuff extends Buff {
 
     public ConfusedBuff(ParamsComponent parent) {
         this.parent = parent;
+        this.name = "confuse";
         this.duration = 300;
     }
 
