@@ -1,11 +1,10 @@
 package enemies;
 
-import enemies.factory.SlimeAnimationFactory;
+import enemies.animations.factory.SlimeAnimationFactory;
 import enums.EBotBehaviour;
 import exceptions.CreationException;
 import objects.buff.factory.BuffFactory;
 import objects.projectile.Projectile;
-import player.animation.factory.PlayerAnimationComponentFactory;
 import utils.WorldUtils;
 
 import static world.singleton.Processor.getWorld;

@@ -1,7 +1,11 @@
 package world.map;
 
+import enemies.factory.BotFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static utils.FileUtils.readFromFile;
 
@@ -16,6 +20,8 @@ public class MapBuilder {
     private int[][] buildingMap;
 
     private String path;
+
+    private List<BotFactory> botFactories = new ArrayList<>();
 
     public MapBuilder() {
 
@@ -62,6 +68,14 @@ public class MapBuilder {
                 buildingMap[x][y] = val;
             }
         }
+    }
+
+    public List<BotFactory> getBotFactories() {
+        return botFactories;
+    }
+
+    public void addBotFactory(BotFactory factory) {
+        botFactories.add(factory);
     }
 
     public int[][] getMap() {

@@ -1,4 +1,4 @@
-package enemies.factory;
+package enemies.animations.factory;
 
 import enemies.animations.SlimeAnimationComponent;
 import exceptions.CreationException;
