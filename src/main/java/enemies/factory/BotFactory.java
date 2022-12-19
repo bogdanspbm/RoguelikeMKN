@@ -13,6 +13,9 @@ public abstract class BotFactory {
 
     protected List<Spawner> spawnerList = new ArrayList<>();
 
+    protected int spawnLimit = 3;
+    protected int spawned = 0;
+
     public abstract Enemy createBot();
 
     protected Vector3D getRandomLocation() {
@@ -29,5 +32,9 @@ public abstract class BotFactory {
 
     public void addSpawn(Spawner spawner) {
         spawnerList.add(spawner);
+    }
+
+    public int getSpawnLimit() {
+        return spawnLimit;
     }
 }

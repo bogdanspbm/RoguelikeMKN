@@ -1,6 +1,8 @@
 package world.singleton;
 
 import config.Config;
+import enemies.factory.implementation.KnightFactory;
+import enemies.factory.implementation.SlimeFactory;
 import engine.render.interfaces.Drawable;
 import interfaces.Damageable;
 import interfaces.Interactive;
@@ -21,18 +23,37 @@ import java.util.Collections;
 import java.util.List;
 
 public class Processor {
-    private volatile static Processor singleton;
+    private volatile static Processor singleton = null;
 
-    World world = new World();
+    private World world;
+
+    private volatile boolean isInit = false;
+    private volatile boolean tickStarter = false;
 
     private Processor() {
-        MapBuilder builder = new MapBuilder("last_world.wld");
-        //builder.setResolution(32);
-        world.setMap(new Map(builder));
-        world.setTiles(world.getMap().getTiles());
-        world.getMap().exportToFile("last_world.wld");
-        sortTiles();
-        startTick();
+        initWorld();
+        startTicks();
+    }
+
+    protected synchronized void initWorld() {
+        if (!isInit) {
+            world = new World();
+            MapBuilder builder = new MapBuilder("last_world.wld");
+            builder.addBotFactory(new KnightFactory());
+            builder.addBotFactory(new SlimeFactory());
+            world.setMap(new Map(builder));
+            world.setTiles(world.getMap().getTiles());
+            world.getMap().exportToFile("last_world.wld");
+            sortTiles();
+            isInit = true;
+        }
+    }
+
+    protected synchronized void startTicks() {
+        if (!tickStarter) {
+            startTick();
+            tickStarter = true;
+        }
     }
 
     public Pawn getPlayerPawn(int index) {
@@ -89,9 +110,10 @@ public class Processor {
     }
 
 
-    public static Processor getWorld() {
+    public static synchronized Processor getWorld() {
         if (singleton == null) {
             synchronized (Processor.class) {
+                System.out.println("hello");
                 singleton = new Processor();
             }
         }

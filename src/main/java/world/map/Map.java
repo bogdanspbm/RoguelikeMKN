@@ -1,6 +1,8 @@
 package world.map;
 
 import database.adapter.implementation.TextureDatabaseAdapter;
+import enemies.Enemy;
+import enemies.factory.BotFactory;
 import enums.ETileType;
 import generator.PerlinNoiseGenerator;
 import netscape.javascript.JSObject;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 import static utils.FileUtils.writeToFile;
+import static world.singleton.Processor.getWorld;
 
 public class Map {
 
@@ -30,6 +33,7 @@ public class Map {
     int[][] map;
     int[][] buildingMap;
 
+    List<BotFactory> botFactories = new ArrayList<>();
     List<Tile> tiles = new ArrayList<>();
 
     public Map(MapBuilder builder) {
@@ -51,6 +55,10 @@ public class Map {
             this.buildingMap = builder.getBuildingMap();
         }
 
+        if (builder.getBotFactories() != null) {
+            this.botFactories = builder.getBotFactories();
+        }
+
         noiseGenerator = new PerlinNoiseGenerator(1, resolution);
         if (this.map == null) {
             generateNoiseMap();
@@ -59,6 +67,8 @@ public class Map {
         if (this.buildingMap == null) {
             generateBuildings();
         }
+
+        generateBots();
     }
 
     private void generateNoiseMap() {
@@ -78,6 +88,15 @@ public class Map {
         return tiles;
     }
 
+    private void generateBots() {
+        for (BotFactory factory : botFactories) {
+            for (int i = 0; i < factory.getSpawnLimit(); i++) {
+                Enemy bot = factory.createBot();
+                getWorld().addPawn(bot);
+                System.out.println(i);
+            }
+        }
+    }
 
     private List<Tile> generateTiles() {
         List<Tile> result = new ArrayList<>();
@@ -139,7 +158,7 @@ public class Map {
                         types[x - 1][y] == ETileType.WALL && types[x][y + 1] == ETileType.WALL &&
                         types[x - 1][y + 1] == ETileType.WALL && types[x + 1][y + 1] == ETileType.WALL &&
                         types[x][y - 1] == ETileType.WALL && types[x + 1][y - 1] == ETileType.WALL &&
-                        types[x - 1][y - 1] == ETileType.WALL ) {
+                        types[x - 1][y - 1] == ETileType.WALL) {
                     return "stone_a";
                 }
             }
