@@ -21,7 +21,7 @@ public class ParamsComponent {
     protected int curHealth = 100;
     protected int maxHealth = 100;
 
-    protected int experience = 0;
+    protected int experience = 100;
 
     public ParamsComponent() {
         try {
