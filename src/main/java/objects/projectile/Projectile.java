@@ -32,6 +32,10 @@ public abstract class Projectile extends Object implements Tickable {
         initCollision();
     }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     public Projectile(Pawn owner, List<BuffBuilder> builderList) {
         this.owner = owner;
         this.builderList = builderList;

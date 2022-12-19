@@ -5,6 +5,7 @@ import exceptions.CreationException;
 import interfaces.Interactive;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
+import objects.projectile.Projectile;
 import objects.projectile.factory.MeleeProjectileFactory;
 import player.animation.factory.PlayerAnimationComponentFactory;
 import player.controller.PlayerController;
@@ -65,7 +66,8 @@ public class Player extends Pawn {
                 {
                     try {
                         setStatus(EPawnStatus.ATTACK);
-                        projectileFactory.createProjectile(inventory.getBuffBuilders());
+                        Projectile projectile = projectileFactory.createProjectile(inventory.getBuffBuilders());
+                        projectile.setDamage((int) (projectile.getDamage() * paramsComponent.getDamageScale()));
                         Thread.sleep(300);
                         setStatus(EPawnStatus.WALK);
                     } catch (Exception e) {
