@@ -1,5 +1,6 @@
 package enemies.controller;
 
+import enums.EBotBehaviour;
 import enums.EPawnStatus;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
@@ -8,11 +9,11 @@ import static world.singleton.Processor.getWorld;
 
 public class BotController extends Controller {
 
-    public String typeOfBotsBehaviour;
+    public EBotBehaviour typeOfBotsBehaviour;
     public int turnOffModeCoward = 0;
     public boolean getCloser = false;
 
-    public BotController(String typeOfBotsBehaviour) {
+    public BotController(EBotBehaviour typeOfBotsBehaviour) {
         this.typeOfBotsBehaviour = typeOfBotsBehaviour;
     }
 
@@ -25,7 +26,7 @@ public class BotController extends Controller {
         int xDirectionCatchUp = 0;
         int yDirectionCatchUP = 0;
         //        трусливый бот
-        if (typeOfBotsBehaviour == "coward") {
+        if (typeOfBotsBehaviour == EBotBehaviour.COWARD) {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
@@ -118,7 +119,7 @@ public class BotController extends Controller {
             }
         }
 //        агресивный бот
-        if (typeOfBotsBehaviour == "aggressor") {
+        if (typeOfBotsBehaviour == EBotBehaviour.AGGRESSOR) {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
@@ -156,7 +157,7 @@ public class BotController extends Controller {
             }
         }
 //        статичный бот
-        if (typeOfBotsBehaviour == "calm") {
+        if (typeOfBotsBehaviour == EBotBehaviour.CALM) {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти

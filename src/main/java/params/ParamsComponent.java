@@ -10,18 +10,18 @@ import java.util.concurrent.SynchronousQueue;
 public class ParamsComponent {
 
 
-    private ParamsDatabaseAdapter paramsDatabaseAdapter;
-    private Map<String, Integer> paramsMap = new HashMap<>();
+    protected ParamsDatabaseAdapter paramsDatabaseAdapter;
+    protected Map<String, Integer> paramsMap = new HashMap<>();
 
-    private Queue<Buff> buffs = new SynchronousQueue<>();
+    protected Queue<Buff> buffs = new SynchronousQueue<>();
 
-    private List<Integer> levels;
-    private int speed = 1;
+    protected List<Integer> levels;
+    protected int speed = 1;
 
-    private int curHealth = 100;
-    private int maxHealth = 100;
+    protected int curHealth = 100;
+    protected int maxHealth = 100;
 
-    private int experience = 0;
+    protected int experience = 0;
 
     public ParamsComponent() {
         try {
@@ -31,6 +31,11 @@ public class ParamsComponent {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setMaxHealth(int val) {
+        this.maxHealth = val;
+        this.curHealth = val;
     }
 
     public Map<String, Integer> getParamsMap() {
@@ -160,5 +165,28 @@ public class ParamsComponent {
         for (Buff buff : buffs) {
             buff.tick();
         }
+    }
+
+    public ParamsComponent clone() {
+        ParamsComponent component = new ParamsComponent();
+        component.maxHealth = maxHealth;
+        component.curHealth = curHealth;
+        component.experience = experience;
+
+        component.buffs = new SynchronousQueue<>();
+
+        for (Buff buff : buffs) {
+            component.buffs.add(buff.clone(component));
+        }
+
+        component.paramsMap = new HashMap<>();
+
+        paramsMap.keySet().forEach(k -> {
+            component.paramsMap.put(k, paramsMap.get(k));
+        });
+
+        component.speed = speed;
+
+        return component;
     }
 }

@@ -38,4 +38,6 @@ public abstract class Buff {
             parent.removeBuff(this);
         }
     }
+
+    public abstract Buff clone(ParamsComponent parent);
 }

@@ -64,7 +64,6 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     @Override
     public void tick() {
-        System.out.println(getLocation());
         paramsComponent.tick();
     }
 
@@ -125,7 +124,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
         }
     }
 
-    private void deathEvent(Projectile instigator) {
+    protected void deathEvent(Projectile instigator) {
         System.out.println("DIE");
         int experience = paramsComponent.getExperience();
         paramsComponent.addExperience(-experience);

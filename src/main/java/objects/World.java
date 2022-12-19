@@ -20,7 +20,7 @@ public class World {
     private Queue<Pawn> pawns = new ConcurrentLinkedQueue<>();
     private List<Tile> tiles = new ArrayList<>();
 
-    private List<Damageable> damageables = new ArrayList<>();
+    private Queue<Damageable> damageables = new ConcurrentLinkedQueue<>();
 
     private Queue<Projectile> projectiles = new ConcurrentLinkedQueue<>();
 
@@ -54,11 +54,11 @@ public class World {
         this.tiles = tiles;
     }
 
-    public List<Damageable> getDamageables() {
+    public Queue<Damageable> getDamageables() {
         return damageables;
     }
 
-    public void setDamageables(List<Damageable> damageables) {
+    public void setDamageables(Queue<Damageable> damageables) {
         this.damageables = damageables;
     }
 
