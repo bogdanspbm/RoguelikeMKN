@@ -6,6 +6,7 @@ import enemies.factory.BotFactory;
 import enums.ETileType;
 import generator.PerlinNoiseGenerator;
 import netscape.javascript.JSObject;
+import objects.pawn.Pawn;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import structures.Vector3D;
@@ -36,6 +37,8 @@ public class Map {
     List<BotFactory> botFactories = new ArrayList<>();
     List<Tile> tiles = new ArrayList<>();
 
+    List<Pawn> bots = new ArrayList<>();
+
     public Map(MapBuilder builder) {
         try {
             textureDatabaseAdapter = new TextureDatabaseAdapter();
@@ -57,6 +60,9 @@ public class Map {
 
         if (builder.getBotFactories() != null) {
             this.botFactories = builder.getBotFactories();
+            for (BotFactory factory : botFactories) {
+                factory.setMap(this);
+            }
         }
 
         noiseGenerator = new PerlinNoiseGenerator(1, resolution);
@@ -68,7 +74,12 @@ public class Map {
             generateBuildings();
         }
 
-        //generateBots();
+        generateBots();
+    }
+
+
+    public List<Pawn> getBots() {
+        return bots;
     }
 
     private void generateNoiseMap() {
@@ -92,8 +103,7 @@ public class Map {
         for (BotFactory factory : botFactories) {
             for (int i = 0; i < factory.getSpawnLimit(); i++) {
                 Enemy bot = factory.createBot();
-                getWorld().addPawn(bot);
-                System.out.println(i);
+                bots.add(bot);
             }
         }
     }
@@ -145,6 +155,10 @@ public class Map {
 
     private String getTileByNeighbor(int x, int y) {
         String res = "brick_hole_e";
+
+        if (types == null) {
+            generateTypes();
+        }
 
         if (types[x][y] == ETileType.STONE) {
             return "stone_a";

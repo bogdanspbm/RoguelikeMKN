@@ -8,6 +8,6 @@ public class RandomSpawner extends Spawner {
 
     @Override
     public Vector3D getLocation() {
-        return getWorld().getMap().getRandomSpawnPosition();
+        return parent.getRandomSpawnPosition();
     }
 }

@@ -24,7 +24,6 @@ import java.util.List;
 
 public class Processor {
     private static Processor singleton = null;
-    private static final Object lock = new Object();
 
     private World world;
 
@@ -44,6 +43,9 @@ public class Processor {
             builder.addBotFactory(new SlimeFactory());
             world.setMap(new Map(builder));
             world.setTiles(world.getMap().getTiles());
+            for (Pawn bot : world.getMap().getBots()) {
+                addPawn(bot);
+            }
             world.getMap().exportToFile("last_world.wld");
             sortTiles();
             isInit = true;
@@ -113,7 +115,7 @@ public class Processor {
 
     public static synchronized Processor getWorld() {
         if (singleton == null) {
-            //System.out.println(singleton);
+            System.out.println(singleton);
             singleton = new Processor();
         }
 

@@ -7,6 +7,8 @@ import inventory.ui.InventoryPanel;
 import javax.swing.*;
 import java.awt.*;
 
+import static world.singleton.Processor.getWorld;
+
 public class RenderPanel extends JPanel {
 
     DrawableProvider provider;
@@ -21,7 +23,7 @@ public class RenderPanel extends JPanel {
         g.setColor(new Color(0, 0, 0));
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        Placeable camera = provider.getCamera();
+        Placeable camera = getWorld().getPlayerPawn(0);
 
 
         g.translate(-camera.getLocation().x() + getWidth() / 2, -(camera.getLocation().y() - camera.getLocation().z()) + getHeight() / 2);
