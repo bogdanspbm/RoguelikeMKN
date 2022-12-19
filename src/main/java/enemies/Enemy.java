@@ -1,6 +1,7 @@
 package enemies;
 
 import enemies.controller.BotController;
+import enums.EBotBehaviour;
 import exceptions.CreationException;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
@@ -8,27 +9,28 @@ import player.animation.factory.PlayerAnimationComponentFactory;
 
 public class Enemy extends Pawn {
 
-    public String typeOfBotsBehaviour;
+    public Enemy() {
+
+    }
 
 
-    public Enemy(String typeOfBotsBehaviour) throws CreationException {
-        this.typeOfBotsBehaviour = typeOfBotsBehaviour;
+    public Enemy(EBotBehaviour behaviour) throws CreationException {
         PlayerAnimationComponentFactory animationComponentFactory = new PlayerAnimationComponentFactory();
         animationComponent = animationComponentFactory.createAnimationComponent(this);
         createCollision();
-        initEnemyController();
+        initEnemyController(behaviour);
     }
 
-    private void initEnemyController() throws CreationException {
+    protected void initEnemyController(EBotBehaviour behaviour) throws CreationException {
         try {
-            controllerAdapter.setController(new BotController(typeOfBotsBehaviour));
+            controllerAdapter.setController(new BotController(behaviour));
 
         } catch (Exception e) {
             throw new CreationException("Can't create PlayerController: \n" + e.toString());
         }
     }
 
-    private void createCollision() throws CreationException {
+    protected void createCollision() throws CreationException {
         try {
             collisionAdapter.setCollision(new CylinderCollision(8, 16));
         } catch (Exception e) {

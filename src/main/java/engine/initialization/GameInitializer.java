@@ -1,9 +1,11 @@
 package engine.initialization;
 
 import enemies.Enemy;
+import enemies.Slime;
 import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
+import enums.EBotBehaviour;
 import exceptions.CreationException;
 import interfaces.Placeable;
 import player.Player;
@@ -21,7 +23,7 @@ public class GameInitializer implements DrawableProvider {
         try {
             createPlayer();
             createItems();
-            // createEnemy("coward");//трусливый бот
+            createEnemy(EBotBehaviour.AGGRESSOR);//трусливый бот
             //createEnemy("aggressor");//агресивный бот
             //createEnemy("calm");//статичный бот
         } catch (Exception e) {
@@ -41,21 +43,23 @@ public class GameInitializer implements DrawableProvider {
         player.setLocation(getWorld().getMap().getRandomSpawnPosition());
     }
 
-    private void createEnemy(String typeOfBotsBehaviour) throws CreationException {
-        Enemy enemy = new Enemy(typeOfBotsBehaviour);
-        getWorld().addPawn(enemy);
-        getWorld().addControllers(enemy.getController());
-        switch (typeOfBotsBehaviour) {
-            case ("coward"):
+    private void createEnemy(EBotBehaviour behaviour) throws CreationException {
+        Enemy enemy = new Enemy(behaviour);
+        switch (behaviour) {
+            case COWARD:
                 enemy.setLocation(new Vector3D(400, 100, 100));
                 break;
-            case ("aggressor"):
-                enemy.setLocation(new Vector3D(600, 10, 50));
+            case AGGRESSOR:
+                enemy = new Slime();
+                enemy.setLocation(new Vector3D(-400, 10, 50));
                 break;
-            case ("calm"):
+            case CALM:
                 enemy.setLocation(new Vector3D(500, 200, 100));
                 break;
         }
+
+        getWorld().addPawn(enemy);
+        getWorld().addControllers(enemy.getController());
 
     }
 
