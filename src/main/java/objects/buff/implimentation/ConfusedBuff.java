@@ -22,4 +22,12 @@ public class ConfusedBuff extends Buff {
         super.onRemove();
         parent.setSpeed(1);
     }
+
+    @Override
+    public Buff clone(ParamsComponent parent) {
+        ConfusedBuff buff = new ConfusedBuff(parent);
+        buff.duration = duration;
+        buff.name = name;
+        return buff;
+    }
 }

@@ -15,8 +15,8 @@
       <list>
         <option value="Interface" />
         <option value="Record" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -34,6 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "OverrideImplement.combined": "false",
     "RunOnceActivity.OpenDatabaseViewOnStart": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -173,7 +174,7 @@
       <workItem from="1671388864752" duration="422000" />
       <workItem from="1671389488271" duration="3549000" />
       <workItem from="1671437786868" duration="8948000" />
-      <workItem from="1671461577671" duration="789000" />
+      <workItem from="1671461577671" duration="2298000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
