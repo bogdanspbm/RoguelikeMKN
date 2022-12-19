@@ -38,7 +38,7 @@ public class GameInitializer implements DrawableProvider {
     private void createPlayer() throws CreationException {
         Player player = new Player();
         getWorld().addPawn(player);
-        player.setLocation(new Vector3D(100, 80, 100));
+        player.setLocation(getWorld().getMap().getRandomSpawnPosition());
     }
 
     private void createEnemy(String typeOfBotsBehaviour) throws CreationException {

@@ -99,6 +99,10 @@ public class Processor {
         return singleton;
     }
 
+    public Map getMap() {
+        return world.getMap();
+    }
+
     public void addControllers(Controller controller) {
         world.getControllers().add(controller);
     }

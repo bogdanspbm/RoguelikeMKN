@@ -7,7 +7,19 @@ public abstract class Buff {
     protected int duration;
     protected ParamsComponent parent;
 
-    public abstract void preTick();
+    public void onAdd() {
 
-    public abstract void postTick();
+    }
+
+    public void onRemove() {
+
+    }
+
+    public void tick() {
+        duration -= 1;
+
+        if (duration <= 0) {
+            parent.removeBuff(this);
+        }
+    }
 }

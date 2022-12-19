@@ -18,7 +18,6 @@ public class BotController extends Controller {
 
     @Override
     public void tick() {
-        owner.getParamsComponent().getBuffList().forEach(i -> i.preTick());
         super.tick();
         Pawn target = getWorld().getPlayerPawn(0);
         int xDirection = target.getLocation().x() - owner.getLocation().x();
@@ -30,7 +29,7 @@ public class BotController extends Controller {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
-            }else {
+            } else {
                 if (!getCloser) {
                     if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
                         if (xDirection != 0) {
@@ -100,7 +99,7 @@ public class BotController extends Controller {
                         turnOffModeCoward++;
                     }
                     if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                            target.getParamsComponent().getHealthPercentage()!= 0) {
+                            target.getParamsComponent().getHealthPercentage() != 0) {
                         owner.setStatus(EPawnStatus.ATTACK);
                         target.getParamsComponent().takeAwayHealth();
                         if (target.getStatus() == EPawnStatus.ATTACK) {
@@ -109,7 +108,7 @@ public class BotController extends Controller {
                         }
                     }
                     if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                            target.getParamsComponent().getHealthPercentage() == 0){
+                            target.getParamsComponent().getHealthPercentage() == 0) {
                         owner.setStatus(EPawnStatus.WALK);
                     }
                     if (turnOffModeCoward % 300 == 0) {
@@ -123,7 +122,7 @@ public class BotController extends Controller {
             if (owner.getParamsComponent().checkIsDead()) {
                 owner.setStatus(EPawnStatus.WALK);
                 owner.setPrevLocation(); // анимация смерти
-            }else {
+            } else {
                 if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
                     if (xDirection != 0) {
                         xDirectionCatchUp = xDirection / Math.abs(xDirection);
@@ -139,7 +138,7 @@ public class BotController extends Controller {
                     owner.setPrevLocation();
                 }
                 if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                        target.getParamsComponent().getHealthPercentage()!= 0) {
+                        target.getParamsComponent().getHealthPercentage() != 0) {
                     owner.setStatus(EPawnStatus.ATTACK);
                     target.getParamsComponent().takeAwayHealth();
                     if (target.getStatus() == EPawnStatus.ATTACK) {
@@ -148,40 +147,39 @@ public class BotController extends Controller {
                     }
                 }
                 if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                        target.getParamsComponent().getHealthPercentage() == 0){
+                        target.getParamsComponent().getHealthPercentage() == 0) {
                     owner.setStatus(EPawnStatus.WALK);
                 }
                 if (Math.abs(xDirection) > 21 || Math.abs(yDirection) > 21) {
                     owner.setStatus(EPawnStatus.WALK);
                 }
             }
-            }
+        }
 //        статичный бот
-            if (typeOfBotsBehaviour == "calm") {
-                if (owner.getParamsComponent().checkIsDead()) {
+        if (typeOfBotsBehaviour == "calm") {
+            if (owner.getParamsComponent().checkIsDead()) {
+                owner.setStatus(EPawnStatus.WALK);
+                owner.setPrevLocation(); // анимация смерти
+            } else {
+                owner.setPrevLocation();
+                if (Math.abs(xDirection) <= 20 && Math.abs(yDirection) <= 20 &&
+                        target.getParamsComponent().getHealthPercentage() != 0) {
+                    owner.setStatus(EPawnStatus.ATTACK);
+                    target.getParamsComponent().takeAwayHealth();
+                    if (target.getStatus() == EPawnStatus.ATTACK) {
+                        owner.getParamsComponent().takeAwayHealth();
+                        target.setStatus(EPawnStatus.WALK);
+                    }
                     owner.setStatus(EPawnStatus.WALK);
-                    owner.setPrevLocation(); // анимация смерти
-                } else {
-                    owner.setPrevLocation();
-                    if (Math.abs(xDirection) <= 20 && Math.abs(yDirection) <= 20 &&
-                            target.getParamsComponent().getHealthPercentage()!= 0) {
-                        owner.setStatus(EPawnStatus.ATTACK);
-                        target.getParamsComponent().takeAwayHealth();
-                        if (target.getStatus() == EPawnStatus.ATTACK) {
-                            owner.getParamsComponent().takeAwayHealth();
-                            target.setStatus(EPawnStatus.WALK);
-                        }
-                        owner.setStatus(EPawnStatus.WALK);
-                    }
-                    if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                            target.getParamsComponent().getHealthPercentage() == 0){
-                        owner.setStatus(EPawnStatus.WALK);
-                    }
-                    if (Math.abs(xDirection) > 20 || Math.abs(yDirection) > 20) {
-                        owner.setStatus(EPawnStatus.WALK);
-                    }
+                }
+                if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
+                        target.getParamsComponent().getHealthPercentage() == 0) {
+                    owner.setStatus(EPawnStatus.WALK);
+                }
+                if (Math.abs(xDirection) > 20 || Math.abs(yDirection) > 20) {
+                    owner.setStatus(EPawnStatus.WALK);
                 }
             }
-            owner.getParamsComponent().getBuffList().forEach(i -> i.postTick());
-            }
         }
+    }
+}

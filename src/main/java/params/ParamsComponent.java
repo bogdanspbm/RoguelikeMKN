@@ -4,16 +4,24 @@ import database.adapter.implementation.ParamsDatabaseAdapter;
 import objects.buff.Buff;
 import params.ui.ParamBar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.SynchronousQueue;
 
 public class ParamsComponent {
 
 
     private ParamsDatabaseAdapter paramsDatabaseAdapter;
     private Map<String, Integer> paramsMap = new HashMap<>();
+
+    private Queue<Buff> buffs = new SynchronousQueue<>();
+
+    private List<Integer> levels;
+    private int speed = 1;
+
+    private int curHealth = 100;
+    private int maxHealth = 100;
+
+    private int experience = 0;
 
     public ParamsComponent() {
         try {
@@ -57,21 +65,17 @@ public class ParamsComponent {
         }
     }
 
-    List<Buff> buffs = new ArrayList<>();
-
-    List<Integer> levels;
-    int speed = 1;
-
-    int curHealth = 100;
-    int maxHealth = 100;
-
-    int experience = 0;
-
     public void addBuff(Buff buff) {
+        buff.onAdd();
         buffs.add(buff);
     }
 
-    public List<Buff> getBuffList() {
+    public void removeBuff(Buff buff) {
+        buff.onRemove();
+        buffs.remove(buff);
+    }
+
+    public Queue<Buff> getBuffList() {
         return buffs;
     }
 
@@ -142,5 +146,11 @@ public class ParamsComponent {
         double res = (double) cntExperience / (double) levels.get(i);
 
         return res;
+    }
+
+    public void tick() {
+        for (Buff buff : buffs) {
+            buff.tick();
+        }
     }
 }

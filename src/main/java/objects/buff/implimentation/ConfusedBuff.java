@@ -5,17 +5,20 @@ import params.ParamsComponent;
 
 public class ConfusedBuff extends Buff {
 
-    public ConfusedBuff (ParamsComponent parent){
+    public ConfusedBuff(ParamsComponent parent) {
         this.parent = parent;
+        this.duration = 300;
     }
 
     @Override
-    public void preTick() {
+    public void onAdd() {
+        super.onAdd();
         parent.setSpeed(0);
     }
 
     @Override
-    public void postTick() {
+    public void onRemove() {
+        super.onRemove();
         parent.setSpeed(1);
     }
 }

@@ -63,6 +63,7 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     @Override
     public void tick() {
+        paramsComponent.tick();
     }
 
     public void setPrevLocation() {

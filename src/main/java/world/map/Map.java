@@ -11,6 +11,7 @@ import world.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static utils.FileUtils.writeToFile;
 
@@ -1864,6 +1865,18 @@ public class Map {
                 }
             }
         }
+    }
+
+    public Vector3D getRandomSpawnPosition() {
+        Random rnd = new Random();
+        int x = rnd.nextInt(resolution);
+        int y = rnd.nextInt(resolution);
+        while (!getTileByNeighbor(x, y).equals("stone_a")) {
+            x = rnd.nextInt(resolution);
+            y = rnd.nextInt(resolution);
+        }
+
+        return new Vector3D(x * 64 - resolution / 2 * 64, resolution / 2 * 64 - y * 64, 0);
     }
 
 
