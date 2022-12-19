@@ -111,6 +111,7 @@ public class Processor {
     public void addPawn(Pawn pawn) {
         world.getPawns().add(pawn);
         world.getDamageables().add(pawn);
+        addControllers(pawn.getController());
     }
 
     public void addProjectile(Projectile projectile) {
@@ -244,6 +245,7 @@ public class Processor {
     }
 
     public void removePawn(Pawn pawn) {
+        world.getControllers().remove(pawn.getController());
         world.getPawns().remove(pawn);
     }
 }

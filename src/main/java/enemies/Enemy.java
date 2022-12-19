@@ -24,7 +24,6 @@ public class Enemy extends Pawn {
     protected void initEnemyController(EBotBehaviour behaviour) throws CreationException {
         try {
             controllerAdapter.setController(new BotController(behaviour));
-
         } catch (Exception e) {
             throw new CreationException("Can't create PlayerController: \n" + e.toString());
         }

@@ -59,7 +59,7 @@ public class GameInitializer implements DrawableProvider {
         }
 
         getWorld().addPawn(enemy);
-        getWorld().addControllers(enemy.getController());
+        //getWorld().addControllers(enemy.getController());
 
     }
 
