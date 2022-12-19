@@ -1,0 +1,15 @@
+inventory\ui\popup\ItemPopup$2.class
+world\map\MapBuilder.class
+inventory\objects\implementation\ItemEmptyAction.class
+world\map\Map.class
+objects\buff\factory\BuffBuilderFactory.class
+inventory\objects\ItemUseAction.class
+world\Tile$1.class
+objects\buff\factory\BuffFactory.class
+objects\buff\factory\BuffBuilder.class
+inventory\factory\ItemUseFactory.class
+inventory\ui\ItemTooltip.class
+utils\FileUtils.class
+generator\ui\NoisePanel.class
+inventory\objects\implementation\ItemUseHeal.class
+structures\Vector3F.class

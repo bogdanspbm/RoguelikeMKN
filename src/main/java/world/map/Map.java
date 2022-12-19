@@ -131,6 +131,19 @@ public class Map {
             return "stone_a";
         }
 
+        int walls = getWallNeigh(x, y);
+
+        switch (walls) {
+            case 9: {
+                if (types[x][y] == ETileType.WALL && types[x + 1][y] == ETileType.WALL &&
+                        types[x - 1][y] == ETileType.WALL && types[x][y + 1] == ETileType.WALL &&
+                        types[x - 1][y + 1] == ETileType.WALL && types[x + 1][y + 1] == ETileType.WALL &&
+                        types[x][y - 1] == ETileType.WALL && types[x + 1][y - 1] == ETileType.WALL &&
+                        types[x - 1][y - 1] == ETileType.WALL ) {
+                    return "stone_a";
+                }
+            }
+        }
         if (types[x][y] == ETileType.WALL) {
             return "wall_grey_a";
         }
@@ -147,10 +160,10 @@ public class Map {
                 return "brick_hole_e";
             }
             case 8: {
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                      o-stone
                      x-hole
@@ -162,10 +175,10 @@ public class Map {
                 }
             }
             case 7: {
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     oxo
@@ -173,10 +186,10 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxx
@@ -184,10 +197,10 @@ public class Map {
                     */
                     return "brick_hole_l";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -195,10 +208,10 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -206,10 +219,10 @@ public class Map {
                     */
                     return "brick_hole_m";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -217,10 +230,10 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     xxo
@@ -228,10 +241,10 @@ public class Map {
                     */
                     return "brick_hole_k";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xoo
                     oxo
@@ -239,10 +252,10 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxo
                     oxo
@@ -252,9 +265,9 @@ public class Map {
                 }
             }
             case 6: {
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                      /*
                     oxx
                     oxo
@@ -262,9 +275,9 @@ public class Map {
                     */
                     return "brick_hole_n";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxo
                     oxx
@@ -272,9 +285,9 @@ public class Map {
                     */
                     return "brick_hole_x";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     oxx
@@ -282,9 +295,9 @@ public class Map {
                     */
                     return "brick_hole_l";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     oxo
@@ -292,9 +305,9 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxx
@@ -302,9 +315,9 @@ public class Map {
                     */
                     return "brick_hole_l";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     oxo
@@ -312,9 +325,9 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -322,9 +335,9 @@ public class Map {
                     */
                     return "brick_hole_m";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -332,9 +345,9 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     oxo
@@ -342,9 +355,9 @@ public class Map {
                     */
                     return "brick_hole_m";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     xxo
@@ -352,9 +365,9 @@ public class Map {
                     */
                     return "brick_hole_k";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                          /*
                         xoo
                         oxo
@@ -362,9 +375,9 @@ public class Map {
                         */
                     return "brick_hole_z";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xoo
                     xxo
@@ -372,9 +385,9 @@ public class Map {
                     */
                     return "brick_hole_k";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxo
                     oxo
@@ -382,9 +395,9 @@ public class Map {
                     */
                     return "brick_hole_n";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xox
                     oxo
@@ -392,9 +405,9 @@ public class Map {
                     */
                     return "brick_hole_z";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     oxo
                     oxo
@@ -402,9 +415,9 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                      /*
                     ooo
                     xxx
@@ -412,9 +425,9 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                      /*
                     xoo
                     oxo
@@ -424,9 +437,9 @@ public class Map {
                 }
             }
             case 5: {
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     oxx
@@ -434,9 +447,9 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     oxx
@@ -444,9 +457,9 @@ public class Map {
                     */
                     return "brick_hole_l";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                       /*
                     ooo
                     oxx
@@ -454,9 +467,9 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                       /*
                     ooo
                     oxo
@@ -464,9 +477,9 @@ public class Map {
                     */
                     return "brick_hole_m";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     ooo
                     xxo
@@ -474,9 +487,9 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                      /*
                     xoo
                     xxo
@@ -484,9 +497,9 @@ public class Map {
                     */
                     return "brick_hole_k";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxo
@@ -494,9 +507,9 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxo
@@ -504,9 +517,9 @@ public class Map {
                     */
                     return "brick_hole_n";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     ooo
                     xxx
@@ -514,9 +527,9 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     ooo
                     xxx
@@ -524,9 +537,9 @@ public class Map {
                     */
                     return "brick_hole_q";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     ooo
                     xxx
@@ -534,9 +547,9 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -544,9 +557,9 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     xoo
                     xxx
@@ -554,9 +567,9 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -564,9 +577,9 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxo
                     oxo
@@ -574,9 +587,9 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     oxo
@@ -584,9 +597,9 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -594,9 +607,9 @@ public class Map {
                     */
                     return "brick_hole_af";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxo
@@ -604,9 +617,9 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xxo
                     oxo
@@ -614,9 +627,9 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxo
@@ -626,8 +639,8 @@ public class Map {
                 }
             }
             case 4: {
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -635,8 +648,8 @@ public class Map {
                     */
                     return "brick_hole_ad";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxo
@@ -644,8 +657,8 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxx
@@ -653,8 +666,8 @@ public class Map {
                     */
                     return "brick_hole_w";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxx
@@ -662,8 +675,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -671,8 +684,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     oxx
@@ -680,8 +693,8 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     ooo
                     oxx
@@ -689,8 +702,8 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     ooo
                     xxo
@@ -698,8 +711,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE
-                        && types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE
+                        && types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xoo
                     xxo
@@ -707,8 +720,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     xxo
@@ -716,8 +729,8 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -725,8 +738,8 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     oxo
@@ -734,8 +747,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -743,8 +756,8 @@ public class Map {
                     */
                     return "brick_hole_ad";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -752,8 +765,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     oxo
@@ -761,8 +774,8 @@ public class Map {
                     */
                     return "brick_hole_n";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -770,8 +783,8 @@ public class Map {
                     */
                     return "brick_hole_x";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     oxx
@@ -779,8 +792,8 @@ public class Map {
                     */
                     return "brick_hole_l";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -788,8 +801,8 @@ public class Map {
                     */
                     return "brick_hole_af";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     oxx
@@ -797,8 +810,8 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -806,8 +819,8 @@ public class Map {
                     */
                     return "brick_hole_u";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -815,8 +828,8 @@ public class Map {
                     */
                     return "brick_hole_y";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -824,8 +837,8 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE
-                        && types[x][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE
+                        && types[x][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -833,8 +846,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -842,8 +855,8 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -851,8 +864,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     oxo
@@ -860,8 +873,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -869,8 +882,8 @@ public class Map {
                     */
                     return "brick_hole_ae";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE
-                        && types[x + 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE
+                        && types[x + 1][y] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxo
@@ -878,8 +891,8 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE
-                        && types[x + 1][y] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE
+                        && types[x + 1][y] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxo
@@ -887,8 +900,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE
-                        && types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE
+                        && types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -898,8 +911,8 @@ public class Map {
                 }
             }
             case 3: {
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxo
                     xxo
@@ -907,8 +920,8 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxo
@@ -916,8 +929,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     xxx
@@ -925,8 +938,8 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     ooo
                     xxx
@@ -934,8 +947,8 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxo
@@ -943,8 +956,8 @@ public class Map {
                     */
                     return "brick_hole_g";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -952,8 +965,8 @@ public class Map {
                     */
                     return "brick_hole_d";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     oxx
@@ -961,8 +974,8 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xoo
                     xxo
@@ -970,8 +983,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xxx
                     xxo
@@ -979,8 +992,8 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxx
@@ -988,8 +1001,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxo
@@ -997,8 +1010,8 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE) {
                     /*
                     xxo
                     oxo
@@ -1006,8 +1019,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxo
@@ -1015,8 +1028,8 @@ public class Map {
                     */
                     return "brick_hole_ah";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxo
@@ -1024,8 +1037,8 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xoo
                     oxx
@@ -1033,8 +1046,8 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xoo
                     xxx
@@ -1042,8 +1055,8 @@ public class Map {
                     */
                     return "brick_hole_r";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xoo
                     xxx
@@ -1051,8 +1064,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xoo
                     xxx
@@ -1060,8 +1073,8 @@ public class Map {
                     */
                     return "brick_hole_p";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxx
@@ -1069,8 +1082,8 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xxx
                     oxo
@@ -1078,8 +1091,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     xxo
                     oxx
@@ -1087,8 +1100,8 @@ public class Map {
                     */
                     return "brick_hole_ad";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     xox
                     oxx
@@ -1096,8 +1109,8 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -1105,8 +1118,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     oxx
@@ -1114,8 +1127,8 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     oxo
@@ -1123,8 +1136,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     oxx
@@ -1132,8 +1145,8 @@ public class Map {
                     */
                     return "brick_hole_ad";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -1141,8 +1154,8 @@ public class Map {
                     */
                     return "brick_hole_u";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xox
                     xxx
@@ -1150,8 +1163,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxx
@@ -1159,8 +1172,8 @@ public class Map {
                     */
                     return "brick_hole_w";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     xxo
@@ -1169,8 +1182,8 @@ public class Map {
                     return "brick_hole_j";
                 }
 
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -1178,8 +1191,8 @@ public class Map {
                     */
                     return "brick_corner_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -1187,8 +1200,8 @@ public class Map {
                     */
                     return "brick_hole_ae";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1196,8 +1209,8 @@ public class Map {
                     */
                     return "brick_corner_m";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1205,8 +1218,8 @@ public class Map {
                     */
                     return "brick_hole_r";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -1214,8 +1227,8 @@ public class Map {
                     */
                     return "brick_hole_u";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xox
                     xxx
@@ -1223,8 +1236,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxx
@@ -1232,8 +1245,8 @@ public class Map {
                     */
                     return "brick_hole_w";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxx
                     oxx
@@ -1241,8 +1254,8 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -1250,8 +1263,8 @@ public class Map {
                     */
                     return "brick_hole_y";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1259,8 +1272,8 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1268,8 +1281,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -1277,8 +1290,8 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xox
                     xxo
@@ -1286,8 +1299,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xxx
                     oxo
@@ -1295,8 +1308,8 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     xxx
                     xxo
@@ -1304,8 +1317,8 @@ public class Map {
                     */
                     return "brick_hole_ah";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1313,8 +1326,8 @@ public class Map {
                     */
                     return "brick_corner_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1322,8 +1335,8 @@ public class Map {
                     */
                     return "brick_hole_p";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxo
@@ -1331,8 +1344,8 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y + 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxo
@@ -1340,8 +1353,8 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1349,8 +1362,8 @@ public class Map {
                     */
                     return "brick_hole_r";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1358,8 +1371,8 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oox
                     xxx
@@ -1367,8 +1380,8 @@ public class Map {
                     */
                     return "brick_hole_p";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -1376,8 +1389,8 @@ public class Map {
                     */
                     return "brick_corner_h";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -1385,8 +1398,8 @@ public class Map {
                     */
                     return "brick_hole_ae";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1394,8 +1407,8 @@ public class Map {
                     */
                     return "brick_corner_m";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxx
@@ -1403,8 +1416,8 @@ public class Map {
                     */
                     return "brick_corner_k";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xox
                     xxx
@@ -1412,8 +1425,8 @@ public class Map {
                     */
                     return "brick_hole_q";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     xxx
@@ -1421,8 +1434,8 @@ public class Map {
                     */
                     return "brick_corner_k";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y] != ETileType.HOLE) {
                     /*
                     xxo
                     oxx
@@ -1430,8 +1443,8 @@ public class Map {
                     */
                     return "brick_hole_af";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1439,8 +1452,8 @@ public class Map {
                     */
                     return "brick_corner_o";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1448,8 +1461,8 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1457,8 +1470,8 @@ public class Map {
                     */
                     return "brick_corner_m";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxo
@@ -1466,8 +1479,8 @@ public class Map {
                     */
                     return "brick_hole_ae";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     xox
                     xxo
@@ -1475,8 +1488,8 @@ public class Map {
                     */
                     return "brick_hole_k";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xxo
                     oxx
@@ -1484,8 +1497,8 @@ public class Map {
                     */
                     return "brick_hole_af";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE &&
-                        types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE &&
+                        types[x][y - 1] != ETileType.HOLE) {
                     /*
                     oxo
                     xxx
@@ -1493,8 +1506,8 @@ public class Map {
                     */
                     return "brick_hole_v";
                 }
-                if (types[x][y + 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE &&
-                        types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE &&
+                        types[x + 1][y - 1] != ETileType.HOLE) {
                     /*
                     xox
                     xxx
@@ -1504,7 +1517,7 @@ public class Map {
                 }
             }
             case 2: {
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     oox
                     xxx
@@ -1512,7 +1525,7 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     oxx
@@ -1520,7 +1533,7 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                      /*
                     oxx
                     xxo
@@ -1528,7 +1541,7 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xoo
                     xxx
@@ -1536,7 +1549,7 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                      /*
                     xxo
                     xxo
@@ -1544,7 +1557,7 @@ public class Map {
                     */
                     return "brick_hole_g";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxo
@@ -1552,7 +1565,7 @@ public class Map {
                     */
                     return "brick_hole_g";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxx
@@ -1560,7 +1573,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x - 1][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxx
@@ -1568,7 +1581,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     oxx
@@ -1576,7 +1589,7 @@ public class Map {
                     */
                     return "brick_hole_d";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     oxx
@@ -1584,7 +1597,7 @@ public class Map {
                     */
                     return "brick_hole_d";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     xxx
@@ -1592,7 +1605,7 @@ public class Map {
                     */
                     return "brick_corner_g";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     xxx
@@ -1600,7 +1613,7 @@ public class Map {
                     */
                     return "brick_hole_u";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     xxx
@@ -1608,7 +1621,7 @@ public class Map {
                     */
                     return "brick_corner_i";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxx
                     xxo
@@ -1616,7 +1629,7 @@ public class Map {
                     */
                     return "brick_hole_ac";
                 }
-                if (types[x + 1][y + 1] == ETileType.STONE && types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE && types[x - 1][y + 1] != ETileType.HOLE) {
                      /*
                     oxo
                     xxx
@@ -1624,7 +1637,7 @@ public class Map {
                     */
                     return "brick_corner_e";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     oxx
@@ -1632,7 +1645,7 @@ public class Map {
                     */
                     return "brick_hole_a";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     xxx
@@ -1640,7 +1653,7 @@ public class Map {
                     */
                     return "brick_hole_r";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     xxx
@@ -1648,7 +1661,7 @@ public class Map {
                     */
                     return "brick_hole_o";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     xxx
@@ -1656,7 +1669,7 @@ public class Map {
                     */
                     return "brick_hole_p";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     xxo
@@ -1664,7 +1677,7 @@ public class Map {
                     */
                     return "brick_hole_c";
                 }
-                if (types[x - 1][y] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     xxo
                     oxx
@@ -1672,7 +1685,7 @@ public class Map {
                     */
                     return "brick_hole_ad";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     xxo
                     xxx
@@ -1680,7 +1693,7 @@ public class Map {
                     */
                     return "brick_corner_l";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     xxo
                     xxx
@@ -1688,7 +1701,7 @@ public class Map {
                     */
                     return "brick_hole_w";
                 }
-                if (types[x + 1][y] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     oxo
@@ -1696,7 +1709,7 @@ public class Map {
                     */
                     return "brick_hole_ab";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     oxx
@@ -1704,7 +1717,7 @@ public class Map {
                     */
                     return "brick_hole_h";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x - 1][y] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     oxx
@@ -1712,7 +1725,7 @@ public class Map {
                     */
                     return "brick_hole_ag";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     xxo
@@ -1720,7 +1733,7 @@ public class Map {
                     */
                     return "brick_hole_ah";
                 }
-                if (types[x][y - 1] == ETileType.STONE && types[x + 1][y] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE && types[x + 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     xxo
@@ -1728,7 +1741,7 @@ public class Map {
                     */
                     return "brick_hole_j";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE && types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE && types[x + 1][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxx
@@ -1736,7 +1749,7 @@ public class Map {
                     */
                     return "brick_corner_f";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE && types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE && types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     xxo
                     xxx
@@ -1746,7 +1759,7 @@ public class Map {
                 }
             }
             case 1: {
-                if (types[x + 1][y + 1] == ETileType.STONE) {
+                if (types[x + 1][y + 1] != ETileType.HOLE) {
                      /*
                     xxo
                     xxx
@@ -1754,7 +1767,7 @@ public class Map {
                     */
                     return "brick_corner_b";
                 }
-                if (types[x + 1][y - 1] == ETileType.STONE) {
+                if (types[x + 1][y - 1] != ETileType.HOLE) {
                       /*
                     xxx
                     xxx
@@ -1762,7 +1775,7 @@ public class Map {
                     */
                     return "brick_corner_d";
                 }
-                if (types[x - 1][y + 1] == ETileType.STONE) {
+                if (types[x - 1][y + 1] != ETileType.HOLE) {
                     /*
                     oxx
                     xxx
@@ -1770,7 +1783,7 @@ public class Map {
                     */
                     return "brick_corner_a";
                 }
-                if (types[x - 1][y - 1] == ETileType.STONE) {
+                if (types[x - 1][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxx
@@ -1778,7 +1791,7 @@ public class Map {
                     */
                     return "brick_corner_c";
                 }
-                if (types[x][y + 1] == ETileType.STONE) {
+                if (types[x][y + 1] != ETileType.HOLE) {
                      /*
                     xox
                     xxx
@@ -1786,7 +1799,7 @@ public class Map {
                     */
                     return "brick_hole_b";
                 }
-                if (types[x + 1][y] == ETileType.STONE) {
+                if (types[x + 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     xxo
@@ -1794,7 +1807,7 @@ public class Map {
                     */
                     return "brick_hole_g";
                 }
-                if (types[x][y - 1] == ETileType.STONE) {
+                if (types[x][y - 1] != ETileType.HOLE) {
                      /*
                     xxx
                     xxx
@@ -1802,7 +1815,7 @@ public class Map {
                     */
                     return "brick_hole_i";
                 }
-                if (types[x - 1][y] == ETileType.STONE) {
+                if (types[x - 1][y] != ETileType.HOLE) {
                      /*
                     xxx
                     oxx
@@ -1822,32 +1835,66 @@ public class Map {
             return 0;
         }
 
-        if (types[x][y + 1] == ETileType.STONE) {
+        if (types[x][y + 1] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x][y - 1] == ETileType.STONE) {
+        if (types[x][y - 1] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x - 1][y] == ETileType.STONE) {
+        if (types[x - 1][y] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x + 1][y] == ETileType.STONE) {
+        if (types[x + 1][y] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x + 1][y + 1] == ETileType.STONE) {
+        if (types[x + 1][y + 1] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x + 1][y - 1] == ETileType.STONE) {
+        if (types[x + 1][y - 1] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x - 1][y - 1] == ETileType.STONE) {
+        if (types[x - 1][y - 1] != ETileType.HOLE) {
             counter++;
         }
-        if (types[x - 1][y + 1] == ETileType.STONE) {
+        if (types[x - 1][y + 1] != ETileType.HOLE) {
             counter++;
         }
 
         return counter;
+    }
+
+    private int getWallNeigh(int x, int y) {
+        int counter_wall = 0;
+
+        if (types[x][y] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x][y + 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x][y - 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x - 1][y] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x + 1][y] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x + 1][y + 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x + 1][y - 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x - 1][y - 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+        if (types[x - 1][y + 1] == ETileType.WALL) {
+            counter_wall++;
+        }
+
+        return counter_wall;
     }
 
     private void generateTypes() {
