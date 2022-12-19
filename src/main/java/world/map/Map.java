@@ -87,14 +87,14 @@ public class Map {
         for (int i = 0; i < map.length; i++) {
             for (int k = 0; k < map[i].length; k++) {
                 Tile tile;
-                if (i == 0 || k == 0 || i == map.length - 1 || k == map[i].length - 1) {
-                    tile = new Tile(textureDatabaseAdapter.getTextureByName("brick_hole_e"));
+                if (i == 0 || k == 0 || i == resolution - 1 || k == resolution - 1) {
+                    tile = new Tile(textureDatabaseAdapter.getTextureByName("brick_hole_e"), ETileType.HOLE);
                 } else {
                     String name = getTileByNeighbor(i, k);
-                    tile = new Tile(textureDatabaseAdapter.getTextureByName(name));
+                    tile = new Tile(textureDatabaseAdapter.getTextureByName(name), types[i][k]);
                 }
                 tile.setType(types[i][k]);
-                tile.setLocation(new Vector3D(i * 64 - resolution / 2 * 64, resolution / 2 * 64 - k * 64, -100));
+                tile.setLocation(new Vector3D(i * 64 - resolution / 2 * 64, resolution / 2 * 64 - k * 64, 0));
                 result.add(tile);
             }
         }
@@ -122,6 +122,7 @@ public class Map {
 
         writeToFile(path, level.toString());
     }
+
 
     private String getTileByNeighbor(int x, int y) {
         String res = "brick_hole_e";
@@ -1817,6 +1818,10 @@ public class Map {
     private int getStoneNeigh(int x, int y) {
         int counter = 0;
 
+        if (x < 2 || y < 2 || x > resolution - 2 || y > resolution - 2) {
+            return 0;
+        }
+
         if (types[x][y + 1] == ETileType.STONE) {
             counter++;
         }
@@ -1850,7 +1855,7 @@ public class Map {
 
         for (int i = 0; i < map.length; i++) {
             for (int k = 0; k < map[i].length; k++) {
-                if (i == 0 || k == 0 || i == 1 || k == 1 || i == map.length - 1 || k == map[i].length - 1 || i == map.length - 2 || k == map[i].length - 2) {
+                if (i == 0 || k == 0 || i == 1 || k == 1 || i == resolution - 1 || k == resolution - 1 || i == resolution - 2 || k == resolution - 2) {
                     types[i][k] = ETileType.HOLE;
                 } else {
                     if (map[i][k] < seaLevel) {
@@ -1876,7 +1881,7 @@ public class Map {
             y = rnd.nextInt(resolution);
         }
 
-        return new Vector3D(x * 64 - resolution / 2 * 64, resolution / 2 * 64 - y * 64, 0);
+        return new Vector3D(x * 64 - resolution / 2 * 64, resolution / 2 * 64 - y * 64, 100);
     }
 
 

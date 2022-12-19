@@ -1,5 +1,6 @@
 package world.factory;
 
+import enums.ETileType;
 import exceptions.CreationException;
 import objects.animations.objects.TextureSource;
 import world.Tile;
@@ -14,6 +15,6 @@ public class StaticTileFactory extends TileFactory {
 
     @Override
     public Tile createTile(String name) throws CreationException {
-        return new Tile(sources.get(name));
+        return new Tile(sources.get(name), ETileType.HOLE);
     }
 }

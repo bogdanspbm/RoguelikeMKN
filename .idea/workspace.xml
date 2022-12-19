@@ -170,7 +170,7 @@
       <workItem from="1670849058353" duration="9549000" />
       <workItem from="1671388864752" duration="422000" />
       <workItem from="1671389488271" duration="3549000" />
-      <workItem from="1671437786868" duration="1382000" />
+      <workItem from="1671437786868" duration="2559000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
@@ -288,14 +288,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/world/map/MapBuilder.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/world/map/Map.java</url>
           <line>45</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/world/singleton/Processor.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -21,9 +21,9 @@ public class GameInitializer implements DrawableProvider {
         try {
             createPlayer();
             createItems();
-            createEnemy("coward");//трусливый бот
-            createEnemy("aggressor");//агресивный бот
-            createEnemy("calm");//статичный бот
+            // createEnemy("coward");//трусливый бот
+            //createEnemy("aggressor");//агресивный бот
+            //createEnemy("calm");//статичный бот
         } catch (Exception e) {
             e.printStackTrace();
         }

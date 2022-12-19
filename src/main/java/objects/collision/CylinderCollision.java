@@ -19,11 +19,14 @@ public class CylinderCollision extends Collision {
 
     @Override
     public Vector3D getShape() {
-        return new Vector3D(radius,radius,height);
+        return new Vector3D(radius, radius, height);
     }
 
     @Override
     public boolean collide(Collision collision, Vector3D position) {
+        if (collision == null) {
+            return false;
+        }
         switch (collision.getType()) {
             case BOX -> {
                 BoxCollision box = (BoxCollision) collision;
