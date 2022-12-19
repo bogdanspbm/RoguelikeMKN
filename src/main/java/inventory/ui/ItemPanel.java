@@ -14,6 +14,9 @@ public class ItemPanel extends JPanel {
     private ItemDescription description;
     private InventoryPanel parent;
 
+    private ItemTooltip tooltip;
+    ;
+
     ItemPopup popup = null;
     private int index = 0;
     private boolean wasDragged = false;
@@ -23,6 +26,7 @@ public class ItemPanel extends JPanel {
         this.description = description;
         this.parent = parent;
         this.index = index;
+        this.tooltip = new ItemTooltip(this.description.description());
 
         initComponents();
     }
@@ -103,6 +107,7 @@ public class ItemPanel extends JPanel {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 2);
 
+
         tCount = new javax.swing.JLabel();
         tCount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tCount.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -123,10 +128,12 @@ public class ItemPanel extends JPanel {
     private javax.swing.JLabel tCount;
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {
+        tooltip.setVisible(true);
         parent.overlapItem(true, index, description);
     }
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {
+        tooltip.setVisible(false);
         parent.overlapItem(false, index, description);
     }
 
@@ -170,5 +177,9 @@ public class ItemPanel extends JPanel {
         parent.update();
     }
 
+    public void useItem() {
+        parent.getInventory().useItem(index, description);
+        parent.update();
+    }
 
 }

@@ -1414,123 +1414,131 @@
       <DasType>varchar|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="509" parent="483" name="sqlite_autoindex_items_1">
+    <column id="509" parent="483" name="description">
+      <DasType>varchar|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="510" parent="483" name="meta">
+      <DasType>varchar|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <index id="511" parent="483" name="sqlite_autoindex_items_1">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="510" parent="483">
+    <key id="512" parent="483">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_items_1</UnderlyingIndexName>
     </key>
-    <key id="511" parent="483">
+    <key id="513" parent="483">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_items_1</UnderlyingIndexName>
     </key>
-    <column id="512" parent="484" name="id">
+    <column id="514" parent="484" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="513" parent="484" name="level">
+    <column id="515" parent="484" name="level">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="514" parent="484" name="experience">
+    <column id="516" parent="484" name="experience">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="515" parent="484" name="sqlite_autoindex_levels_1">
+    <index id="517" parent="484" name="sqlite_autoindex_levels_1">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="516" parent="484">
+    <key id="518" parent="484">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_levels_1</UnderlyingIndexName>
     </key>
-    <key id="517" parent="484">
+    <key id="519" parent="484">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_levels_1</UnderlyingIndexName>
     </key>
-    <column id="518" parent="485" name="id">
+    <column id="520" parent="485" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="519" parent="485" name="name">
+    <column id="521" parent="485" name="name">
       <DasType>varchar|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="520" parent="485" name="sqlite_autoindex_params_1">
+    <index id="522" parent="485" name="sqlite_autoindex_params_1">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="521" parent="485">
+    <key id="523" parent="485">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_params_1</UnderlyingIndexName>
     </key>
-    <key id="522" parent="485">
+    <key id="524" parent="485">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_params_1</UnderlyingIndexName>
     </key>
-    <column id="523" parent="486" name="type">
+    <column id="525" parent="486" name="type">
       <DasType>TEXT|0s</DasType>
       <Position>1</Position>
     </column>
-    <column id="524" parent="486" name="name">
+    <column id="526" parent="486" name="name">
       <DasType>TEXT|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="525" parent="486" name="tbl_name">
+    <column id="527" parent="486" name="tbl_name">
       <DasType>TEXT|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="526" parent="486" name="rootpage">
+    <column id="528" parent="486" name="rootpage">
       <DasType>INT|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="527" parent="486" name="sql">
+    <column id="529" parent="486" name="sql">
       <DasType>TEXT|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="528" parent="487" name="name">
+    <column id="530" parent="487" name="name">
       <Position>1</Position>
     </column>
-    <column id="529" parent="487" name="seq">
+    <column id="531" parent="487" name="seq">
       <Position>2</Position>
     </column>
-    <column id="530" parent="488" name="id">
+    <column id="532" parent="488" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="531" parent="488" name="name">
+    <column id="533" parent="488" name="name">
       <DasType>varchar|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="532" parent="488" name="path">
+    <column id="534" parent="488" name="path">
       <DasType>varchar|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="533" parent="488" name="sqlite_autoindex_textures_1">
+    <index id="535" parent="488" name="sqlite_autoindex_textures_1">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="534" parent="488">
+    <key id="536" parent="488">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_textures_1</UnderlyingIndexName>
     </key>
-    <key id="535" parent="488">
+    <key id="537" parent="488">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_textures_1</UnderlyingIndexName>
     </key>

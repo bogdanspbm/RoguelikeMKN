@@ -288,4 +288,8 @@ public class Inventory implements Observable {
             observer.update("Inventory Updated");
         }
     }
+
+    public void useItem(int index, ItemDescription description) {
+
+    }
 }

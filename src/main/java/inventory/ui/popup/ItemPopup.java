@@ -2,6 +2,7 @@ package inventory.ui.popup;
 
 import inventory.objects.ItemDescription;
 import inventory.ui.ItemPanel;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,8 +27,27 @@ public class ItemPopup extends JPopupMenu {
         }
 
         ItemDescription description = parent.getDescription();
+        JSONObject meta = description.meta();
+
+        generateUseEvent(meta);
         generateDropEvent();
 
+    }
+
+    private void generateUseEvent(JSONObject meta) {
+        if (!meta.has("action")) {
+            return;
+        }
+
+        JMenuItem itemUse = new JMenuItem((new AbstractAction("Use") {
+            public void actionPerformed(ActionEvent e) {
+                parent.useItem();
+            }
+        }));
+
+        itemUse.setBorderPainted(false);
+
+        add(itemUse);
     }
 
     private void generateDropEvent() {

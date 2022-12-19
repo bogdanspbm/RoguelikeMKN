@@ -3,6 +3,7 @@ package database.adapter.implementation;
 import database.adapter.DatabaseAdapter;
 import exceptions.DatabaseException;
 import inventory.objects.ItemDescription;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,8 +30,10 @@ public class ItemDatabaseAdapter extends DatabaseAdapter {
                 int sizeX = resultSet.getInt("size_x");
                 int sizeY = resultSet.getInt("size_y");
                 int stackSize = resultSet.getInt("stack_size");
+                String description = resultSet.getString("description");
+                JSONObject meta = new JSONObject(resultSet.getString("meta"));
 
-                return new ItemDescription(id, stackSize, sizeX, sizeY, name, texture);
+                return new ItemDescription(id, stackSize, sizeX, sizeY, name, texture, description, meta);
             }
         } catch (SQLException e) {
             throw new DatabaseException("Database Exception: " + e.toString());
