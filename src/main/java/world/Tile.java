@@ -40,7 +40,6 @@ public class Tile extends Object {
             }
             case WALL -> {
                 collisionAdapter.setCollision(new BoxCollision(32, 32, 64));
-                break;
             }
         }
     }
