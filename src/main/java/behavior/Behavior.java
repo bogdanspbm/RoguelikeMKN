@@ -12,7 +12,7 @@ import static world.singleton.Processor.getWorld;
 
 public abstract class Behavior {
 
-    private List<StateCondition> conditionList = new ArrayList<>();
+    protected List<StateCondition> conditionList = new ArrayList<>();
     protected BotController controller;
 
     public Behavior(BotController controller) {
@@ -42,10 +42,9 @@ public abstract class Behavior {
         this.conditionList.add(condition);
     }
 
-    public Vector3D getDirectionToPawn() {
-        Pawn target = getWorld().getPlayerPawn(0);
-        int xDirection = target.getLocation().x() - controller.getOwner().getLocation().x();
-        int yDirection = target.getLocation().y() - controller.getOwner().getLocation().y();
+    public Vector3D getDirectionToTarget(Vector3D targetPoint) {
+        int xDirection = targetPoint.x() - controller.getOwner().getLocation().x();
+        int yDirection = targetPoint.y() - controller.getOwner().getLocation().y();
 
         int xDirectionCatchUp = 0;
         int yDirectionCatchUP = 0;

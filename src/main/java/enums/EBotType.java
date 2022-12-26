@@ -1,5 +1,5 @@
 package enums;
 
 public enum EBotType {
-    CALM, AGGRESSOR, COWARD
+    CALM, AGGRESSOR, COWARD, PATROL
 }

@@ -12,5 +12,9 @@ abstract public class StateCondition {
 
     public abstract boolean isTrue();
 
+    public void refresh() {
+
+    }
+
     public abstract EBehaviorState getState();
 }

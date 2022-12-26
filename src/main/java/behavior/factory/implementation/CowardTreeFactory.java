@@ -2,9 +2,8 @@ package behavior.factory.implementation;
 
 import behavior.Behavior;
 import behavior.BehaviorTree;
-import behavior.conditions.ConditionCanAttack;
+import behavior.conditions.ConditionClose;
 import behavior.conditions.ConditionCanSee;
-import behavior.conditions.ConditionDamageReceived;
 import behavior.conditions.ConditionShouldFollow;
 import behavior.factory.BehaviorTreeFactory;
 import behavior.implementation.BehaviorAttack;
@@ -30,11 +29,11 @@ public class CowardTreeFactory extends BehaviorTreeFactory {
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
         Behavior runAway = new BehaviorIdle(controller);
-        runAway.addState(new ConditionCanAttack());
+        runAway.addState(new ConditionClose());
         tree.addBehavior(EBehaviorState.SCARY, runAway);
 
         Behavior follow = new BehaviorFollow(controller);
-        follow.addState(new ConditionCanAttack());
+        follow.addState(new ConditionClose());
         tree.addBehavior(EBehaviorState.FOLLOW, follow);
 
         Behavior attack = new BehaviorAttack(controller);

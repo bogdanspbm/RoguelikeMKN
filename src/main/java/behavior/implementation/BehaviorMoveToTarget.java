@@ -2,21 +2,23 @@ package behavior.implementation;
 
 import behavior.Behavior;
 import enemies.controller.BotController;
-import enums.EBehaviorState;
-import objects.pawn.Pawn;
 import structures.Vector3D;
 
 import static world.singleton.Processor.getWorld;
 
-public class BehaviorFollow extends Behavior {
+public class BehaviorMoveToTarget extends Behavior {
 
-    public BehaviorFollow(BotController controller) {
+    public BehaviorMoveToTarget(BotController controller) {
         super(controller);
     }
 
     @Override
     public void tick() {
-        Vector3D direction = getDirectionToTarget(getWorld().getPlayerPawn(0).getLocation());
+        if (controller.getTargetPoint() == null) {
+            return;
+        }
+
+        Vector3D direction = getDirectionToTarget(controller.getTargetPoint());
         controller.getOwner().moveForward(direction.y());
         controller.getOwner().moveRight(direction.x());
     }
