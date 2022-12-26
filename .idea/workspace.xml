@@ -62,14 +62,14 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="collisionTests" />
       <recent name="behavior.conditions" />
       <recent name="behavior.factory.implementation" />
       <recent name="behavior.implementation" />
       <recent name="objects.animations.factory.implementation" />
-      <recent name="objects.collision" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.CollisionTests">
     <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
       <module name="RoguelikeMKN" />
@@ -103,39 +103,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InventoryConsoleTests.itemAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CollisionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="PATTERN" value="collisionTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="inventoryTests" />
-      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryConsoleTests" />
-      <option name="METHOD_NAME" value="itemAddTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="collisionTests" />
+      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InventoryUITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CollisionTests.boxCollide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="PATTERN" value="collisionTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="inventoryTests" />
-      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryUITests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="collisionTests" />
+      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
+      <option name="METHOD_NAME" value="boxCollide" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CollisionTests" />
+        <item itemvalue="JUnit.CollisionTests.boxCollide" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.ParamsWindow" />
         <item itemvalue="Application.InventoryWindow" />
@@ -175,7 +177,7 @@
       <workItem from="1671388864752" duration="422000" />
       <workItem from="1671389488271" duration="3549000" />
       <workItem from="1671437786868" duration="8449000" />
-      <workItem from="1672044712863" duration="9022000" />
+      <workItem from="1672044712863" duration="9353000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>

@@ -9,6 +9,9 @@ public abstract class Collision {
 
     protected Placeable owner;
 
+    protected Vector3D location = new Vector3D(0, 0, 0);
+    protected Vector3D rotation = new Vector3D(0, 0, 0);
+
     protected ECollisionType type = ECollisionType.EMPTY;
 
     public void setOwner(Placeable owner) {
@@ -24,7 +27,7 @@ public abstract class Collision {
         if (owner != null) {
             return owner.getLocation();
         } else {
-            return new Vector3D(0, 0, 0);
+            return location;
         }
     }
 
@@ -32,14 +35,22 @@ public abstract class Collision {
         if (owner != null) {
             return owner.getRotation();
         } else {
-            return new Vector3D(0, 0, 0);
+            return rotation;
         }
+    }
+
+    public void setLocation(Vector3D location) {
+        this.location = location;
+    }
+
+    public void setRotation(Vector3D rotation) {
+        this.rotation = rotation;
     }
 
     public abstract Vector3D getShape();
 
     public boolean collide(Collision collision) {
-        return collide(collision, owner.getLocation());
+        return collide(collision, getLocation());
     }
 
     public abstract boolean collide(Collision collision, Vector3D position);
