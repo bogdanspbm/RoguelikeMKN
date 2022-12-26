@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
+import static singleton.ImageBuffer.getImageFromBuffer;
+
 public class TextureDatabaseAdapter extends DatabaseAdapter {
 
     HashMap<String, TextureSource> sources = new HashMap<>();
@@ -36,7 +38,7 @@ public class TextureDatabaseAdapter extends DatabaseAdapter {
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
                 String path = resultSet.getString("path");
-                sources.put(name, new TextureSource(new File(path)));
+                sources.put(name, getImageFromBuffer(path));
                 return sources.get(name);
             }
         } catch (Exception e) {

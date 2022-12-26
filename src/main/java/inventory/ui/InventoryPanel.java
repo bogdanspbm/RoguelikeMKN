@@ -22,6 +22,8 @@ import objects.animations.objects.TextureSource;
 
 import javax.swing.*;
 
+import static singleton.ImageBuffer.getImageFromBuffer;
+
 public class InventoryPanel extends JPanel implements Observer {
 
     Inventory inventory;
@@ -48,11 +50,11 @@ public class InventoryPanel extends JPanel implements Observer {
 
     private void initSources() {
         try {
-            sourcesSlot.put("default", new TextureSource(new File("src/main/resources/inventory/slot.png")));
-            sourcesSlot.put("overlapped", new TextureSource(new File("src/main/resources/inventory/slot_overlapped.png")));
-            sourcesSlot.put("free", new TextureSource(new File("src/main/resources/inventory/slot_free.png")));
-            sourcesSlot.put("blocked", new TextureSource(new File("src/main/resources/inventory/slot_blocked.png")));
-            sourcesSlot.put("merge", new TextureSource(new File("src/main/resources/inventory/slot_merge.png")));
+            sourcesSlot.put("default", getImageFromBuffer("src/main/resources/inventory/slot.png"));
+            sourcesSlot.put("overlapped", getImageFromBuffer("src/main/resources/inventory/slot_overlapped.png"));
+            sourcesSlot.put("free", getImageFromBuffer("src/main/resources/inventory/slot_free.png"));
+            sourcesSlot.put("blocked", getImageFromBuffer("src/main/resources/inventory/slot_blocked.png"));
+            sourcesSlot.put("merge", getImageFromBuffer("src/main/resources/inventory/slot_merge.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -119,7 +121,7 @@ public class InventoryPanel extends JPanel implements Observer {
             if (sourceMap.containsKey(key)) {
                 return sourceMap.get(key);
             } else {
-                TextureSource source = new TextureSource(new File(key));
+                TextureSource source = getImageFromBuffer(key);
                 sourceMap.put(key, source);
                 return source;
             }

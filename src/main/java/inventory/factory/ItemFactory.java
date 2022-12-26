@@ -8,6 +8,8 @@ import objects.animations.objects.TextureSource;
 import java.io.File;
 import java.util.HashMap;
 
+import static singleton.ImageBuffer.getImageFromBuffer;
+
 public class ItemFactory {
 
     private ItemDatabaseAdapter itemDatabaseAdapter;
@@ -45,7 +47,7 @@ public class ItemFactory {
         }
 
         try {
-            TextureSource source = new TextureSource(new File(path));
+            TextureSource source = getImageFromBuffer(path);
             textureSourceMap.put(path, source);
             return source;
         } catch (Exception e) {

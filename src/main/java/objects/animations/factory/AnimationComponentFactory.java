@@ -12,6 +12,8 @@ import structures.AnimationStructure;
 import java.io.File;
 import java.util.HashMap;
 
+import static singleton.ImageBuffer.getImageFromBuffer;
+
 public abstract class AnimationComponentFactory {
     private HashMap<String, TextureSource> animationSources = new HashMap<>();
     protected HashMap<String, AnimationStructure> animations;
@@ -48,7 +50,7 @@ public abstract class AnimationComponentFactory {
             AnimationStructure animationStructure = animations.get(key);
             if (!animationSources.containsKey(animationStructure.source())) {
                 try {
-                    TextureSource source = new TextureSource(new File(animationStructure.source()), animationStructure.frameSize());
+                    TextureSource source = getImageFromBuffer(animationStructure.source(), animationStructure.frameSize());
                     animationSources.put(animationStructure.source(), source);
                 } catch (Exception e) {
                     throw new SourceException("Can't generate source files: \n" + e.toString());
