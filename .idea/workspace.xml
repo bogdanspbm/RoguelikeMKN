@@ -74,14 +74,7 @@
       <recent name="behavior.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.botTests.testKillBot">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RoguelikeMKN" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.paramsTests.checkLevelApp">
     <configuration name="botTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -145,13 +138,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="paramsTests.checkLevelApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="paramsTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="paramsTests" />
+      <option name="MAIN_CLASS_NAME" value="paramsTests.paramsTests" />
+      <option name="METHOD_NAME" value="checkLevelApp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.paramsTests.checkLevelApp" />
         <item itemvalue="JUnit.botTests.testKillBot" />
         <item itemvalue="JUnit.botTests.testPatrolBot" />
         <item itemvalue="JUnit.botTests" />
         <item itemvalue="JUnit.botTests.testSimpleBoxCollide" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
