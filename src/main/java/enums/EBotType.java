@@ -1,5 +1,5 @@
 package enums;
 
-public enum EBotBehaviour {
+public enum EBotType {
     CALM, AGGRESSOR, COWARD
 }

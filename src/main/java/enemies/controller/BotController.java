@@ -1,186 +1,54 @@
 package enemies.controller;
 
-import enums.EBotBehaviour;
-import enums.EPawnStatus;
+import behavior.BehaviorTree;
+import behavior.factory.BehaviorTreeFactory;
+import behavior.factory.implementation.AggressiveTreeFactory;
+import behavior.factory.implementation.CalmTreeFactory;
+import behavior.factory.implementation.CowardTreeFactory;
+import enums.EBotType;
 import objects.controller.Controller;
 import objects.pawn.Pawn;
 
-import static world.singleton.Processor.getWorld;
-
 public class BotController extends Controller {
 
-    public EBotBehaviour typeOfBotsBehaviour;
-    public int turnOffModeCoward = 0;
-    public boolean getCloser = false;
+    private BehaviorTree behaviorTree;
 
-    public BotController(EBotBehaviour typeOfBotsBehaviour) {
-        this.typeOfBotsBehaviour = typeOfBotsBehaviour;
+    public BotController(EBotType type) {
+        createBehaviorTree(type);
+    }
+
+    public Pawn getOwner() {
+        return owner;
+    }
+
+    private void createBehaviorTree(EBotType type) {
+        BehaviorTreeFactory factory = null;
+        switch (type) {
+            case CALM -> {
+                factory = new CalmTreeFactory(this);
+                break;
+            }
+
+            case COWARD -> {
+                factory = new CowardTreeFactory(this);
+                break;
+            }
+
+            case AGGRESSOR -> {
+                factory = new AggressiveTreeFactory(this);
+                break;
+            }
+        }
+
+        behaviorTree = factory.createBehaviorTree();
     }
 
     @Override
     public void tick() {
-        super.tick();
-        Pawn target = getWorld().getPlayerPawn(0);
-        int xDirection = target.getLocation().x() - owner.getLocation().x();
-        int yDirection = target.getLocation().y() - owner.getLocation().y();
-        int xDirectionCatchUp = 0;
-        int yDirectionCatchUP = 0;
-        //        трусливый бот
-        if (typeOfBotsBehaviour == EBotBehaviour.COWARD) {
-            if (owner.getParamsComponent().checkIsDead()) {
-                owner.setStatus(EPawnStatus.WALK);
-                owner.setPrevLocation(); // анимация смерти
-            } else {
-                if (!getCloser) {
-                    if (xDirection < -100 || xDirection > 100 || yDirection > 100 || yDirection < -100) {
-                        if (xDirection != 0) {
-                            xDirectionCatchUp = xDirection / Math.abs(xDirection);
-                        }
-                        if (yDirection != 0) {
-                            yDirectionCatchUP = -yDirection / Math.abs(yDirection);
-                        }
-                        owner.moveRight(xDirectionCatchUp);
-                        owner.moveForward(yDirectionCatchUP);
-                    }
-                    if (Math.abs(xDirection) == 100 || Math.abs(yDirection) == 100) {
-                        owner.setPrevLocation();
-                        turnOffModeCoward++;
-                    }
-                    if (xDirection <= 99 && xDirection >= 60) {
-                        owner.moveRight(-1);
-                        turnOffModeCoward++;
-                    }
-                    if (xDirection <= -60 && xDirection >= -99) {
-                        owner.moveRight(1);
-                        turnOffModeCoward++;
-                    }
-                    if (yDirection <= 99 && yDirection >= 60) {
-                        owner.moveForward(1);
-                        turnOffModeCoward++;
-                    }
-                    if (yDirection >= -99 && yDirection <= -60) {
-                        owner.moveForward(1);
-                        turnOffModeCoward++;
-                    }
-                    if (xDirection > -60 && xDirection <= 0) {
-                        owner.moveRight(1);
-                        turnOffModeCoward++;
-                    }
-                    if (xDirection > 0 && xDirection < 60) {
-                        owner.moveRight(-1);
-                        turnOffModeCoward++;
-                    }
-                    if (yDirection > -60 && yDirection <= 0) {
-                        owner.moveForward(1);
-                        turnOffModeCoward++;
-                    }
-                    if (yDirection > 0 && yDirection < 60) {
-                        owner.moveRight(-1);
-                        turnOffModeCoward++;
-                    }
-                    if (turnOffModeCoward % 300 == 0) {
-                        getCloser = true;
-                    }
-                }
-                if (getCloser) {
-                    if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
-                        if (xDirection != 0) {
-                            xDirectionCatchUp = xDirection / Math.abs(xDirection);
-                        }
-                        if (yDirection != 0) {
-                            yDirectionCatchUP = -yDirection / Math.abs(yDirection);
-                        }
-                        int speed = owner.getParamsComponent().getSpeed();
-                        owner.moveRight(xDirectionCatchUp);
-                        owner.moveForward(yDirectionCatchUP);
-                        turnOffModeCoward++;
-                    }
-                    if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
-                        owner.setPrevLocation();
-                        turnOffModeCoward++;
-                    }
-                    if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                            target.getParamsComponent().getHealthPercentage() != 0) {
-                        owner.setStatus(EPawnStatus.ATTACK);
-                        target.getParamsComponent().takeAwayHealth();
-                        if (target.getStatus() == EPawnStatus.ATTACK) {
-                            owner.getParamsComponent().takeAwayHealth();
-                            target.setStatus(EPawnStatus.WALK);
-                        }
-                    }
-                    if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                            target.getParamsComponent().getHealthPercentage() == 0) {
-                        owner.setStatus(EPawnStatus.WALK);
-                    }
-                    if (turnOffModeCoward % 300 == 0) {
-                        getCloser = false;
-                    }
-                }
-            }
+        if (owner.getParamsComponent().checkIsDead()) {
+            return;
         }
-//        агресивный бот
-        if (typeOfBotsBehaviour == EBotBehaviour.AGGRESSOR) {
-            if (owner.getParamsComponent().checkIsDead()) {
-                owner.setStatus(EPawnStatus.WALK);
-                owner.setPrevLocation(); // анимация смерти
-            } else {
-                if (xDirection < -20 || xDirection > 20 || yDirection > 20 || yDirection < -20) {
-                    if (xDirection != 0) {
-                        xDirectionCatchUp = xDirection / Math.abs(xDirection);
-                    }
-                    if (yDirection != 0) {
-                        yDirectionCatchUP = -yDirection / Math.abs(yDirection);
-                    }
-                    int speed = owner.getParamsComponent().getSpeed();
-                    owner.moveRight(xDirectionCatchUp * speed);
-                    owner.moveForward(yDirectionCatchUP * speed);
-                }
-                if (Math.abs(xDirection) == 20 || Math.abs(yDirection) == 20) {
-                    owner.setPrevLocation();
-                }
-                if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                        target.getParamsComponent().getHealthPercentage() != 0) {
-                    owner.setStatus(EPawnStatus.ATTACK);
-                    target.getParamsComponent().takeAwayHealth();
-                    if (target.getStatus() == EPawnStatus.ATTACK) {
-                        owner.getParamsComponent().takeAwayHealth();
-                        target.setStatus(EPawnStatus.WALK);
-                    }
-                }
-                if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                        target.getParamsComponent().getHealthPercentage() == 0) {
-                    owner.setStatus(EPawnStatus.WALK);
-                }
-                if (Math.abs(xDirection) > 21 || Math.abs(yDirection) > 21) {
-                    owner.setStatus(EPawnStatus.WALK);
-                }
-            }
-        }
-//        статичный бот
-        if (typeOfBotsBehaviour == EBotBehaviour.CALM) {
-            if (owner.getParamsComponent().checkIsDead()) {
-                owner.setStatus(EPawnStatus.WALK);
-                owner.setPrevLocation(); // анимация смерти
-            } else {
-                owner.setPrevLocation();
-                if (Math.abs(xDirection) <= 20 && Math.abs(yDirection) <= 20 &&
-                        target.getParamsComponent().getHealthPercentage() != 0) {
-                    owner.setStatus(EPawnStatus.ATTACK);
-                    target.getParamsComponent().takeAwayHealth();
-                    if (target.getStatus() == EPawnStatus.ATTACK) {
-                        owner.getParamsComponent().takeAwayHealth();
-                        target.setStatus(EPawnStatus.WALK);
-                    }
-                    owner.setStatus(EPawnStatus.WALK);
-                }
-                if (Math.abs(xDirection) <= 21 && Math.abs(yDirection) <= 21 &&
-                        target.getParamsComponent().getHealthPercentage() == 0) {
-                    owner.setStatus(EPawnStatus.WALK);
-                }
-                if (Math.abs(xDirection) > 20 || Math.abs(yDirection) > 20) {
-                    owner.setStatus(EPawnStatus.WALK);
-                }
-            }
-        }
+
+        behaviorTree.tick();
     }
 }

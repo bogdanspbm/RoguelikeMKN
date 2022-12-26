@@ -1,7 +1,7 @@
 package enemies;
 
 import enemies.animations.factory.SlimeAnimationFactory;
-import enums.EBotBehaviour;
+import enums.EBotType;
 import exceptions.CreationException;
 import objects.buff.factory.BuffFactory;
 import objects.projectile.Projectile;
@@ -16,7 +16,7 @@ public class Slime extends Enemy implements Cloneable {
         animationComponent = animationComponentFactory.createAnimationComponent(this);
         createCollision();
         paramsComponent.setMaxHealth(20);
-        initEnemyController(EBotBehaviour.AGGRESSOR);
+        initEnemyController(EBotType.AGGRESSOR);
     }
 
     @Override

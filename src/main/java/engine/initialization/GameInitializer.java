@@ -5,7 +5,7 @@ import enemies.Slime;
 import engine.render.interfaces.Drawable;
 import engine.render.interfaces.DrawableProvider;
 import engine.render.window.Window;
-import enums.EBotBehaviour;
+import enums.EBotType;
 import exceptions.CreationException;
 import interfaces.Placeable;
 import player.Player;
@@ -23,7 +23,7 @@ public class GameInitializer implements DrawableProvider {
         try {
             createPlayer();
             createItems();
-            createEnemy(EBotBehaviour.AGGRESSOR);//трусливый бот
+            createEnemy(EBotType.AGGRESSOR);//трусливый бот
             //createEnemy("aggressor");//агресивный бот
             //createEnemy("calm");//статичный бот
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class GameInitializer implements DrawableProvider {
         player.setLocation(getWorld().getMap().getRandomSpawnPosition());
     }
 
-    private void createEnemy(EBotBehaviour behaviour) throws CreationException {
+    private void createEnemy(EBotType behaviour) throws CreationException {
         Enemy enemy = new Enemy(behaviour);
         switch (behaviour) {
             case COWARD:
