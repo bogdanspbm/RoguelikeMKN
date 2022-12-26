@@ -1,5 +1,7 @@
 package inventory.ui;
 
+import command.Command;
+import command.implementation.CommandMoveItem;
 import database.adapter.implementation.ItemDatabaseAdapter;
 import exceptions.DatabaseException;
 import interfaces.Observer;
@@ -285,16 +287,17 @@ public class InventoryPanel extends JPanel implements Observer {
         int width = inventory.getWidth();
         int x, y;
         int index = item.getIndex();
+        Command command = new CommandMoveItem(inventory, item.getIndex(), overlapIndex);
         if (canSwapDraggedItemTo(overlapIndex)) {
             x = overlapIndex % width;
             y = overlapIndex / width;
             draggedItem.setLocation(x * 32, y * 32);
 
-            if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
+            if (command.execute()) {
                 item.setIndex(overlapIndex);
             }
         } else if (isSimilarSlot(overlapIndex) && index != overlapIndex) {
-            if (inventory.moveItemToSlot(item.getIndex(), overlapIndex)) {
+            if (command.execute()) {
                 update();
             }
         } else {
@@ -313,7 +316,7 @@ public class InventoryPanel extends JPanel implements Observer {
     public Inventory getInventory() {
         return inventory;
     }
-    
+
     @Override
     public void update(String message) {
         update();
