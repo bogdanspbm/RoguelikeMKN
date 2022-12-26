@@ -24,8 +24,8 @@ public class Map {
     private PerlinNoiseGenerator noiseGenerator;
     private int resolution;
 
-    private int seaLevel;
-    private int buildingLevel;
+    public int seaLevel;
+    public int buildingLevel;
 
     TextureDatabaseAdapter textureDatabaseAdapter;
 
@@ -108,7 +108,7 @@ public class Map {
         }
     }
 
-    private List<Tile> generateTiles() {
+    public List<Tile> generateTiles() {
         List<Tile> result = new ArrayList<>();
 
         generateTypes();
@@ -153,7 +153,7 @@ public class Map {
     }
 
 
-    private String getTileByNeighbor(int x, int y) {
+    public String getTileByNeighbor(int x, int y) {
         String res = "brick_hole_e";
 
         if (types == null) {
@@ -1861,7 +1861,7 @@ public class Map {
         return res;
     }
 
-    private int getStoneNeigh(int x, int y) {
+    public int getStoneNeigh(int x, int y) {
         int counter = 0;
 
         if (x < 2 || y < 2 || x > resolution - 2 || y > resolution - 2) {
@@ -1896,7 +1896,7 @@ public class Map {
         return counter;
     }
 
-    private int getWallNeigh(int x, int y) {
+    public int getWallNeigh(int x, int y) {
         int counter_wall = 0;
 
         if (x < 2 || y < 2 || x > resolution - 2 || y > resolution - 2) {
@@ -1934,7 +1934,7 @@ public class Map {
         return counter_wall;
     }
 
-    private void generateTypes() {
+    public void generateTypes() {
         types = new ETileType[resolution][resolution];
 
         for (int i = 0; i < map.length; i++) {
