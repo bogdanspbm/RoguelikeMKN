@@ -96,6 +96,9 @@ public class Window extends JFrame implements Observer {
 
     // TODO: TMP add inventory from player controllers
     private void drawInventoriesFromController() {
+        if (getController(0) == null) {
+            return;
+        }
         inventoryPanel = getController(0).getInventoryPanel();
         if (inventoryPanel != null && renderPanel != null) {
             java.awt.GridBagConstraints gridBagConstraints;
@@ -125,6 +128,10 @@ public class Window extends JFrame implements Observer {
     }
 
     private void drawHealthBarFromControllers() {
+        if (getController(0) == null) {
+            return;
+        }
+
         healthBar = getController(0).getHealthBar();
         if (healthBar != null && renderPanel != null) {
             java.awt.GridBagConstraints gridBagConstraints;
@@ -158,6 +165,10 @@ public class Window extends JFrame implements Observer {
     }
 
     private void drawParamPanelFromController() {
+        if (getController(0) == null) {
+            return;
+        }
+
         paramPanel = getController(0).getParamPanel();
         if (paramPanel != null && renderPanel != null) {
             java.awt.GridBagConstraints gridBagConstraints;

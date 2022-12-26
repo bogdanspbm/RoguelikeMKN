@@ -3,6 +3,7 @@ package player.controller;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
+import command.Command;
 import config.Config;
 import exceptions.CastException;
 import interfaces.Controllable;
@@ -16,42 +17,92 @@ import params.ui.HealthBar;
 import params.ui.ParamPanel;
 import structures.Vector3D;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import static world.singleton.Controllers.getControllers;
 
-public class PlayerController extends Controller implements NativeKeyListener {
+public class PlayerController extends Controller {
 
-    private Boolean leftPressed = false;
-    private Boolean rightPressed = false;
-    private Boolean forwardPressed = false;
-    private Boolean backPressed = false;
+
+    private Queue<Command> commands = new LinkedList<>();
+
+    private Boolean movingLeft = false;
+    private Boolean movingRight = false;
+    private Boolean movingForward = false;
+    private Boolean movingBack = false;
+
 
     private InventoryPanel inventoryPanel = null;
 
     private HealthBar healthBar = null;
 
     private ParamPanel paramPanel = null;
+    private KeyboardListener listener;
 
     public PlayerController() {
-        // TODO: Если игра переносится в мультиплеер, то прослушку нужно делать где-то снаружи
-        getControllers().addPlayerController(this);
-        GlobalScreen.addNativeKeyListener(this);
+        this.listener = new KeyboardListener(this);
         startAxisEvents();
     }
+
+    public void addCommand(Command command) {
+        commands.add(command);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        while (commands.size() > 0) {
+            commands.poll().execute();
+        }
+    }
+
+    private void startAxisEvents() {
+        Thread tick = new Thread(new Runnable() {
+            public void run() //Этот метод будет выполняться в побочном потоке
+            {
+                try {
+                    while (true) {
+                        if (owner != null) {
+                            owner.setPrevLocation();
+                            if (movingLeft && !movingRight) {
+                                owner.moveRight(-1);
+                            }
+                            if (movingRight && !movingLeft) {
+                                owner.moveRight(1);
+                            }
+                            if (movingBack && !movingForward) {
+                                owner.moveForward(-1);
+                            }
+                            if (movingForward && !movingBack) {
+                                owner.moveForward(1);
+                            }
+                        }
+                        Thread.sleep((int) (1000 / Config.FRAME_RATE));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        tick.start();    //Запуск потока
+    }
+
 
     @Override
     public Vector3D getControllerVelocity() {
         int x = 0;
         int y = 0;
-        if (leftPressed) {
+        if (movingLeft) {
             x = -1;
         }
-        if (rightPressed) {
+        if (movingRight) {
             x = 1;
         }
-        if (backPressed) {
+        if (movingBack) {
             y = 1;
         }
-        if (forwardPressed && !backPressed) {
+        if (movingForward && !movingBack) {
             y = -1;
         }
 
@@ -77,119 +128,10 @@ public class PlayerController extends Controller implements NativeKeyListener {
         }
     }
 
-    private void startAxisEvents() {
-        Thread tick = new Thread(new Runnable() {
-            public void run() //Этот метод будет выполняться в побочном потоке
-            {
-                try {
-                    while (true) {
-                        if (owner != null) {
-                            owner.setPrevLocation();
-                            if (leftPressed && !rightPressed) {
-                                owner.moveRight(-1);
-                            }
-                            if (rightPressed && !leftPressed) {
-                                owner.moveRight(1);
-                            }
-                            if (backPressed && !forwardPressed) {
-                                owner.moveForward(-1);
-                            }
-                            if (forwardPressed && !backPressed) {
-                                owner.moveForward(1);
-                            }
-                        }
-                        Thread.sleep((int) (1000 / Config.FRAME_RATE));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        tick.start();    //Запуск потока
+    public Pawn getOwner() {
+        return owner;
     }
 
-    @Override
-    public void nativeKeyPressed(NativeKeyEvent nativeEvent) {
-        // TODO: В будущем нужно подключить загрузку из настроек
-
-        switch (nativeEvent.getKeyCode()) {
-            case 23: {
-                //owner.getInventory().addItem(new Item(1, 1));
-                if (inventoryPanel != null) {
-                    inventoryPanel.setVisible(!inventoryPanel.isVisible());
-                }
-                break;
-            }
-            case 25: {
-                if (paramPanel != null) {
-                    paramPanel.setVisible(!paramPanel.isVisible());
-                }
-                break;
-            }
-            case 33: {
-                // F
-                owner.interact();
-                break;
-            }
-            case 34: {
-                // G
-                owner.action();
-                break;
-            }
-            case 30: {
-                // A
-                leftPressed = true;
-                break;
-            }
-            case 32: {
-                // D
-                rightPressed = true;
-                break;
-            }
-            case 31: {
-                // S
-                backPressed = true;
-                break;
-            }
-            case 17: {
-                // W
-                forwardPressed = true;
-                break;
-            }
-            case 57: {
-                // SPACE
-                owner.action();
-                break;
-            }
-        }
-    }
-
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent nativeEvent) {
-        // TODO: В будущем нужно подключить загрузку из настроек
-        switch (nativeEvent.getKeyCode()) {
-            case 30: {
-                // A
-                leftPressed = false;
-                break;
-            }
-            case 32: {
-                // D
-                rightPressed = false;
-                break;
-            }
-            case 31: {
-                // S
-                backPressed = false;
-                break;
-            }
-            case 17: {
-                // W
-                forwardPressed = false;
-                break;
-            }
-        }
-    }
 
     public InventoryPanel getInventoryPanel() {
         return inventoryPanel;
@@ -201,5 +143,37 @@ public class PlayerController extends Controller implements NativeKeyListener {
 
     public ParamPanel getParamPanel() {
         return paramPanel;
+    }
+
+    public Boolean getMovingLeft() {
+        return movingLeft;
+    }
+
+    public void setMovingLeft(Boolean movingLeft) {
+        this.movingLeft = movingLeft;
+    }
+
+    public Boolean getMovingRight() {
+        return movingRight;
+    }
+
+    public void setMovingRight(Boolean movingRight) {
+        this.movingRight = movingRight;
+    }
+
+    public Boolean getMovingForward() {
+        return movingForward;
+    }
+
+    public void setMovingForward(Boolean movingForward) {
+        this.movingForward = movingForward;
+    }
+
+    public Boolean getMovingBack() {
+        return movingBack;
+    }
+
+    public void setMovingBack(Boolean movingBack) {
+        this.movingBack = movingBack;
     }
 }

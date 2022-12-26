@@ -25,6 +25,10 @@ public class RenderPanel extends JPanel {
 
         Placeable camera = getWorld().getPlayerPawn(0);
 
+        if (camera == null) {
+            return;
+        }
+
 
         g.translate(-camera.getLocation().x() + getWidth() / 2, -(camera.getLocation().y() - camera.getLocation().z()) + getHeight() / 2);
 
