@@ -38,7 +38,7 @@ public class MapTest {
     }
 
     @Test
-    public void testOnMapCheckWhenWallNeigh1010() {
+    public void testOnMapCheckWhenWallNeighTenByTen() {
         Map grid = new Map(new MapBuilder());
         grid.seaLevel = 0;
         grid.buildingLevel = 1;
@@ -49,7 +49,7 @@ public class MapTest {
     }
 
     @Test
-    public void testOnMaph1010() {
+    public void testOnMapTenByTen() {
         Map grid = new Map(new MapBuilder());
         grid.seaLevel = 0;
         grid.buildingLevel = 1000;

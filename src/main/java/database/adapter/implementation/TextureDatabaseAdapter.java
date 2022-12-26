@@ -2,17 +2,15 @@ package database.adapter.implementation;
 
 import database.adapter.DatabaseAdapter;
 import exceptions.DatabaseException;
-import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
+import singleton.ImageBuffer;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
-import static singleton.ImageBuffer.getImageFromBuffer;
+import static singleton.ImageBuffer.getOrLoadImage;
 
 public class TextureDatabaseAdapter extends DatabaseAdapter {
 
@@ -38,7 +36,7 @@ public class TextureDatabaseAdapter extends DatabaseAdapter {
             // Проходимся по нашему resultSet и заносим данные в products
             while (resultSet.next()) {
                 String path = resultSet.getString("path");
-                sources.put(name, getImageFromBuffer(path));
+                sources.put(name, ImageBuffer.getOrLoadImage(path));
                 return sources.get(name);
             }
         } catch (Exception e) {

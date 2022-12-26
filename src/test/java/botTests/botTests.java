@@ -5,6 +5,7 @@ import enemies.Enemy;
 import enemies.Slime;
 import enums.EBotType;
 import enums.EPawnStatus;
+import exceptions.CreationException;
 import objects.collision.BoxCollision;
 import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
@@ -29,36 +30,32 @@ public class botTests {
     }
 
     @Test
-    public void testIdleBot() {
-        try {
-            Pawn bot = new Enemy(EBotType.CALM);
-            Vector3D startLocation = bot.getLocation().copy();
-            for (int i = 0; i < 10000; i++) {
-                bot.getController().tick();
-            }
+    public void testIdleBot() throws CreationException {
+        Pawn bot = new Enemy(EBotType.CALM);
+        Vector3D startLocation = bot.getLocation().copy();
+        // TODO: Wait что-то там
+        // Цикл убрать
+        for (int i = 0; i < 10000; i++) {
+            bot.getController().tick();
             Assert.assertEquals(startLocation.x(), bot.getLocation().x());
             Assert.assertEquals(startLocation.y(), bot.getLocation().y());
             Assert.assertEquals(startLocation.z(), bot.getLocation().z());
-        } catch (Exception e) {
-            assert false;
         }
     }
 
     @Test
-    public void testPatrolBot() {
-        try {
-            Pawn bot = new Enemy(EBotType.PATROL);
-            bot.setLocation(new Vector3D(0, 0, 100));
-            Vector3D startLocation = bot.getLocation().copy();
-            for (int i = 0; i < 10000; i++) {
-                bot.getController().tick();
-            }
-            double distance = Math.sqrt((startLocation.x() - bot.getLocation().x()) * (startLocation.x() - bot.getLocation().x()) + (startLocation.y() - bot.getLocation().y()) * (startLocation.y() - bot.getLocation().y()));
-            Assert.assertEquals(distance > 0, true);
-        } catch (Exception e) {
-            e.printStackTrace();
-            assert false;
+    public void testPatrolBot() throws CreationException {
+        Pawn bot = new Enemy(EBotType.PATROL);
+        bot.setLocation(new Vector3D(0, 0, 100));
+        Vector3D startLocation = bot.getLocation().copy();
+        // TODO: Предикат пока не выполнится условие
+        // И макс кол-во шагов
+        for (int i = 0; i < 10000; i++) {
+            bot.getController().tick();
         }
+        double distance = Math.sqrt((startLocation.x() - bot.getLocation().x()) * (startLocation.x() - bot.getLocation().x()) + (startLocation.y() - bot.getLocation().y()) * (startLocation.y() - bot.getLocation().y()));
+        Assert.assertEquals(distance > 0, true);
+
     }
 
     @Test

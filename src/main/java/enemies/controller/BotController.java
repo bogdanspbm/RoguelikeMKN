@@ -61,6 +61,8 @@ public class BotController extends Controller {
 
     @Override
     public void tick() {
+
+        // TODO: не вызывать tick у мертвых
         if (owner.getParamsComponent().checkIsDead()) {
             return;
         }

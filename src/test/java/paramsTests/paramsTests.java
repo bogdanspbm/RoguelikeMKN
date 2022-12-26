@@ -17,9 +17,9 @@ public class paramsTests {
     public void checkLevelApp() {
         ParamsComponent paramsComponent = new ParamsComponent();
         Assert.assertEquals(paramsComponent.getLevel(), 1);
-        paramsComponent.addExperience(10000);
-        Assert.assertEquals(paramsComponent.getLevel() > 1, true);
+        paramsComponent.addExperience(500);
+        Assert.assertEquals(paramsComponent.getLevel() , 2);
     }
-    
+
 
 }

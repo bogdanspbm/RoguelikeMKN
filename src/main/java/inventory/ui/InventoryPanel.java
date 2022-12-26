@@ -7,10 +7,7 @@ import exceptions.DatabaseException;
 import interfaces.Observer;
 import inventory.Inventory;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,10 +16,11 @@ import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import inventory.objects.Slot;
 import objects.animations.objects.TextureSource;
+import singleton.ImageBuffer;
 
 import javax.swing.*;
 
-import static singleton.ImageBuffer.getImageFromBuffer;
+import static singleton.ImageBuffer.getOrLoadImage;
 
 public class InventoryPanel extends JPanel implements Observer {
 
@@ -50,11 +48,11 @@ public class InventoryPanel extends JPanel implements Observer {
 
     private void initSources() {
         try {
-            sourcesSlot.put("default", getImageFromBuffer("src/main/resources/inventory/slot.png"));
-            sourcesSlot.put("overlapped", getImageFromBuffer("src/main/resources/inventory/slot_overlapped.png"));
-            sourcesSlot.put("free", getImageFromBuffer("src/main/resources/inventory/slot_free.png"));
-            sourcesSlot.put("blocked", getImageFromBuffer("src/main/resources/inventory/slot_blocked.png"));
-            sourcesSlot.put("merge", getImageFromBuffer("src/main/resources/inventory/slot_merge.png"));
+            sourcesSlot.put("default", ImageBuffer.getOrLoadImage("src/main/resources/inventory/slot.png"));
+            sourcesSlot.put("overlapped", ImageBuffer.getOrLoadImage("src/main/resources/inventory/slot_overlapped.png"));
+            sourcesSlot.put("free", ImageBuffer.getOrLoadImage("src/main/resources/inventory/slot_free.png"));
+            sourcesSlot.put("blocked", ImageBuffer.getOrLoadImage("src/main/resources/inventory/slot_blocked.png"));
+            sourcesSlot.put("merge", ImageBuffer.getOrLoadImage("src/main/resources/inventory/slot_merge.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,7 +119,7 @@ public class InventoryPanel extends JPanel implements Observer {
             if (sourceMap.containsKey(key)) {
                 return sourceMap.get(key);
             } else {
-                TextureSource source = getImageFromBuffer(key);
+                TextureSource source = ImageBuffer.getOrLoadImage(key);
                 sourceMap.put(key, source);
                 return source;
             }

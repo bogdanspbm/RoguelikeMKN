@@ -22,7 +22,7 @@ public class PatrolTreeFactory extends BehaviorTreeFactory {
 
         Behavior idle = new BehaviorIdle(controller);
         idle.addState(new ConditionCanSee(100, EBehaviorState.FOLLOW));
-        idle.addState(new ConditionWait(30, EBehaviorState.LOOK_FOR_TARGET));
+        idle.addState(new ConditionWait(300, EBehaviorState.LOOK_FOR_TARGET));
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
         Behavior newPoint = new BehaviorGetTargetPoint(controller);

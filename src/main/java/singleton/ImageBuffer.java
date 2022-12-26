@@ -3,7 +3,6 @@ package singleton;
 import objects.animations.objects.TextureSource;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +10,7 @@ import java.util.Map;
 public class ImageBuffer {
     private static Map<String, TextureSource> buffer = new HashMap<>();
 
-    public static TextureSource getImageFromBuffer(String path) {
+    public static TextureSource getOrLoadImage(String path) {
         if (!buffer.containsKey(path)) {
             try {
                 TextureSource source = new TextureSource(new File(path));
@@ -24,7 +23,7 @@ public class ImageBuffer {
         return buffer.get(path);
     }
 
-    public static TextureSource getImageFromBuffer(String path, Dimension dimension) {
+    public static TextureSource getOrLoadImage(String path, Dimension dimension) {
         if (!buffer.containsKey(path)) {
             try {
                 TextureSource source = new TextureSource(new File(path), dimension);

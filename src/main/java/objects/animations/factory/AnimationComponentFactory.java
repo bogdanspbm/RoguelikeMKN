@@ -6,13 +6,11 @@ import exceptions.SourceException;
 import objects.animations.component.AnimationComponent;
 import objects.animations.objects.Animation;
 import objects.animations.objects.TextureSource;
-import objects.pawn.Pawn;
 import structures.AnimationStructure;
 
-import java.io.File;
 import java.util.HashMap;
 
-import static singleton.ImageBuffer.getImageFromBuffer;
+import static singleton.ImageBuffer.getOrLoadImage;
 
 public abstract class AnimationComponentFactory {
     private HashMap<String, TextureSource> animationSources = new HashMap<>();
@@ -50,7 +48,7 @@ public abstract class AnimationComponentFactory {
             AnimationStructure animationStructure = animations.get(key);
             if (!animationSources.containsKey(animationStructure.source())) {
                 try {
-                    TextureSource source = getImageFromBuffer(animationStructure.source(), animationStructure.frameSize());
+                    TextureSource source = getOrLoadImage(animationStructure.source(), animationStructure.frameSize());
                     animationSources.put(animationStructure.source(), source);
                 } catch (Exception e) {
                     throw new SourceException("Can't generate source files: \n" + e.toString());

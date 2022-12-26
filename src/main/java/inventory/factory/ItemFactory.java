@@ -4,11 +4,11 @@ import database.adapter.implementation.ItemDatabaseAdapter;
 import inventory.objects.Item;
 import inventory.objects.ItemDescription;
 import objects.animations.objects.TextureSource;
+import singleton.ImageBuffer;
 
-import java.io.File;
 import java.util.HashMap;
 
-import static singleton.ImageBuffer.getImageFromBuffer;
+import static singleton.ImageBuffer.getOrLoadImage;
 
 public class ItemFactory {
 
@@ -47,7 +47,7 @@ public class ItemFactory {
         }
 
         try {
-            TextureSource source = getImageFromBuffer(path);
+            TextureSource source = ImageBuffer.getOrLoadImage(path);
             textureSourceMap.put(path, source);
             return source;
         } catch (Exception e) {
