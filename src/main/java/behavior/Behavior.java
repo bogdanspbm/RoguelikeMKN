@@ -70,6 +70,11 @@ public abstract class Behavior {
 
     public double getDistanceToPawn() {
         Pawn target = getWorld().getPlayerPawn(0);
+
+        if (target == null) {
+            return 9999999;
+        }
+
         int xDirection = target.getLocation().x() - controller.getOwner().getLocation().x();
         int yDirection = target.getLocation().y() - controller.getOwner().getLocation().y();
 

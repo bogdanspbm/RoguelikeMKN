@@ -63,4 +63,8 @@ public class Vector3D implements Cloneable {
     public String toString() {
         return "x: " + x + " y: " + y + " z: " + z;
     }
+
+    public Vector3D copy() {
+        return new Vector3D(x, y, z);
+    }
 }
