@@ -27,6 +27,7 @@ objects\buff\factory\BuffFactory.class
 behavior\conditions\ConditionNextState.class
 inventory\factory\ItemUseFactory.class
 behavior\implementation\BehaviorIdle.class
+singleton\ImageBuffer.class
 behavior\factory\implementation\AggressiveTreeFactory.class
 behavior\factory\BehaviorTreeFactory.class
 inventory\ui\ItemTooltip.class

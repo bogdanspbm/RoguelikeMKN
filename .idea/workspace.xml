@@ -79,7 +79,7 @@
       <recent name="objects.collision" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CollisionTests">
+  <component name="RunManager" selected="JUnit.MapTest.testOnMaph1010">
     <configuration name="CollisionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -106,22 +106,6 @@
       <option name="PACKAGE_NAME" value="collisionTests" />
       <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
       <option name="METHOD_NAME" value="testBoxCollide" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CollisionTests.testBoxCollideOnYInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="collisionTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="collisionTests" />
-      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
-      <option name="METHOD_NAME" value="testBoxCollideOnYInvalid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,13 +143,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MapTest.testOnMaph1010" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mapTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mapTests" />
+      <option name="MAIN_CLASS_NAME" value="mapTests.MapTest" />
+      <option name="METHOD_NAME" value="testOnMaph1010" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapTest.testOnMaph1010" />
         <item itemvalue="JUnit.CollisionTests" />
         <item itemvalue="JUnit.CollisionTests.testCylinderCollide" />
         <item itemvalue="JUnit.CollisionTests.testSimpleCylinderCollide" />
         <item itemvalue="JUnit.CollisionTests.testBoxCollide" />
-        <item itemvalue="JUnit.CollisionTests.testBoxCollideOnYInvalid" />
       </list>
     </recent_temporary>
   </component>

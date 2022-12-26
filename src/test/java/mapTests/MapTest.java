@@ -48,4 +48,15 @@ public class MapTest {
         Assert.assertEquals(grid.getWallNeigh(10,10), 9);
     }
 
+    @Test
+    public void testOnMaph1010() {
+        Map grid = new Map(new MapBuilder());
+        grid.seaLevel = 0;
+        grid.buildingLevel = 1000;
+
+        grid.generateTypes();
+
+        Assert.assertEquals(grid.getWallNeigh(10,10), 0);
+    }
+
 }
