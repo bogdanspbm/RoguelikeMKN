@@ -1,3 +1,5 @@
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandAttack.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandMoveBack.java
 C:\Users\misha\RoguelikeMKN\src\main\java\enemies\factory\implementation\KnightFactory.java
 C:\Users\misha\RoguelikeMKN\src\main\java\ui\buttons\JSmoothButton.java
 C:\Users\misha\RoguelikeMKN\src\main\java\interfaces\Interactive.java
@@ -5,10 +7,13 @@ C:\Users\misha\RoguelikeMKN\src\main\java\interfaces\Damageable.java
 C:\Users\misha\RoguelikeMKN\src\main\java\world\singleton\Processor.java
 C:\Users\misha\RoguelikeMKN\src\main\java\player\Player.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\projectile\factory\MeleeProjectileFactory.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandMoveForward.java
 C:\Users\misha\RoguelikeMKN\src\main\java\params\ui\ParamBar.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\buff\Buff.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandOpenParams.java
 C:\Users\misha\RoguelikeMKN\src\main\java\structures\Vector2D.java
 C:\Users\misha\RoguelikeMKN\src\main\java\database\adapter\implementation\TextureDatabaseAdapter.java
+C:\Users\misha\RoguelikeMKN\src\main\java\behavior\conditions\ConditionHealth.java
 C:\Users\misha\RoguelikeMKN\src\main\java\database\adapter\DatabaseAdapter.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\pawn\Pawn.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\interfaces\Inventory.java
@@ -47,6 +52,7 @@ C:\Users\misha\RoguelikeMKN\src\main\java\enums\EBehaviorState.java
 C:\Users\misha\RoguelikeMKN\src\main\java\structures\Vector2DTimeline.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\collision\CylinderCollision.java
 C:\Users\misha\RoguelikeMKN\src\main\java\enemies\factory\BotFactory.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandInteract.java
 C:\Users\misha\RoguelikeMKN\src\main\java\database\Database.java
 C:\Users\misha\RoguelikeMKN\src\main\java\utils\FileUtils.java
 C:\Users\misha\RoguelikeMKN\src\main\java\exceptions\DatabaseException.java
@@ -74,6 +80,7 @@ C:\Users\misha\RoguelikeMKN\src\main\java\interfaces\Collidable.java
 C:\Users\misha\RoguelikeMKN\src\main\java\world\map\Map.java
 C:\Users\misha\RoguelikeMKN\src\main\java\engine\render\panel\RenderPanel.java
 C:\Users\misha\RoguelikeMKN\src\main\java\ui\buttons\JSmoothPanel.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandMoveLeft.java
 C:\Users\misha\RoguelikeMKN\src\main\java\enums\ETileType.java
 C:\Users\misha\RoguelikeMKN\src\main\java\behavior\implementation\BehaviorRunAway.java
 C:\Users\misha\RoguelikeMKN\src\main\java\player\animation\factory\PlayerAnimationComponentFactory.java
@@ -106,11 +113,14 @@ C:\Users\misha\RoguelikeMKN\src\main\java\objects\animations\factory\AnimationCo
 C:\Users\misha\RoguelikeMKN\src\main\java\behavior\implementation\BehaviorIdle.java
 C:\Users\misha\RoguelikeMKN\src\main\java\enemies\Enemy.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\animations\objects\TextureSource.java
+C:\Users\misha\RoguelikeMKN\src\main\java\behavior\conditions\ConditionClosePawn.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandOpenInventory.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\Inventory.java
 C:\Users\misha\RoguelikeMKN\src\main\java\utils\ImageUtils.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\controller\Controller.java
 C:\Users\misha\RoguelikeMKN\src\main\java\behavior\implementation\BehaviorFollow.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\ui\InventoryPanel.java
+C:\Users\misha\RoguelikeMKN\src\main\java\player\controller\KeyboardListener.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\factory\ItemFactory.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\ui\SlotPanel.java
 C:\Users\misha\RoguelikeMKN\src\main\java\inventory\ui\ItemTooltip.java
@@ -133,4 +143,5 @@ C:\Users\misha\RoguelikeMKN\src\main\java\player\animation\component\PlayerAnima
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\projectile\Projectile.java
 C:\Users\misha\RoguelikeMKN\src\main\java\behavior\implementation\BehaviorAttack.java
 C:\Users\misha\RoguelikeMKN\src\main\java\exceptions\SetException.java
+C:\Users\misha\RoguelikeMKN\src\main\java\command\implementation\CommandMoveRight.java
 C:\Users\misha\RoguelikeMKN\src\main\java\interfaces\Physical.java

@@ -23,7 +23,7 @@ public class MapTest {
 
         grid.generateTypes();
 
-        Assert.assertEquals(grid.getTileByNeighbor(50,50), "stone_a");
+        Assert.assertEquals(grid.getTileByNeighbor(30,30), "brick_corner_c");
     }
 
     @Test
