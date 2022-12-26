@@ -5,7 +5,7 @@ import enums.EBehaviorState;
 
 public class ConditionCanSee extends StateCondition {
 
-    private int distance = 500;
+    private int distance = 100;
     private EBehaviorState behaviorState = EBehaviorState.FOLLOW;
 
     public ConditionCanSee() {

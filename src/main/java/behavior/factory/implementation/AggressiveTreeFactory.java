@@ -25,7 +25,7 @@ public class AggressiveTreeFactory extends BehaviorTreeFactory {
         BehaviorTree tree = new BehaviorTree(controller);
 
         Behavior idle = new BehaviorIdle(controller);
-        idle.addState(new ConditionCanSee(500));
+        idle.addState(new ConditionCanSee(300));
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
         Behavior follow = new BehaviorFollow(controller);

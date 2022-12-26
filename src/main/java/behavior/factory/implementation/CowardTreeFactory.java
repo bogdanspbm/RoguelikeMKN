@@ -26,7 +26,7 @@ public class CowardTreeFactory extends BehaviorTreeFactory {
         BehaviorTree tree = new BehaviorTree(controller);
 
         Behavior idle = new BehaviorIdle(controller);
-        idle.addState(new ConditionCanSee(500, EBehaviorState.SCARY));
+        idle.addState(new ConditionCanSee(200, EBehaviorState.SCARY));
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
         Behavior runAway = new BehaviorIdle(controller);
