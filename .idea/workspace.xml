@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="collision test">
       <change afterPath="$PROJECT_DIR$/src/test/java/enemiesTests/EnemiesTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/mapTests/MapTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae35cc11-a7d5-4061-9d6b-4069a0763181.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/collisionTests/CollisionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/collisionTests/CollisionTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,13 +78,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.CollisionTests">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="RoguelikeMKN" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CollisionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -122,22 +109,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollisionTests.testBoxCollideOnXInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="collisionTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="collisionTests" />
-      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
-      <option name="METHOD_NAME" value="testBoxCollideOnXInvalid" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CollisionTests.testBoxCollideOnYInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -154,13 +125,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CollisionTests.testCylinderCollide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collisionTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="collisionTests" />
+      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
+      <option name="METHOD_NAME" value="testCylinderCollide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollisionTests.testSimpleCylinderCollide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collisionTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="collisionTests" />
+      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
+      <option name="METHOD_NAME" value="testSimpleCylinderCollide" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CollisionTests" />
+        <item itemvalue="JUnit.CollisionTests.testCylinderCollide" />
+        <item itemvalue="JUnit.CollisionTests.testSimpleCylinderCollide" />
         <item itemvalue="JUnit.CollisionTests.testBoxCollide" />
         <item itemvalue="JUnit.CollisionTests.testBoxCollideOnYInvalid" />
-        <item itemvalue="JUnit.CollisionTests.testBoxCollideOnXInvalid" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670280980477</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="collision test">
+      <created>1672057431250</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672057431250</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +319,7 @@
     <MESSAGE value="character dead + bot dead" />
     <MESSAGE value="bots dead+ hero dead" />
     <MESSAGE value="update bevaviour of coward bot 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update bevaviour of coward bot 1" />
+    <MESSAGE value="collision test" />
+    <option name="LAST_COMMIT_MESSAGE" value="collision test" />
   </component>
 </project>

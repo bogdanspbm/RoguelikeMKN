@@ -2,6 +2,7 @@ package collisionTests;
 
 
 import objects.collision.BoxCollision;
+import objects.collision.CylinderCollision;
 import org.junit.Assert;
 import org.junit.Test;
 import structures.Vector3D;
@@ -84,6 +85,36 @@ public class CollisionTests {
         boxB.setLocation(new Vector3D(95, -5, -78));
 
         Assert.assertEquals(boxA.collide(boxB), true);
+    }
+
+    @Test
+    public void testSimpleCylinderCollide() {
+        CylinderCollision cylinderA = new CylinderCollision(1,50);
+        cylinderA.setLocation(new Vector3D(50, 50, 50));
+
+        CylinderCollision cylinderB = new CylinderCollision(1,50);
+        cylinderB.setLocation(new Vector3D(50, 50, 40));
+        Assert.assertEquals(cylinderA.collide(cylinderB), true);
+    }
+
+    @Test
+    public void testSimpleCylinderDoNotCollide() {
+        CylinderCollision cylinderA = new CylinderCollision(1,50);
+        cylinderA.setLocation(new Vector3D(50, 50, 50));
+
+        CylinderCollision cylinderB = new CylinderCollision(1,50);
+        cylinderB.setLocation(new Vector3D(0, 0, 0));
+        Assert.assertEquals(cylinderA.collide(cylinderB), false);
+    }
+
+    @Test
+    public void testCylinderCollide() {
+        CylinderCollision cylinderA = new CylinderCollision(50,50);
+        cylinderA.setLocation(new Vector3D(450, -78, 530));
+
+        CylinderCollision cylinderB = new CylinderCollision(45,55);
+        cylinderB.setLocation(new Vector3D(567, -10, 400));
+        Assert.assertEquals(cylinderA.collide(cylinderB), false);
     }
 
 }
