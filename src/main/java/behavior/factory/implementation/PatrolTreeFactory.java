@@ -21,7 +21,7 @@ public class PatrolTreeFactory extends BehaviorTreeFactory {
         BehaviorTree tree = new BehaviorTree(controller);
 
         Behavior idle = new BehaviorIdle(controller);
-        idle.addState(new ConditionCanSee(100));
+        idle.addState(new ConditionCanSee(100, EBehaviorState.FOLLOW));
         idle.addState(new ConditionWait(30, EBehaviorState.LOOK_FOR_TARGET));
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
@@ -30,11 +30,12 @@ public class PatrolTreeFactory extends BehaviorTreeFactory {
         tree.addBehavior(EBehaviorState.LOOK_FOR_TARGET, newPoint);
 
         Behavior goToTarget = new BehaviorMoveToTarget(controller);
+        goToTarget.addState(new ConditionCanSee(100, EBehaviorState.FOLLOW));
         goToTarget.addState(new ConditionClose(10, EBehaviorState.IDLE));
         tree.addBehavior(EBehaviorState.GOTO, goToTarget);
 
         Behavior follow = new BehaviorFollow(controller);
-        follow.addState(new ConditionClose());
+        follow.addState(new ConditionClosePawn());
         tree.addBehavior(EBehaviorState.FOLLOW, follow);
 
         Behavior attack = new BehaviorAttack(controller);

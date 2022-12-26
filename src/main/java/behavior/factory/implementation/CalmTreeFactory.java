@@ -2,7 +2,7 @@ package behavior.factory.implementation;
 
 import behavior.Behavior;
 import behavior.BehaviorTree;
-import behavior.conditions.ConditionClose;
+import behavior.conditions.ConditionClosePawn;
 import behavior.conditions.ConditionDamageReceived;
 import behavior.conditions.ConditionShouldFollow;
 import behavior.factory.BehaviorTreeFactory;
@@ -29,11 +29,11 @@ public class CalmTreeFactory extends BehaviorTreeFactory {
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
         Behavior runAway = new BehaviorIdle(controller);
-        runAway.addState(new ConditionClose());
+        runAway.addState(new ConditionClosePawn());
         tree.addBehavior(EBehaviorState.SCARY, runAway);
 
         Behavior follow = new BehaviorFollow(controller);
-        follow.addState(new ConditionClose());
+        follow.addState(new ConditionClosePawn());
         tree.addBehavior(EBehaviorState.FOLLOW, follow);
 
         Behavior attack = new BehaviorAttack(controller);

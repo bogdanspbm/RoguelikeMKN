@@ -14,12 +14,15 @@ public class WorldUtils {
     public static Vector3D getRandomLocationNearPoint(Pawn owner, Vector3D center, int maxRadius) {
         Random random = new Random();
         Vector3D newPoint = center;
+        int x = center.x() + random.nextInt(2 * maxRadius) - maxRadius;
+        int y = center.y() + random.nextInt(2 * maxRadius) - maxRadius;
+        newPoint = new Vector3D(x, y, center.z() + 10);
         int counter = 0;
 
 
         while (getWorld().checkCollides(owner.getCollision(), newPoint) && counter < ITER_LIMIT) {
-            int x = center.x() + random.nextInt(2 * maxRadius) - maxRadius;
-            int y = center.y() + random.nextInt(2 * maxRadius) - maxRadius;
+            x = center.x() + random.nextInt(2 * maxRadius) - maxRadius;
+            y = center.y() + random.nextInt(2 * maxRadius) - maxRadius;
             newPoint = new Vector3D(x, y, center.z() + 10);
             counter += 1;
         }

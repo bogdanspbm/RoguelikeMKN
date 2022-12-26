@@ -3,20 +3,20 @@ package behavior.conditions;
 import behavior.StateCondition;
 import enums.EBehaviorState;
 
-public class ConditionClose extends StateCondition {
+public class ConditionClosePawn extends StateCondition {
 
     private int distance = 10;
     private EBehaviorState state = EBehaviorState.ATTACK;
 
-    public ConditionClose() {
+    public ConditionClosePawn() {
 
     }
 
-    public ConditionClose(int distance) {
+    public ConditionClosePawn(int distance) {
         this.distance = distance;
     }
 
-    public ConditionClose(int distance, EBehaviorState state) {
+    public ConditionClosePawn(int distance, EBehaviorState state) {
         this.distance = distance;
         this.state = state;
     }
@@ -24,7 +24,7 @@ public class ConditionClose extends StateCondition {
 
     @Override
     public boolean isTrue() {
-        return parent.getDistanceToTarget() < distance;
+        return parent.getDistanceToPawn() < distance;
     }
 
     @Override

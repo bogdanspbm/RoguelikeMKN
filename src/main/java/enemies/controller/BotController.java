@@ -56,7 +56,8 @@ public class BotController extends Controller {
     }
 
     public void setTargetPoint(Vector3D targetPoint) {
-        this.targetPoint = targetPoint;
+        System.out.println(targetPoint);
+        this.targetPoint = new Vector3D(targetPoint.x(), targetPoint.y(), getOwner().getLocation().z());
     }
 
     @Override

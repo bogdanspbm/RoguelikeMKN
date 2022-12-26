@@ -1973,6 +1973,10 @@ public class Map {
         int x = rnd.nextInt(resolution);
         int y = rnd.nextInt(resolution);
 
+        if (getWorld().isEmpty()) {
+            return new Vector3D(0, 0, 100);
+        }
+
         while (!getTileByNeighbor(x, y).equals("stone_a") && !getWorld().isEmpty()) {
             x = rnd.nextInt(resolution);
             y = rnd.nextInt(resolution);

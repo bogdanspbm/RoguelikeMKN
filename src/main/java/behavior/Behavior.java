@@ -61,6 +61,13 @@ public abstract class Behavior {
         return new Vector3D(xDirectionCatchUp, yDirectionCatchUP, 0);
     }
 
+    public double getDistanceToTarget() {
+        int xDirection = controller.getTargetPoint().x() - controller.getOwner().getLocation().x();
+        int yDirection = controller.getTargetPoint().y() - controller.getOwner().getLocation().y();
+
+        return Math.sqrt(xDirection * xDirection + yDirection * yDirection);
+    }
+
     public double getDistanceToPawn() {
         Pawn target = getWorld().getPlayerPawn(0);
         int xDirection = target.getLocation().x() - controller.getOwner().getLocation().x();

@@ -2,7 +2,7 @@ package behavior.factory.implementation;
 
 import behavior.Behavior;
 import behavior.BehaviorTree;
-import behavior.conditions.ConditionClose;
+import behavior.conditions.ConditionClosePawn;
 import behavior.conditions.ConditionCanSee;
 import behavior.conditions.ConditionHealth;
 import behavior.conditions.ConditionShouldFollow;
@@ -32,7 +32,7 @@ public class AggressiveTreeFactory extends BehaviorTreeFactory {
 
         Behavior follow = new BehaviorFollow(controller);
         follow.addState(new ConditionHealth());
-        follow.addState(new ConditionClose());
+        follow.addState(new ConditionClosePawn());
         tree.addBehavior(EBehaviorState.FOLLOW, follow);
 
         Behavior attack = new BehaviorAttack(controller);
