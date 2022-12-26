@@ -11,8 +11,9 @@ import static utils.FileUtils.readFromFile;
 
 public class MapBuilder {
 
-    private int resolution = 64;
+    private int resolution = 32;
     private int seaLevel = 120;
+    private boolean isEmpty = false;
 
     private int buildingLevel = 150;
 
@@ -116,5 +117,13 @@ public class MapBuilder {
 
     public int getBuildingLevel() {
         return buildingLevel;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
     }
 }

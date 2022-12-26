@@ -30,6 +30,7 @@ public class Processor {
     private volatile boolean isInit = false;
     private volatile boolean tickStarter = false;
 
+    private boolean empty = true;
     private Processor() {
         initWorld();
         startTicks();
@@ -39,8 +40,9 @@ public class Processor {
         if (!isInit) {
             world = new World();
             MapBuilder builder = new MapBuilder("last_world.wld");
-            builder.addBotFactory(new KnightFactory());
-            builder.addBotFactory(new SlimeFactory());
+            builder.setEmpty(empty);
+            //builder.addBotFactory(new KnightFactory());
+            //builder.addBotFactory(new SlimeFactory());
             world.setMap(new Map(builder));
             world.setTiles(world.getMap().getTiles());
             for (Pawn bot : world.getMap().getBots()) {
@@ -75,6 +77,10 @@ public class Processor {
         }
 
         return lastPawn;
+    }
+
+    public boolean isEmpty() {
+        return empty;
     }
 
     private void sortTiles() {

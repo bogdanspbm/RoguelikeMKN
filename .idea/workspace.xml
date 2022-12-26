@@ -74,7 +74,14 @@
       <recent name="objects.animations.factory.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MapTest.testOnMaph1010">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="RoguelikeMKN" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CollisionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -86,22 +93,6 @@
       <option name="PACKAGE_NAME" value="collisionTests" />
       <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CollisionTests.testBoxCollide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="collisionTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="collisionTests" />
-      <option name="MAIN_CLASS_NAME" value="collisionTests.CollisionTests" />
-      <option name="METHOD_NAME" value="testBoxCollide" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MapTest.testOnMaph1010" />
         <item itemvalue="JUnit.CollisionTests" />
         <item itemvalue="JUnit.CollisionTests.testCylinderCollide" />
         <item itemvalue="JUnit.CollisionTests.testSimpleCylinderCollide" />
-        <item itemvalue="JUnit.CollisionTests.testBoxCollide" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +190,7 @@
       <workItem from="1671437786868" duration="8449000" />
       <workItem from="1672044712863" duration="6090000" />
       <workItem from="1672067763710" duration="1958000" />
-      <workItem from="1672070719685" duration="209000" />
+      <workItem from="1672070719685" duration="948000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>

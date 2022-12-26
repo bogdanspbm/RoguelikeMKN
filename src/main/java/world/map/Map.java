@@ -39,6 +39,8 @@ public class Map {
 
     List<Pawn> bots = new ArrayList<>();
 
+    protected boolean empty = false;
+
     public Map(MapBuilder builder) {
         try {
             textureDatabaseAdapter = new TextureDatabaseAdapter();
@@ -49,6 +51,8 @@ public class Map {
         this.resolution = builder.getResolution();
         this.seaLevel = builder.getSeaLevel();
         this.buildingLevel = builder.getBuildingLevel();
+        this.empty = builder.isEmpty();
+
 
         if (builder.getMap() != null) {
             this.map = builder.getMap();
@@ -58,7 +62,7 @@ public class Map {
             this.buildingMap = builder.getBuildingMap();
         }
 
-        if (builder.getBotFactories() != null) {
+        if (builder.getBotFactories() != null && !empty) {
             this.botFactories = builder.getBotFactories();
             for (BotFactory factory : botFactories) {
                 factory.setMap(this);
@@ -66,7 +70,7 @@ public class Map {
         }
 
         noiseGenerator = new PerlinNoiseGenerator(1, resolution);
-        if (this.map == null) {
+        if (this.map == null || empty) {
             generateNoiseMap();
         }
 
@@ -84,6 +88,14 @@ public class Map {
 
     private void generateNoiseMap() {
         this.map = noiseGenerator.getHeightMap();
+
+        if (this.empty) {
+            for (int i = 0; i < resolution; i++) {
+                for (int k = 0; k < resolution; k++) {
+                    this.map[i][k] = 0;
+                }
+            }
+        }
     }
 
     private void generateBuildings() {
@@ -1960,7 +1972,8 @@ public class Map {
         Random rnd = new Random();
         int x = rnd.nextInt(resolution);
         int y = rnd.nextInt(resolution);
-        while (!getTileByNeighbor(x, y).equals("stone_a")) {
+
+        while (!getTileByNeighbor(x, y).equals("stone_a") && !getWorld().isEmpty()) {
             x = rnd.nextInt(resolution);
             y = rnd.nextInt(resolution);
         }

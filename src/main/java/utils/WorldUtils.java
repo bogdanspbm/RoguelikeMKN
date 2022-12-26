@@ -15,6 +15,8 @@ public class WorldUtils {
         Random random = new Random();
         Vector3D newPoint = center;
         int counter = 0;
+
+
         while (getWorld().checkCollides(owner.getCollision(), newPoint) && counter < ITER_LIMIT) {
             int x = center.x() + random.nextInt(2 * maxRadius) - maxRadius;
             int y = center.y() + random.nextInt(2 * maxRadius) - maxRadius;
