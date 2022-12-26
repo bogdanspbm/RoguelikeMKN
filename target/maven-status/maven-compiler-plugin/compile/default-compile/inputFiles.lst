@@ -55,6 +55,7 @@ C:\Users\misha\RoguelikeMKN\src\main\java\structures\Vector3F.java
 C:\Users\misha\RoguelikeMKN\src\main\java\behavior\factory\implementation\CowardTreeFactory.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\projectile\ProjectileMovable.java
 C:\Users\misha\RoguelikeMKN\src\main\java\objects\buff\implimentation\ConfusedBuff.java
+C:\Users\misha\RoguelikeMKN\src\main\java\singleton\ImageBuffer.java
 C:\Users\misha\RoguelikeMKN\src\main\java\database\adapter\implementation\ItemDatabaseAdapter.java
 C:\Users\misha\RoguelikeMKN\src\main\java\enemies\Slime.java
 C:\Users\misha\RoguelikeMKN\src\main\java\interfaces\Observable.java
