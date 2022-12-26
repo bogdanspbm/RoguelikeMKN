@@ -105,10 +105,15 @@ public abstract class Pawn extends Object implements Physical, Damageable, Ticka
 
     @Override
     public void applyDamage(int value, Projectile instigator) {
-
         if (paramsComponent.checkIsDead()) {
             return;
         }
+
+        if (instigator == null) {
+            this.paramsComponent.addHealth(-value);
+            return;
+        }
+
 
         BuffFactory factory = new BuffFactory(getParamsComponent());
 
