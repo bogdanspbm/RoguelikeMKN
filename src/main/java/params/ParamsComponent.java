@@ -2,7 +2,6 @@ package params;
 
 import database.adapter.implementation.ParamsDatabaseAdapter;
 import objects.buff.Buff;
-import params.ui.ParamBar;
 
 import java.util.*;
 import java.util.concurrent.SynchronousQueue;
@@ -18,8 +17,8 @@ public class ParamsComponent {
     protected List<Integer> levels;
     protected int speed = 1;
 
-    protected int curHealth = 100;
-    protected int maxHealth = 100;
+    public int curHealth = 100;
+    public int maxHealth = 100;
 
     protected int experience = 100;
 
@@ -100,8 +99,9 @@ public class ParamsComponent {
         return buffs;
     }
 
-    public void setSpeed(int speed) {
+    public boolean setSpeed(int speed) {
         this.speed = speed;
+        return false;
     }
 
     public int getSpeed() {

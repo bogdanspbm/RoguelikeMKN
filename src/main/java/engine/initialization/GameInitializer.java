@@ -23,8 +23,10 @@ public class GameInitializer implements DrawableProvider {
         try {
             createPlayer();
             createItems();
+            createEnemy(EBotType.AGGRESSOR);//трусливый бот
             createEnemy(EBotType.PATROL);
-            //createEnemy(EBotType.AGGRESSOR);//трусливый бот
+            createEnemy(EBotType.CALM);
+            createEnemy(EBotType.COWARD);
             //createEnemy("aggressor");//агресивный бот
             //createEnemy("calm");//статичный бот
         } catch (Exception e) {
@@ -52,12 +54,9 @@ public class GameInitializer implements DrawableProvider {
                 break;
             case AGGRESSOR:
                 enemy = new Slime();
-                enemy.setLocation(new Vector3D(-400, 10, 150));
+                enemy.setLocation(new Vector3D(-400, 10, 50));
                 break;
             case CALM:
-                enemy.setLocation(new Vector3D(500, 200, 100));
-                break;
-            case PATROL:
                 enemy.setLocation(new Vector3D(500, 200, 100));
                 break;
         }

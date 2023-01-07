@@ -25,7 +25,7 @@ public class Enemy extends Pawn {
         initEnemyController(behaviour);
     }
 
-    protected void initEnemyController(EBotType type) throws CreationException {
+    public void initEnemyController(EBotType type) throws CreationException {
         try {
             controllerAdapter.setController(new BotController(type));
         } catch (Exception e) {
