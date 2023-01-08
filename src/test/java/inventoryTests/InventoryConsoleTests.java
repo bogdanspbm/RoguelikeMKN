@@ -1,10 +1,14 @@
 package inventoryTests;
 
 
+import exceptions.CreationException;
+import exceptions.DatabaseException;
 import inventory.Inventory;
 import inventory.objects.Item;
+import objects.pawn.Pawn;
 import org.junit.Assert;
 import org.junit.Test;
+import player.Player;
 
 public class InventoryConsoleTests {
 
@@ -39,4 +43,24 @@ public class InventoryConsoleTests {
 
         Assert.assertEquals(2, inventory.getItemByIndex(1).getId());
     }
+
+    @Test
+    public void usePotion() throws CreationException, DatabaseException {
+        Pawn pawn = new Player();
+
+        assert pawn.getParamsComponent().getHealthPercentage() == 1;
+
+        pawn.getParamsComponent().addHealth(-10);
+
+        double lastHealth = pawn.getParamsComponent().getHealthPercentage();
+
+        assert lastHealth < 1;
+
+        Inventory inventory = new Inventory(pawn);
+        inventory.addItem(new Item(1, 5));
+        inventory.useItem(0);
+
+        assert lastHealth < pawn.getParamsComponent().getHealthPercentage();
+    }
+
 }

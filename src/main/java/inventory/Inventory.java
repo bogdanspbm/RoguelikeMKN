@@ -1,5 +1,6 @@
 package inventory;
 
+import exceptions.DatabaseException;
 import interfaces.Observable;
 import interfaces.Observer;
 import inventory.factory.ItemUseFactory;
@@ -306,6 +307,15 @@ public class Inventory implements Observable {
     }
 
     public void useItem(int index, ItemDescription description) {
+        ItemUseFactory factory = new ItemUseFactory();
+        ItemUseAction action = factory.generateAction(description.meta());
+        if (owner == null || action.useItem(owner)) {
+            reduceItemCountAtSlot(index, 1);
+        }
+    }
+
+    public void useItem(int index) throws DatabaseException {
+        ItemDescription description = descriptionProvider.getDescription(getItemByIndex(index).getId());
         ItemUseFactory factory = new ItemUseFactory();
         ItemUseAction action = factory.generateAction(description.meta());
         if (owner == null || action.useItem(owner)) {
