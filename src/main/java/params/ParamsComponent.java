@@ -4,6 +4,7 @@ import database.adapter.implementation.ParamsDatabaseAdapter;
 import objects.buff.Buff;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.SynchronousQueue;
 
 public class ParamsComponent {
@@ -12,7 +13,7 @@ public class ParamsComponent {
     protected ParamsDatabaseAdapter paramsDatabaseAdapter;
     protected Map<String, Integer> paramsMap = new HashMap<>();
 
-    protected Queue<Buff> buffs = new SynchronousQueue<>();
+    protected Queue<Buff> buffs = new ConcurrentLinkedQueue<>();
 
     protected List<Integer> levels;
     protected int speed = 1;

@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
+      <change afterPath="$PROJECT_DIR$/src/test/java/buffTests/buffTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/engine/initialization/GameInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/engine/initialization/GameInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/buff/implimentation/ConfusedBuff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/buff/implimentation/ConfusedBuff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/objects/projectile/ProjectileMovable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/objects/projectile/ProjectileMovable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/params/ParamsComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/paramsTests/paramsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/paramsTests/paramsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,23 @@
       <recent name="behavior.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.paramsTests">
+  <component name="RunManager" selected="JUnit.buffTests.testStunBuff">
+    <configuration name="buffTests.testStunBuff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="buffTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="buffTests" />
+      <option name="MAIN_CLASS_NAME" value="buffTests.buffTests" />
+      <option name="METHOD_NAME" value="testStunBuff" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="paramsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -93,22 +109,6 @@
       <option name="PACKAGE_NAME" value="paramsTests" />
       <option name="MAIN_CLASS_NAME" value="paramsTests.paramsTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="paramsTests.testCheckDead" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="paramsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="paramsTests" />
-      <option name="MAIN_CLASS_NAME" value="paramsTests.paramsTests" />
-      <option name="METHOD_NAME" value="testCheckDead" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -163,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.buffTests.testStunBuff" />
         <item itemvalue="JUnit.paramsTests" />
         <item itemvalue="JUnit.paramsTests.testTakeAwayHealth" />
         <item itemvalue="JUnit.paramsTests.testChecklevelPercentage" />
         <item itemvalue="JUnit.paramsTests.testCheckNotDead" />
-        <item itemvalue="JUnit.paramsTests.testCheckDead" />
       </list>
     </recent_temporary>
   </component>
@@ -207,6 +207,7 @@
       <workItem from="1672044712863" duration="6090000" />
       <workItem from="1672067763710" duration="1958000" />
       <workItem from="1672070719685" duration="3067000" />
+      <workItem from="1673195631139" duration="669000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
