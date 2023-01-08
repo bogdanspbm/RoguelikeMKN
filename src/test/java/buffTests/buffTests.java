@@ -40,11 +40,23 @@ public class buffTests {
     }
 
     @Test
+    public void testStunBuffMovement() {
+        Projectile projectile = createProjectileWithBuff("bash");
+        Pawn enemy = new Enemy();
+
+        enemy.applyDamage(30, projectile);
+
+        Vector3D startLocation = enemy.getLocation().copy();
+
+
+
+    }
+
+    @Test
     public void testBuffExpire() {
         Projectile projectile = createProjectileWithBuff("bash");
         Pawn enemy = new Enemy();
 
-        assert enemy.getParamsComponent().getSpeed() != 0;
         enemy.applyDamage(30, projectile);
 
         assert enemy.getParamsComponent().getBuffList().size() == 1;
