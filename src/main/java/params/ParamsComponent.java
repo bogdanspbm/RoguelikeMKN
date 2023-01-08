@@ -18,8 +18,21 @@ public class ParamsComponent {
     protected List<Integer> levels;
     protected int speed = 1;
 
-    public int curHealth = 100;
-    public int maxHealth = 100;
+    public void setCurHealth(int curHealth) {
+        this.curHealth = curHealth;
+    }
+
+    protected int curHealth = 100;
+
+    public int getCurHealth() {
+        return curHealth;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    protected int maxHealth = 100;
 
     protected int experience = 100;
 
