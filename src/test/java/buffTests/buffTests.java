@@ -1,6 +1,7 @@
 package buffTests;
 
 import enemies.Enemy;
+import objects.buff.Buff;
 import objects.buff.factory.BuffBuilder;
 import objects.pawn.Pawn;
 import objects.projectile.Projectile;
@@ -29,12 +30,36 @@ public class buffTests {
     public void testStunBuff() {
         Projectile projectile = createProjectileWithBuff("bash");
         Pawn enemy = new Enemy();
-        
+
         assert enemy.getParamsComponent().getSpeed() != 0;
         enemy.applyDamage(30, projectile);
 
         assert enemy.getParamsComponent().getBuffList().size() == 1;
         assert enemy.getParamsComponent().getBuffList().peek().getName().equals("bash");
         assert enemy.getParamsComponent().getSpeed() == 0;
+    }
+
+    @Test
+    public void testBuffExpire() {
+        Projectile projectile = createProjectileWithBuff("bash");
+        Pawn enemy = new Enemy();
+
+        assert enemy.getParamsComponent().getSpeed() != 0;
+        enemy.applyDamage(30, projectile);
+
+        assert enemy.getParamsComponent().getBuffList().size() == 1;
+
+        Buff buff = enemy.getParamsComponent().getBuffList().peek();
+        int duration = buff.getDuration();
+
+        for (int i = 1; i < duration; i++) {
+            enemy.tick();
+        }
+
+        assert enemy.getParamsComponent().getBuffList().size() == 1;
+
+        enemy.tick();
+
+        assert enemy.getParamsComponent().getBuffList().size() == 0;
     }
 }
