@@ -28,10 +28,12 @@ public class Slime extends Enemy implements Cloneable {
 
         BuffFactory factory = new BuffFactory(getParamsComponent());
 
-        instigator.getBuilderList().forEach(builder -> {
-                    getParamsComponent().addBuff(factory.createBuff(builder));
-                }
-        );
+        if (instigator != null) {
+            instigator.getBuilderList().forEach(builder -> {
+                        getParamsComponent().addBuff(factory.createBuff(builder));
+                    }
+            );
+        }
 
         this.paramsComponent.addHealth(-value);
 

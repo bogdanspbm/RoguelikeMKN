@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/buffTests/buffTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/buffTests/buffTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/behavior/conditions/ConditionClosePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/behavior/conditions/ConditionClosePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/world/singleton/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/world/singleton/Processor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/botTests/botTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/botTests/botTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Projects/ArchitectureOfInformationSystems",
+    "last_opened_file_path": "D:/Projects/RoguelikeMKN",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,7 +80,39 @@
       <recent name="behavior.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.buffTests.testBuffExpire">
+  <component name="RunManager" selected="JUnit.botTests.test">
+    <configuration name="botTests.botVsPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="botTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="botTests" />
+      <option name="MAIN_CLASS_NAME" value="botTests.botTests" />
+      <option name="METHOD_NAME" value="botVsPlayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="botTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="botTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="botTests" />
+      <option name="MAIN_CLASS_NAME" value="botTests.botTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="buffTests.testBuffExpire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -125,45 +160,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="paramsTests.testChecklevelPercentage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="paramsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="paramsTests" />
-      <option name="MAIN_CLASS_NAME" value="paramsTests.paramsTests" />
-      <option name="METHOD_NAME" value="testChecklevelPercentage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="paramsTests.testTakeAwayHealth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="paramsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="paramsTests" />
-      <option name="MAIN_CLASS_NAME" value="paramsTests.paramsTests" />
-      <option name="METHOD_NAME" value="testTakeAwayHealth" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.botTests.test" />
+        <item itemvalue="JUnit.botTests.botVsPlayer" />
         <item itemvalue="JUnit.buffTests.testBuffExpire" />
         <item itemvalue="JUnit.buffTests.testStunBuff" />
         <item itemvalue="JUnit.paramsTests" />
-        <item itemvalue="JUnit.paramsTests.testTakeAwayHealth" />
-        <item itemvalue="JUnit.paramsTests.testChecklevelPercentage" />
       </list>
     </recent_temporary>
   </component>
@@ -204,6 +207,7 @@
       <workItem from="1672067763710" duration="1958000" />
       <workItem from="1672070719685" duration="3067000" />
       <workItem from="1673195631139" duration="2103000" />
+      <workItem from="1673199638311" duration="1822000" />
     </task>
     <task id="LOCAL-00001" summary="add render map's border">
       <created>1669674816835</created>
@@ -324,5 +328,21 @@
     <MESSAGE value="update bevaviour of coward bot 1" />
     <MESSAGE value="collision test" />
     <option name="LAST_COMMIT_MESSAGE" value="collision test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/world/singleton/Processor.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

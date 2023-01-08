@@ -11,7 +11,10 @@ import objects.collision.CylinderCollision;
 import objects.pawn.Pawn;
 import org.junit.Assert;
 import org.junit.Test;
+import player.Player;
 import structures.Vector3D;
+
+import static world.singleton.Processor.getWorld;
 
 public class botTests {
 
@@ -59,15 +62,46 @@ public class botTests {
     }
 
     @Test
-    public void testKillBot() {
-        try {
-            Pawn bot = new Enemy(EBotType.PATROL);
-            Assert.assertEquals(bot.getParamsComponent().checkIsDead(), false);
-            bot.applyDamage(10000, null);
-            Assert.assertEquals(bot.getParamsComponent().checkIsDead(), true);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void testKillBot() throws CreationException {
+        Pawn bot = new Enemy(EBotType.PATROL);
+        Assert.assertEquals(bot.getParamsComponent().checkIsDead(), false);
+        bot.applyDamage(10000, null);
+        Assert.assertEquals(bot.getParamsComponent().checkIsDead(), true);
+    }
+
+    @Test
+    public void botVsPlayer() throws CreationException {
+        Pawn bot = new Enemy(EBotType.AGGRESSOR);
+        bot.setLocation(new Vector3D(40, 40, 100));
+        Player player = new Player();
+        player.setLocation(new Vector3D(-40, 40, 100));
+
+        assert player.getParamsComponent().getHealthPercentage() == 1;
+
+        getWorld().addPawn(bot);
+        getWorld().addPawn(player);
+
+        for (int i = 0; i < 100000; i++) {
+            bot.getController().tick();
+            getWorld().getProjectiles().forEach(projectile -> {
+                projectile.tick();
+                getWorld().projectileCollide(projectile);
+            });
         }
+
+        assert player.getParamsComponent().getHealthPercentage() < 1;
+    }
+
+    @Test
+    public void test() throws CreationException {
+        Pawn bot = new Slime();
+        getWorld().addPawn(bot);
+
+        assert getWorld().getPawns().size() == 1;
+
+        bot.applyDamage(10, null);
+
+        assert getWorld().getPawns().size() == 2;
     }
 
 

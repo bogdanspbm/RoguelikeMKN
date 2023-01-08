@@ -5,7 +5,7 @@ import enums.EBehaviorState;
 
 public class ConditionClosePawn extends StateCondition {
 
-    private int distance = 10;
+    private int distance = 20;
     private EBehaviorState state = EBehaviorState.ATTACK;
 
     public ConditionClosePawn() {
@@ -24,6 +24,7 @@ public class ConditionClosePawn extends StateCondition {
 
     @Override
     public boolean isTrue() {
+
         return parent.getDistanceToPawn() < distance;
     }
 

@@ -21,6 +21,7 @@ import world.Tile;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Queue;
 
 public class Processor {
     private static Processor singleton = null;
@@ -31,6 +32,7 @@ public class Processor {
     private volatile boolean tickStarter = false;
 
     private boolean empty = true;
+
     private Processor() {
         initWorld();
         startTicks();
@@ -83,6 +85,10 @@ public class Processor {
         return empty;
     }
 
+    public Queue<Projectile> getProjectiles() {
+        return world.getProjectiles();
+    }
+
     private void sortTiles() {
         Collections.sort(world.getTiles());
     }
@@ -121,7 +127,6 @@ public class Processor {
 
     public static synchronized Processor getWorld() {
         if (singleton == null) {
-            System.out.println(singleton);
             singleton = new Processor();
         }
 
