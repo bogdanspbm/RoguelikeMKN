@@ -30,14 +30,15 @@ public class paramsTests {
     public void testSettingHp() {
         ParamsComponent paramsComponent = new ParamsComponent();
         paramsComponent.setMaxHealth(100);
-        Assert.assertEquals(paramsComponent.maxHealth , 100);
-        Assert.assertEquals(paramsComponent.curHealth , 100);
+        Assert.assertEquals(paramsComponent.getCurHealth() , 100);
+        Assert.assertEquals(paramsComponent.getMaxHealth() , 100);
     }
 
     @Test
     public void testSimpleAddingFreePoints() {
         ParamsComponent paramsComponent = new ParamsComponent();
-        Assert.assertEquals(paramsComponent.getFreePoints() , 0);
+        paramsComponent.addExperience(500);
+        Assert.assertEquals(paramsComponent.getFreePoints() , 1);
     }
 
     @Test
@@ -48,15 +49,15 @@ public class paramsTests {
     }
 
     @Test
-    public void testCheckingIncreseParams() {
+    public void testCheckingIncreaseParams() {
         ParamsComponent paramsComponent = new ParamsComponent();
         paramsComponent.getDamageScale();
         paramsComponent.increaseParam("strength");
-        Assert.assertEquals(paramsComponent.maxHealth , 150);
+        Assert.assertEquals(paramsComponent.getMaxHealth() , 150);
     }
 
     @Test
-    public void testAddExperinece() {
+    public void testAddExperience() {
         ParamsComponent paramsComponent = new ParamsComponent();
         paramsComponent.addExperience(100);
         Assert.assertEquals(paramsComponent.getExperience() , 200);
@@ -65,31 +66,40 @@ public class paramsTests {
     @Test
     public void testCheckDead() {
         ParamsComponent paramsComponent = new ParamsComponent();
-        paramsComponent.curHealth = 0;
+        paramsComponent.setCurHealth(0);
         Assert.assertEquals(paramsComponent.checkIsDead() , true);
     }
 
     @Test
     public void testCheckNotDead() {
         ParamsComponent paramsComponent = new ParamsComponent();
-        paramsComponent.curHealth = 100;
+        paramsComponent.setCurHealth(100);
         Assert.assertEquals(paramsComponent.checkIsDead() , false);
     }
 
     @Test
     public void testTakeAwayHealth() {
         ParamsComponent paramsComponent = new ParamsComponent();
-        paramsComponent.curHealth = 100;
-        paramsComponent.takeAwayHealth();
-        Assert.assertEquals(paramsComponent.curHealth , 90);
+        paramsComponent.setCurHealth(100);
+        paramsComponent.addHealth(-10);
+        Assert.assertEquals(paramsComponent.getCurHealth() , 90);
     }
 
     @Test
     public void testCheckIsDeadAfterTakeAwayHealth() {
         ParamsComponent paramsComponent = new ParamsComponent();
-        paramsComponent.curHealth = 10;
-        paramsComponent.takeAwayHealth();
+        paramsComponent.setCurHealth(40);
+        paramsComponent.addHealth(-50);
         Assert.assertEquals(paramsComponent.checkIsDead() , true);
+    }
+
+    //    50+60=100 not 110
+    @Test
+    public void testCheckHealth() {
+        ParamsComponent paramsComponent = new ParamsComponent();
+        paramsComponent.setCurHealth(50);
+        paramsComponent.addHealth(60);
+        Assert.assertEquals(paramsComponent.getCurHealth() , 100);
     }
 
 }
