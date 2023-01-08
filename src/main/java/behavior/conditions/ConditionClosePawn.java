@@ -24,7 +24,6 @@ public class ConditionClosePawn extends StateCondition {
 
     @Override
     public boolean isTrue() {
-
         return parent.getDistanceToPawn() < distance;
     }
 

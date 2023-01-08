@@ -8,6 +8,7 @@ import enums.EPawnStatus;
 import exceptions.CreationException;
 import objects.collision.BoxCollision;
 import objects.collision.CylinderCollision;
+import objects.controller.Controller;
 import objects.pawn.Pawn;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,6 +18,13 @@ import structures.Vector3D;
 import static world.singleton.Processor.getWorld;
 
 public class botTests {
+
+    private double getDistanceToTarget(Vector3D a, Vector3D b) {
+        int xDirection = a.x() - b.x();
+        int yDirection = a.y() - b.y();
+
+        return Math.sqrt(xDirection * xDirection + yDirection * yDirection);
+    }
 
     @Test
     public void testChangeStatusOnAttack() {
@@ -90,6 +98,26 @@ public class botTests {
         }
 
         assert player.getParamsComponent().getHealthPercentage() < 1;
+    }
+
+    @Test
+    public void botScary() throws CreationException {
+        Pawn bot = new Enemy(EBotType.COWARD);
+        bot.setLocation(new Vector3D(40, 40, 100));
+        Player player = new Player();
+        player.setLocation(new Vector3D(-40, 40, 100));
+
+
+        double distance = getDistanceToTarget(bot.getLocation(), player.getLocation());
+
+        getWorld().addPawn(bot);
+        getWorld().addPawn(player);
+
+        for (int i = 0; i < 1000; i++) {
+            bot.getController().tick();
+        }
+
+        assert distance < getDistanceToTarget(bot.getLocation(), player.getLocation());
     }
 
     @Test

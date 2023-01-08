@@ -9,6 +9,7 @@ import behavior.factory.BehaviorTreeFactory;
 import behavior.implementation.BehaviorAttack;
 import behavior.implementation.BehaviorFollow;
 import behavior.implementation.BehaviorIdle;
+import behavior.implementation.BehaviorRunAway;
 import enemies.controller.BotController;
 import enums.EBehaviorState;
 
@@ -28,7 +29,7 @@ public class CowardTreeFactory extends BehaviorTreeFactory {
         idle.addState(new ConditionCanSee(200, EBehaviorState.SCARY));
         tree.addBehavior(EBehaviorState.IDLE, idle);
 
-        Behavior runAway = new BehaviorIdle(controller);
+        Behavior runAway = new BehaviorRunAway(controller);
         runAway.addState(new ConditionClosePawn());
         tree.addBehavior(EBehaviorState.SCARY, runAway);
 

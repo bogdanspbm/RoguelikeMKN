@@ -30,6 +30,7 @@ public class BehaviorTree {
             return;
         }
 
+
         curState.tick();
         EBehaviorState nextState = curState.getNextState();
 
