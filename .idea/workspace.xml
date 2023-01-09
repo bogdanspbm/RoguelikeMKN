@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/behavior/BehaviorTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/behavior/BehaviorTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/behavior/conditions/ConditionClosePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/behavior/conditions/ConditionClosePawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/behavior/factory/implementation/CowardTreeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/behavior/factory/implementation/CowardTreeFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/botTests/botTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/botTests/botTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/buffTests/buffTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/buffTests/buffTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,23 @@
       <recent name="behavior.implementation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.botTests">
+  <component name="RunManager" selected="JUnit.InventoryConsoleTests.usePotion">
+    <configuration name="InventoryConsoleTests.usePotion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryConsoleTests" />
+      <option name="METHOD_NAME" value="usePotion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="botTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -112,22 +126,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="botTests.botVsPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RoguelikeMKN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="botTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="botTests" />
-      <option name="MAIN_CLASS_NAME" value="botTests.botTests" />
-      <option name="METHOD_NAME" value="botVsPlayer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="botTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
@@ -144,17 +142,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="buffTests.testBuffExpire" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="botTests.testSlime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RoguelikeMKN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="buffTests.*" />
+          <option name="PATTERN" value="botTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="buffTests" />
-      <option name="MAIN_CLASS_NAME" value="buffTests.buffTests" />
-      <option name="METHOD_NAME" value="testBuffExpire" />
+      <option name="PACKAGE_NAME" value="botTests" />
+      <option name="MAIN_CLASS_NAME" value="botTests.botTests" />
+      <option name="METHOD_NAME" value="testSlime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InventoryConsoleTests.usePotion" />
+        <item itemvalue="JUnit.botTests.testSlime" />
         <item itemvalue="JUnit.botTests" />
         <item itemvalue="JUnit.botTests.botScary" />
         <item itemvalue="JUnit.botTests.test" />
-        <item itemvalue="JUnit.botTests.botVsPlayer" />
-        <item itemvalue="JUnit.buffTests.testBuffExpire" />
       </list>
     </recent_temporary>
   </component>
@@ -336,16 +334,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/enemies/controller/BotController.java</url>
           <line>63</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/behavior/BehaviorTree.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/behavior/BehaviorTree.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -47,9 +47,6 @@ public class buffTests {
         enemy.applyDamage(30, projectile);
 
         Vector3D startLocation = enemy.getLocation().copy();
-
-
-
     }
 
     @Test

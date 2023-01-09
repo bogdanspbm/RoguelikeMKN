@@ -121,7 +121,7 @@ public class botTests {
     }
 
     @Test
-    public void test() throws CreationException {
+    public void testSlime() throws CreationException {
         Pawn bot = new Slime();
         getWorld().addPawn(bot);
 
@@ -130,6 +130,14 @@ public class botTests {
         bot.applyDamage(10, null);
 
         assert getWorld().getPawns().size() == 2;
+
+
+        Pawn a = getWorld().getPawns().get(0);
+        Pawn b = getWorld().getPawns().get(1);
+
+        double distance = getDistanceToTarget(a.getLocation(), b.getLocation());
+
+        assert distance <= Math.sqrt(2) * 100;
     }
 
 
