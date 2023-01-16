@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="update bevaviour of coward bot 1" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GwzGcS6Eu4xMAtMTLbne0MtFLb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "OverrideImplement.combined": "false",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Projects/RoguelikeMKN",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="enemies.factory" />
+      <recent name="objects.animations.factory.implementation" />
+      <recent name="objects.collision" />
+      <recent name="exceptions" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="InventoryWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.window.InventoryWindow" />
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="RoguelikeMKN" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrototypeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="enemies.prototype.PrototypeTest" />
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="enemies.prototype.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryConsoleTests.itemAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryConsoleTests" />
+      <option name="METHOD_NAME" value="itemAddTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryUITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RoguelikeMKN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="inventoryTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="inventoryTests" />
+      <option name="MAIN_CLASS_NAME" value="inventoryTests.InventoryUITests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.InventoryWindow" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2360c843-89e2-47fc-8e8d-621d550d39a6" name="Changes" comment="" />
+      <created>1667314343501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667314343501</updated>
+      <workItem from="1667314348687" duration="14072000" />
+      <workItem from="1667382108211" duration="2287000" />
+      <workItem from="1667463409713" duration="10448000" />
+      <workItem from="1667500536670" duration="4417000" />
+      <workItem from="1667548563538" duration="7116000" />
+      <workItem from="1667815726836" duration="615000" />
+      <workItem from="1668440724475" duration="690000" />
+      <workItem from="1668545483760" duration="599000" />
+      <workItem from="1668673753382" duration="657000" />
+      <workItem from="1668704089763" duration="909000" />
+      <workItem from="1668707908653" duration="713000" />
+      <workItem from="1668710907265" duration="15000" />
+      <workItem from="1669017079266" duration="1666000" />
+      <workItem from="1669029313443" duration="7061000" />
+      <workItem from="1669109163612" duration="1114000" />
+      <workItem from="1669366891309" duration="24149000" />
+      <workItem from="1669657827167" duration="1821000" />
+      <workItem from="1670756734565" duration="1566000" />
+      <workItem from="1670763411455" duration="1128000" />
+      <workItem from="1670767641588" duration="7108000" />
+      <workItem from="1670833971420" duration="110000" />
+      <workItem from="1670849058353" duration="9549000" />
+      <workItem from="1671388864752" duration="422000" />
+      <workItem from="1671389488271" duration="3549000" />
+      <workItem from="1671437786868" duration="8948000" />
+      <workItem from="1671461577671" duration="4108000" />
+    </task>
+    <task id="LOCAL-00001" summary="add render map's border">
+      <created>1669674816835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669674816835</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix render map's border">
+      <created>1669714298209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669714298209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix 2 render map's border">
+      <created>1669728576962</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669728576962</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix 4 render map's border">
+      <created>1669735673122</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669735673122</updated>
+    </task>
+    <task id="LOCAL-00005" summary="dead animation add">
+      <created>1670258950620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670258950620</updated>
+    </task>
+    <task id="LOCAL-00006" summary="character dead">
+      <created>1670261813828</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670261813828</updated>
+    </task>
+    <task id="LOCAL-00007" summary="character dead + bot dead">
+      <created>1670262364474</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670262364474</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bots dead+ hero dead">
+      <created>1670280980477</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670280980477</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add render map's border" />
+    <MESSAGE value="fix render map's border" />
+    <MESSAGE value="fix 2 render map's border" />
+    <MESSAGE value="fix 4 render map's border" />
+    <MESSAGE value="dead animation add" />
+    <MESSAGE value="character dead" />
+    <MESSAGE value="character dead + bot dead" />
+    <MESSAGE value="bots dead+ hero dead" />
+    <MESSAGE value="update bevaviour of coward bot 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update bevaviour of coward bot 1" />
+  </component>
+</project>
